@@ -1,0 +1,184 @@
+'use client'
+
+import { ArrowUpRight, CalendarDays, Phone, UserRound, X } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useRef, type RefObject } from 'react'
+
+import { navigation, site } from '@/content/site'
+import { getSectionForPath } from '@/lib/routes'
+import { cn } from '@/lib/utils'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { ButtonLink } from '@/components/ui/button'
+import { Sheet, SheetClose, SheetContent, SheetTitle } from '@/components/ui/sheet'
+
+import { MOBILE_MENU_ID, isCurrentPage } from './nav-utils'
+
+/*
+ * Mobile menu sheet (< 1024px), docs/HOME-SPEC.md Header 3. Loaded on demand by
+ * mobile-menu.tsx, never part of the first-load JavaScript.
+ *
+ * Full-height panel from the right (full width on phones, 420px from 640px): logo + close,
+ * the four menus as accordions (the current section starts open), Espace Eduka (new tab),
+ * Calendrier, both campus phones, then the two priority actions pinned at the bottom above
+ * the home indicator.
+ */
+
+export interface MobileSheetProps {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  /** The menu button: focus returns to it when the sheet closes. */
+  triggerRef: RefObject<HTMLButtonElement | null>
+}
+
+const rowClass =
+  'flex min-h-12 items-center gap-3 py-2 text-base transition-colors duration-200 hover:text-terracotta-ink'
+
+export function MobileSheet({ open, onOpenChange, triggerRef }: MobileSheetProps) {
+  const pathname = usePathname()
+  const activeSection = getSectionForPath(pathname)
+  const closeRef = useRef<HTMLButtonElement>(null)
+  const logo = site.logos.horizontal
+  const close = () => onOpenChange(false)
+
+  // Rotating a tablet past 1024px shows the desktop bar: close the sheet.
+  useEffect(() => {
+    if (!open) return
+    const wide = window.matchMedia('(min-width: 64rem)')
+    const onChange = () => {
+      if (wide.matches) onOpenChange(false)
+    }
+    wide.addEventListener('change', onChange)
+    return () => wide.removeEventListener('change', onChange)
+  }, [open, onOpenChange])
+
+  return (
+    <Sheet open={open} onOpenChange={onOpenChange}>
+      <SheetContent
+        id={MOBILE_MENU_ID}
+        side="right"
+        showCloseButton={false}
+        aria-describedby={undefined}
+        onOpenAutoFocus={(event) => {
+          event.preventDefault()
+          closeRef.current?.focus()
+        }}
+        onCloseAutoFocus={(event) => {
+          // No Radix Trigger here (the button lives outside the lazy chunk): restore focus.
+          event.preventDefault()
+          triggerRef.current?.focus()
+        }}
+      >
+        <SheetTitle className="sr-only">Menu</SheetTitle>
+
+        <div className="flex h-16 shrink-0 items-center justify-between gap-4 border-b border-hairline px-gutter">
+          <Link href="/" onClick={close} className="flex shrink-0" aria-label={`${site.name}, accueil`}>
+            <Image
+              src={logo.src}
+              alt=""
+              width={logo.width}
+              height={logo.height}
+              unoptimized
+              className="h-[30px] w-auto sm:h-[34px]"
+            />
+          </Link>
+          <SheetClose
+            ref={closeRef}
+            className="-mr-2.5 grid size-11 shrink-0 cursor-pointer place-items-center rounded-ui text-charcoal transition-colors duration-200 hover:bg-paper"
+          >
+            <X aria-hidden="true" strokeWidth={1.5} className="size-6" />
+            <span className="sr-only">Fermer le menu</span>
+          </SheetClose>
+        </div>
+
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-gutter pb-6">
+          <nav aria-label="Menu principal">
+            <Accordion type="single" collapsible defaultValue={activeSection}>
+              {navigation.map((group) => (
+                <AccordionItem key={group.id} value={group.id}>
+                  <AccordionTrigger className={cn(activeSection === group.id && 'text-terracotta-ink')}>
+                    {group.label}
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-3">
+                    <ul>
+                      {group.items.map((item) => {
+                        const isCurrent = isCurrentPage(pathname, item.href)
+                        return (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              onClick={close}
+                              aria-current={isCurrent ? 'page' : undefined}
+                              className={cn(
+                                'flex min-h-11 items-center py-2 pl-3 text-base transition-colors duration-200 hover:text-terracotta-ink',
+                                isCurrent ? 'font-semibold text-terracotta-ink' : 'text-charcoal',
+                              )}
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </nav>
+
+          <ul className="border-b border-hairline py-2">
+            <li>
+              <a
+                href={site.eduka.portalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(rowClass, 'font-semibold')}
+              >
+                <UserRound aria-hidden="true" strokeWidth={1.5} className="size-5 shrink-0" />
+                {site.eduka.label}
+                <ArrowUpRight aria-hidden="true" strokeWidth={1.5} className="-ml-1 size-4 shrink-0 text-ink-soft" />
+                <span className="sr-only"> (nouvel onglet)</span>
+              </a>
+            </li>
+            <li>
+              <Link
+                href={site.actions.calendar.href}
+                onClick={close}
+                aria-current={isCurrentPage(pathname, site.actions.calendar.href) ? 'page' : undefined}
+                className={cn(rowClass, 'font-semibold')}
+              >
+                <CalendarDays aria-hidden="true" strokeWidth={1.5} className="size-5 shrink-0" />
+                {site.actions.calendar.label}
+              </Link>
+            </li>
+          </ul>
+
+          <ul className="py-2">
+            {[site.phones.casablanca, site.phones.rabat].map((phone) => (
+              <li key={phone.href}>
+                <a href={phone.href} className={rowClass}>
+                  <Phone aria-hidden="true" strokeWidth={1.5} className="size-5 shrink-0" />
+                  <span>
+                    <span className="font-semibold">{phone.label}</span>{' '}
+                    <span className="text-ink-soft">{phone.display}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="grid shrink-0 grid-cols-2 gap-3 border-t border-hairline px-gutter pt-4 pb-[max(16px,env(safe-area-inset-bottom))]">
+          <ButtonLink href={site.actions.visit.href} variant="outline-dark" onClick={close} className="w-full px-3">
+            {site.actions.visit.longLabel ?? site.actions.visit.label}
+          </ButtonLink>
+          <ButtonLink href={site.actions.apply.href} onClick={close} className="w-full px-3">
+            {site.actions.apply.label}
+          </ButtonLink>
+        </div>
+      </SheetContent>
+    </Sheet>
+  )
+}
+

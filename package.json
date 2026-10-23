@@ -1,0 +1,50 @@
+{
+  "name": "ebm-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Site public et CMS des Écoles Belges au Maroc (Next.js + Payload).",
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_OPTIONS=--no-deprecation next dev",
+    "build": "NODE_OPTIONS=--no-deprecation next build",
+    "start": "NODE_OPTIONS=--no-deprecation next start",
+    "typecheck": "tsc --noEmit",
+    "report:bundle": "node scripts/bundle-table.mjs",
+    "qa:hero-contrast": "node scripts/qa/hero-contrast.mjs",
+    "payload": "NODE_OPTIONS=--no-deprecation payload",
+    "generate:types": "NODE_OPTIONS=--no-deprecation payload generate:types",
+    "generate:importmap": "NODE_OPTIONS=--no-deprecation payload generate:importmap"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "3.91.0",
+    "@payloadcms/next": "3.91.0",
+    "@payloadcms/richtext-lexical": "3.91.0",
+    "@payloadcms/ui": "3.91.0",
+    "@radix-ui/react-accordion": "1.3.1",
+    "@radix-ui/react-dialog": "1.3.1",
+    "@radix-ui/react-navigation-menu": "1.4.1",
+    "@radix-ui/react-slot": "1.5.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "graphql": "16.14.2",
+    "lucide-react": "1.61.0",
+    "next": "16.4.2",
+    "payload": "3.91.0",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "sharp": "0.35.5",
+    "tailwind-merge": "3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "22.20.5",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "tailwindcss": "4.3.3",
+    "tw-animate-css": "1.4.0",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  }
+}

@@ -1,0 +1,94 @@
+/*
+ * Home section 3, the alumni card deck (alumni.tsx + story-deck.tsx), after the "News from
+ * Korowa" deck on korowa.vic.edu.au: the current card in front, the next two stacked behind it
+ * to the right, each a little further, tilted and shaded; past cards leave to the left.
+ *
+ * Every card sits in the same grid cell, so the deck is as tall as the tallest card and nothing
+ * jumps when the order changes. A card's place comes from --d (set by story-deck.tsx):
+ * 0 = front, 1-2 = stacked behind, 3 = waiting (hidden), -1 = gone to the left.
+ */
+
+.deck {
+  --card-w: clamp(280px, 30vw, 420px);
+  /* How far each stacked card sticks out, in percent of a card's width. */
+  --step: 52%;
+
+  display: grid;
+  justify-items: center;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+/* Phones: the front card on the page column, the stack peeking out at the right edge. */
+@media (max-width: 39.99rem) {
+  .deck {
+    --card-w: min(80vw, 340px);
+    --step: 9%;
+
+    justify-items: start;
+    padding-inline: var(--spacing-gutter);
+  }
+}
+
+.slot {
+  position: relative;
+  grid-area: 1 / 1;
+  width: var(--card-w);
+  box-shadow: 0 24px 60px -24px rgb(40 30 20 / 0.28);
+  transform-origin: 50% 100%;
+  transition:
+    transform 700ms var(--ease-out-expo),
+    opacity 500ms ease-out;
+}
+
+/* Shade on stacked cards, deeper the further back. */
+.slot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-charcoal);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms ease-out;
+}
+
+.slot[data-place='behind'] {
+  cursor: pointer;
+  transform: translateX(calc(var(--d) * var(--step))) translateY(calc(var(--d) * 10px))
+    rotate(calc(var(--d) * 2deg)) scale(calc(1 - var(--d) * 0.04));
+}
+
+.slot[data-place='behind']::after {
+  opacity: calc(var(--d) * 0.12);
+}
+
+.slot[data-place='waiting'] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(calc(3 * var(--step))) translateY(30px) rotate(6deg) scale(0.88);
+}
+
+.slot[data-place='gone'] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-115%) rotate(-8deg);
+}
+
+/* While a finger or the mouse drags the front card it follows without delay. */
+.slot[data-dragging] {
+  transition: none;
+}
+
+.card {
+  height: 100%;
+  padding: 14px;
+  border: 1px solid var(--color-hairline);
+  background-color: #fff;
+}
+
+.cardPhoto {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  background-color: var(--color-paper);
+}
