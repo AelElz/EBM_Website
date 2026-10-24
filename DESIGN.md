@@ -312,7 +312,15 @@ EBM photo, three short points and an admissions-steps link. Native radio control
 existing clay active colour, a check and a visible keyboard-focus outline. Age numbers are
 26–40px on desktop and 25px on phones; phone units share a second line. The selection has no
 slider, campus question or client JavaScript. The CEB, CE1D and CESS form one linked rail,
-horizontal on desktop and vertical on phones, with olive nodes and plain-language labels.
+horizontal on desktop and vertical on phones. Ayoub's latest request gives this section an
+olive-green field (#505940), white text and warm orange (#F3A766) connections/checkpoints.
+The lighter orange has 3.70:1 contrast against olive; white text has 7.38:1. This local orange
+is an intentional extension for the requested path, not a change to the primary button colour.
+On viewport entry, the orange rail draws from CEB through CE1D to CESS over 2.3 seconds,
+lighting each checkpoint as reached. The sequence runs once. A small `certificate-path.tsx`
+client wrapper arms CSS animations; all content remains server-rendered and visible. Without
+JavaScript, with reduced motion, or if reduced motion is enabled during the sequence, the
+complete path is shown immediately.
 
 The video is a large 16:9 feature above the FAQ (minimum 200px high on small screens, explicit
 100% width). It previews muted on arrival and restarts with sound on click. Reduced motion

@@ -144,7 +144,11 @@ admissions steps. Ages are indicative at the start of the school year; this is n
 or admission eligibility calculator. Timetables and campus services no longer fill this panel.
 
 The institutional table is replaced by one connected CEB → CE1D → CESS diagram, horizontal
-on desktop and vertical on phones. Detailed former copy is preserved in
+on desktop and vertical on phones. Its field is olive green, all text is white and the rail/
+checkpoints use warm orange #F3A766. The rail draws CEB → CE1D → CESS once on viewport entry
+(2.3s), with sequential checkpoint fills. Reduced motion and no-JavaScript show the complete
+static diagram. The driver is `certificate-path.tsx`; no animation dependency is needed.
+Detailed former copy is preserved in
 `content-archive/home-detailed-copy.md` as an authoring reference, not approved launch copy.
 
 The video has its own full-container section above the FAQ. Its privacy-enhanced YouTube
@@ -283,10 +287,10 @@ and to Admissions).
 
 - Every public route static (SSG). Server Components by default. Client code covers header
   menus/search, mobile sheet/action bar, hero slider, the home scroll-scene driver, alumni
-  deck, key-figure count-up, FAQ accordion, admissions diagram and video player. The age
+  deck, key-figure count-up, FAQ accordion, certificate-path trigger, admissions diagram and video player. The age
   chooser is native HTML/CSS and needs no client code.
 - The original ~120 KB gzip aspiration is below the current Next 16 + React 19 floor of
-  ~133 KiB. The measured home first-load JS is 159.9 KiB gzip / 138.1 KiB Brotli after the
+  ~133 KiB. The measured home first-load JS is 160.1 KiB gzip / 138.2 KiB Brotli after the
   additions (24 Oct 2026, `npm run report:bundle`). Report the actual size after changes.
   No animation or carousel libraries; CSS transitions and small native drivers.
 - LCP image: slide 1 via `next/image` with `priority`, `sizes="100vw"`, AVIF/WebP.

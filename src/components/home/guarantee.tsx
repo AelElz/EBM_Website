@@ -3,6 +3,7 @@ import { Check } from 'lucide-react'
 import { guarantee } from '@/content/home-details'
 import { Container } from '@/components/ui/container'
 
+import { CertificatePath } from './certificate-path'
 import styles from './guarantee.module.css'
 
 /** One connected diagram, instead of the former eight-row institutional table. */
@@ -16,9 +17,14 @@ export function Guarantee() {
           </h2>
           <p>{guarantee.text}</p>
         </div>
-        <ol className={styles.path} aria-label="Les trois étapes de certification belge">
-          {guarantee.milestones.map((step) => (
+        <CertificatePath className={styles.path}>
+          {guarantee.milestones.map((step, index) => (
             <li key={step.code}>
+              {index < guarantee.milestones.length - 1 && (
+                <span aria-hidden="true" className={styles.rail}>
+                  <span className={styles.railFill} />
+                </span>
+              )}
               <span className={styles.node}><Check aria-hidden="true" size={28} strokeWidth={1.75} /></span>
               <div>
                 <h3>{step.code}</h3>
@@ -27,7 +33,7 @@ export function Guarantee() {
               </div>
             </li>
           ))}
-        </ol>
+        </CertificatePath>
         <p className={styles.result}>{guarantee.result}</p>
       </Container>
     </section>

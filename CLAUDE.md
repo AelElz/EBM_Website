@@ -74,12 +74,12 @@ Static routes; Server Components by default; client components only for header s
 mobile sheet, hero slider, mobile action bar, the home scroll-scene driver (`collage-zoom.tsx`,
 writes two CSS variables; shared code in `scroll-scene.ts`) and the alumni deck
 (`story-deck.tsx`; the cards are server-rendered children) and the key-figure count-up
-(`count-up.tsx`; the final value is in the server HTML), the FAQ accordion and video player.
+(`count-up.tsx`; the final value is in the server HTML), the FAQ accordion, video player and certificate-path viewport trigger.
 The age-group chooser is native radio inputs + CSS, with no client component or slider. The admissions diagram uses a small native scroll driver.
 No animation or carousel library. `next/image`
 everywhere (only the LCP image has `preload`), `next/font` for both faces. Check the first-load
 JS table after changes with `npm run report:bundle` (Next 16 no longer prints it): home is
-159.9 KiB gzip / 138.1 KiB brotli (24 Oct 2026), about 133 KiB of which is Next 16 + React 19 alone.
+160.1 KiB gzip / 138.2 KiB brotli (24 Oct 2026), about 133 KiB of which is Next 16 + React 19 alone.
 
 Scroll scene: the server HTML is the still collage (ANIMATION 2); the pinned version applies
 only under `[data-ready]`, which the driver sets when JS runs and motion is allowed. Its scrim

@@ -4,6 +4,21 @@ Implemented in `/Users/ayoub/Documents/ayoub/EBM_Website`.
 
 Preview: <http://127.0.0.1:3100/>
 
+## Latest certificate animation
+
+At Ayoub’s request, “Un parcours belge reconnu” now uses an olive-green background, white
+text and a warm orange connecting line. CEB, CE1D and CESS light up in order as the line draws
+once over 2.3 seconds on viewport entry; the path runs downward on phones. Reduced motion and
+no-JavaScript retain the complete path. No copy or school facts changed.
+
+TypeScript/build passed. The live sequence was checked at 360, 390, 768 and 1440px: initial,
+midpoint and complete line states, sequential checkpoint timing, no horizontal overflow,
+no repeat on scroll re-entry, and live/static reduced-motion and no-JavaScript fallbacks.
+Home first-load JavaScript is now 160.1 KiB gzip / 138.2 KiB Brotli. Source lint reports no
+failures; its two scale-from-zero warnings apply to the intentional checkpoint fill geometry,
+not text or content entrances. The design detector's type-size advisories concern retained
+14px labels and 28/32px certificate codes.
+
 ## What changed
 
 - Replaced the age slider and campus form with three direct choices: **2–5**, **6–11**, **12–18 years**. The bands follow the existing school-year mapping; ages are indicative at the start of the school year. Each choice shows a real school photo, three short points and the link to the admissions steps already on the homepage.
