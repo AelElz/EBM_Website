@@ -93,7 +93,7 @@ The age-group chooser is native radio inputs + CSS, with no client component or 
 No animation or carousel library. `next/image`
 everywhere (only the LCP image has `preload`), `next/font` for both faces. Check the first-load
 JS table after changes with `npm run report:bundle` (Next 16 no longer prints it): home is
-160.9 KiB gzip / 139.0 KiB brotli (24 Oct 2026, admissions simplification build), about 133 KiB of which is Next 16 + React 19 alone.
+160.7 KiB gzip / 138.7 KiB brotli (24 Oct 2026, native video controls build), about 133 KiB of which is Next 16 + React 19 alone.
 
 Scroll scene: the server HTML is the still collage (ANIMATION 2); the pinned version applies
 only under `[data-ready]`, which the driver sets when JS runs and motion is allowed. Its scrim

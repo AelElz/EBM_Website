@@ -324,8 +324,12 @@ complete path is shown immediately. The green certificate section meets the foll
 Fired Clay experience scene directly, with no white spacer between their backgrounds.
 
 The video is a large 16:9 feature above the FAQ (minimum 200px high on small screens, explicit
-100% width). It previews muted on arrival and restarts with sound on click. Reduced motion
-uses the poster. The FAQ is now ten white cards on paper, with 12px corners (an intentional
+100% width). It autoplays muted on its first arrival in view, then exposes YouTube's native
+controls directly to pointer and keyboard users. There is no overlaid restart CTA, forced
+seek, forced unmute or custom preview pause button. Leaving view pauses playback; native
+controls own resumption, so returning to the section does not override a user's pause.
+Reduced motion or blocked autoplay keeps a poster with a labelled icon-only Play control.
+The direct YouTube fallback remains. The FAQ is now ten white cards on paper, with 12px corners (an intentional
 exception requested by Ayoub), 16–17px questions and one expanding answer at a time. Answers
 slide down over 300ms and close over 240ms; reduced motion removes the travel. A plus turns
 to a close mark for the active card. The all-questions link follows the cards on phones.

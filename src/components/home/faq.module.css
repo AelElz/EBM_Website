@@ -7,9 +7,8 @@
 .player iframe { width: 100%; height: 100%; }
 .watch { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; color: white; }
 .watch:focus-visible { outline-offset: -5px; outline-color: white; }
-.playButton { display: inline-flex; align-items: center; gap: 16px; padding: 20px 28px; background: var(--color-terracotta); font-size: 18px; font-weight: 700; transition: background-color 180ms; }
+.playButton { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 52px; border-radius: var(--radius-ui); background: var(--color-terracotta); transition: background-color 180ms; }
 .watch:hover .playButton { background: var(--color-terracotta-ink); }
-.pause { position: absolute; bottom: 20px; right: 20px; z-index: 3; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; min-height: 44px; padding: 10px 14px; cursor: pointer; background: var(--color-charcoal); color: white; font-size: 14px; }
 .videoNote { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; margin-top: 14px; font-size: 14px; line-height: 1.5; color: var(--color-ink-soft); }
 .videoNote a { color: var(--color-terracotta-ink); text-decoration: underline; text-underline-offset: 4px; }
 .section { background: var(--color-paper); padding-block: clamp(64px, 7vw, 100px); }
@@ -32,10 +31,7 @@
 @media (max-width: 47.99rem) {
   .videoHeading { display: block; margin-bottom: 24px; }
   .videoHeading > p { margin-top: 18px; font-size: 17px; }
-  .playButton { padding: 15px 18px; gap: 10px; font-size: 15px; }
   .playButton svg { width: 20px; height: 20px; }
-  .pause { bottom: 8px; right: 8px; padding: 8px; }
-  .pause > span { display: none; }
   .question { min-height: 72px; padding: 22px 20px; font-size: 16px; gap: 16px; }
   .answer > p { padding: 0 20px 24px; font-size: 16px; }
 }

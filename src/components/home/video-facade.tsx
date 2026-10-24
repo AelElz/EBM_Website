@@ -1,6 +1,6 @@
 'use client'
 
-import { Pause, Play } from 'lucide-react'
+import { Play } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
@@ -13,7 +13,6 @@ interface Player {
   unMute(): void
   playVideo(): void
   pauseVideo(): void
-  seekTo(seconds: number, allowSeekAhead: boolean): void
   destroy(): void
 }
 interface YouTube {
@@ -57,21 +56,20 @@ function loadPlayer(): Promise<YouTube> {
   return apiPromise
 }
 
-/** Muted preview on arrival; one click seeks to zero, unmutes and shows native controls.
- * Reduced motion leaves a still image until clicked. A normal YouTube link survives failures.
+/** Autoplay once, muted; the running iframe owns playback and sound controls.
+ * Reduced motion keeps a poster with a labelled play control. A YouTube link survives failures.
  */
 export function VideoFacade({ id, title, poster }: { id: string; title: string; poster: ImageAsset }) {
   const viewport = useRef<HTMLDivElement>(null)
   const mount = useRef<HTMLDivElement>(null)
   const player = useRef<Player | null>(null)
-  const activeRef = useRef(false)
+  const requestedRef = useRef(false)
+  const hasPlayed = useRef(false)
   const visible = useRef(false)
-  const pausedRef = useRef(false)
   const reduced = useRef(false)
   const [load, setLoad] = useState(false)
-  const [active, setActive] = useState(false)
+  const [requested, setRequested] = useState(false)
   const [started, setStarted] = useState(false)
-  const [paused, setPaused] = useState(false)
   const [error, setError] = useState(false)
 
   useEffect(() => {
@@ -79,14 +77,19 @@ export function VideoFacade({ id, title, poster }: { id: string; title: string; 
     reduced.current = preference.matches
     const onPreference = () => {
       reduced.current = preference.matches
-      if (preference.matches && !activeRef.current) player.current?.pauseVideo()
+      if (preference.matches && !requestedRef.current) player.current?.pauseVideo()
+      if (!preference.matches && visible.current && !hasPlayed.current) {
+        setLoad(true)
+        player.current?.playVideo()
+      }
     }
     preference.addEventListener('change', onPreference)
     const observer = new IntersectionObserver(([entry]) => {
       visible.current = entry.isIntersecting
       if (entry.isIntersecting) {
-        if (!reduced.current || activeRef.current) setLoad(true)
-        if (!pausedRef.current && (!reduced.current || activeRef.current)) player.current?.playVideo()
+        if (!reduced.current || requestedRef.current) setLoad(true)
+        // After first playback, resuming belongs to the visitor's native controls.
+        if (!hasPlayed.current && !reduced.current) player.current?.playVideo()
       } else {
         player.current?.pauseVideo()
       }
@@ -107,45 +110,50 @@ export function VideoFacade({ id, title, poster }: { id: string; title: string; 
         host: 'https://www.youtube-nocookie.com',
         videoId: id,
         width: '100%', height: '100%',
-        playerVars: { autoplay: 0, playsinline: 1, rel: 0, loop: 1, playlist: id, origin: window.location.origin, hl: 'fr' },
+        playerVars: { autoplay: 0, controls: 1, playsinline: 1, rel: 0, loop: 1, playlist: id, origin: window.location.origin, hl: 'fr' },
         events: {
           onReady: ({ target }) => {
             if (cancelled) return
             player.current = target
             const iframe = mount.current?.querySelector('iframe')
-            if (iframe) { iframe.title = title; iframe.tabIndex = activeRef.current ? 0 : -1 }
-            if (activeRef.current) {
-              target.seekTo(0, true); target.unMute(); target.playVideo(); iframe?.focus()
+            if (iframe) { iframe.title = title; iframe.tabIndex = requestedRef.current ? 0 : -1 }
+            if (requestedRef.current && visible.current) {
+              target.unMute(); target.playVideo(); iframe?.focus()
             } else {
               target.mute()
-              if (visible.current && !reduced.current && !pausedRef.current) target.playVideo()
+              if (visible.current && !reduced.current) target.playVideo()
             }
           },
-          onStateChange: ({ data }) => { if (!cancelled && data === 1) setStarted(true) },
-          onError: () => { if (!cancelled) { setError(true); setActive(false); activeRef.current = false } },
+          onStateChange: ({ data }) => {
+            if (cancelled || data !== 1) return
+            hasPlayed.current = true
+            setStarted(true)
+            const iframe = mount.current?.querySelector('iframe')
+            if (iframe) iframe.tabIndex = 0
+          },
+          onError: () => { if (!cancelled) setError(true) },
         },
       })
-    }).catch(() => { if (!cancelled) { setError(true); setActive(false); activeRef.current = false } })
+    }).catch(() => { if (!cancelled) setError(true) })
     return () => { cancelled = true; instance?.destroy(); player.current = null }
   }, [load, id, title])
 
   return (
     <div>
-      <div ref={viewport} className={styles.video} data-video-mode={active ? 'watch' : 'preview'}>
+      <div ref={viewport} className={styles.video} data-video-mode={started || requested ? 'native' : 'poster'}>
         <Image src={poster.src} alt="" fill sizes="(min-width: 1280px) 1240px, 100vw" className="object-cover" style={{ objectPosition: poster.position }} />
-        <div ref={mount} className={styles.player} aria-hidden={!active} style={{ opacity: started || active ? 1 : 0, pointerEvents: active ? 'auto' : 'none' }} />
-        {!active && (
+        <div ref={mount} className={styles.player} aria-hidden={!started && !requested} style={{ opacity: started || requested ? 1 : 0, pointerEvents: started || requested ? 'auto' : 'none' }} />
+        {!started && !requested && (
           <a
             href={`https://www.youtube.com/watch?v=${id}`}
             target="_blank" rel="noopener noreferrer"
+            aria-label={error ? 'Voir la vidéo sur YouTube (nouvel onglet)' : 'Lire la vidéo'}
             className={styles.watch}
             onClick={(event) => {
               if (error) return
               event.preventDefault()
-              activeRef.current = true
-              pausedRef.current = false
-              setPaused(false); setActive(true); setLoad(true)
-              player.current?.seekTo(0, true)
+              requestedRef.current = true
+              setRequested(true); setLoad(true)
               player.current?.unMute()
               player.current?.playVideo()
               const iframe = mount.current?.querySelector('iframe')
@@ -154,24 +162,12 @@ export function VideoFacade({ id, title, poster }: { id: string; title: string; 
           >
             <span className={styles.playButton}>
               <Play aria-hidden="true" size={26} strokeWidth={0} fill="currentColor" />
-              <span>Regarder depuis le début<span className="block text-[13px] font-medium">Avec le son</span></span>
             </span>
           </a>
         )}
-        {!active && !error && started && (
-          <button type="button" className={styles.pause} aria-label={paused ? 'Reprendre l’aperçu sans son' : 'Mettre l’aperçu en pause'} onClick={() => {
-            pausedRef.current = !paused
-            setPaused(!paused)
-            if (paused) player.current?.playVideo()
-            else player.current?.pauseVideo()
-          }}>
-            {paused ? <Play aria-hidden="true" size={17} /> : <Pause aria-hidden="true" size={17} />}
-            <span>{paused ? 'Reprendre l’aperçu' : 'Pause'}</span>
-          </button>
-        )}
       </div>
       <div className={styles.videoNote}>
-        <p role="status">{error ? 'Le lecteur est indisponible. La vidéo reste accessible sur YouTube.' : active ? 'Vidéo complète · son activé' : 'Aperçu sans son · cliquez pour regarder depuis le début'}</p>
+        {error && <p role="status">Le lecteur est indisponible. La vidéo reste accessible sur YouTube.</p>}
         <a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer">Voir sur YouTube<span className="sr-only"> (nouvel onglet)</span></a>
       </div>
     </div>

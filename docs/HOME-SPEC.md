@@ -174,9 +174,12 @@ The static Server Component has no scroll-driven diagram and adds no client Java
 The unused `admissions-diagram.ts` geometry module is removed.
 
 The video has its own full-container section above the FAQ. Its privacy-enhanced YouTube
-player loads on entering view and plays muted. Clicking seeks to zero, unmutes and focuses
-the player. A preview pause control and a direct YouTube link are available. Reduced motion
-keeps a still poster until requested. This replaces the previous click-to-load-only behaviour.
+player loads on first viewport arrival and autoplays muted. Once playback starts, the native
+iframe receives pointer events and keyboard focus, with YouTube's own playback controls.
+There is no overlaid restart CTA, seek-to-zero, forced unmute or custom pause button.
+Leaving view pauses playback; native controls own resumption and viewport re-entry does not
+automatically resume it. Reduced motion or blocked autoplay keeps the poster with a labelled
+icon-only Play control. The direct YouTube fallback remains. This supersedes restart-on-click.
 The FAQ uses the installed Radix Accordion: ten rounded white question cards, one answer
 open at a time, with a downward height animation and reduced-motion fallback. The all-questions
 link comes after the cards on phones. No new packages, backend or service integration.
@@ -312,8 +315,8 @@ and to Admissions).
   deck, key-figure count-up, shared campus switcher, FAQ accordion, certificate-path trigger and video player. The age
   chooser and admissions sequence are native HTML/CSS and need no client code.
 - The original ~120 KB gzip aspiration is below the current Next 16 + React 19 floor of
-  ~133 KiB. The measured home first-load JS is 160.9 KiB gzip / 139.0 KiB Brotli after the
-  admissions simplification build (24 Oct 2026, `npm run report:bundle`). Report the actual size after changes.
+  ~133 KiB. The measured home first-load JS is 160.7 KiB gzip / 138.7 KiB Brotli after the
+  native video controls build (24 Oct 2026, `npm run report:bundle`). Report the actual size after changes.
   No animation or carousel libraries; CSS transitions and small native drivers.
 - LCP image: slide 1 via `next/image` with `priority`, `sizes="100vw"`, AVIF/WebP.
   Every other image lazy with explicit `sizes`. No layout shift: explicit dimensions/aspect.
