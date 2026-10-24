@@ -19,10 +19,24 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
 
 - Home page: 15 content sections plus the shared footer. Order: hero + highlights,
   statement, school stages, direct age groups, Belgian certificate diagram, experience scroll
-  scene, alumni deck, key figures, two campus chapters, director's letter, admissions path,
+  scene, alumni deck, key figures, shared campus frame, director's letter, admissions path,
   large video, expandable FAQ cards, Instagram preview, CTA band. The latest additions were checked at 360, 390,
   768 and 1440px on 24 Oct 2026. The established scene/stage designs are preserved.
-  `docs/HOME-UX-UPDATE.md` records the latest simplification, video/FAQ behaviour and checks.
+  The shared campus frame starts on Casablanca (olive) with Rabat's photo peeking from the
+  right edge. Clicking it slides Casablanca left and brings Rabat into the main frame.
+  Casablanca then becomes an equally sized thumbnail on the left; the same native button
+  moves to that edge, retains focus and points left to return. A return restores Rabat's
+  preview on the right. The full-panel slide lasts 850ms; olive-to-charcoal (#282828) fades over 900ms.
+  Title words uncover through masks, followed by staggered facts.
+  Touch swipes preserve vertical scrolling/pinch zoom. The inactive panel is inert, selection
+  gets a short live announcement, reduced motion switches instantly, and no-JS campus links
+  remain available. `docs/HOME-UX-UPDATE.md` records this behaviour and earlier checks.
+  Admissions now uses a direct numbered ordered list: candidature, meeting, then decision
+  and confirmation. A Playfair heading and real Rabat entrance photo with an olive reassurance
+  strip sit left of the Avenir steps/actions on desktop; phones show heading, steps/actions,
+  then photo. Shorter copy preserves entry/place limits, the commission decision and existing
+  clay application button/details link. This is a static Server Component; the decorative
+  square diagram and unused `admissions-diagram.ts` are removed.
   `docs/HOME-FINISH.md` records the preceding completion pass and remaining content gaps.
 - Header (24 Oct 2026, Ayoub's screenshot): no charcoal top bar any more; one white bar with
   the 4 menus, "Rechercher" + "Espace Eduka" (login) as clay icon + label (labels >= 1440px),
@@ -74,12 +88,12 @@ Static routes; Server Components by default; client components only for header s
 mobile sheet, hero slider, mobile action bar, the home scroll-scene driver (`collage-zoom.tsx`,
 writes two CSS variables; shared code in `scroll-scene.ts`) and the alumni deck
 (`story-deck.tsx`; the cards are server-rendered children) and the key-figure count-up
-(`count-up.tsx`; the final value is in the server HTML), the FAQ accordion, video player and certificate-path viewport trigger.
-The age-group chooser is native radio inputs + CSS, with no client component or slider. The admissions diagram uses a small native scroll driver.
+(`count-up.tsx`; the final value is in the server HTML), the FAQ accordion, video player, shared campus switcher and certificate-path viewport trigger.
+The age-group chooser is native radio inputs + CSS, with no client component or slider. Admissions is static server-rendered HTML/CSS, without a scroll-driven diagram or client code.
 No animation or carousel library. `next/image`
 everywhere (only the LCP image has `preload`), `next/font` for both faces. Check the first-load
 JS table after changes with `npm run report:bundle` (Next 16 no longer prints it): home is
-160.1 KiB gzip / 138.2 KiB brotli (24 Oct 2026), about 133 KiB of which is Next 16 + React 19 alone.
+160.9 KiB gzip / 139.0 KiB brotli (24 Oct 2026, admissions simplification build), about 133 KiB of which is Next 16 + React 19 alone.
 
 Scroll scene: the server HTML is the still collage (ANIMATION 2); the pinned version applies
 only under `[data-ready]`, which the driver sets when JS runs and motion is allowed. Its scrim

@@ -333,10 +333,44 @@ to a close mark for the active card. The all-questions link follows the cards on
 This update supersedes the earlier age-tool/table/FAQ descriptions below; it keeps the EBM
 palette, imagery and typefaces. See `docs/HOME-UX-UPDATE.md` for implementation and verification.
 
-## Homepage completion notes (24 Oct 2026)
+### Shared campus frame (latest, 24 Oct 2026)
 
-The home now also contains an age/campus pathway tool, semantic Belgian guarantee table,
-two campus chapters, the network director's full letter, admissions steps and a FAQ/video
+Casablanca and Rabat now occupy one frame instead of successive full-screen chapters.
+Casablanca starts on Olive Grove with Rabat's small photo peeking from the right edge in
+a native button. Selecting Rabat slides Casablanca left while Rabat enters the main frame;
+Casablanca becomes an equally sized thumbnail on the left, with a left-pointing arrow.
+The same button moves to the left edge, keeping focus; selecting it returns to Casablanca
+and restores Rabat's preview on the right. Each full-panel slide lasts 850ms while the field
+fades between olive and charcoal (#282828) over 900ms. Preview arrival fades soften each edge
+change; the main photo reserves room on the side holding the preview.
+The place name uncovers word by word through masks; facts, the short description and the
+campus-page link follow in a stagger. The title retains one intact accessible text string.
+
+Touch users can swipe horizontally between campuses while vertical pan and pinch zoom
+remain native. The inactive panel is inert and hidden from assistive technology; a short
+live status names the selected campus. The moving control retains keyboard focus. Reduced
+motion removes all transition delays and travel; without JavaScript, Casablanca and direct
+links to both campus pages remain available. The shared frame has no scroll-driven inset.
+Implementation: `campus-chapters.tsx`, `campus-switcher.tsx` and `campus-chapters.module.css`.
+
+### Admissions sequence (latest, 24 Oct 2026)
+
+The decorative square diagram is replaced by a direct numbered ordered list: prepare a
+candidature, meet the team, then receive the decision and confirm after admission. Shorter
+verified copy preserves eligibility from 2 years through 1re secondaire, available places,
+the age-adapted observation, and the commission decision. The existing clay application
+button and quiet details link follow the steps.
+
+The Playfair h2 and real Rabat entrance photo sit on the left on desktop, with the Avenir
+steps/actions on the right. Phones show heading, steps/actions, then photo. An olive strip
+under the photo carries the existing “Une admission est un dialogue. Sans test sélectif.”
+reassurance. There is no decorative process animation or new JavaScript: this is a static
+Server Component. The unused `admissions-diagram.ts` is removed.
+
+## Homepage completion notes (earlier pass, 24 Oct 2026)
+
+At this earlier pass, the home gained an age/campus pathway tool, semantic Belgian guarantee
+table, two campus chapters (superseded by the shared frame above), the network director's full letter, admissions steps and a FAQ/video
 section. These use the established clay, paper and cream palette, real EBM photography and
 two-family typography. The table stacks by row on phones; the FAQ's full-questions link
 follows the answers on phones. CSS section reveals remain visible without animation support
@@ -348,7 +382,8 @@ The existing stage design intentionally uses 32/48px panel corners, a 28–36px 
 title and 14px age text. These are approved exceptions to the default square-photo/type rules.
 The photograph scrim is for legibility, not decoration.
 
-The admissions heading takes six desktop grid columns so it fits two lines. The director's
+At that earlier pass, the admissions heading took six desktop columns; the sequence above
+supersedes that layout. The director's
 portrait keeps the sticky outer wrapper, with a separate relative aspect-ratio wrapper for
 `next/image fill`. Playfair Display is now loaded locally from the same production Latin
 WOFF2 files (upright 500–600, italic 400), with its OFL licence. Avenir Next remains unchanged.

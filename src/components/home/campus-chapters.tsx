@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Fragment, type CSSProperties } from 'react'
 
 import { campusChapters } from '@/content/home-details'
 
@@ -21,7 +22,7 @@ export function CampusChapters() {
           src={chapter.image.src}
           alt=""
           fill
-          sizes="(min-width: 1280px) 220px, 160px"
+          sizes="(min-width: 1280px) 480px, 320px"
           className="object-cover"
           style={{ objectPosition: chapter.image.position }}
         />
@@ -29,16 +30,29 @@ export function CampusChapters() {
     >
       {campusChapters.map(chapter => (
         <article key={chapter.key} aria-labelledby={`campus-${chapter.key}`} className={styles.inner}>
-          <h3 id={`campus-${chapter.key}`} className={styles.title}>{chapter.title}</h3>
+          <h3 id={`campus-${chapter.key}`} className={styles.title}>
+            <span className="sr-only">{chapter.title}</span>
+            <span aria-hidden="true">
+              {chapter.title.split(' ').map((word, index) => (
+                <Fragment key={`${word}-${index}`}>
+                  <span className={styles.wordMask}>
+                    <span className={styles.word} style={{ '--word': index } as CSSProperties}>{word}</span>
+                  </span>{' '}
+                </Fragment>
+              ))}
+            </span>
+          </h3>
           <ul role="list" className={styles.facts}>
-            {chapter.facts.map(fact => <li key={fact}>{fact}</li>)}
+            {chapter.facts.map((fact, index) => (
+              <li key={fact} style={{ '--fact': index } as CSSProperties}>{fact}</li>
+            ))}
           </ul>
           <div className={styles.portrait}>
             <Image
               src={chapter.image.src}
               alt={chapter.image.alt}
               fill
-              sizes="(min-width: 1280px) 42vw, (min-width: 768px) 420px, 70vw"
+              sizes="(min-width: 1280px) 1140px, (min-width: 768px) 840px, 110vw"
               className="object-cover"
               style={{ objectPosition: chapter.image.position }}
             />

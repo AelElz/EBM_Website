@@ -1,7 +1,7 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react'
-import { Children, useEffect, useState, type ReactNode } from 'react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { Children, useEffect, useRef, useState, type PointerEvent, type ReactNode } from 'react'
 
 import styles from './campus-chapters.module.css'
 
@@ -15,7 +15,25 @@ export function CampusSwitcher({ campuses, previews, children }: {
 }) {
   const [active, setActive] = useState(0)
   const [enhanced, setEnhanced] = useState(false)
+  const touchStart = useRef<{ id: number; x: number; y: number } | null>(null)
   const next = (active + 1) % campuses.length
+  const DirectionArrow = next < active ? ArrowLeft : ArrowRight
+
+  function startSwipe(event: PointerEvent<HTMLDivElement>) {
+    if (event.pointerType !== 'touch' || !event.isPrimary) return
+    if (event.target instanceof Element && event.target.closest('a, button, input, select, textarea, [role="button"]')) return
+    touchStart.current = { id: event.pointerId, x: event.clientX, y: event.clientY }
+  }
+
+  function finishSwipe(event: PointerEvent<HTMLDivElement>) {
+    const start = touchStart.current
+    touchStart.current = null
+    if (!start || start.id !== event.pointerId) return
+    const dx = event.clientX - start.x
+    const dy = event.clientY - start.y
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.3) return
+    setActive(index => Math.max(0, Math.min(campuses.length - 1, index + (dx < 0 ? 1 : -1))))
+  }
 
   useEffect(() => {
     setEnhanced(true)
@@ -37,7 +55,12 @@ export function CampusSwitcher({ campuses, previews, children }: {
     >
       <h2 id="campus-title" className="sr-only">Nos deux campus</h2>
       <div aria-hidden="true" className={styles.blackField} />
-      <div className={styles.panels}>
+      <div
+        className={styles.panels}
+        onPointerDown={startSwipe}
+        onPointerUp={finishSwipe}
+        onPointerCancel={() => { touchStart.current = null }}
+      >
         {Children.map(children, (child, index) => (
           <div
             id={`campus-panel-${campuses[index].key}`}
@@ -66,7 +89,7 @@ export function CampusSwitcher({ campuses, previews, children }: {
         </span>
         <span className={styles.peekLabel}>
           <span>{campuses[next].label}</span>
-          <ArrowRight aria-hidden="true" size={21} strokeWidth={1.5} />
+          <DirectionArrow aria-hidden="true" size={21} strokeWidth={1.5} />
         </span>
       </button>
       <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">

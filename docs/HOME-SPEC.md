@@ -133,7 +133,7 @@ only, `src/components/site/intro.tsx`). Not shown on later loads in the session,
 ## Current homepage order (24 Oct 2026)
 
 Hero + highlights → statement → stages → direct age groups → Belgian certificate diagram →
-experience scene → alumni → key figures → campus chapters (Casablanca, Rabat) → director's
+experience scene → alumni → key figures → shared campus frame (Casablanca ↔ Rabat) → director's
 letter → admissions path → large muted-preview video → expandable FAQ → Instagram preview → CTA band →
 shared footer. Keep the experience scene immediately before the alumni deck.
 
@@ -150,6 +150,28 @@ checkpoints use warm orange #F3A766. The rail draws CEB → CE1D → CESS once o
 static diagram. The driver is `certificate-path.tsx`; no animation dependency is needed.
 Detailed former copy is preserved in
 `content-archive/home-detailed-copy.md` as an authoring reference, not approved launch copy.
+
+The campuses share one frame: Casablanca on olive initially, with Rabat's small photo at
+the right edge as a native switch button. Selecting Rabat slides Casablanca left and Rabat
+into the main frame. Casablanca becomes an equally sized thumbnail at the left edge; the
+same button moves left while retaining focus and points left to return. Returning restores
+Rabat's preview on the right. Each full-panel slide lasts 850ms; olive ↔ charcoal (#282828)
+fades over 900ms. Preview arrival fades soften the edge change, with room for the main photo
+mirrored in Rabat's state. Masked title words and staggered facts animate into the active panel.
+The title has an intact accessible name, the inactive panel is inert, and a short live status
+announces the selection. Touch-only horizontal swipes preserve vertical pan and pinch zoom.
+Reduced motion switches instantly; without JavaScript, Casablanca and direct links to both
+campus pages remain available. There is no scroll-driven background inset. Server-rendered
+content stays in `campus-chapters.tsx`; `campus-switcher.tsx` owns selection and swipe state.
+
+Admissions uses a direct numbered ordered list instead of the decorative square diagram:
+candidature → meeting → commission response and, if admitted, confirmation. Shorter verified
+copy retains entry from age 2 through 1re secondaire, availability of places, the parent
+interview and age-adapted observation. The existing clay application button and details link
+remain. A Playfair h2 and real Rabat entrance photo with an olive reassurance strip sit left
+of the Avenir steps/actions on desktop; phones show heading → steps/actions → photo.
+The static Server Component has no scroll-driven diagram and adds no client JavaScript.
+The unused `admissions-diagram.ts` geometry module is removed.
 
 The video has its own full-container section above the FAQ. Its privacy-enhanced YouTube
 player loads on entering view and plays muted. Clicking seeks to zero, unmutes and focuses
@@ -287,11 +309,11 @@ and to Admissions).
 
 - Every public route static (SSG). Server Components by default. Client code covers header
   menus/search, mobile sheet/action bar, hero slider, the home scroll-scene driver, alumni
-  deck, key-figure count-up, FAQ accordion, certificate-path trigger, admissions diagram and video player. The age
-  chooser is native HTML/CSS and needs no client code.
+  deck, key-figure count-up, shared campus switcher, FAQ accordion, certificate-path trigger and video player. The age
+  chooser and admissions sequence are native HTML/CSS and need no client code.
 - The original ~120 KB gzip aspiration is below the current Next 16 + React 19 floor of
-  ~133 KiB. The measured home first-load JS is 160.1 KiB gzip / 138.2 KiB Brotli after the
-  additions (24 Oct 2026, `npm run report:bundle`). Report the actual size after changes.
+  ~133 KiB. The measured home first-load JS is 160.9 KiB gzip / 139.0 KiB Brotli after the
+  admissions simplification build (24 Oct 2026, `npm run report:bundle`). Report the actual size after changes.
   No animation or carousel libraries; CSS transitions and small native drivers.
 - LCP image: slide 1 via `next/image` with `priority`, `sizes="100vw"`, AVIF/WebP.
   Every other image lazy with explicit `sizes`. No layout shift: explicit dimensions/aspect.

@@ -4,7 +4,62 @@ Implemented in `/Users/ayoub/Documents/ayoub/EBM_Website`.
 
 Preview: <http://127.0.0.1:3100/>
 
-## Latest certificate animation
+## Latest admissions simplification
+
+The abstract square diagram is removed. Admissions now presents a direct numbered ordered
+list: prepare a candidature, meet the team, then receive the commission's response and
+confirm if admitted. Shorter verified copy preserves entry from 2 years through 1re
+secondaire, available places, the parent interview and age-adapted observation. The existing
+clay application button and details link remain.
+
+The Playfair heading and real Rabat entrance photo sit left of the Avenir steps/actions on
+desktop. An olive strip under the photo carries the existing dialogue/no-selective-test
+reassurance. Phones show heading, steps/actions, then photo. This remains a static Server
+Component with no scroll-driven diagram or new JavaScript; the unused
+`admissions-diagram.ts` is removed. Source: `admissions-path.tsx`,
+`admissions-path.module.css` and `src/content/home-details.ts`.
+
+The production build and TypeScript passed; source lint returned 0 failures and 0 warnings.
+Chrome checks passed at 360, 390, 768, 1024, 1280 and 1440px: three ordered steps, preserved
+conditions, correct brand fonts/colours, mobile content order, both action destinations,
+keyboard focus, no horizontal overflow/collisions and loaded images. Content also remains
+visible with reduced motion and JavaScript disabled. No browser runtime errors were recorded.
+The independent visual review returned “Ship” for this admissions section after reviewing
+desktop, tablet and phone captures. Home first-load JS remains 160.9 KiB gzip / 139.0 KiB
+Brotli; no package or client component was added. The checks below describe preceding passes.
+
+## Campus interaction (preceding update)
+
+The previous consecutive campus chapters now share one frame. Casablanca appears first on
+olive, with Rabat's small photo peeking from the right edge as a native button. Clicking it
+slides Casablanca left and brings Rabat into the main frame. Casablanca becomes an equally
+sized thumbnail on the left; the same button moves left, keeps keyboard focus and points
+left to return. Returning restores Casablanca and Rabat's preview on the right. Each panel
+slide lasts 850ms while olive fades to charcoal (#282828), or back, over 900ms. The preview
+fades into its new edge and Rabat's main photo leaves room on the left. Title words uncover
+through masks, followed by staggered facts, the short description and the campus-page link.
+Campus photos, copy and destinations remain unchanged.
+
+The button works by keyboard and stays outside the inert inactive panel so focus survives
+selection. One intact title remains accessible; a short live status names the selected campus.
+Touch-only horizontal swipes preserve native vertical pan and pinch zoom. Reduced motion
+switches instantly. Without JavaScript, Casablanca and direct links to both campus pages
+remain available. The old scroll-driven inset is removed from the shared frame.
+
+Source: `src/components/home/campus-chapters.tsx`, `campus-switcher.tsx` and
+`campus-chapters.module.css`.
+
+Final verification: TypeScript and the production build passed; focused source lint returned
+0 failures / 0 warnings. Real Chrome checks passed at 360, 390, 768, 1024, 1280 and 1440px:
+intermediate slide/background states, matching right/left preview widths, keyboard return,
+rapid reversal, stable frame height, no text collisions or horizontal overflow, loaded images,
+instant reduced motion and no-JS links. Real touch input at 390px confirmed horizontal swipe
+selection and ordinary vertical scrolling without changing campus. Desktop/tablet/phone
+screenshots were reviewed; the tablet return arrow now wraps instead of clipping. No browser
+runtime errors were recorded. Home first-load JS: 160.9 KiB gzip / 139.0 KiB Brotli. No package
+was added. The measurements below belong to the preceding updates.
+
+## Certificate animation (preceding update)
 
 At Ayoub’s request, “Un parcours belge reconnu” now uses an olive-green background, white
 text and a warm orange connecting line. CEB, CE1D and CESS light up in order as the line draws

@@ -120,21 +120,29 @@ export const campusChapters: CampusChapter[] = [
 /* ------------------------------------------------------------------------------------------ */
 
 export const admissionsPath = {
-  /** Two lines (admissions-path.tsx). */
   title: ['Rejoindre les EBM,', 'pas à pas'],
-  text: `Une admission est un dialogue, pas un concours${NNBSP}: il n’y a pas de test sélectif. Les admissions sont ouvertes dès 2 ans et jusqu’en 1re secondaire, selon les places disponibles.`,
+  text: 'Dès 2 ans et jusqu’en 1re secondaire, selon les places disponibles.',
+  reassurance: {
+    title: 'Une admission est un dialogue.',
+    text: 'Sans test sélectif.',
+  },
+  image: {
+    src: '/images/hero-rabat-entree.jpg',
+    alt: 'Des élèves entrent dans le bâtiment de l’école belge de Rabat.',
+    position: '52% 68%',
+  },
   phases: [
     {
-      name: 'S’informer',
-      text: 'Découvrez le projet éducatif, posez vos questions au service admissions, puis déposez le dossier de candidature sur Eduka.',
+      name: 'Préparer votre candidature',
+      text: 'Découvrez notre projet, échangez avec les admissions et déposez votre dossier sur Eduka.',
     },
     {
-      name: 'Se rencontrer',
-      text: 'Un entretien approfondi avec les parents, puis une observation ou une analyse pédagogique adaptée à l’âge de l’enfant.',
+      name: 'Faire connaissance',
+      text: 'Un entretien avec les parents, puis une observation ou une analyse pédagogique adaptée à l’âge de votre enfant.',
     },
     {
-      name: 'Rejoindre',
-      text: 'La commission admissions répond par e-mail, un échange est organisé avec les familles admises, puis vous confirmez l’inscription.',
+      name: 'Recevoir la réponse',
+      text: 'La commission vous répond par e-mail. Si votre enfant est admis, un échange précède la confirmation de son inscription.',
     },
   ],
   apply: { label: 'Candidater en ligne', href: routes.candidater } satisfies LinkItem,
