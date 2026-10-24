@@ -22,8 +22,8 @@ export function About() {
   const [focus, ...corners] = collage
 
   return (
-    // pt-section: white room between the highlights panel and the clay screen.
-    <section aria-labelledby="about-title" className="pt-section">
+    // The clay scene meets the preceding green certificate section directly.
+    <section aria-labelledby="about-title">
       <CollageZoom className={styles.scene}>
         <div className={styles.stage}>
           {corners.map((photo, index) => (

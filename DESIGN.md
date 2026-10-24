@@ -320,7 +320,8 @@ On viewport entry, the orange rail draws from CEB through CE1D to CESS over 2.3 
 lighting each checkpoint as reached. The sequence runs once. A small `certificate-path.tsx`
 client wrapper arms CSS animations; all content remains server-rendered and visible. Without
 JavaScript, with reduced motion, or if reduced motion is enabled during the sequence, the
-complete path is shown immediately.
+complete path is shown immediately. The green certificate section meets the following
+Fired Clay experience scene directly, with no white spacer between their backgrounds.
 
 The video is a large 16:9 feature above the FAQ (minimum 200px high on small screens, explicit
 100% width). It previews muted on arrival and restarts with sound on click. Reduced motion
