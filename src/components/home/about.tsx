@@ -8,7 +8,7 @@ import { CollageZoom } from './collage-zoom'
 import { Emphasis, SectionLabel } from './emphasis'
 
 /*
- * Home section 2 (docs/HOME-SPEC.md): the scroll scene, after Ayoub's "ANIMATION 1-3" mock-ups.
+ * Home section 4 (docs/HOME-SPEC.md): the scroll scene, after Ayoub's "ANIMATION 1-3" mock-ups.
  * A full Fired Clay screen with the label, the mixed heading and the button; five EBM photos
  * come in behind the text into a collage; then the focus photo (the diploma ceremony) opens to
  * full screen under the text. Geometry and formulas: about-collage.module.css; the scroll

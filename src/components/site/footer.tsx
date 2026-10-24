@@ -8,7 +8,7 @@ import { Container } from '@/components/ui/container'
 import { SmartLink } from '@/components/ui/smart-link'
 
 /*
- * Shared footer (docs/HOME-SPEC.md, home section 7). Server Component, no props.
+ * Shared footer (docs/HOME-SPEC.md, home section 9). Server Component, no props.
  * Paper ground: brand column, two link columns (footerNav), two campus columns (campusList),
  * then a charcoal bar with the partners' logos, copyright and legal links.
  * Grid: 1 column on phones, 2 from 640px (brand spans both), 4 from 1024px (brand on its own

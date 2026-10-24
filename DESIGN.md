@@ -220,6 +220,8 @@ Breakpoints follow Tailwind: 640px (sm), 768px (md), 1024px (lg, desktop navigat
 - **Header:** a 40px charcoal top bar that scrolls away, then a white main bar (64px on phones, 76px from 1024px) that stays pinned and frosts once the top bar has left.
 - **Hero:** min(86svh, 760px) tall, never under 560px; content left-aligned in the column, vertically centred, with bottom padding that reserves the panel overlap.
 - **Highlights panel:** pulled up over the hero by 48px on phones and 96px from 768px; stacked rows on phones, three columns from 768px (icon above the text), icon beside the text from 1024px.
+- **Statement band:** white room under the highlights panel, then a full-width Fired Clay band (88 to 160px padding) with the page column: a 13px white line, then the statement at up to 23em wide.
+- **School stages:** a centred mixed heading, then a block wider than the page column (90rem with gutters) holding three panels with 48px top corners (32px on phones), clamp(440px, 70svh, 680px) tall from 768px; stacked on phones.
 - **About (experience scene):** white room above, then a full-screen clay stage pinned for two more screens. The text is centred in what the sticky bars leave visible. Corner photos are placed in percent of the stage from the 16:9 mock-up (bands above and below the text on portrait screens); the focus window is 59% by 40% of a landscape stage, 88% by 38% of a portrait one.
 - **Alumni (deck):** centred heading block, then the deck: cards 280 to 420px wide (80vw, 340px max on phones), the front card centred (on the page column on phones, the stack peeking at the right edge), controls 36px under it.
 - **Key figures:** one Riad Paper band, max 1160px, 2 by 2 on phones and tablets, 4 across from 1024px, cells divided by 1px white lines.
@@ -246,7 +248,7 @@ Flat by default. Depth comes from photography under overlays and from tonal band
 Quiet geometry. Buttons and fields have small 4px corners; photographs, panels, bands and tiles are square-cornered. Circles appear only where they mean something round: the 48px slider controls with their thin white outline, and the two 1.5px decorative circle outlines (Fired Clay at 35%, Grove Olive at 40%) that sit in the inner-page heroes, never covering a photo.
 
 ### Named Rules
-**The Square Photo Rule.** Photographs are never rounded, masked into shapes or cut out. They are full-bleed, or rectangles in a grid.
+**The Square Photo Rule.** Photographs are never rounded, masked into shapes or cut out. They are full-bleed, or rectangles in a grid. Exception: the school-stages block has rounded top corners, from Ayoub's Korowa screenshot.
 
 ## Components
 
@@ -276,6 +278,12 @@ Three full-bleed campus photographs under the measured overlay, crossfading over
 
 ### Highlights Panel (signature)
 One white panel, not three cards, lifted over the bottom of the hero with the panel shadow. Three columns, each with a 40px line icon (1.4px stroke, charcoal), an Avenir 700 title at 18px, a 15px Walnut Grey sentence and an "En savoir plus" link (Avenir 700 at 14px with a 14px arrow) that turns Kiln Ink and underlines on hover.
+
+### Statement Band (Ayoub's design)
+After the band under Korowa's hero. Fired Clay ground; a small white factual line (who, where, what) and one big sentence in Avenir 500, Riad Paper, with Playfair italic accent words ("Un *enseignement belge* exigeant, dans une *école bienveillante*. […] *prêts à ouvrir leurs horizons.*"). Paper on clay is 4.3:1, allowed for large text; the small line is white (4.8:1). No motion.
+
+### School Stages (Ayoub's design)
+After Korowa's "From first steps to future leaders". Mixed heading "Un seul parcours, *de 2 à 18 ans*" with a Fired Clay accent, then three photo panels, each one link: Maternelle (de 2 à 6 ans), Primaire (de 6 à 12 ans), Secondaire (de 12 à 18 ans, jusqu’au CESS), pointing to the pedagogy page. With a mouse, a panel at rest is its photo with the stage name in white Avenir 600 over a measured top scrim (3:1 or better even over a white ceiling); hover or keyboard focus slides a Riad Paper band down from the top (stage in Playfair italic, ages in Avenir 600), pushes the photo down by the band and washes the other two panels with white at 40%. On touch screens and phones the band is always shown above the photo. CSS only.
 
 ### Experience Scene (signature, Ayoub's design)
 Ayoub's own mock-ups (ANIMATION 1-3, 23 Oct 2026), after the "Korowa experiences" scene on korowa.vic.edu.au. The stage pins on a full Fired Clay screen with, centred: three touching white dots and an uppercase label ("De la maternelle au CESS"), a two-line mixed heading in Avenir 600 with Playfair italic accent words ("Apprendre *ici*, réussir *partout*", up to 9.5rem, capped at 15svh), and a white button with a Fired Clay uppercase label tracked at 0.3em, 8px corners ("Découvrir nos campus"). Scrolling, four EBM photos slide in from their own corners and bleed off the edges while the focus photo (the diploma ceremony) rises behind the text as a wide window; then the window opens to the whole screen and its photo grows to full size, covering the corners. A measured charcoal scrim (66% to 42% of the height, 50% from 70%) keeps the label at 4.5:1 or better and the heading at 3:1 or better at every step. Without JavaScript or under reduced motion, the collage stays still.

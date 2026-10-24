@@ -9,6 +9,8 @@ import { Figures } from '@/components/home/figures'
 import { Hero } from '@/components/home/hero'
 import { Highlights } from '@/components/home/highlights'
 import { Instagram } from '@/components/home/instagram'
+import { Stages } from '@/components/home/stages'
+import { Statement } from '@/components/home/statement'
 import { CtaBand } from '@/components/site/cta-band'
 
 const { title, description } = home.seo
@@ -22,10 +24,11 @@ export const metadata: Metadata = {
 }
 
 /*
- * Home page (docs/HOME-SPEC.md, "Home page sections"): 1 hero + highlights panel, 2 about
- * scroll scene, 3 alumni card deck, 4 key figures, 5 actualités, 6 CTA band, 7 footer (from
- * the layout, with the header). The scene ends on the diploma ceremony at full screen, which
- * leads into the alumni stories: keep <About /> and <Alumni /> next to each other.
+ * Home page (docs/HOME-SPEC.md, "Home page sections"): 1 hero + highlights panel, 2 statement
+ * band, 3 school stages, 4 the "experience" scroll scene, 5 alumni card deck, 6 key figures,
+ * 7 actualités, 8 CTA band, 9 footer (from the layout, with the header). The scene ends on the
+ * diploma ceremony at full screen, which leads into the alumni stories: keep <About /> and
+ * <Alumni /> next to each other.
  */
 export default function HomePage() {
   return (
@@ -36,6 +39,8 @@ export default function HomePage() {
       />
       <Hero />
       <Highlights />
+      <Statement />
+      <Stages />
       <About />
       <Alumni />
       <Figures />

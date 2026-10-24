@@ -119,8 +119,8 @@ External: Espace Eduka (parents) `https://ecolebelge.eduka.school/` (opens in a 
 
 ## Home page sections (top to bottom)
 
-Seven sections, numbered as in `page.tsx` and the component comments. The highlights panel
-that overlaps the hero is part of section 1.
+Nine sections (since 24 Oct 2026), numbered as in `page.tsx` and the component comments. The
+highlights panel that overlaps the hero is part of section 1.
 
 1. **Hero slider** (full bleed, height `min(86svh, 760px)`, min 560px): three photos
    (rabat-entree → LCP, casablanca-entree, rabat-batiment) with a charcoal overlay at ~50%
@@ -145,10 +145,23 @@ that overlaps the hero is part of section 1.
      de classe." → `/ecole-du-dehors`
    - Calendar-check · "Les admissions" · "Les étapes, les frais et le calendrier des visites,
      au même endroit." → `/admissions`
-2. **About, the experience scene** (redone 23 Oct 2026 from Ayoub's mock-ups `UI projects/EBM
+2. **Statement band** (added 24 Oct 2026 from Ayoub's screenshot of korowa.vic.edu.au): Fired
+   Clay band; small line "Les Écoles Belges au Maroc accueillent les élèves de 2 à 18 ans à
+   Casablanca (Dar Bouazza) et à Rabat (Hay Riad), avec le programme et les diplômes de la
+   Fédération Wallonie-Bruxelles."; statement "Un *enseignement belge* exigeant, dans une
+   *école bienveillante*. Nos élèves grandissent en confiance, en classe comme en dehors…
+   *prêts à ouvrir leurs horizons.*" Static.
+3. **School stages** (added 24 Oct 2026, after Korowa's "From first steps to future leaders"):
+   h2 "Un seul parcours, *de 2 à 18 ans*"; three link panels Maternelle / Primaire /
+   Secondaire with their ages (EBM to confirm the cut-offs), to `/pedagogie#maternelle`,
+   `#primaire`, `#secondaire`; photos `collage-dessin`, `collage-badminton`,
+   `parcours-secondaire` (from `EBM_Site_Actuel/images/A04 Parcours scolaire/05_Secondaire.jpg`).
+   Hover/focus reveal with a mouse; band always shown on touch screens. CSS only.
+4. **About, the experience scene** (redone 23 Oct 2026 from Ayoub's mock-ups `UI projects/EBM
    WEBSITE/ANIMATION 1.png` to `3.png`, modelled on the "Korowa experiences" scene of
    korowa.vic.edu.au). Pinned for 200lvh after white room under the highlights panel:
-   (1) a full Fired Clay screen with, centred, three white dots + "DE LA MATERNELLE AU CESS",
+   (1) a full Fired Clay screen with, centred, three white dots + "CASABLANCA ET RABAT" (was
+   "DE LA MATERNELLE AU CESS" until the stages section took that message),
    the h2 "Apprendre *ici*, réussir *partout*" (Avenir 600 + Playfair italic accents) and a
    white button "DÉCOUVRIR NOS CAMPUS" → `/nos-campus`; (2) four EBM photos slide in from the
    corners (cour de Casablanca, école du dehors, maternelle, sciences) while the diploma
@@ -156,7 +169,7 @@ that overlaps the hero is part of section 1.
    Ayoub asked for better, functional copy than his mock-up's placeholder text: label = the
    school range, heading = the promise, button = a real destination. Still collage
    (step 2) without JS or under reduced motion. The scrim over the focus photo is measured.
-3. **Alumni deck** "Ils ont *grandi* aux EBM" (carousel redone 23 Oct 2026: Ayoub rejected
+5. **Alumni deck** "Ils ont *grandi* aux EBM" (carousel redone 23 Oct 2026: Ayoub rejected
    the pinned horizontal scroll; his reference screenshot did not arrive, so the deck follows
    the "News from Korowa" card deck on his inspiration site). Dotted label "APRÈS LES EBM",
    mixed h2, lead, visible placeholder notice; six cards (5:4 photo, pill Études/Carrière,
@@ -164,22 +177,22 @@ that overlaps the hero is part of section 1.
    swipe/drag, arrow keys; no loop; then the outline button "Découvrir Après les EBM" →
    `/apres-les-ebm`. Stories are placeholders (`source: 'placeholder'`): real EBM photos,
    invented quotes, `[Prénom Nom]`, "Promotion 20XX".
-4. **Key figures**: paper band inside the container (max 1160px), 4 cells with a drawn icon,
+6. **Key figures**: paper band inside the container (max 1160px), 4 cells with a drawn icon,
    number (Avenir 700, ~42px, terracotta, tabular numerals) and label: "2 000" élèves sur nos
    deux campus · "118" enseignants diplômés en Belgique · "2" campus, Casablanca et Rabat ·
    "2014" année de création du réseau. Use `<dl>`. (Figures come from EBM's current site;
    EBM to confirm before launch.) Count-up on first view (asked 23 Oct 2026): 0 → 2 000,
    0 → 118, 0 → 2, and 2000 → 2014 for the year (`countFrom` in the content).
-5. **Actualités & projets** (Instagram block, like SAS): h2 "Actualités & projets", link
+7. **Actualités & projets** (Instagram block, like SAS): h2 "Actualités & projets", link
    "Suivre @ecolesbelgesaumaroc" + external icon; 6 square tiles (3 per row on phones, 6 on
    desktop) from `insta-*.jpg`, each linking to the Instagram account. This is a static
    preview until the Instagram feed is connected: keep the data in `src/content/home.ts`
    flagged `source: "placeholder"`.
-6. **CTA band** (shared component, also used on placeholder pages): full-bleed
+8. **CTA band** (shared component, also used on placeholder pages): full-bleed
    `casablanca-cour-secondaire` photo, charcoal overlay ~62%, h2 "Prêt à rejoindre les EBM ?",
    paragraph "Rencontrez nos équipes, découvrez nos campus et commencez votre parcours
    d’admission.", buttons "Visiter nos écoles" (`/calendrier`) and "Candidater en ligne".
-7. **Footer** (shared): paper ground, 4–5 columns: stacked logo + "Établissements scolaires
+9. **Footer** (shared): paper ground, 4–5 columns: stacked logo + "Établissements scolaires
    belges à programme de la Fédération Wallonie-Bruxelles, de la classe d’accueil au CESS." +
    Instagram link; "Accès rapides" (Visiter nos écoles, Candidater en ligne, Calendrier,
    Parents · Espace Eduka ↗, Recrutement `/recrutement` placeholder); "L’école" (Le réseau EBM,

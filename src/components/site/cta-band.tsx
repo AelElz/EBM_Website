@@ -5,7 +5,7 @@ import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 
 /*
- * Shared closing band (docs/HOME-SPEC.md, home section 6): full-bleed photo of the Casablanca
+ * Shared closing band (docs/HOME-SPEC.md, home section 8): full-bleed photo of the Casablanca
  * secondary courtyard under a charcoal overlay, h2, one sentence, the two priority actions.
  * Rendered on the home page and on every placeholder page. Server Component, no props.
  *

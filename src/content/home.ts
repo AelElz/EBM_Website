@@ -39,6 +39,28 @@ export interface Highlight {
   linkLabel: string
 }
 
+export interface HomeStatement {
+  /** Small descriptive line above the statement: who, where, what (plain facts, for SEO too). */
+  intro: string
+  /** The statement: words between asterisks are set in Playfair italic (emphasis.tsx). */
+  text: string
+}
+
+export interface SchoolStage {
+  /** Stage name, e.g. "Maternelle": white over the photo at rest, Playfair italic when open. */
+  title: string
+  /** Who it is for, e.g. "De 2 à 6 ans". */
+  ages: string
+  href: string
+  image: ImageAsset
+}
+
+export interface HomeStages {
+  /** Mixed heading, like HomeAbout.title. */
+  title: string
+  stages: SchoolStage[]
+}
+
 export interface HomeAbout {
   /** Small line above the heading, after the three dots. */
   label: string
@@ -120,6 +142,8 @@ export interface HomeContent {
   seo: HomeSeo
   hero: HomeHero
   highlights: Highlight[]
+  statement: HomeStatement
+  stages: HomeStages
   about: HomeAbout
   alumni: HomeAlumni
   figures: Figure[]
@@ -187,8 +211,57 @@ export const home: HomeContent = {
     },
   ],
 
+  statement: {
+    intro: 'Les Écoles Belges au Maroc accueillent les élèves de 2 à 18 ans à Casablanca (Dar Bouazza) et à Rabat (Hay Riad), avec le programme et les diplômes de la Fédération Wallonie-Bruxelles.',
+    text: `Un *enseignement belge* exigeant, dans une *école bienveillante*. Nos élèves grandissent en confiance, en classe comme en dehors… *prêts à ouvrir leurs horizons.*`,
+  },
+
+  // Ages from the network's "de 2 à 18 ans" (classe d’accueil to CESS); EBM to confirm the cut-offs.
+  // Photos are decorative (alt ''): each panel is a link named by its stage and ages.
+  stages: {
+    title: 'Un seul parcours, *de 2 à 18 ans*',
+    stages: [
+      {
+        title: 'Maternelle',
+        ages: 'De 2 à 6 ans',
+        href: `${routes.pedagogie}#maternelle`,
+        image: {
+          src: '/images/collage-dessin.jpg',
+          alt: '',
+          width: 1600,
+          height: 1067,
+          position: '22% 50%',
+        },
+      },
+      {
+        title: 'Primaire',
+        ages: 'De 6 à 12 ans',
+        href: `${routes.pedagogie}#primaire`,
+        image: {
+          src: '/images/collage-badminton.jpg',
+          alt: '',
+          width: 1600,
+          height: 1067,
+          position: '32% 50%',
+        },
+      },
+      {
+        title: 'Secondaire',
+        ages: 'De 12 à 18 ans, jusqu’au CESS',
+        href: `${routes.pedagogie}#secondaire`,
+        image: {
+          src: '/images/parcours-secondaire.jpg',
+          alt: '',
+          width: 1600,
+          height: 1066,
+          position: '30% 60%',
+        },
+      },
+    ],
+  },
+
   about: {
-    label: 'De la maternelle au CESS',
+    label: 'Casablanca et Rabat',
     title: 'Apprendre *ici*, réussir *partout*',
     cta: { label: 'Découvrir nos campus', href: routes.campus },
     collage: [

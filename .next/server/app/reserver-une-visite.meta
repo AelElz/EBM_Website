@@ -1,0 +1,40 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(frontend)/layout,_N_T_/(frontend)/reserver-une-visite/layout,_N_T_/(frontend)/reserver-une-visite/page,_N_T_/reserver-une-visite"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZyb250ZW5kKQ",
+    "/!KGZyb250ZW5kKQ/reserver-une-visite/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/cbb2099325080880a725956426e2d354ce4b536265189cee8f5fe1d85ffc4c19/$/reserver-une-visite",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(frontend)/reserver-une-visite/page"
+    },
+    "isFallback": false
+  }
+}

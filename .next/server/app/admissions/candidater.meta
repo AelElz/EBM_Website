@@ -1,0 +1,45 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(frontend)/layout,_N_T_/(frontend)/admissions/layout,_N_T_/(frontend)/admissions/candidater/layout,_N_T_/(frontend)/admissions/candidater/page,_N_T_/admissions/candidater"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZyb250ZW5kKQ",
+    "/!KGZyb250ZW5kKQ/admissions/candidater/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 96,
+                "slots": {
+                  "children": {
+                    "hints": 160,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/e389fedb5469d20316bb8eebe46c74559b2cf8fe31d52e69e353a5785b7d0ba4/$/admissions/candidater",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(frontend)/admissions/candidater/page"
+    },
+    "isFallback": false
+  }
+}

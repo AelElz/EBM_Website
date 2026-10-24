@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/lib/avenirstrong_96467170.module.css"],"sourcesContent":["@font-face {\n    font-family: Avenir Next EBM;\n    src: url('@vercel/turbopack-next/internal/font/local/font?{%22path%22:%22../fonts/avenir-next-500.woff2%22,%22preload%22:false,%22has_size_adjust%22:false}') format('woff2');\n    font-display: swap;\n    \nfont-weight: 500;\nfont-style: normal;\n}\n@font-face {\n    font-family: Avenir Next EBM;\n    src: url('@vercel/turbopack-next/internal/font/local/font?{%22path%22:%22../fonts/avenir-next-600.woff2%22,%22preload%22:false,%22has_size_adjust%22:false}') format('woff2');\n    font-display: swap;\n    \nfont-weight: 600;\nfont-style: normal;\n}\n@font-face {\n    font-family: Avenir Next EBM;\n    src: url('@vercel/turbopack-next/internal/font/local/font?{%22path%22:%22../fonts/avenir-next-700.woff2%22,%22preload%22:false,%22has_size_adjust%22:false}') format('woff2');\n    font-display: swap;\n    \nfont-weight: 700;\nfont-style: normal;\n}\n\n\n.className {\n    font-family: 'avenirStrong';\n    \n}\n.variable {\n    --font-avenir-500-700: 'avenirStrong';\n}\n\n"],"names":[],"mappings":"AAAA;;;;;;;;AAQA;;;;;;;;AAQA;;;;;;;;AAUA;;;;AAIA"}}]
+}

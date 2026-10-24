@@ -1,0 +1,40 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(frontend)/layout,_N_T_/(frontend)/pedagogie/layout,_N_T_/(frontend)/pedagogie/page,_N_T_/pedagogie"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZyb250ZW5kKQ",
+    "/!KGZyb250ZW5kKQ/pedagogie/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/6df3e7245e4cb0b1ebe6899626ad6f29b3aca8186999075779b7fa2a85a95031/$/pedagogie",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(frontend)/pedagogie/page"
+    },
+    "isFallback": false
+  }
+}

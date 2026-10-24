@@ -1,0 +1,40 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(frontend)/layout,_N_T_/(frontend)/apres-les-ebm/layout,_N_T_/(frontend)/apres-les-ebm/page,_N_T_/apres-les-ebm"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZyb250ZW5kKQ",
+    "/!KGZyb250ZW5kKQ/apres-les-ebm/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/0f8c89630f37d6692570a0909e78b4418a8947a8ef26b29693716061475d3036/$/apres-les-ebm",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(frontend)/apres-les-ebm/page"
+    },
+    "isFallback": false
+  }
+}

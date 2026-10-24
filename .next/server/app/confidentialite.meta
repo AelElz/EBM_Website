@@ -1,0 +1,40 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(frontend)/layout,_N_T_/(frontend)/confidentialite/layout,_N_T_/(frontend)/confidentialite/page,_N_T_/confidentialite"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZyb250ZW5kKQ",
+    "/!KGZyb250ZW5kKQ/confidentialite/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/77db440ce2e546dfa1cbc1f365dbf492a8b5b73562c115edb74141eda0753035/$/confidentialite",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(frontend)/confidentialite/page"
+    },
+    "isFallback": false
+  }
+}

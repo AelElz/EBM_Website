@@ -1,0 +1,8 @@
+{"timestamp":"00:00:01.026","source":"Server","level":"LOG","message":"- Experiments (use with caution):"}
+{"timestamp":"00:00:01.026","source":"Server","level":"LOG","message":"  ✓ globalNotFound"}
+{"timestamp":"00:00:01.026","source":"Server","level":"LOG","message":"  ⨯ turbopackServerFastRefresh"}
+{"timestamp":"00:00:01.026","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:06.453","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:42.117","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:42.209","source":"Browser","level":"WARN","message":"Image with src \"/images/ceremonie-diplomes.jpg\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\"eager\"` property if this image is above the fold.\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading"}
+{"timestamp":"00:00:42.277","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/ceremonie-diplomes.jpg\\\" was detected as the Largest Contentful Paint (LCP). Please add the `loading=\\\"eager\\\"` property if this image is above the fold.\\nRead more: https://nextjs.org/docs/app/api-reference/components/image#loading\\u001b[39m\""}

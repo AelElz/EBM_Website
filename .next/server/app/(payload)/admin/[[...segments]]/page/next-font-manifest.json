@@ -1,0 +1,11 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/src/app/(payload)/admin/[[...segments]]/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}

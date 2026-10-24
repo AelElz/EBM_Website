@@ -15,7 +15,7 @@ import { Container } from '@/components/ui/container'
 import { CountUp } from './count-up'
 
 /*
- * Home section 4 (docs/HOME-SPEC.md): key figures. Server Component; each number is a small
+ * Home section 6 (docs/HOME-SPEC.md): key figures. Server Component; each number is a small
  * client CountUp (count-up.tsx) that counts from `countFrom` to the value when the band scrolls
  * into view, one after the other (120ms apart).
  *

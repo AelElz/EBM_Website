@@ -1,0 +1,20 @@
+/* [project]/src/components/site/header/desktop-nav.module.css [app-client] (css) */
+.desktop-nav-module__mSYZqa__panel {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .15s ease-out, visibility 0s linear .15s;
+}
+
+.desktop-nav-module__mSYZqa__open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .15s ease-out;
+}
+
+.desktop-nav-module__mSYZqa__nav:not([data-enhanced]) .desktop-nav-module__mSYZqa__item:hover > .desktop-nav-module__mSYZqa__panel, .desktop-nav-module__mSYZqa__nav:not([data-enhanced]) .desktop-nav-module__mSYZqa__item:focus-within > .desktop-nav-module__mSYZqa__panel {
+  visibility: visible;
+  opacity: 1;
+  transition: none;
+}
+
+/*# sourceMappingURL=src_components_site_header_desktop-nav_module_css_1igg3k2-ikub5._.single.css.map*/

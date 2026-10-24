@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+Allow: /api/media/file/
+Disallow: /admin$
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://www.ecolebelge.org/sitemap.xml

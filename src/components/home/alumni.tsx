@@ -10,7 +10,7 @@ import { Emphasis, SectionLabel } from './emphasis'
 import { StoryDeck } from './story-deck'
 
 /*
- * Home section 3 (docs/HOME-SPEC.md): "Ils ont grandi aux EBM", alumni stories and careers.
+ * Home section 5 (docs/HOME-SPEC.md): "Ils ont grandi aux EBM", alumni stories and careers.
  *
  * Follows the scroll scene, whose last frame is the diploma ceremony at full screen. A card deck
  * after the "News from Korowa" deck (korowa.vic.edu.au): the current story in front, the next

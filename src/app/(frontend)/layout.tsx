@@ -6,6 +6,7 @@ import { fontVariables } from '@/lib/fonts'
 import { baseOpenGraph } from '@/lib/metadata'
 import { Footer } from '@/components/site/footer'
 import { Header } from '@/components/site/header/header'
+import { Intro } from '@/components/site/intro'
 import { MobileActionBar } from '@/components/site/mobile-action-bar'
 
 import './globals.css'
@@ -38,8 +39,12 @@ export const viewport: Viewport = {
 
 export default function FrontendLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr" className={fontVariables}>
+    // suppressHydrationWarning: the intro's inline script may add data-intro-seen to <html>
+    // before hydration (src/components/site/intro.tsx). It only covers this element's attributes.
+    <html lang="fr" className={fontVariables} suppressHydrationWarning>
       <body>
+        {/* First in <body>: the curtain paints before anything else on the first load. */}
+        <Intro />
         <a href="#contenu" className="skip-link">
           Aller au contenu
         </a>

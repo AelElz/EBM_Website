@@ -17,9 +17,10 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
 
 ## Status
 
-- Home page complete: 7 sections (1 hero slider + highlights panel, 2 the "experience" scroll
-  scene from Ayoub's ANIMATION 1-3 mock-ups, 3 alumni card deck, 4 key figures, 5 Instagram
-  preview, 6 CTA band, 7 footer), checked at 360 to 1920px on 23 Oct 2026 (second pass). Built
+- Home page complete: 9 sections (1 hero slider + highlights panel, 2 statement band,
+  3 school stages, 4 the "experience" scroll scene from Ayoub's ANIMATION 1-3 mock-ups,
+  5 alumni card deck, 6 key figures with count-up, 7 Instagram preview, 8 CTA band, 9 footer),
+  checked at 360 to 1920px on 24 Oct 2026. Sections 2 and 3 follow Ayoub's Korowa screenshots. Built
   from typed static content in `src/content/`. Swap to Payload queries once Supabase is
   connected; keep the same component props. `DESIGN.md` (+ `.impeccable/design.json`)
   documents the built system.
@@ -37,11 +38,12 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   paper #F4F1EC, charcoal #282828. Logo colours only inside the logo.
 - No eyebrow labels above headings, no uppercase tracked labels, no section numbers, no
   gradient text, no emoji/unicode icons, no scroll hints, static buttons (colour change only).
-- Exception, Ayoub's own design (23 Oct 2026, mock-ups in `UI projects/EBM WEBSITE/ANIMATION
-  1-3.png`, modelled on korowa.vic.edu.au): home sections 2 and 3 use the three-dot uppercase
-  label, mixed headings (Avenir semibold + Playfair italic accent words, `*word*` in content),
-  a full Fired Clay screen and, in section 2, a white uppercase tracked button. Keep that
-  language to those sections unless Ayoub extends it.
+- Exception, Ayoub's own design (23-24 Oct 2026, mock-ups in `UI projects/EBM WEBSITE/ANIMATION
+  1-3.png` and screenshots of korowa.vic.edu.au): home sections 2 to 5 use mixed headings
+  (Avenir + Playfair italic accent words, `*word*` in content), Fired Clay bands (statement,
+  scene), the three-dot uppercase label and the white tracked button (scene, alumni), and
+  rounded top corners on the stage panels. Keep that language to those sections unless
+  Ayoub extends it.
 - Real EBM photos and copy only; anything unknown is a visible `[placeholder]`.
 
 ## Performance rules
@@ -65,7 +67,8 @@ the hero overlay, run `npm run start` then `npm run qa:hero-contrast`.
 
 ## Environment
 
-- Project lives at `~/Documents/ayoub/ebm-website`. Assets: `~/Documents/ayoub/UI projects/EBM WEBSITE/`
+- Project lives at `~/Documents/ayoub/EBM_Website` (moved there 23 Oct 2026; GitHub
+  `AelElz/EBM_Website`). Assets: `~/Documents/ayoub/UI projects/EBM WEBSITE/`
   (renamed from `UI:UX projects` by Oct 2026); EBM's current-site photos are in its
   `EBM_Site_Actuel/images/` (index.csv lists them).
 - The Mac disk is nearly full: check `df -h ~` before installs/builds; run

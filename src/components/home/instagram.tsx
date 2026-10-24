@@ -5,7 +5,7 @@ import { home } from '@/content/home'
 import { Container } from '@/components/ui/container'
 
 /*
- * "Actualités & projets" (docs/HOME-SPEC.md, home section 5).
+ * "Actualités & projets" (docs/HOME-SPEC.md, home section 7).
  * Static preview of the Instagram account: six EBM photos, each linking to the account (not to
  * a post: there is no feed yet). The data is flagged `source: 'placeholder'` in
  * src/content/home.ts until the feed is connected, so no captions, dates or like counts.

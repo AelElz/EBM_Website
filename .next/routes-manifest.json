@@ -1,0 +1,239 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "headers": [
+        {
+          "key": "Accept-CH",
+          "value": "Sec-CH-Prefers-Color-Scheme"
+        },
+        {
+          "key": "Vary",
+          "value": "Sec-CH-Prefers-Color-Scheme"
+        },
+        {
+          "key": "Critical-CH",
+          "value": "Sec-CH-Prefers-Color-Scheme"
+        }
+      ],
+      "source": "/:path*",
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    }
+  ],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/admin/[[...segments]]",
+      "regex": "^/admin(?:/(.+?))?(?:/)?$",
+      "routeKeys": {
+        "nxtPsegments": "nxtPsegments"
+      },
+      "namedRegex": "^/admin(?:/(?<nxtPsegments>.+?))?(?:/)?$"
+    },
+    {
+      "page": "/api/[...slug]",
+      "regex": "^/api/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/api/(?<nxtPslug>.+?)(?:/)?$"
+    },
+    {
+      "page": "/nos-campus/[campus]",
+      "regex": "^/nos\\-campus/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPcampus": "nxtPcampus"
+      },
+      "namedRegex": "^/nos\\-campus/(?<nxtPcampus>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/admissions",
+      "regex": "^/admissions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admissions(?:/)?$"
+    },
+    {
+      "page": "/admissions/candidater",
+      "regex": "^/admissions/candidater(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admissions/candidater(?:/)?$"
+    },
+    {
+      "page": "/admissions/comprendre",
+      "regex": "^/admissions/comprendre(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admissions/comprendre(?:/)?$"
+    },
+    {
+      "page": "/admissions/documents-et-frais",
+      "regex": "^/admissions/documents\\-et\\-frais(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admissions/documents\\-et\\-frais(?:/)?$"
+    },
+    {
+      "page": "/api/graphql",
+      "regex": "^/api/graphql(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/graphql(?:/)?$"
+    },
+    {
+      "page": "/api/graphql-playground",
+      "regex": "^/api/graphql\\-playground(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/graphql\\-playground(?:/)?$"
+    },
+    {
+      "page": "/apres-les-ebm",
+      "regex": "^/apres\\-les\\-ebm(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/apres\\-les\\-ebm(?:/)?$"
+    },
+    {
+      "page": "/calendrier",
+      "regex": "^/calendrier(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/calendrier(?:/)?$"
+    },
+    {
+      "page": "/confidentialite",
+      "regex": "^/confidentialite(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/confidentialite(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/ecole-du-dehors",
+      "regex": "^/ecole\\-du\\-dehors(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ecole\\-du\\-dehors(?:/)?$"
+    },
+    {
+      "page": "/grandir-aux-ebm",
+      "regex": "^/grandir\\-aux\\-ebm(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/grandir\\-aux\\-ebm(?:/)?$"
+    },
+    {
+      "page": "/le-reseau",
+      "regex": "^/le\\-reseau(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/le\\-reseau(?:/)?$"
+    },
+    {
+      "page": "/mentions-legales",
+      "regex": "^/mentions\\-legales(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mentions\\-legales(?:/)?$"
+    },
+    {
+      "page": "/nos-campus",
+      "regex": "^/nos\\-campus(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nos\\-campus(?:/)?$"
+    },
+    {
+      "page": "/pedagogie",
+      "regex": "^/pedagogie(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pedagogie(?:/)?$"
+    },
+    {
+      "page": "/plan-du-site",
+      "regex": "^/plan\\-du\\-site(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/plan\\-du\\-site(?:/)?$"
+    },
+    {
+      "page": "/recherche",
+      "regex": "^/recherche(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/recherche(?:/)?$"
+    },
+    {
+      "page": "/recrutement",
+      "regex": "^/recrutement(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/recrutement(?:/)?$"
+    },
+    {
+      "page": "/reserver-une-visite",
+      "regex": "^/reserver\\-une\\-visite(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/reserver\\-une\\-visite(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

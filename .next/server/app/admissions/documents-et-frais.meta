@@ -1,0 +1,45 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(frontend)/layout,_N_T_/(frontend)/admissions/layout,_N_T_/(frontend)/admissions/documents-et-frais/layout,_N_T_/(frontend)/admissions/documents-et-frais/page,_N_T_/admissions/documents-et-frais"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZyb250ZW5kKQ",
+    "/!KGZyb250ZW5kKQ/admissions/documents-et-frais/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 96,
+                "slots": {
+                  "children": {
+                    "hints": 160,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/e7f26535455268f457c21f6e35245aacde84b6b38289ee07b71bbda836f20c3b/$/admissions/documents-et-frais",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(frontend)/admissions/documents-et-frais/page"
+    },
+    "isFallback": false
+  }
+}

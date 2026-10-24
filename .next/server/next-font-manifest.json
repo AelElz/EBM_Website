@@ -1,0 +1,95 @@
+{
+  "app": {
+    "[project]/src/app/(frontend)/admissions/candidater/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/admissions/comprendre/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/admissions/documents-et-frais/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/admissions/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/apres-les-ebm/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/calendrier/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/confidentialite/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/contact/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/ecole-du-dehors/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/grandir-aux-ebm/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/le-reseau/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/mentions-legales/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/nos-campus/[campus]/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/nos-campus/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/pedagogie/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/plan-du-site/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/recherche/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/recrutement/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(frontend)/reserver-une-visite/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/(payload)/admin/[[...segments]]/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ],
+    "[project]/src/app/_not-found/page": [
+      "static/media/avenir_next_400.p.1xzzekg0g8_dk.woff2",
+      "static/media/2a65768255d6b625-s.p.3u4lli0-axodc.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}
