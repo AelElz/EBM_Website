@@ -9,7 +9,8 @@
  * Stacking order (keep new layers inside it): page content, at most z-10 (the highlights panel
  * over the hero; hero and CTA band isolate their own photo/overlay layers) < mobile action bar
  * z-30 (fixed, < 1024px) < sticky header z-40 (its dropdown panels stack inside it) < menu
- * sheet and its scrim z-50 (Radix portal) < skip link z-100.
+ * sheet and its scrim z-50 (Radix portal) < intro curtain z-90 (first load only, 2.3s,
+ * components/site/intro.tsx) < skip link z-100.
  */
 @import 'tailwindcss';
 @import 'tw-animate-css';

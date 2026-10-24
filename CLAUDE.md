@@ -20,7 +20,11 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
 - Home page complete: 9 sections (1 hero slider + highlights panel, 2 statement band,
   3 school stages, 4 the "experience" scroll scene from Ayoub's ANIMATION 1-3 mock-ups,
   5 alumni card deck, 6 key figures with count-up, 7 Instagram preview, 8 CTA band, 9 footer),
-  checked at 360 to 1920px on 24 Oct 2026. Sections 2 and 3 follow Ayoub's Korowa screenshots. Built
+  checked at 360 to 1920px on 24 Oct 2026. Sections 2 and 3 follow Ayoub's Korowa screenshots.
+- Intro curtain (every page, first load of a browser session only, `components/site/intro.tsx`):
+  Fired Clay screen, white one-colour stacked logo rising into the middle, then the screen
+  slides up out of view (2.3s, CSS only). Skipped under reduced motion and on later loads
+  (sessionStorage + `html[data-intro-seen]`, hence `suppressHydrationWarning` on <html>). Built
   from typed static content in `src/content/`. Swap to Payload queries once Supabase is
   connected; keep the same component props. `DESIGN.md` (+ `.impeccable/design.json`)
   documents the built system.
@@ -35,7 +39,9 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
 - Only two typefaces: Playfair Display (h1/h2/large headings) and Avenir Next (everything else,
   self-hosted from EBM's files; web licence still to verify).
 - Palette: terracotta #B85431 (ink #9C4425), olive #505940, sand #D0A057, cream #ECE0D3,
-  paper #F4F1EC, charcoal #282828. Logo colours only inside the logo.
+  paper #F4F1EC, charcoal #282828. Logo colours only inside the logo. One-colour versions:
+  EBM's charcoal logo, and `public/brand/logo-ebm-stacked-white.svg` (all fills white, made
+  24 Oct 2026 for the clay intro).
 - No eyebrow labels above headings, no uppercase tracked labels, no section numbers, no
   gradient text, no emoji/unicode icons, no scroll hints, static buttons (colour change only).
 - Exception, Ayoub's own design (23-24 Oct 2026, mock-ups in `UI projects/EBM WEBSITE/ANIMATION

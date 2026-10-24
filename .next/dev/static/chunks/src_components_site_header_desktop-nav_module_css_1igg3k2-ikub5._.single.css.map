@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/components/site/header/desktop-nav.module.css"],"sourcesContent":["/*\n * Desktop dropdown panels (desktop-nav.tsx). Only the open/closed state lives here; everything\n * else is Tailwind on the elements.\n *\n * Opening switches visibility at once (a panel opened from the keyboard can take focus in the\n * same frame) and fades opacity in; closing fades out, then hides. Hidden panels are out of the\n * tab order and the accessibility tree.\n */\n.panel {\n  visibility: hidden;\n  opacity: 0;\n  transition:\n    opacity 150ms ease-out,\n    visibility 0s linear 150ms;\n}\n\n.open {\n  visibility: visible;\n  opacity: 1;\n  transition: opacity 150ms ease-out;\n}\n\n/*\n * Before hydration (or if JavaScript fails) the menus still work: hover and keyboard focus open\n * the panel with CSS alone. desktop-nav.tsx sets data-enhanced on the <nav> once its handlers\n * are live, which switches this fallback off.\n */\n.nav:not([data-enhanced]) .item:hover > .panel,\n.nav:not([data-enhanced]) .item:focus-within > .panel {\n  visibility: visible;\n  opacity: 1;\n  transition: none;\n}\n"],"names":[],"mappings":"AAQA;;;;;;AAQA;;;;;;AAWA"}}]
-}

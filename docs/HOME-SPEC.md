@@ -117,6 +117,13 @@ External: Espace Eduka (parents) `https://ecolebelge.eduka.school/` (opens in a 
    buttons "Visiter l’école" + "Candidater") is pinned to the bottom on phones once the hero
    buttons have scrolled out of view; respects `env(safe-area-inset-bottom)`.
 
+## Intro curtain (shared, every page)
+
+Added 24 Oct 2026 at Ayoub's request: on the first load of a browser session, a Fired Clay
+screen with the white stacked logo in the middle, which then slides up and out (2.3s, CSS
+only, `src/components/site/intro.tsx`). Not shown on later loads in the session, nor under
+`prefers-reduced-motion`.
+
 ## Home page sections (top to bottom)
 
 Nine sections (since 24 Oct 2026), numbered as in `page.tsx` and the component comments. The

@@ -1,3 +1,0 @@
-module.exports=[919483,a=>{"use strict";a.s([])}];
-
-//# sourceMappingURL=_next-internal_server_app_%28frontend%29_nos-campus_page_actions_09biyn-2-3lre.js.map

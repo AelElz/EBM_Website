@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/lib/avenir_38ceda2d.module.css"],"sourcesContent":["@font-face {\n    font-family: Avenir Next EBM;\n    src: url('@vercel/turbopack-next/internal/font/local/font?{%22path%22:%22../fonts/avenir-next-400.woff2%22,%22preload%22:true,%22has_size_adjust%22:false}') format('woff2');\n    font-display: swap;\n    \nfont-weight: 400;\nfont-style: normal;\n}\n\n\n.className {\n    font-family: 'avenir';\n    \n}\n.variable {\n    --font-avenir-400: 'avenir';\n}\n\n"],"names":[],"mappings":"AAAA;;;;;;;;AAUA;;;;AAIA"}}]
-}

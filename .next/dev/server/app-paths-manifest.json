@@ -1,7 +1,0 @@
-{
-  "/(frontend)/apres-les-ebm/page": "app/(frontend)/apres-les-ebm/page.js",
-  "/(frontend)/le-reseau/page": "app/(frontend)/le-reseau/page.js",
-  "/(frontend)/nos-campus/page": "app/(frontend)/nos-campus/page.js",
-  "/(frontend)/page": "app/(frontend)/page.js",
-  "/(frontend)/pedagogie/page": "app/(frontend)/pedagogie/page.js"
-}

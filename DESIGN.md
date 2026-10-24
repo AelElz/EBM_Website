@@ -279,6 +279,9 @@ Three full-bleed campus photographs under the measured overlay, crossfading over
 ### Highlights Panel (signature)
 One white panel, not three cards, lifted over the bottom of the hero with the panel shadow. Three columns, each with a 40px line icon (1.4px stroke, charcoal), an Avenir 700 title at 18px, a 15px Walnut Grey sentence and an "En savoir plus" link (Avenir 700 at 14px with a 14px arrow) that turns Kiln Ink and underlines on hover.
 
+### Intro Curtain (Ayoub's design)
+On the first page load of a browser session, whatever the page: a full Fired Clay screen above everything but the skip link (z-90), with the white one-colour stacked logo (200 to 340px wide) rising into the middle through a mask (0.9s, ease-out-expo). After a short hold the whole screen slides up by its own height and out through the top (1s, ease in-out), the logo drifting up a little faster as it fades, while the page underneath rises 6vh into place. 2.3s in all, CSS only, never blocks a click (pointer-events none), hidden for good at the end. Not shown again in the same session, nor under reduced motion.
+
 ### Statement Band (Ayoub's design)
 After the band under Korowa's hero. Fired Clay ground; a small white factual line (who, where, what) and one big sentence in Avenir 500, Riad Paper, with Playfair italic accent words ("Un *enseignement belge* exigeant, dans une *école bienveillante*. […] *prêts à ouvrir leurs horizons.*"). Paper on clay is 4.3:1, allowed for large text; the small line is white (4.8:1). No motion.
 
