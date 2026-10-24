@@ -17,10 +17,26 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
 
 ## Status
 
-- Home page complete: 9 sections (1 hero slider + highlights panel, 2 statement band,
-  3 school stages, 4 the "experience" scroll scene from Ayoub's ANIMATION 1-3 mock-ups,
-  5 alumni card deck, 6 key figures with count-up, 7 Instagram preview, 8 CTA band, 9 footer),
-  checked at 360 to 1920px on 24 Oct 2026. Sections 2 and 3 follow Ayoub's Korowa screenshots.
+- Home page: 15 content sections plus the shared footer. Order: hero + highlights,
+  statement, school stages, direct age groups, Belgian certificate diagram, experience scroll
+  scene, alumni deck, key figures, two campus chapters, director's letter, admissions path,
+  large video, expandable FAQ cards, Instagram preview, CTA band. The latest additions were checked at 360, 390,
+  768 and 1440px on 24 Oct 2026. The established scene/stage designs are preserved.
+  `docs/HOME-UX-UPDATE.md` records the latest simplification, video/FAQ behaviour and checks.
+  `docs/HOME-FINISH.md` records the preceding completion pass and remaining content gaps.
+- Header (24 Oct 2026, Ayoub's screenshot): no charcoal top bar any more; one white bar with
+  the 4 menus, "Rechercher" + "Espace Eduka" (login) as clay icon + label (labels >= 1440px),
+  then "Calendrier" (replaces "Visiter") + "Candidater". "Réserver une visite" is in the
+  Admissions menu and the footer; phones, e-mails and "Nous contacter" only in the footer.
+- Espace Eduka page `/espace-eduka` (24 Oct 2026, noindex): the login page in the EBM design,
+  reached from the header's person icon, the phone menu and the footer. No credential fields on
+  purpose: Eduka's sign-in is CSRF-protected and the brief forbids handling Eduka credentials,
+  so "Se connecter" hands off to `https://ecolebelge.eduka.school/login`. Copy in
+  `src/content/espace-eduka.ts`.
+- Search overlay (24 Oct 2026): "Rechercher" opens a clay panel dropping from the top with a big
+  field and live results from `src/content/search.ts` (page titles, purposes, synonyms; no
+  full-text search yet). Lazy chunk (`search-trigger.tsx` → `search-overlay.tsx`, Radix
+  Dialog); without JS the link goes to `/recherche`.
 - Intro curtain (every page, first load of a browser session only, `components/site/intro.tsx`):
   Fired Clay screen, white one-colour stacked logo rising into the middle, then the screen
   slides up out of view (2.3s, CSS only). Skipped under reduced motion and on later loads
@@ -58,10 +74,12 @@ Static routes; Server Components by default; client components only for header s
 mobile sheet, hero slider, mobile action bar, the home scroll-scene driver (`collage-zoom.tsx`,
 writes two CSS variables; shared code in `scroll-scene.ts`) and the alumni deck
 (`story-deck.tsx`; the cards are server-rendered children) and the key-figure count-up
-(`count-up.tsx`; the final value is in the server HTML). No animation or carousel library. `next/image`
+(`count-up.tsx`; the final value is in the server HTML), the FAQ accordion and video player.
+The age-group chooser is native radio inputs + CSS, with no client component or slider. The admissions diagram uses a small native scroll driver.
+No animation or carousel library. `next/image`
 everywhere (only the LCP image has `preload`), `next/font` for both faces. Check the first-load
 JS table after changes with `npm run report:bundle` (Next 16 no longer prints it): home is
-149.9 KiB gzip / 129.1 KiB brotli, about 133 KiB of which is Next 16 + React 19 alone.
+159.9 KiB gzip / 138.1 KiB brotli (24 Oct 2026), about 133 KiB of which is Next 16 + React 19 alone.
 
 Scroll scene: the server HTML is the still collage (ANIMATION 2); the pinned version applies
 only under `[data-ready]`, which the driver sets when JS runs and motion is allowed. Its scrim

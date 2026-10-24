@@ -15,7 +15,7 @@ export function Instagram() {
   const { title, handle, url, linkLabel, source, tiles } = home.instagram
 
   return (
-    <section aria-labelledby="instagram-title" data-source={source} className="pb-section">
+    <section aria-labelledby="instagram-title" data-source={source} className="py-section">
       <Container>
         <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
           <h2 id="instagram-title" className="font-display text-h2 font-semibold">

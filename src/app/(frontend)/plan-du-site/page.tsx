@@ -32,7 +32,7 @@ const groups: SitemapGroup[] = [
   {
     title: 'En ligne',
     links: [
-      { label: `Parents · ${site.eduka.label}`, href: site.eduka.portalUrl, external: true },
+      { label: `Parents · ${site.eduka.label}`, href: routes.espaceEduka },
       { label: `Instagram ${site.instagram.handle}`, href: site.instagram.url, external: true },
     ],
   },

@@ -1,13 +1,13 @@
 'use client'
 
-import { ArrowUpRight, CalendarDays, Phone, UserRound, X } from 'lucide-react'
+import { UserRound, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, type RefObject } from 'react'
 
 import { navigation, site } from '@/content/site'
-import { getSectionForPath } from '@/lib/routes'
+import { getSectionForPath, routes } from '@/lib/routes'
 import { cn } from '@/lib/utils'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { ButtonLink } from '@/components/ui/button'
@@ -20,9 +20,9 @@ import { MOBILE_MENU_ID, isCurrentPage } from './nav-utils'
  * mobile-menu.tsx, never part of the first-load JavaScript.
  *
  * Full-height panel from the right (full width on phones, 420px from 640px): logo + close,
- * the four menus as accordions (the current section starts open), Espace Eduka (new tab),
- * Calendrier, both campus phones, then the two priority actions pinned at the bottom above
- * the home indicator.
+ * the four menus as accordions (the current section starts open), Espace Eduka (the login
+ * page, /espace-eduka), then the header's two actions, Calendrier and Candidater, pinned at the bottom above
+ * the home indicator. Phones and e-mails are in the footer (Ayoub, 24 Oct 2026).
  */
 
 export interface MobileSheetProps {
@@ -129,49 +129,23 @@ export function MobileSheet({ open, onOpenChange, triggerRef }: MobileSheetProps
 
           <ul className="border-b border-hairline py-2">
             <li>
-              <a
-                href={site.eduka.portalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(rowClass, 'font-semibold')}
-              >
-                <UserRound aria-hidden="true" strokeWidth={1.5} className="size-5 shrink-0" />
-                {site.eduka.label}
-                <ArrowUpRight aria-hidden="true" strokeWidth={1.5} className="-ml-1 size-4 shrink-0 text-ink-soft" />
-                <span className="sr-only"> (nouvel onglet)</span>
-              </a>
-            </li>
-            <li>
               <Link
-                href={site.actions.calendar.href}
+                href={routes.espaceEduka}
                 onClick={close}
-                aria-current={isCurrentPage(pathname, site.actions.calendar.href) ? 'page' : undefined}
+                aria-current={isCurrentPage(pathname, routes.espaceEduka) ? 'page' : undefined}
                 className={cn(rowClass, 'font-semibold')}
               >
-                <CalendarDays aria-hidden="true" strokeWidth={1.5} className="size-5 shrink-0" />
-                {site.actions.calendar.label}
+                <UserRound aria-hidden="true" strokeWidth={1.75} className="size-5 shrink-0 text-terracotta" />
+                {site.eduka.label}
+                <span className="sr-only"> (connexion)</span>
               </Link>
             </li>
-          </ul>
-
-          <ul className="py-2">
-            {[site.phones.casablanca, site.phones.rabat].map((phone) => (
-              <li key={phone.href}>
-                <a href={phone.href} className={rowClass}>
-                  <Phone aria-hidden="true" strokeWidth={1.5} className="size-5 shrink-0" />
-                  <span>
-                    <span className="font-semibold">{phone.label}</span>{' '}
-                    <span className="text-ink-soft">{phone.display}</span>
-                  </span>
-                </a>
-              </li>
-            ))}
           </ul>
         </div>
 
         <div className="grid shrink-0 grid-cols-2 gap-3 border-t border-hairline px-gutter pt-4 pb-[max(16px,env(safe-area-inset-bottom))]">
-          <ButtonLink href={site.actions.visit.href} variant="outline-dark" onClick={close} className="w-full px-3">
-            {site.actions.visit.longLabel ?? site.actions.visit.label}
+          <ButtonLink href={site.actions.calendar.href} variant="outline-dark" onClick={close} className="w-full px-3">
+            {site.actions.calendar.label}
           </ButtonLink>
           <ButtonLink href={site.actions.apply.href} onClick={close} className="w-full px-3">
             {site.actions.apply.label}

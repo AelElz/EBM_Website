@@ -1,0 +1,160 @@
+/*
+ * Search overlay (search-overlay.tsx), Ayoub's request of 24 Oct 2026: clicking "Rechercher"
+ * should feel satisfying. Opening sequence (Radix sets data-state="open"):
+ *
+ *   0ms      the page dims; a Fired Clay panel drops from the top (700ms, ease-out-expo)
+ *   220ms    the magnifier pops in with a small overshoot
+ *   280ms    the field rises in, the caret already blinking in it
+ *   320ms    the white underline draws from left to right
+ *   420ms+   the frequent searches cascade in, 60ms apart
+ *
+ * While typing, each new result slides up into the list (only new ones: they are keyed by
+ * address) and the magnifier gives a small nudge on every change. Closing (data-state="closed")
+ * lifts the panel back up (450ms, ease-in) and Radix unmounts it when the animation ends.
+ * The global reduced-motion guard (globals.css) makes all of it instant.
+ *
+ * White on Fired Clay is 4.8:1; the placeholder (white at 80%) is 3.5:1, allowed for its size.
+ */
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background-color: rgb(40 40 40 / 0.5);
+}
+
+.scrim[data-state='open'] {
+  animation: fade-in 400ms ease-out both;
+}
+
+.scrim[data-state='closed'] {
+  animation: fade-out 350ms ease-in both;
+}
+
+.panel {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 61;
+  display: flex;
+  flex-direction: column;
+  max-height: 100svh;
+  min-height: min(100svh, 600px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background-color: var(--color-terracotta);
+  color: #fff;
+}
+
+/* Phones: the whole screen, the keyboard takes the bottom anyway. */
+@media (max-width: 47.99rem) {
+  .panel {
+    height: 100svh;
+  }
+}
+
+.panel[data-state='open'] {
+  animation: drop-in 700ms var(--ease-out-expo) both;
+}
+
+.panel[data-state='closed'] {
+  animation: lift-out 450ms cubic-bezier(0.7, 0, 0.84, 0) both;
+}
+
+/* ---- Opening sequence of the contents -------------------------------------------------- */
+
+.panel[data-state='open'] .close {
+  animation: fade-in 500ms ease-out 300ms both;
+}
+
+.panel[data-state='open'] .icon {
+  animation: pop-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 220ms both;
+}
+
+.panel[data-state='open'] .field {
+  animation: rise-in 700ms var(--ease-out-expo) 280ms both;
+}
+
+.panel[data-state='open'] .line {
+  animation: draw 800ms var(--ease-out-expo) 320ms both;
+}
+
+.panel[data-state='open'] .suggestion {
+  animation: rise-in 600ms var(--ease-out-expo) both;
+  animation-delay: calc(420ms + var(--i, 0) * 60ms);
+}
+
+/* A new result slides up (60ms apart within one change); results already shown stay still. */
+.result {
+  animation: rise-in 500ms var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+/* Small nudge of the magnifier on every change of the query (the element is re-keyed). */
+.nudge {
+  animation: nudge 360ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.line {
+  height: 2px;
+  background-color: rgb(255 255 255 / 0.9);
+  transform-origin: left;
+}
+
+/* The query's words, marked in the result titles. */
+.hit {
+  background: none;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes drop-in {
+  from {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes lift-out {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4) rotate(-25deg);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes nudge {
+  40% {
+    transform: scale(1.14) rotate(-8deg);
+  }
+}

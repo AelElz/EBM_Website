@@ -1,0 +1,109 @@
+/*
+ * Espace Eduka page (page.tsx). Two halves from 1024px: the photo side (students entering the
+ * Rabat campus), pinned under the header at the screen's height so its text stays in view, and
+ * the sign-in card on Riad Paper, which scrolls beside it when it is the taller of the two.
+ * Phones and tablets: the card first, the photo side under it.
+ *
+ * Entrance (CSS only, once on load): the photo settles from 106% to 100%, the side text and the
+ * card rise in, and the card's contents follow 60ms apart. The global reduced-motion guard
+ * (globals.css) makes it instant.
+ *
+ * The white text on the photo sits on a measured charcoal scrim (deep at the bottom, where the
+ * text is; deep everywhere below 1024px, where the text fills most of the panel): >= 4.5:1 for
+ * the label and the list, >= 3:1 for the heading on the photo's brightest pixels.
+ */
+
+.layout {
+  display: grid;
+}
+
+@media (min-width: 64rem) {
+  .layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    min-height: calc(100svh - var(--spacing-header));
+  }
+
+}
+
+.side {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: 460px;
+  overflow: hidden;
+  background-color: var(--color-charcoal);
+  color: #fff;
+}
+
+/* Pinned beside the card from 1024px (after .side: same specificity, so it must come later). */
+@media (min-width: 64rem) {
+  .side {
+    position: sticky;
+    top: var(--spacing-header);
+    align-self: start;
+    height: calc(100svh - var(--spacing-header));
+  }
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  animation: settle 1600ms var(--ease-out-expo) both;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+    to top,
+    rgb(40 40 40 / 0.86),
+    rgb(40 40 40 / 0.72) 38%,
+    rgb(40 40 40 / 0.2) 75%,
+    rgb(40 40 40 / 0.1)
+  );
+}
+
+@media (max-width: 63.99rem) {
+  .scrim {
+    background-image: linear-gradient(to top, rgb(40 40 40 / 0.86), rgb(40 40 40 / 0.74));
+  }
+}
+
+.sideText {
+  animation: rise 900ms var(--ease-out-expo) 200ms both;
+}
+
+.cardSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-paper);
+}
+
+.card {
+  width: 100%;
+  max-width: 34rem;
+  animation: rise 800ms var(--ease-out-expo) both;
+}
+
+/* The card's contents arrive one after the other (--i set inline, 0..n). */
+.step {
+  animation: rise 700ms var(--ease-out-expo) both;
+  animation-delay: calc(120ms + var(--i, 0) * 60ms);
+}
+
+@keyframes settle {
+  from {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}

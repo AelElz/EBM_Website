@@ -1,0 +1,23 @@
+/*
+ * The admissions diagram (admissions-path.tsx): tied to the scroll, it draws itself from left to
+ * right, scatter, ribbon, rows, as the section comes up. Nothing is hidden without support or
+ * with reduced motion.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .diagram {
+      animation: draw-across linear both;
+      animation-timeline: view();
+      animation-range: entry 30% cover 42%;
+    }
+  }
+}
+
+@keyframes draw-across {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}

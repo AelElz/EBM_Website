@@ -20,6 +20,7 @@ export const routes = {
   documentsEtFrais: '/admissions/documents-et-frais',
   candidater: '/admissions/candidater',
   contact: '/contact',
+  espaceEduka: '/espace-eduka',
   reserverVisite: '/reserver-une-visite',
   recrutement: '/recrutement',
   mentionsLegales: '/mentions-legales',

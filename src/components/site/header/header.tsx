@@ -6,30 +6,34 @@ import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 
 import { DesktopNav } from './desktop-nav'
+import { EdukaLink, SearchLink } from './header-links'
 import { HeaderScrollState } from './header-scroll-state'
-import { HeaderSearch, SearchLink } from './header-search'
 import { MobileMenu } from './mobile-menu'
-import { TOP_BAR_ID, TopBar } from './top-bar'
 
 /*
  * Shared header (docs/HOME-SPEC.md, "Header (shared, every page)"). Server Component, no props.
  *
- * One <header>, sticky at top: -40px: the charcoal top bar (40px) scrolls away and the white
- * main bar stays pinned. Once the top bar is gone, header-scroll-state.tsx sets
- * data-scrolled="true" and the main bar turns frosted (translucent white, backdrop blur,
- * soft shadow under the hairline).
+ * One white bar, sticky at the top (since 24 Oct 2026 there is no charcoal top bar: phones,
+ * e-mails and "Nous contacter" live in the footer). Once the page has scrolled a few pixels,
+ * header-scroll-state.tsx sets data-scrolled="true" and the bar turns frosted (translucent
+ * white, backdrop blur, soft shadow under the hairline).
  *
- * Main bar, by width (sizes measured with the Avenir files so nothing overflows):
- *   < 1024px     logo · search icon (→ /recherche) · menu button (lazy-loaded sheet)
- *   1024–1279px  logo · 4 menus · search icon · Candidater ("Visiter" = /calendrier, which
- *                the top bar's "Calendrier" link already offers at this width)
- *   ≥ 1280px     logo · 4 menus · search field (210px, shrinks to 132px) · Visiter · Candidater
+ * The bar uses the wide container (1440px incl. gutters, as on Korowa), wider than the page
+ * column: with labels, the right-hand group alone is ~550px. By width (measured with the Avenir
+ * files so nothing overflows):
+ *   < 1024px     logo · search icon · Eduka icon (login) · menu button (lazy-loaded sheet)
+ *   1024–1279px  logo · 4 menus · search icon · Eduka icon | Candidater
+ *   1280–1439px  logo · 4 menus · search icon · Eduka icon | Calendrier · Candidater
+ *   ≥ 1440px     logo · 4 menus · Rechercher · Espace Eduka | Calendrier · Candidater
+ * The visit ("Réserver une visite") is in the Admissions menu, not in the bar.
  *
  * Client islands: desktop-nav.tsx (menus + active section), mobile-menu.tsx (button; the sheet
  * is a separate chunk loaded on demand), header-scroll-state.tsx (renders nothing).
  */
 
 const HEADER_ID = 'site-header'
+/** 8px strip at the very top of the page: once it has scrolled away, the bar frosts. */
+const SENTINEL_ID = 'header-sentinel'
 
 const frosted = [
   'group-data-[scrolled=true]/header:bg-white/85',
@@ -40,45 +44,48 @@ const frosted = [
 
 export function Header() {
   const logo = site.logos.horizontal
-  const { visit, apply } = site.actions
+  const { calendar, apply } = site.actions
 
   return (
-    <header id={HEADER_ID} data-scrolled="false" className="group/header sticky -top-10 z-40">
-      <TopBar />
+    <>
+      <div id={SENTINEL_ID} aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-2" />
+      <header id={HEADER_ID} data-scrolled="false" className="group/header sticky top-0 z-40">
+        <div
+          className={`border-b border-hairline bg-white transition-[background-color,box-shadow] duration-300 ease-out ${frosted}`}
+        >
+          <Container size="wide" className="flex h-16 items-center gap-4 sm:gap-6 lg:h-header xl:gap-8">
+            <Link href="/" className="flex shrink-0" aria-label={`${site.name}, accueil`}>
+              <Image
+                src={logo.src}
+                alt=""
+                width={logo.width}
+                height={logo.height}
+                unoptimized
+                loading="eager"
+                // 26px under 400px wide: room for the three 44px buttons on a 360px phone.
+                className="h-[26px] w-auto min-[400px]:h-[30px] sm:h-[34px] xl:h-[38px]"
+              />
+            </Link>
 
-      <div
-        className={`border-b border-hairline bg-white transition-[background-color,box-shadow] duration-300 ease-out ${frosted}`}
-      >
-        <Container className="flex h-16 items-center gap-6 lg:h-header lg:gap-7 xl:gap-8">
-          <Link href="/" className="flex shrink-0" aria-label={`${site.name}, accueil`}>
-            <Image
-              src={logo.src}
-              alt=""
-              width={logo.width}
-              height={logo.height}
-              unoptimized
-              loading="eager"
-              className="h-[30px] w-auto sm:h-[34px] xl:h-[38px]"
-            />
-          </Link>
+            <DesktopNav groups={navigation} className="hidden shrink-0 self-stretch lg:block" />
 
-          <DesktopNav groups={navigation} className="hidden shrink-0 self-stretch lg:block" />
+            <div className="ml-auto flex min-w-0 items-center gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-5">
+              <SearchLink labelClassName="sr-only min-[90rem]:not-sr-only" />
+              <EdukaLink labelClassName="sr-only min-[90rem]:not-sr-only" />
+              <span aria-hidden="true" className="mx-0.5 hidden h-7 w-px shrink-0 bg-charcoal/20 lg:block xl:mx-0" />
+              <ButtonLink href={calendar.href} variant="outline-dark" className="hidden px-[18px] xl:inline-flex">
+                {calendar.label}
+              </ButtonLink>
+              <ButtonLink href={apply.href} className="hidden lg:inline-flex">
+                {apply.label}
+              </ButtonLink>
+              <MobileMenu className="-mr-2.5 lg:hidden" />
+            </div>
+          </Container>
+        </div>
 
-          <div className="ml-auto flex min-w-0 items-center gap-1 lg:gap-2.5">
-            <HeaderSearch className="hidden xl:flex" />
-            <SearchLink className="xl:hidden" />
-            <ButtonLink href={visit.href} variant="outline-dark" className="hidden px-[18px] xl:inline-flex">
-              {visit.label}
-            </ButtonLink>
-            <ButtonLink href={apply.href} className="hidden lg:inline-flex">
-              {apply.label}
-            </ButtonLink>
-            <MobileMenu className="-mr-2.5 lg:hidden" />
-          </div>
-        </Container>
-      </div>
-
-      <HeaderScrollState headerId={HEADER_ID} sentinelId={TOP_BAR_ID} />
-    </header>
+        <HeaderScrollState headerId={HEADER_ID} sentinelId={SENTINEL_ID} />
+      </header>
+    </>
   )
 }

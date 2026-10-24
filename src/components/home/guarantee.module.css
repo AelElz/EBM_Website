@@ -1,0 +1,25 @@
+.section { padding-block: clamp(64px, 7vw, 100px); background: var(--color-paper); }
+.heading { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+.heading h2 { max-width: 13ch; }
+.heading > p { max-width: 36ch; font-size: 18px; line-height: 1.5; }
+.path { display: grid; grid-template-columns: repeat(3, 1fr); margin-block: 48px 32px; }
+.path li { position: relative; padding-right: 32px; }
+/* This rail expresses the order of actual qualifications. */
+.path li:not(:last-child)::after { content: ''; position: absolute; top: 27px; left: 58px; right: 0; height: 3px; background: var(--color-cream); }
+.node { position: relative; z-index: 1; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: var(--color-olive); color: white; }
+.path h3 { margin-top: 20px; font-size: 32px; font-weight: 600; line-height: 1.1; letter-spacing: -.02em; }
+.path p { margin-top: 8px; font-size: 17px; line-height: 1.4; }
+.fullName { display: block; margin-top: 8px; max-width: 29ch; font-size: 14px; line-height: 1.5; color: var(--color-ink-soft); }
+.result { max-width: 60ch; font-size: 16px; line-height: 1.5; font-weight: 600; color: var(--color-olive); }
+@media (max-width: 47.99rem) {
+  .heading { grid-template-columns: 1fr; gap: 20px; }
+  .heading > p { font-size: 17px; }
+  .path { grid-template-columns: 1fr; margin-block: 32px 24px; gap: 0; }
+  .path li { display: grid; grid-template-columns: 48px 1fr; gap: 20px; padding: 0 0 28px; }
+  .path li:last-child { padding-bottom: 0; }
+  .path li:not(:last-child)::after { top: 48px; bottom: 0; left: 23px; right: auto; width: 3px; height: auto; }
+  .node { width: 48px; height: 48px; }
+  .path h3 { margin-top: 0; font-size: 28px; }
+  .path p { margin-top: 4px; font-size: 16px; }
+  .fullName { margin-top: 5px; max-width: 30ch; }
+}

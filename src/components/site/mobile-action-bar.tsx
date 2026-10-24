@@ -5,7 +5,8 @@ import { MobileActionBarFrame } from './header/mobile-action-bar-frame'
 
 /*
  * Mobile action bar (docs/HOME-SPEC.md, Header 3): a frosted white bar pinned to the bottom of
- * phones and tablets (< 1024px) with two equal buttons, "Visiter l’école" and "Candidater".
+ * phones and tablets (< 1024px) with two equal buttons, "Calendrier" and "Candidater" (the
+ * header's two actions since 24 Oct 2026; the visit is in the Admissions menu).
  * It appears once the hero buttons (#primary-actions) have scrolled out of view, or after
  * 480px of scroll on pages without them, and pads itself above the home indicator
  * (env(safe-area-inset-bottom)). Rendered once in the (frontend) layout and in
@@ -16,7 +17,7 @@ import { MobileActionBarFrame } from './header/mobile-action-bar-frame'
  * modules or the button styles.
  */
 export function MobileActionBar() {
-  const { visit, apply } = site.actions
+  const { calendar, apply } = site.actions
 
   return (
     <MobileActionBarFrame>
@@ -24,8 +25,8 @@ export function MobileActionBar() {
         aria-label="Actions principales"
         className="mx-auto grid max-w-xl grid-cols-2 gap-3 px-gutter pt-3 pb-[max(12px,env(safe-area-inset-bottom))]"
       >
-        <ButtonLink href={visit.href} variant="outline-dark" className="w-full px-3">
-          {visit.longLabel ?? visit.label}
+        <ButtonLink href={calendar.href} variant="outline-dark" className="w-full px-3">
+          {calendar.label}
         </ButtonLink>
         <ButtonLink href={apply.href} className="w-full px-3">
           {apply.label}

@@ -65,14 +65,14 @@ export interface SiteConfig {
   emails: Record<CampusId, Email[]>
   addresses: Record<CampusId, PostalAddress>
   instagram: { handle: string; url: string }
-  eduka: { label: string; portalUrl: string; applicationUrl: string }
+  eduka: { label: string; portalUrl: string; loginUrl: string; host: string; applicationUrl: string }
   logos: { horizontal: ImageAsset; stacked: ImageAsset }
   partners: ImageAsset
   actions: {
-    visit: ActionLink
-    apply: ActionLink
-    contact: ActionLink
     calendar: ActionLink
+    apply: ActionLink
+    visit: ActionLink
+    contact: ActionLink
     search: ActionLink & { placeholder: string }
   }
 }
@@ -122,8 +122,12 @@ export const site: SiteConfig = {
 
   eduka: {
     label: 'Espace Eduka',
-    /** Parents' portal (opens in a new tab). */
+    /** Parents' portal. The site links to its own Espace Eduka page (/espace-eduka), which
+     *  hands off to Eduka's sign-in page: passwords are only ever typed on Eduka. */
     portalUrl: 'https://ecolebelge.eduka.school/',
+    loginUrl: 'https://ecolebelge.eduka.school/login',
+    /** Shown on /espace-eduka so families can check the address before typing a password. */
+    host: 'ecolebelge.eduka.school',
     /** Current hosted application form (Candidater en ligne, until a custom form is verified). */
     applicationUrl: 'https://ecolebelge.eduka.school/registration/web/13/a1213c361ab0',
   },
@@ -153,12 +157,16 @@ export const site: SiteConfig = {
     height: 170,
   },
 
-  /** The two priority actions, reachable everywhere (header, mobile bar, CTA band). */
+  /*
+   * Header and phone-bar actions (Ayoub, 24 Oct 2026): Calendrier + Candidater. The visit is a
+   * later step, for families already convinced, so it lives in the Admissions menu and the
+   * footer ("Réserver une visite"), not in the bars. Contact details live in the footer only.
+   */
   actions: {
-    visit: { label: 'Visiter', longLabel: 'Visiter l’école', href: routes.calendrier },
-    apply: { label: 'Candidater', longLabel: 'Candidater en ligne', href: routes.candidater },
-    contact: { label: 'Nous contacter', href: routes.contact },
     calendar: { label: 'Calendrier', href: routes.calendrier },
+    apply: { label: 'Candidater', longLabel: 'Candidater en ligne', href: routes.candidater },
+    visit: { label: 'Réserver une visite', href: routes.reserverVisite },
+    contact: { label: 'Nous contacter', href: routes.contact },
     search: { label: 'Rechercher', placeholder: 'Rechercher…', href: routes.recherche },
   },
 }
@@ -219,6 +227,7 @@ export const navigation: NavGroup[] = [
       { label: 'Comprendre les admissions', href: routes.comprendre },
       { label: 'Documents & frais', href: routes.documentsEtFrais },
       { label: 'Calendrier & visites', href: routes.calendrier },
+      { label: 'Réserver une visite', href: routes.reserverVisite },
       { label: 'Candidater en ligne', href: routes.candidater },
       { label: 'Questions fréquentes', href: routes.faq },
       { label: 'Contact', href: routes.contact },
@@ -236,10 +245,11 @@ export const footerNav: FooterColumn[] = [
   {
     title: 'Accès rapides',
     links: [
-      { label: 'Visiter nos écoles', href: routes.calendrier },
-      { label: 'Candidater en ligne', href: routes.candidater },
       { label: 'Calendrier', href: routes.calendrier },
-      { label: 'Parents · Espace Eduka', href: site.eduka.portalUrl, external: true },
+      { label: 'Réserver une visite', href: routes.reserverVisite },
+      { label: 'Candidater en ligne', href: routes.candidater },
+      { label: 'Parents · Espace Eduka', href: routes.espaceEduka },
+      { label: 'Nous contacter', href: routes.contact },
       { label: 'Recrutement', href: routes.recrutement },
     ],
   },

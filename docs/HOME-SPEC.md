@@ -19,7 +19,7 @@ phone and claim below comes from EBM's current site, brand guide or blueprint.
 | sand | `#D0A057` | small highlights only |
 | cream | `#ECE0D3` | soft fills |
 | paper | `#F4F1EC` | light section bands, footer ground, search field |
-| charcoal | `#282828` | text, top bar, dark buttons, footer bottom bar |
+| charcoal | `#282828` | text, dark buttons, footer bottom bar |
 | ink-soft | `#5F584F` | secondary text on light grounds (≥4.5:1 on white and paper) |
 | hairline | `#ECE6DE` | borders |
 | white | `#FFFFFF` | page ground, cards |
@@ -27,8 +27,10 @@ phone and claim below comes from EBM's current site, brand guide or blueprint.
 Logo colours (#282828, #F1A804, #E02B2F, #2B4A99) appear only inside the logo artwork.
 
 Typography: exactly two families.
-- **Playfair Display** (Google, self-hosted by `next/font/google`, weights 500 + 600, latin +
-  latin-ext): h1, h2, large h3 and display headings only. Weight 600, letter-spacing -0.01em,
+- **Playfair Display** (self-hosted by `next/font/local`, Latin WOFF2 files in `src/fonts/`,
+  upright variable weights 500–600 and italic 400; licence `PLAYFAIR-OFL.txt`): h1, h2, large
+  h3 and display headings only. These are the same Latin files used by the prior production
+  build, now stored locally to avoid a failing Turbopack Google-font resolver. Weight 600, letter-spacing -0.01em,
   line-height ~1.06–1.12, `text-wrap: balance`.
 - **Avenir Next** (EBM's own files, `next/font/local`, weights 400/500/600/700 from
   `~/Documents/ayoub/UI projects/EBM WEBSITE/Avenir-Next-Font/Avenir Next/WOFF2/`):
@@ -91,31 +93,35 @@ Convert photos with `sips` to JPEG quality ~85, longest side ≤ 2400px (hero) /
 | Vie scolaire → `/grandir-aux-ebm` | Grandir aux EBM `/grandir-aux-ebm` · Calendrier & visites `/calendrier` |
 | Admissions → `/admissions` | Admissions `/admissions` · Comprendre les admissions `/admissions/comprendre` · Documents & frais `/admissions/documents-et-frais` · Calendrier & visites `/calendrier` · Candidater en ligne `/admissions/candidater` · Questions fréquentes `/admissions/comprendre#faq` · Contact `/contact` |
 
-External: Espace Eduka (parents) `https://ecolebelge.eduka.school/` (opens in a new tab,
-↗ drawn as an icon, not a glyph). Instagram `https://www.instagram.com/ecolesbelgesaumaroc/`.
+Espace Eduka (parents): the site's own `/espace-eduka` login page (24 Oct 2026), whose button
+opens Eduka's sign-in `https://ecolebelge.eduka.school/login`. External links open in a new tab
+with ↗ drawn as an icon, not a glyph: Instagram `https://www.instagram.com/ecolesbelgesaumaroc/`.
 
 ## Header (shared, every page)
 
-1. **Top bar**: charcoal, 40px, 13px text, white at 86% opacity. Left: phone icon +
-   "Casablanca +212 522 64 12 12" (`tel:+212522641212`), "Rabat +212 537 717 278"
-   (`tel:+212537717278`, hidden < 640px). Right: "Calendrier" (`/calendrier`), user icon +
-   "Espace Eduka" (external), "Nous contacter" (`/contact`) as a terracotta block button.
-   The top bar scrolls away; it is not sticky.
-2. **Main bar**: white, 76px, sticky. Logo left (height ~38px, links `/`). Four menu
-   triggers with a chevron; each opens a dropdown panel (white, 3px terracotta top border,
-   soft shadow) listing its links. Hover opens on pointer devices with a short intent delay;
-   click/Enter/Space/ArrowDown open; Escape closes and returns focus; links are reachable by
-   Tab/arrows. Active section gets a 3px terracotta bottom border + terracotta-ink text
-   (pass the active section from the page). Right: search field look-alike (paper ground,
-   "Rechercher…", magnifier) that submits to `/recherche?q=`; "Visiter" outline button
-   (`/calendrier`); "Candidater" terracotta button (`/admissions/candidater`).
-   On scroll past the top bar the main bar turns translucent white with backdrop blur and a
-   hairline/shadow (frosted). Use a tiny client component for the scroll state only.
-3. **Mobile (< 1024px)**: logo, search icon button, menu button (44px targets). Menu opens
-   a full-height panel (Radix Dialog via shadcn Sheet) with the four groups as accordions,
-   then Espace Eduka, Calendrier, phones. A **bottom action bar** (white, frosted, two equal
-   buttons "Visiter l’école" + "Candidater") is pinned to the bottom on phones once the hero
-   buttons have scrolled out of view; respects `env(safe-area-inset-bottom)`.
+Reworked 24 Oct 2026 from Ayoub's reference screenshot (icon + label utility links):
+
+1. **No top bar.** The charcoal strip (phones, Calendrier, Espace Eduka, "Nous contacter") is
+   removed. Contact details (phones, e-mails, addresses, "Nous contacter") live in the footer.
+2. **Main bar**: white, 76px, sticky at the top, wide container (1440px incl. gutters). Logo
+   left (height ~38px, links `/`). Four menu triggers with a chevron; each opens a dropdown
+   panel (white, 3px terracotta top border, soft shadow) listing its links. Hover opens on
+   pointer devices with a short intent delay; click/Enter/Space/ArrowDown open; Escape closes
+   and returns focus; links are reachable by Tab/arrows. Active section gets a 3px terracotta
+   bottom border + terracotta-ink text. Right: "Rechercher" (opens the search overlay; a link to
+   `/recherche` without JS) and "Espace Eduka"
+   (login → the site's `/espace-eduka` page, which hands off to Eduka's sign-in), each a terracotta line icon + label
+   (labels from 1440px, icon only below); a thin divider; "Calendrier" outline button
+   (`/calendrier`, from 1280px; it replaces "Visiter": the visit is a later step, for families
+   already convinced); "Candidater" terracotta button (`/admissions/candidater`). The bar
+   frosts (translucent white, backdrop blur, shadow) once the page has scrolled.
+3. **Visit**: "Réserver une visite" (`/reserver-une-visite`) is an item of the Admissions menu,
+   after "Calendrier & visites", and of the footer's quick links.
+4. **Mobile (< 1024px)**: logo, search icon, Eduka login icon, menu button (44px targets). The
+   menu sheet has the four groups as accordions, then Espace Eduka, with "Calendrier" +
+   "Candidater" at the bottom. The **bottom action bar** (frosted, two equal buttons
+   "Calendrier" + "Candidater") appears on phones once the hero buttons have scrolled out of
+   view; respects `env(safe-area-inset-bottom)`.
 
 ## Intro curtain (shared, every page)
 
@@ -124,7 +130,36 @@ screen with the white stacked logo in the middle, which then slides up and out (
 only, `src/components/site/intro.tsx`). Not shown on later loads in the session, nor under
 `prefers-reduced-motion`.
 
-## Home page sections (top to bottom)
+## Current homepage order (24 Oct 2026)
+
+Hero + highlights → statement → stages → direct age groups → Belgian certificate diagram →
+experience scene → alumni → key figures → campus chapters (Casablanca, Rabat) → director's
+letter → admissions path → large muted-preview video → expandable FAQ → Instagram preview → CTA band →
+shared footer. Keep the experience scene immediately before the alumni deck.
+
+The homepage guide now presents three direct choices (2–5, 6–11 and 12–18 years) using native
+radio controls and CSS `:has`. They work by click/tap or arrow keys, before hydration and
+without JavaScript. Each result has a real photo, three short facts and an anchor to the
+admissions steps. Ages are indicative at the start of the school year; this is not a placement
+or admission eligibility calculator. Timetables and campus services no longer fill this panel.
+
+The institutional table is replaced by one connected CEB → CE1D → CESS diagram, horizontal
+on desktop and vertical on phones. Detailed former copy is preserved in
+`content-archive/home-detailed-copy.md` as an authoring reference, not approved launch copy.
+
+The video has its own full-container section above the FAQ. Its privacy-enhanced YouTube
+player loads on entering view and plays muted. Clicking seeks to zero, unmutes and focuses
+the player. A preview pause control and a direct YouTube link are available. Reduced motion
+keeps a still poster until requested. This replaces the previous click-to-load-only behaviour.
+The FAQ uses the installed Radix Accordion: ten rounded white question cards, one answer
+open at a time, with a downward height animation and reduced-motion fallback. The all-questions
+link comes after the cards on phones. No new packages, backend or service integration.
+
+Copy remains in `src/content/home-details.ts` and `src/content/journey.ts`. See
+`HOME-UX-UPDATE.md` for the latest checks. The original section specifications below still
+describe retained sections; their numbering is superseded by the current sequence above.
+
+## Original section specifications
 
 Nine sections (since 24 Oct 2026), numbered as in `page.tsx` and the component comments. The
 highlights panel that overlaps the hero is part of section 1.
@@ -246,16 +281,17 @@ and to Admissions).
 
 ## Performance budget (the site must be fast)
 
-- Every public route static (SSG). No client JS except: header scroll state + menus,
-  mobile sheet, hero slider, mobile action bar, the home scroll-scene driver (writes two CSS
-  variables) and the alumni deck (positions server-rendered cards).
-  Everything else is a Server Component.
-- Home first-load JS ≤ ~120 KB gzip (report the build table; on Next 16 + React 19 the
-  floor is ~133 KiB, the home ships 149.9 KiB). No animation libraries, no carousel
-  libraries; CSS transitions + a few lines of React.
+- Every public route static (SSG). Server Components by default. Client code covers header
+  menus/search, mobile sheet/action bar, hero slider, the home scroll-scene driver, alumni
+  deck, key-figure count-up, FAQ accordion, admissions diagram and video player. The age
+  chooser is native HTML/CSS and needs no client code.
+- The original ~120 KB gzip aspiration is below the current Next 16 + React 19 floor of
+  ~133 KiB. The measured home first-load JS is 159.9 KiB gzip / 138.1 KiB Brotli after the
+  additions (24 Oct 2026, `npm run report:bundle`). Report the actual size after changes.
+  No animation or carousel libraries; CSS transitions and small native drivers.
 - LCP image: slide 1 via `next/image` with `priority`, `sizes="100vw"`, AVIF/WebP.
   Every other image lazy with explicit `sizes`. No layout shift: explicit dimensions/aspect.
-- Fonts: `next/font` (self-hosted, `display: swap`), preload only Avenir 400 and Playfair 600.
+- Fonts: `next/font` (self-hosted, `display: swap`), preload only Avenir 400 and the upright Playfair file.
 - `next.config`: `images.formats = ['image/avif','image/webp']`, sensible `deviceSizes`.
 - Targets: Lighthouse mobile performance ≥ 95, LCP < 2.0 s on a 4G profile, CLS < 0.05,
   accessibility 100.

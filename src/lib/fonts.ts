@@ -1,4 +1,3 @@
-import { Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 
 /*
@@ -41,30 +40,28 @@ export const avenirStrong = localFont({
   adjustFontFallback: false,
 })
 
-/* PLAYFAIR DISPLAY: h1, h2, large h3 and display headings only (weights 500 + 600).
- * Its CSS variable (--font-playfair) includes next/font's size-adjusted serif fallback.
- * `subsets` only chooses what is *preloaded*: the @font-face rules of every subset (latin-ext
- * included) are still emitted with their unicode-range, so rarer characters still render.
- * Preloading `latin` alone (it covers French, ’ and U+202F) saves a 21 KB preload. Playfair is
- * a variable font: one file per subset serves both weights. */
-export const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['500', '600'],
-  style: ['normal'],
+/* PLAYFAIR DISPLAY: reuse the exact Latin WOFF2 files from the existing production build.
+ * Self-hosting avoids a failing Turbopack Google-font resolver and keeps the approved face,
+ * weights and French character coverage. Only the upright face is preloaded; the italic face
+ * remains below the fold. The upright file serves weights 500–600; the accent uses italic 400. Licence: PLAYFAIR-OFL.txt.
+ */
+export const playfair = localFont({
+  src: '../fonts/playfair-display-latin.woff2',
+  weight: '500 600',
+  style: 'normal',
   variable: '--font-playfair',
   display: 'swap',
+  adjustFontFallback: 'Times New Roman',
   preload: true,
 })
 
-/* PLAYFAIR DISPLAY ITALIC 400: the accent words of the mixed Avenir + serif-italic headings in
- * the home scroll sections (Ayoub's 23 Oct mock-ups: "Apprendre *ici*, ..."). A separate call so
- * its file is never preloaded: it loads when the first accent word renders, below the fold. */
-export const playfairItalic = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400'],
-  style: ['italic'],
+export const playfairItalic = localFont({
+  src: '../fonts/playfair-display-italic-latin.woff2',
+  weight: '400',
+  style: 'italic',
   variable: '--font-playfair-italic',
   display: 'swap',
+  adjustFontFallback: 'Times New Roman',
   preload: false,
 })
 
