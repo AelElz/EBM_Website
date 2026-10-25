@@ -107,3 +107,9 @@
     transform: translateY(20px);
   }
 }
+
+/* Small local prototype entry; the real Eduka login above stays unchanged. */
+.testEntry { margin-top: 32px; padding: 18px 20px; background: var(--color-paper); }
+.testEntry p { font-size: 14px; line-height: 1.5; color: var(--color-ink-soft); }
+.testEntry a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; font-weight: 700; color: var(--color-terracotta-ink); text-decoration: underline; text-underline-offset: 4px; }
+.testEntry a:hover { color: var(--color-charcoal); }

@@ -1,9 +1,11 @@
 # EBM website: architecture and plan
 
-Status: phase 2 started (21 Oct 2026). Home page built against static typed content; the other
-14 main pages are placeholders. Nothing here is connected to Eduka, Supabase, Resend,
-Trigger.dev or Turnstile yet: those integrations are **not built** and must not be presented
-as working.
+Status: first content pass completed for all 14 non-home main pages (24–25 Oct 2026).
+They use typed static migration data, source/conflict records and scoped inner-page blocks,
+and remain noindex review drafts. The homepage was explicitly excluded and preserved.
+The current application channel is Eduka’s hosted form; contact/visit requests prepare a local
+e-mail link. No Eduka API, Supabase, Resend, Trigger.dev, Turnstile or booking integration is
+built by this pass. See `CONTENT-MIGRATION.md` and `CONTENT-GAPS.md`.
 
 Requirements sources, in order of authority:
 1. `docs/BRIEF.md`: Ayoub's technical brief (stack, rules, sequence).
@@ -14,6 +16,10 @@ Requirements sources, in order of authority:
    actions (Visiter / Candidater), footer links (Eduka, Calendrier, Recrutement, legal).
 4. The approved visual design: the Claude Design canvas "EBM Home Page", version 2 board
    (https://claude.ai/artifact/C1mREFzdLin7dvo67cNpv5), Playfair Display + Avenir Next only.
+
+Later user decisions and the implemented four-menu header take precedence over earlier six-menu
+blueprint proposals. The external blueprint PDF was unavailable during migration; its complete
+supplied extraction and the page-by-page migration brief were used.
 
 ## 1. Understanding
 
@@ -42,9 +48,11 @@ One Next.js application, one domain, one Vercel deployment.
 Compatibility verified on 21 Oct 2026: `@payloadcms/next@3.91.0` peer-requires
 `next >=16.3.3 <17` (and React 19); Node 24 is installed (Payload needs ≥20.18.1).
 
-Rendering: public pages are static (SSG) and revalidated on publish (Payload `afterChange`
-hook → `revalidatePath`/`revalidateTag`). Booking availability is fetched fresh (no cache).
-Private data never renders into cached pages.
+Target rendering after CMS/booking integration: pre-render public editorial pages and revalidate
+on publish (Payload `afterChange` hook → `revalidatePath`/`revalidateTag`); fetch booking
+availability fresh. These publication hooks/booking services are not part of this migration.
+Current content is typed and server-rendered, with request-aware query pages for search/contact
+context. No private application data is collected or cached by this version.
 
 ## 3. Website vs Eduka
 
@@ -68,21 +76,24 @@ Globals: `navigation`, `footer`, `site-settings` (contacts, socials, Eduka URLs,
 Blocks: hero, intro, text+image, cards, gallery, video, quote, statistics, tabs, FAQ,
 fee table, event list, campus map, call to action, Instagram.
 
-The home page currently reads `src/content/` (typed data shaped like these blocks) so it can
-switch to Payload queries without layout changes.
+The preserved home page reads `src/content/`; populated inner pages read typed modules under
+`src/content/migration/`. Shared records and section props are shaped for later Payload queries.
+The expanded editorial collections/globals above remain the target model, not newly connected
+CMS storage. Migration source/asset ledgers and publication gaps are in `docs/CONTENT-*`.
 
 ## 5. Folder structure
 
 ```
 src/
   app/
-    (frontend)/            public site: layout, home, placeholder pages, legal, search, 404
+    (frontend)/            public site: layout, home, populated review pages, legal, search, 404
     (payload)/             Payload admin + API (generated)
   components/
     site/                  header, footer, CTA band, page hero, placeholders
-    home/                  home sections
+    home/                  preserved home sections
+    inner/                 scoped content blocks and migration interactions
     ui/                    shadcn primitives + small design-system parts
-  content/                 typed static content (navigation, site, home, pages)
+  content/                 typed static content, including migration/ source-led page data
   collections/ globals/    Payload config
   lib/                     utils, metadata, routes
   fonts/                   Avenir Next woff2 (licence to verify)
@@ -107,10 +118,10 @@ docs/                      brief, architecture, home spec, design system
 ## 7. Phased plan
 
 1. Eduka proof of concept + decide booking ownership (needs Eduka access).
-2. Next.js + Payload + Supabase + storage + page blocks. **← home page + placeholders done here; DB not yet connected.**
-3. Admissions content and booking.
-4. Verified application route (custom 5-step form or Eduka hosted form).
-5. Remaining pages, media, maps.
+2. Next.js + Payload + Supabase + storage + page blocks. **← public foundations and first inner-page content pass implemented; DB not connected.**
+3. Admissions content implemented as review drafts; real booking remains pending ownership/policy and backend.
+4. Current hosted Eduka handoff implemented; custom 5-step form awaits verified API/security requirements.
+5. Non-home pages populated; school approvals, missing media and approved maps remain in CONTENT-GAPS.md.
 6. Production validation, backups/restore test, handover docs.
 
 ## 8. Schedule inconsistency in the blueprint

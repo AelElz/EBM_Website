@@ -31,6 +31,171 @@ const nextConfig: NextConfig = {
 
     return webpackConfig
   },
+  // Explicit source-backed legacy aliases; archived campaigns and Odoo modules are excluded.
+  async redirects() {
+    return [
+    {
+        "source": "/acceuil",
+        "destination": "/",
+        "permanent": true
+    },
+    {
+        "source": "/fondamentaux",
+        "destination": "/le-reseau",
+        "permanent": true
+    },
+    {
+        "source": "/mot-directeur",
+        "destination": "/le-reseau",
+        "permanent": true
+    },
+    {
+        "source": "/notre-projet-pedagogique",
+        "destination": "/pedagogie",
+        "permanent": true
+    },
+    {
+        "source": "/approche-valeurs",
+        "destination": "/pedagogie",
+        "permanent": true
+    },
+    {
+        "source": "/philosophie-d-education",
+        "destination": "/pedagogie",
+        "permanent": true
+    },
+    {
+        "source": "/maternelle",
+        "destination": "/pedagogie#maternelle",
+        "permanent": true
+    },
+    {
+        "source": "/classe-d-accueil",
+        "destination": "/pedagogie#maternelle",
+        "permanent": true
+    },
+    {
+        "source": "/engagement",
+        "destination": "/le-reseau",
+        "permanent": true
+    },
+    {
+        "source": "/pourquoi-choisir-nos-ecoles",
+        "destination": "/le-reseau",
+        "permanent": true
+    },
+    {
+        "source": "/pouquoi-choisir-ebm",
+        "destination": "/le-reseau",
+        "permanent": true
+    },
+    {
+        "source": "/casablanca",
+        "destination": "/nos-campus/casablanca",
+        "permanent": true
+    },
+    {
+        "source": "/rabat",
+        "destination": "/nos-campus/rabat",
+        "permanent": true
+    },
+    {
+        "source": "/nos-ecoles",
+        "destination": "/nos-campus",
+        "permanent": true
+    },
+    {
+        "source": "/processus-admission",
+        "destination": "/admissions/comprendre",
+        "permanent": true
+    },
+    {
+        "source": "/regles",
+        "destination": "/admissions/comprendre#conditions",
+        "permanent": true
+    },
+    {
+        "source": "/types-admission",
+        "destination": "/admissions/comprendre#conditions",
+        "permanent": true
+    },
+    {
+        "source": "/comment-inscrire-mon-enfant",
+        "destination": "/admissions/candidater",
+        "permanent": true
+    },
+    {
+        "source": "/frais-scolaire",
+        "destination": "/admissions/documents-et-frais",
+        "permanent": true
+    },
+    {
+        "source": "/faq",
+        "destination": "/admissions/comprendre#faq",
+        "permanent": true
+    },
+    {
+        "source": "/faqs",
+        "destination": "/admissions/comprendre#faq",
+        "permanent": true
+    },
+    {
+        "source": "/contactez-nous",
+        "destination": "/contact",
+        "permanent": true
+    },
+    {
+        "source": "/contactez-nous-1",
+        "destination": "/contact",
+        "permanent": true
+    },
+    {
+        "source": "/contactus",
+        "destination": "/contact",
+        "permanent": true
+    },
+    {
+        "source": "/brochure-des-ecoles-belges-au-maroc",
+        "destination": "/le-reseau",
+        "permanent": true
+    },
+    {
+        "source": "/privacy",
+        "destination": "/confidentialite",
+        "permanent": true
+    },
+    {
+        "source": "/jobs",
+        "destination": "/recrutement",
+        "permanent": true
+    },
+    {
+        "source": "/blog/actualites-2/l-ecole-belge-de-casablanca-lance-son-ecole-du-dehors-8",
+        "destination": "/ecole-du-dehors",
+        "permanent": true
+    },
+    {
+        "source": "/blog/actualites-2/le-site-de-la-section-secondaire-de-l-ecole-belge-de-rabat-officiellement-inaugure-9",
+        "destination": "/nos-campus/rabat",
+        "permanent": true
+    },
+    {
+        "source": "/blog/actualites-2/les-futurs-laureats-de-la-promotion-2024-2025-en-voyage-de-retho-18",
+        "destination": "/apres-les-ebm",
+        "permanent": true
+    },
+    {
+        "source": "/blog/actualites-2/partenariat-entre-l-ambassade-d-allemagne-l-institut-goethe-et-l-ecole-belge-de-rabat-17",
+        "destination": "/grandir-aux-ebm",
+        "permanent": true
+    },
+    {
+        "source": "/blog/actualites-2/un-precieux-moment-de-rencontre-et-de-partage-11",
+        "destination": "/grandir-aux-ebm",
+        "permanent": true
+    }
+]
+  },
   turbopack: {
     root: path.resolve(dirname),
   },

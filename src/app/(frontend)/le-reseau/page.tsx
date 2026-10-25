@@ -1,10 +1,14 @@
-import { pages } from '@/content/pages'
-import { PlaceholderPage, placeholderMetadata } from '@/components/site/placeholder-page'
+import { NetworkPage } from '@/components/inner/school/school-pages'
+import { networkPage } from '@/content/migration/school'
+import { pageMetadata } from '@/lib/metadata'
 
-const page = pages['le-reseau']
-
-export const metadata = placeholderMetadata(page)
+export const metadata = pageMetadata({
+  title: networkPage.title,
+  description: networkPage.description,
+  path: '/le-reseau',
+  index: false,
+})
 
 export default function Page() {
-  return <PlaceholderPage page={page} />
+  return <NetworkPage />
 }

@@ -1,10 +1,14 @@
-import { pages } from '@/content/pages'
-import { PlaceholderPage, placeholderMetadata } from '@/components/site/placeholder-page'
+import { SchoolLifePage } from '@/components/inner/school/school-pages'
+import { schoolLifePage } from '@/content/migration/school'
+import { pageMetadata } from '@/lib/metadata'
 
-const page = pages['grandir-aux-ebm']
-
-export const metadata = placeholderMetadata(page)
+export const metadata = pageMetadata({
+  title: schoolLifePage.title,
+  description: schoolLifePage.description,
+  path: '/grandir-aux-ebm',
+  index: false,
+})
 
 export default function Page() {
-  return <PlaceholderPage page={page} />
+  return <SchoolLifePage />
 }

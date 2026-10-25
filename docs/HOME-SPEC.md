@@ -1,6 +1,8 @@
 # Home page + site shell: build spec
 
-Source of truth for the coded home page, the shared header/footer, and the 14 placeholder pages.
+Source of truth for the coded home page and shared header/footer, with an overview of the 14
+inner pages. Their first content pass and publication gaps are documented in CONTENT-MIGRATION.md
+and CONTENT-GAPS.md. The latest migration request explicitly left the homepage unchanged.
 Visual reference: the approved "Accueil · version 2 (slider)" board on the Claude Design canvas
 (https://claude.ai/artifact/C1mREFzdLin7dvo67cNpv5) and its shared Header / CtaBand / Footer
 components. Reproduce that composition faithfully, with the deviations listed under "Taste rules".
@@ -276,44 +278,50 @@ highlights panel that overlaps the hero is part of section 1.
    `/mentions-legales`, Politique de confidentialité `/confidentialite`, Plan du site `/plan-du-site`.
    Headings in the footer are Avenir 700 15px (not Playfair).
 
-## Placeholder pages (14 main pages + system pages)
+## Populated inner pages (14 main pages, review drafts)
 
-Each placeholder uses the shared header (correct active menu), a compact page hero (paper
-ground, breadcrumb "Accueil / …", Playfair h1, one-line purpose from the blueprint), a clearly
-labelled notice "Page en préparation" listing the sections the blueprint plans for that page,
-then the CTA band and footer. Metadata `robots: { index: false }` until the page is real.
+The 24–25 Oct 2026 first content pass replaced the whole-page placeholder notices with sourced
+French content and scoped `components/inner/` blocks. Typed data and readiness records live in
+`content/migration/`. Each main route remains `noindex, follow` while essential facts/media await
+EBM review; the XML sitemap excludes them. Detailed scope, sources, missing material and checks
+are in `CONTENT-MIGRATION.md`, `CONTENT-GAPS.md`, `CONTENT-SOURCES.json` and `CONTENT-ASSETS.json`.
 
-| Route | Title | Blueprint purpose (one line) |
-|---|---|---|
-| `/le-reseau` | Le réseau EBM | Qui est EBM : écoles belges au Maroc, programme de la Fédération Wallonie-Bruxelles. |
-| `/pedagogie` | Pédagogie | Comment les enfants apprennent, de la maternelle à la fin du secondaire. |
-| `/ecole-du-dehors` | L’école du dehors | L’école à ciel ouvert du campus de Casablanca. |
-| `/grandir-aux-ebm` | Grandir aux EBM | La vie à l’école : activités, sport, arts, bien-être et services. |
-| `/nos-campus` | Nos campus | Deux campus, une même exigence. |
-| `/nos-campus/casablanca` | Campus de Casablanca | Dar Bouazza (shared campus template). |
-| `/nos-campus/rabat` | Campus de Rabat | Hay Riad (shared campus template). |
-| `/apres-les-ebm` | Après les EBM | Alumni, promotions et études supérieures. |
-| `/admissions` | Admissions | Le point de départ du parcours d’admission. |
-| `/admissions/comprendre` | Comprendre les admissions | Étapes, conditions et FAQ (ancre `#faq`). |
-| `/admissions/documents-et-frais` | Documents & frais | Frais de scolarité et documents requis. |
-| `/calendrier` | Calendrier & visites | Événements, visites et réservation. |
-| `/admissions/candidater` | Candidater en ligne | Le dossier de candidature (aujourd’hui sur Eduka). |
-| `/contact` | Contact | Joindre la bonne équipe, sur le bon campus. |
+| Route | Implemented focus |
+|---|---|
+| `/le-reseau` | Institutional framework, director, all four values, history and partners |
+| `/pedagogie` | Approach, hash-linked maternelle/primaire/secondaire tabs, languages and support |
+| `/ecole-du-dehors` | Casablanca approach, real gallery, source-qualified scope, contact/access |
+| `/grandir-aux-ebm` | Activity-domain filter, dated stories, shared campus services and well-being |
+| `/nos-campus` | Campus comparison, services, locations and photographs |
+| `/nos-campus/casablanca` | Shared campus template, practical source records and contacts |
+| `/nos-campus/rabat` | Same template; highest open secondary level explicitly to confirm |
+| `/apres-les-ebm` | CESS/orientation, dated trip and historical brochure data; no invented alumni |
+| `/admissions` | Six quick destinations, four-phase overview and applicant-only visit policy |
+| `/admissions/comprendre` | Seven-step process, conditions and searchable FAQ at `#faq` |
+| `/admissions/documents-et-frais` | Qualified checklist and undated campus/level/category fee finder |
+| `/calendrier` | Signed 2026–2027 calendar, PDF, one-time ICS and visit-request guidance |
+| `/admissions/candidater` | Preparation and hosted Eduka handoff; no custom document collection |
+| `/contact` | Correct service contacts, address searches and local e-mail request composer |
 
-Campus pages: one dynamic route `src/app/(frontend)/nos-campus/[campus]/page.tsx` with
-`generateStaticParams` for `casablanca` and `rabat`, data from `src/content/campuses.ts`.
+Campus pages still share `nos-campus/[campus]/page.tsx`, with canonical migration practical data
+in `src/content/migration/campuses.ts` and unchanged incumbent site/contact assets. The preserved
+home campus sections were not rewired or changed.
 
-System pages: `/mentions-legales`, `/confidentialite`, `/plan-du-site` (lists every route),
-`/recherche` (placeholder results page reading `?q=`), `/recrutement`, `/reserver-une-visite`
-(direct booking route placeholder), and a designed `not-found.tsx` (French copy, links home
-and to Admissions).
+Support pages: legal/privacy are intentional review drafts; recruitment has no unverified live
+jobs; `/reserver-une-visite` prepares an applicant request through the visitor’s mail application,
+not a booking. `/recherche` searches the new pages and FAQ. The existing `/plan-du-site` directory,
+Eduka sign-in handoff and designed 404 remain available. Requests never produce a fake sent or
+reserved state. No new backend, library or production deployment was introduced.
 
 ## Performance budget (the site must be fast)
 
-- Every public route static (SSG). Server Components by default. Client code covers header
+- Editorial routes are pre-rendered where possible; query-context contact/visit/search pages
+  may be request-rendered. Server Components by default. Client code covers header
   menus/search, mobile sheet/action bar, hero slider, the home scroll-scene driver, alumni
   deck, key-figure count-up, shared campus switcher, FAQ accordion, certificate-path trigger and video player. The age
-  chooser and admissions sequence are native HTML/CSS and need no client code.
+  chooser and home admissions sequence are native HTML/CSS and need no client code. Inner pages
+  add small islands for level tabs, activity filtering, FAQ search, fee/calendar selection and
+  local e-mail composition; their long content stays server-rendered.
 - The original ~120 KB gzip aspiration is below the current Next 16 + React 19 floor of
   ~133 KiB. The measured home first-load JS is 160.7 KiB gzip / 138.7 KiB Brotli after the
   native video controls build (24 Oct 2026, `npm run report:bundle`). Report the actual size after changes.
@@ -337,6 +345,6 @@ contrast AA on photos (overlay) and on paper/cream grounds.
 
 `metadata` per route (title template "%s · Écoles Belges au Maroc"), canonical URLs from
 `NEXT_PUBLIC_SITE_URL` (placeholder `https://www.ecolebelge.org`), Open Graph image (hero),
-`sitemap.ts` (real pages only; placeholders excluded while noindex), `robots.ts`, JSON-LD
+`sitemap.ts` (approved indexable routes only; migrated review drafts excluded while noindex), `robots.ts`, JSON-LD
 `School` for each campus on the home page (name, address, telephone, url). No rich-result
 promises.

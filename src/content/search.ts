@@ -1,4 +1,6 @@
 import { routes } from '@/lib/routes'
+import { migrationPages } from './migration/route-registry'
+import { admissionsFaqSearchEntries } from './migration/admissions-faq-search'
 
 import { pages, type PageSlug } from './pages'
 import { navigation, site } from './site'
@@ -6,8 +8,8 @@ import { navigation, site } from './site'
 /*
  * Site search index for the header's search overlay (components/site/header/search-overlay.tsx):
  * every page of the site with its title, its one-line purpose and the words people type for it.
- * It searches page titles and descriptions only, which is true today; full-text search of the
- * page contents comes with Payload's Search plugin (docs/BRIEF.md).
+ * It searches page titles/descriptions and curated FAQ questions/answer terms.
+ * No internal gap register is indexed; Payload can replace this static data later.
  * Client-safe: loaded with the overlay's chunk, on demand.
  */
 
@@ -47,10 +49,17 @@ const sectionLabel = (id: string | null) => navigation.find((group) => group.id 
 const entries: (SearchEntry & { keywords: string })[] = [
   ...Object.values(pages).map((page) => ({
     title: page.title,
-    text: page.intro,
+    text: migrationPages.find(item => item.route === page.route)?.description ?? page.intro,
     href: page.route,
     section: sectionLabel(page.section),
     keywords: keywords[page.slug] ?? '',
+  })),
+  ...admissionsFaqSearchEntries.map(entry => ({
+    title: entry.title,
+    text: entry.text,
+    href: entry.href,
+    section: 'Questions fréquentes',
+    keywords: Array.isArray(entry.keywords) ? entry.keywords.join(' ') : entry.keywords,
   })),
   {
     title: site.eduka.label,

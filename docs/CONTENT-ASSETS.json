@@ -1,0 +1,610 @@
+{
+  "generatedAt": "2026-10-25",
+  "scope": "Assets used by populated non-home pages, including existing reused photos/pictograms and two supplied documents. This is not approval of all 211 remote references or all local archive files. Homepage assets remain unchanged.",
+  "recordCount": 28,
+  "newOptimizedPhotographs": 3,
+  "records": [
+    {
+      "src": "/images/collage-cour-casablanca.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/collage-cour-casablanca.jpg",
+      "exists": true,
+      "destinations": [
+        "/ecole-du-dehors",
+        "/le-reseau"
+      ],
+      "uses": [
+        "network"
+      ],
+      "altText": "La cour et les bâtiments du campus EBM de Casablanca.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/1023-38b37902/EBM-C_0048.webp",
+      "sourcePage": "https://www.ecolebelge.org/casablanca",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A05 Casablanca/05_EBM-C_0048.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 1.6,
+      "originalExists": true,
+      "bytes": 572457
+    },
+    {
+      "src": "/images/directeur-reseau.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/directeur-reseau.jpg",
+      "exists": true,
+      "destinations": [
+        "/le-reseau"
+      ],
+      "uses": [
+        "director"
+      ],
+      "altText": "Axel Bex Chaval à son bureau, portrait publié par les EBM.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/3895-522b3799/EBM-R_0024.webp",
+      "sourcePage": "https://www.ecolebelge.org/acceuil",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A01 Accueil/10_EBM-R_0024.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 0.615,
+      "originalExists": true,
+      "bytes": 158469
+    },
+    {
+      "src": "/images/collage-sciences.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/collage-sciences.jpg",
+      "exists": true,
+      "destinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "uses": [
+        "sciences"
+      ],
+      "altText": "Des élèves des EBM travaillent ensemble en sciences.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/3882-58300c4c/E%25C3%25A9l%25C3%25A8ves%2520en%2520sciences.svg",
+      "sourcePage": "https://www.ecolebelge.org/notre-projet-pedagogique",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A03 Projet pédagogique/03_Eélèves en sciences.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 0.061,
+      "originalExists": true,
+      "bytes": 152175
+    },
+    {
+      "src": "/images/collage-maternelle.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/collage-maternelle.jpg",
+      "exists": true,
+      "destinations": [
+        "/grandir-aux-ebm",
+        "/pedagogie"
+      ],
+      "uses": [
+        "nursery"
+      ],
+      "altText": "Un moment d’apprentissage en maternelle aux EBM.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/3889-d0b32f32/Maternelle.jpg",
+      "sourcePage": "https://www.ecolebelge.org/approche-valeurs",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A04 Parcours scolaire/03_Maternelle.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 1.11,
+      "originalExists": true,
+      "bytes": 400638
+    },
+    {
+      "src": "/images/collage-dessin.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/collage-dessin.jpg",
+      "exists": true,
+      "destinations": [
+        "/grandir-aux-ebm",
+        "/pedagogie"
+      ],
+      "uses": [
+        "primary"
+      ],
+      "altText": "Une élève des EBM réalise un dessin en classe.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/970-6282b3d2/EBM-C_0370.svg",
+      "sourcePage": "https://www.ecolebelge.org/notre-projet-pedagogique",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A03 Projet pédagogique/02_EBM-C_0370.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 0.988,
+      "originalExists": true,
+      "bytes": 457169
+    },
+    {
+      "src": "/images/parcours-secondaire.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/parcours-secondaire.jpg",
+      "exists": true,
+      "destinations": [
+        "/pedagogie"
+      ],
+      "uses": [
+        "secondary"
+      ],
+      "altText": "Des élèves du secondaire des EBM lors d’un cours.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/3890-fa56f31f/Secondaire.jpg",
+      "sourcePage": "https://www.ecolebelge.org/approche-valeurs",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A04 Parcours scolaire/05_Secondaire.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 1.693,
+      "originalExists": true,
+      "bytes": 435318
+    },
+    {
+      "src": "/images/casablanca-ecole-du-dehors.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/casablanca-ecole-du-dehors.jpg",
+      "exists": true,
+      "destinations": [
+        "/ecole-du-dehors",
+        "/nos-campus",
+        "/nos-campus/casablanca",
+        "/pedagogie"
+      ],
+      "uses": [
+        "outdoor",
+        "Campus distinctive feature"
+      ],
+      "altText": "Des enfants et leur enseignante apprennent dehors, dans l’espace naturel de Casablanca.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/Photos/CASABLANCA/DEHORS/IMG_0724.HEIC",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "campus": "casablanca",
+      "originalExists": true,
+      "bytes": 324046
+    },
+    {
+      "src": "/images/migration-school/outdoor-launch.webp",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/migration-school/outdoor-launch.webp",
+      "exists": true,
+      "destinations": [
+        "/ecole-du-dehors"
+      ],
+      "uses": [
+        "outdoorLaunch"
+      ],
+      "altText": "Photographie du lancement de l’école du dehors, publiée en janvier 2024.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/901-701e26f4/IMG-20231114-WA0020.jpg",
+      "sourcePage": "https://www.ecolebelge.org/blog/actualites-2/l-ecole-belge-de-casablanca-lance-son-ecole-du-dehors-8",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/D08 L’école belge de Casablanca lance son école du dehors/01_IMG-20231114-WA0020.jpg",
+      "provenanceStatus": "new-optimized-from-local-archive",
+      "provenanceNote": "Exact supplied CSV mapping; inspected then resized/compressed with existing Sharp.",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 342990,
+      "originalExists": true
+    },
+    {
+      "src": "/images/collage-badminton.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/collage-badminton.jpg",
+      "exists": true,
+      "destinations": [
+        "/grandir-aux-ebm"
+      ],
+      "uses": [
+        "sport"
+      ],
+      "altText": "Des élèves des EBM pratiquent le badminton.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/939-0b324b0a/EBM-C_0150.webp",
+      "sourcePage": "https://www.ecolebelge.org/notre-projet-pedagogique",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A03 Projet pédagogique/06_EBM-C_0150.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 1.164,
+      "originalExists": true,
+      "bytes": 333989
+    },
+    {
+      "src": "/images/ceremonie-diplomes.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/ceremonie-diplomes.jpg",
+      "exists": true,
+      "destinations": [
+        "/apres-les-ebm"
+      ],
+      "uses": [
+        "ceremony"
+      ],
+      "altText": "Une cérémonie de remise de diplômes des EBM. L’année de la photographie reste à confirmer.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/3891-7a99dfb6/Primaire.jpg",
+      "sourcePage": "https://www.ecolebelge.org/approche-valeurs",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A04 Parcours scolaire/04_Primaire.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 0.228,
+      "originalExists": true,
+      "bytes": 552730
+    },
+    {
+      "src": "/images/alumni-atomium.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/alumni-atomium.jpg",
+      "exists": true,
+      "destinations": [
+        "/apres-les-ebm",
+        "/grandir-aux-ebm"
+      ],
+      "uses": [
+        "trip"
+      ],
+      "altText": "Les élèves de Casablanca lors du voyage de rhéto de la promotion 2024–2025 en Belgique.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/2410-663b3b00/1.webp",
+      "sourcePage": "https://www.ecolebelge.org/blog/actualites-2/les-futurs-laureats-de-la-promotion-2024-2025-en-voyage-de-retho-18",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/D01 Les futurs lauréats de la promotion 2024-2025 en «voyage de rétho»/03_1.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 0.259,
+      "originalExists": true,
+      "bytes": 452455
+    },
+    {
+      "src": "/images/alumni-amphitheatre.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/alumni-amphitheatre.jpg",
+      "exists": true,
+      "destinations": [
+        "/grandir-aux-ebm"
+      ],
+      "uses": [
+        "tripCampus"
+      ],
+      "altText": "Une visite d’établissement supérieur pendant le voyage de rhéto de 2024.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/2409-6eed1518/4.webp",
+      "sourcePage": "https://www.ecolebelge.org/blog/actualites-2/les-futurs-laureats-de-la-promotion-2024-2025-en-voyage-de-retho-18",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/D01 Les futurs lauréats de la promotion 2024-2025 en «voyage de rétho»/05_4.webp",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 5.063,
+      "originalExists": true,
+      "bytes": 152546
+    },
+    {
+      "src": "/images/alumni-bruges.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/alumni-bruges.jpg",
+      "exists": true,
+      "destinations": [
+        "/grandir-aux-ebm"
+      ],
+      "uses": [
+        "bruges"
+      ],
+      "altText": "Une étape à Bruges du voyage de rhéto présenté dans l’article de novembre 2024.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/2412-6a556e4d/w.webp",
+      "sourcePage": "https://www.ecolebelge.org/blog/actualites-2/les-futurs-laureats-de-la-promotion-2024-2025-en-voyage-de-retho-18",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/D01 Les futurs lauréats de la promotion 2024-2025 en «voyage de rétho»/06_w.webp",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "pixelComparisonMeanDifference": 3.786,
+      "originalExists": true,
+      "bytes": 327235
+    },
+    {
+      "src": "/images/migration-school/rabat-german-workshop.webp",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/migration-school/rabat-german-workshop.webp",
+      "exists": true,
+      "destinations": [
+        "/grandir-aux-ebm"
+      ],
+      "uses": [
+        "german"
+      ],
+      "altText": "Photographie publiée avec le partenariat germanophone de Rabat, en octobre 2024.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/2400-d6bf47b6/Article%20de%20blog%20%27Partenariat%20entre%20l%E2%80%99Ambassade%20d%E2%80%99Allemagne%2C%20l%E2%80%99Institut%20Goethe%20et%20l%E2%80%99%C3%A9cole%20belge%20de%20Rabat%27%20cover%20image.webp",
+      "sourcePage": "https://www.ecolebelge.org/blog/actualites-2/partenariat-entre-l-ambassade-d-allemagne-l-institut-goethe-et-l-ecole-belge-de-rabat-17",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/D02 Partenariat entre l’Ambassade d’Allemagne, l’Institut Goethe et l’école belg/02_Article de blog 'Partenariat entre l’Ambassade d’Allemagne, l’Institut Goethe",
+      "provenanceStatus": "new-optimized-from-local-archive",
+      "provenanceNote": "Exact supplied CSV mapping; inspected then resized/compressed with existing Sharp.",
+      "width": 1600,
+      "height": 900,
+      "bytes": 72040,
+      "originalExists": true
+    },
+    {
+      "src": "/images/migration-school/imzayne-solidarity.webp",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/migration-school/imzayne-solidarity.webp",
+      "exists": true,
+      "destinations": [
+        "/grandir-aux-ebm"
+      ],
+      "uses": [
+        "solidarity"
+      ],
+      "altText": "Rencontre solidaire des élèves de Rabat avec l’école rurale d’Imzayne, présentée en mai 2024.",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/1859-39b5e1fc/article.jpg",
+      "sourcePage": "https://www.ecolebelge.org/blog/actualites-2/un-precieux-moment-de-rencontre-et-de-partage-11",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/D05 UN PRECIEUX MOMENT DE RENCONTRE ET DE PARTAGE/02_article.jpg",
+      "provenanceStatus": "new-optimized-from-local-archive",
+      "provenanceNote": "Exact supplied CSV mapping; inspected then resized/compressed with existing Sharp.",
+      "width": 1280,
+      "height": 576,
+      "bytes": 268802,
+      "originalExists": true
+    },
+    {
+      "src": "/images/hero-casablanca-entree.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/hero-casablanca-entree.jpg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/casablanca"
+      ],
+      "uses": [
+        "Campus split hero and hub card"
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/Photos/CASABLANCA/3c3cc3d0-1325-407f-8a55-5c3f6cb00354.png",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "campus": "casablanca",
+      "originalExists": true,
+      "bytes": 333175
+    },
+    {
+      "src": "/images/casablanca-cour-fondamental.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/casablanca-cour-fondamental.jpg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/casablanca"
+      ],
+      "uses": [
+        "La cour du fondamental."
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/Photos/CASABLANCA/Fondamental_EBC.png",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "campus": "casablanca",
+      "originalExists": true,
+      "bytes": 241619
+    },
+    {
+      "src": "/images/casablanca-bibliotheque.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/casablanca-bibliotheque.jpg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/casablanca"
+      ],
+      "uses": [
+        "La bibliothèque du secondaire."
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/Photos/CASABLANCA/Biblio_secondaire_EBC.png",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "campus": "casablanca",
+      "originalExists": true,
+      "bytes": 192523
+    },
+    {
+      "src": "/images/casablanca-cour-secondaire.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/casablanca-cour-secondaire.jpg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/casablanca"
+      ],
+      "uses": [
+        "La cour du secondaire."
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/Photos/CASABLANCA/6bdda8ee-a9c1-43b4-9d99-61829e02b72d.png",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "campus": "casablanca",
+      "originalExists": true,
+      "bytes": 296428
+    },
+    {
+      "src": "/images/hero-rabat-batiment.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/hero-rabat-batiment.jpg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/rabat"
+      ],
+      "uses": [
+        "Campus split hero and hub card"
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/Photos/RABAT/ea51aeb9-5cc2-439a-9e01-d57ea70157ab.png",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "campus": "rabat",
+      "originalExists": true,
+      "bytes": 233243
+    },
+    {
+      "src": "/images/hero-rabat-entree.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/hero-rabat-entree.jpg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/rabat"
+      ],
+      "uses": [
+        "L’entrée du secondaire.",
+        "Campus distinctive feature"
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/Photos/RABAT/Entrée secondaire EBR avec élèves.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "campus": "rabat",
+      "originalExists": true,
+      "bytes": 389822
+    },
+    {
+      "src": "/images/campus-rabat.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/campus-rabat.jpg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/rabat"
+      ],
+      "uses": [
+        "Les espaces extérieurs du campus."
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/999-245be3cf/Rabat%204.webp",
+      "sourcePage": "https://www.ecolebelge.org/rabat",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A06 Rabat/04_Rabat 4.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "campus": "rabat",
+      "pixelComparisonMeanDifference": 1.816,
+      "originalExists": true,
+      "bytes": 419768
+    },
+    {
+      "src": "/images/alumni-rabat.jpg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/images/alumni-rabat.jpg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/rabat"
+      ],
+      "uses": [
+        "Des élèves réunis dans le hall du campus de Rabat."
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": "https://www.ecolebelge.org/web/image/1003-ea922198/Rabat%201.webp",
+      "sourcePage": "https://www.ecolebelge.org/rabat",
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Site_Actuel/images/A06 Rabat/03_Rabat 1.jpg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Incumbent archive mapping, cross-checked against locally resized image pixels; this is provenance evidence, not permission.",
+      "campus": "rabat",
+      "pixelComparisonMeanDifference": 2.558,
+      "originalExists": true,
+      "bytes": 488375
+    },
+    {
+      "src": "/brand/picto-casablanca.svg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/brand/picto-casablanca.svg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/casablanca"
+      ],
+      "uses": [
+        "Supplied campus pictogram"
+      ],
+      "altText": "Pictogramme du campus de Casablanca",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/LOGO/SVG/Asset 17.svg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "originalExists": true,
+      "bytes": 4896
+    },
+    {
+      "src": "/brand/picto-rabat.svg",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/brand/picto-rabat.svg",
+      "exists": true,
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/rabat"
+      ],
+      "uses": [
+        "Supplied campus pictogram"
+      ],
+      "altText": "Pictogramme du campus de Rabat",
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/LOGO/SVG/Asset 16.svg",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "originalExists": true,
+      "bytes": 9588
+    },
+    {
+      "src": "/brand/partners-white.png",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/brand/partners-white.png",
+      "exists": true,
+      "destinations": [
+        "/le-reseau"
+      ],
+      "uses": [
+        "Exact existing FWB/WBI/AEBE partner artwork"
+      ],
+      "altText": null,
+      "rightsStatus": "EBM republication/child-photo permissions require confirmation before publication.",
+      "sourceUrl": null,
+      "sourcePage": null,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/LOGO/2x/Asset 5@2x.png",
+      "provenanceStatus": "existing-provided-asset",
+      "provenanceNote": "Exact incumbent mapping in docs/HOME-SPEC.md and/or canonical campus asset ledger.",
+      "originalExists": true,
+      "bytes": 20389
+    },
+    {
+      "src": "/documents/school-calendar-2026-2027.pdf",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/documents/school-calendar-2026-2027.pdf",
+      "exists": true,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/documents/school-calendar-2026-2027.pdf",
+      "originalExists": true,
+      "sourceUrl": "https://www.ecolebelge.org/web/content/4779?unique=24bcf465973967fadfa9dc1b9b75f1068bb29a6a&download=true",
+      "destinations": [
+        "/calendrier"
+      ],
+      "uses": [
+        "Signed school calendar 2026–2027"
+      ],
+      "provenanceStatus": "supplied-public-document-copy",
+      "contentStatus": "published-source",
+      "rightsStatus": "EBM review required before republication."
+    },
+    {
+      "src": "/documents/brochure-archive.pdf",
+      "publicPath": "/Users/ayoub/Documents/ayoub/EBM_Website/public/documents/brochure-archive.pdf",
+      "exists": true,
+      "originalPath": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/documents/school-brochure-ARCHIVAL.pdf",
+      "originalExists": true,
+      "sourceUrl": "https://www.ecolebelge.org/web/content/1060?unique=acab899e24308f36f3aa25c9998050576776dac9&download=true",
+      "destinations": [
+        "/apres-les-ebm"
+      ],
+      "uses": [
+        "Historical brochure; not current-year publication"
+      ],
+      "provenanceStatus": "supplied-public-document-copy",
+      "contentStatus": "historical",
+      "rightsStatus": "EBM review required before republication."
+    }
+  ]
+}

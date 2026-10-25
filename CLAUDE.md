@@ -5,7 +5,7 @@ New website for Écoles Belges au Maroc (Casablanca + Rabat). French at launch.
 Read before working:
 - `docs/BRIEF.md`: the standing technical brief (stack, security rules, Eduka, booking, sequence).
 - `docs/ARCHITECTURE.md`: architecture, Website vs Eduka split, content model, blockers, phases.
-- `docs/HOME-SPEC.md`: tokens, navigation, header/footer, home sections, placeholder pages, perf budget.
+- `docs/HOME-SPEC.md`: tokens, navigation, header/footer, home sections, inner-page overview, perf budget.
 - `DESIGN.md` / `PRODUCT.md`: design system as built, product truth.
 
 ## Stack (pinned, verified 21 Oct 2026)
@@ -60,9 +60,19 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   documents the built system.
 - The alumni stories are placeholders (`source: 'placeholder'`): EBM photos, invented quotes,
   `[Prénom Nom]`, a visible notice. Replace them once EBM collects real stories.
-- The other 14 main pages are **placeholders** (noindex) until Ayoub specifies their content.
+- The 14 non-home main pages now have a **first content implementation pass** (24–25 Oct 2026),
+  using the supplied migration pack and the blueprint text extraction. They remain noindex review
+  drafts, with specific missing-content notes rather than whole-page placeholders. Typed data is in
+  `src/content/migration/`; scoped blocks/interactions are in `src/components/inner/`. See
+  `docs/CONTENT-MIGRATION.md`, `docs/CONTENT-GAPS.md` and the source/asset JSON ledgers.
+  The latest request excluded the homepage: its content, alumni placeholders and established
+  interactions were preserved; 69 protected home/shared files remain unchanged.
+  Legal/privacy/recruitment and visit-support pages are honest review/request pages. The existing
+  site-directory page remains indexable. Applications hand off to the current hosted Eduka form;
+  contact/visit tools prepare a local e-mail link and do not deliver/store messages or book slots.
 - No integration (Eduka, Supabase, Resend, Trigger.dev, Turnstile, Instagram) is built. Never
-  present a placeholder or mock as a working feature.
+  present a placeholder or mock as a working feature. Hosted Eduka links and local e-mail
+  requests are functional handoffs, not an Eduka API or website delivery/booking integration.
 
 ## Design rules
 
@@ -90,7 +100,9 @@ writes two CSS variables; shared code in `scroll-scene.ts`) and the alumni deck
 (`story-deck.tsx`; the cards are server-rendered children) and the key-figure count-up
 (`count-up.tsx`; the final value is in the server HTML), the FAQ accordion, video player, shared campus switcher and certificate-path viewport trigger.
 The age-group chooser is native radio inputs + CSS, with no client component or slider. Admissions is static server-rendered HTML/CSS, without a scroll-driven diagram or client code.
-No animation or carousel library. `next/image`
+Scoped inner-page client islands cover level tabs, activity filtering, FAQ search/disclosures,
+fee selection, the school-calendar browser and local e-mail composition; long content and shared
+blocks stay server-rendered. No animation or carousel library. `next/image`
 everywhere (only the LCP image has `preload`), `next/font` for both faces. Check the first-load
 JS table after changes with `npm run report:bundle` (Next 16 no longer prints it): home is
 160.7 KiB gzip / 138.7 KiB brotli (24 Oct 2026, native video controls build), about 133 KiB of which is Next 16 + React 19 alone.

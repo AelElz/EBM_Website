@@ -1,10 +1,7 @@
-import { pages } from '@/content/pages'
-import { PlaceholderPage, placeholderMetadata } from '@/components/site/placeholder-page'
+import { SupportPage } from '@/components/inner/support-page'
+import { recruitmentContent as content } from '@/content/migration/support'
+import { pageMetadata } from '@/lib/metadata'
 
-const page = pages['recrutement']
+export const metadata = pageMetadata({ title: content.title, description: content.intro, path: content.path, index: false })
 
-export const metadata = placeholderMetadata(page)
-
-export default function Page() {
-  return <PlaceholderPage page={page} />
-}
+export default function Page() { return <SupportPage content={content} /> }

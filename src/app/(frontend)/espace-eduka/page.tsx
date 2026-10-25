@@ -18,6 +18,7 @@ import { site } from '@/content/site'
 import { pageMetadata } from '@/lib/metadata'
 import { routes } from '@/lib/routes'
 import { cn } from '@/lib/utils'
+import { AUTH_TEST_PATH } from '@/features/auth-test/contract'
 import { Emphasis, SectionLabel } from '@/components/home/emphasis'
 import { ButtonLink } from '@/components/ui/button'
 
@@ -26,8 +27,9 @@ import styles from './espace-eduka.module.css'
 /*
  * Espace Eduka (/espace-eduka): the login page in the EBM design, reached from the header's
  * person icon, the phone menu and the footer. The sign-in itself happens on Eduka: the button
- * opens Eduka's sign-in page in the same tab, and no password is ever typed on this site (see
+ * opens Eduka's sign-in page in the same tab. No Eduka password is collected here (see
  * src/content/espace-eduka.ts for why). Server Component, no client JS; CSS entrance only.
+ * A small bottom link opens the separate, clearly labelled EBM frontend prototype.
  * noindex, like other sign-in pages.
  */
 export const metadata: Metadata = pageMetadata({
@@ -106,6 +108,10 @@ export default function EspaceEdukaPage() {
               )
             })}
           </ul>
+          <div className={styles.testEntry}>
+            <p>Un aperçu du futur espace EBM.</p>
+            <Link href={AUTH_TEST_PATH}>Tester la connexion<ArrowRight aria-hidden="true" size={16} /></Link>
+          </div>
         </div>
       </div>
 

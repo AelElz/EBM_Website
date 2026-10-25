@@ -1,10 +1,13 @@
-import { pages } from '@/content/pages'
-import { PlaceholderPage, placeholderMetadata } from '@/components/site/placeholder-page'
+import { CampusHub } from '@/components/inner/campuses/campus-pages'
+import { pageMetadata } from '@/lib/metadata'
 
-const page = pages['nos-campus']
-
-export const metadata = placeholderMetadata(page)
+export const metadata = pageMetadata({
+  title: 'Nos campus',
+  description: 'Découvrez les campus des Écoles Belges au Maroc à Casablanca, Dar Bouazza, et à Rabat, Hay Riad : cadre de vie, services et contacts.',
+  path: '/nos-campus',
+  index: false,
+})
 
 export default function Page() {
-  return <PlaceholderPage page={page} />
+  return <CampusHub />
 }

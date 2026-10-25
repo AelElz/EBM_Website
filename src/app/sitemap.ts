@@ -7,9 +7,9 @@ import { routes } from '@/lib/routes'
  * /sitemap.xml (docs/HOME-SPEC.md, SEO). Lives at the app root, outside both route groups, so it
  * belongs to neither root layout and cannot collide with Payload's /admin and /api routes.
  *
- * Real, indexable pages only. The 14 main pages and the system placeholders (legal pages,
- * recruitment, booking, search) are noindex until their content is written; add each one here
- * when its `pageMetadata` call stops passing `index: false`.
+ * Real, indexable pages only. The 14 migrated main pages and support drafts remain noindex during EBM review.
+ * Content is populated; add a page here only after its publication readiness is approved
+ * and its `pageMetadata` call stops passing `index: false`.
  */
 const indexable = [
   { path: routes.home, priority: 1 },

@@ -1,0 +1,2976 @@
+{
+  "generatedAt": "2026-10-25",
+  "scope": "Non-home content migration review draft. No source status constitutes EBM approval.",
+  "sourcePack": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack",
+  "statusDefinitions": {
+    "published-source": "Published in supplied EBM source; not independently certified as current or approved.",
+    "historical": "Dated/archive context only; not current availability, fees, results or events.",
+    "needs-confirmation": "Content usable for review but a named fact/policy requires EBM validation.",
+    "missing": "Required evidence/content absent or source unavailable.",
+    "excluded": "Not imported as school content: technical routes, templates or unrelated material."
+  },
+  "inventoryCount": 80,
+  "recordCount": 173,
+  "records": [
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/home.md",
+      "intendedDestinations": [
+        "/"
+      ],
+      "currentPassDestinations": [],
+      "section": "Homepage overview; summary links to new interior pages",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Duplicate of /acceuil",
+      "homepageHandling": "Preserved and excluded from implementation by latest user request."
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/acceuil",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/acceuil.md",
+      "intendedDestinations": [
+        "/"
+      ],
+      "currentPassDestinations": [],
+      "section": "Home hero/highlights/figures; distribute campus/pedagogy details",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Preserve later built homepage design; review counts",
+      "homepageHandling": "Preserved and excluded from implementation by latest user request."
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/admission",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/admission.md",
+      "intendedDestinations": [
+        "/calendrier"
+      ],
+      "currentPassDestinations": [
+        "/calendrier"
+      ],
+      "section": "2025 admissions poster",
+      "status": "historical",
+      "disposition": "Archive",
+      "note": "No current dates; contextual migration only",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/approche-valeurs",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/approche-valeurs.md",
+      "intendedDestinations": [
+        "/pedagogie"
+      ],
+      "currentPassDestinations": [
+        "/pedagogie"
+      ],
+      "section": "Maternelle/Primaire/Secondaire tabs",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Stable hash anchors",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Old blog listing",
+      "status": "historical",
+      "disposition": "Archive index",
+      "note": "No new news/blog section",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Old news listing",
+      "status": "historical",
+      "disposition": "Archive index",
+      "note": "Useful article content distributed to destinations",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/feed",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/l-ecole-belge-de-casablanca-lance-son-ecole-du-dehors-8",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2_l-ecole-belge-de-casablanca-lance-son-ecole-du-dehors-8.md",
+      "intendedDestinations": [
+        "/ecole-du-dehors",
+        "/nos-campus/casablanca"
+      ],
+      "currentPassDestinations": [
+        "/ecole-du-dehors",
+        "/nos-campus/casablanca"
+      ],
+      "section": "Dated story/media example",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Outdoor approach/history; planned vs built infrastructure",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/la-periode-de-depot-des-demandes-d-admission-des-fratries-est-ouverte-10",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2_la-periode-de-depot-des-demandes-d-admission-des-fratries-est-ouverte-10.md",
+      "intendedDestinations": [
+        "/admissions/comprendre"
+      ],
+      "currentPassDestinations": [
+        "/admissions/comprendre"
+      ],
+      "section": "Dated story/media example",
+      "status": "historical",
+      "disposition": "Archive",
+      "note": "Historical 2024 campaign; do not publish its deadlines",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/le-site-de-la-section-secondaire-de-l-ecole-belge-de-rabat-officiellement-inaugure-9",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2_le-site-de-la-section-secondaire-de-l-ecole-belge-de-rabat-officiellement-inaugure-9.md",
+      "intendedDestinations": [
+        "/nos-campus/rabat",
+        "/le-reseau"
+      ],
+      "currentPassDestinations": [
+        "/nos-campus/rabat",
+        "/le-reseau"
+      ],
+      "section": "Dated story/media example",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "History: event 14 Nov 2023, publication Jan 2024",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/les-futurs-laureats-de-la-promotion-2024-2025-en-voyage-de-retho-18",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2_les-futurs-laureats-de-la-promotion-2024-2025-en-voyage-de-retho-18.md",
+      "intendedDestinations": [
+        "/apres-les-ebm",
+        "/grandir-aux-ebm"
+      ],
+      "currentPassDestinations": [
+        "/apres-les-ebm",
+        "/grandir-aux-ebm"
+      ],
+      "section": "Dated story/media example",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Dated trip/education orientation; not university attendance evidence",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/les-nouveautes-pedagogiques-de-la-rentree-2024-dans-les-ecoles-belges-au-maroc-15",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2_les-nouveautes-pedagogiques-de-la-rentree-2024-dans-les-ecoles-belges-au-maroc-15.md",
+      "intendedDestinations": [
+        "/pedagogie",
+        "/ecole-du-dehors"
+      ],
+      "currentPassDestinations": [
+        "/pedagogie",
+        "/ecole-du-dehors"
+      ],
+      "section": "Dated story/media example",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "2024 video; subject/availability must be reviewed",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/mot-de-m-axel-bex-chaval-directeur-du-reseau-des-ecoles-belges-au-maroc-a-l-occasion-de-la-rentree-scolaire-2024-14",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2_mot-de-m-axel-bex-chaval-directeur-du-reseau-des-ecoles-belges-au-maroc-a-l-occasion-de-la-rentree-scolaire-2024-14.md",
+      "intendedDestinations": [
+        "/le-reseau"
+      ],
+      "currentPassDestinations": [
+        "/le-reseau"
+      ],
+      "section": "Dated story/media example",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Optional dated 2024 director video",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/partenariat-entre-l-ambassade-d-allemagne-l-institut-goethe-et-l-ecole-belge-de-rabat-17",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2_partenariat-entre-l-ambassade-d-allemagne-l-institut-goethe-et-l-ecole-belge-de-rabat-17.md",
+      "intendedDestinations": [
+        "/pedagogie",
+        "/grandir-aux-ebm",
+        "/nos-campus/rabat"
+      ],
+      "currentPassDestinations": [
+        "/pedagogie",
+        "/grandir-aux-ebm",
+        "/nos-campus/rabat"
+      ],
+      "section": "Dated story/media example",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Dated 2024 German workshop partnership, not core curriculum guarantee",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/actualites-2/un-precieux-moment-de-rencontre-et-de-partage-11",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_actualites-2_un-precieux-moment-de-rencontre-et-de-partage-11.md",
+      "intendedDestinations": [
+        "/grandir-aux-ebm"
+      ],
+      "currentPassDestinations": [
+        "/grandir-aux-ebm"
+      ],
+      "section": "Dated story/media example",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Dated 2024 solidarity project",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/voyager-4",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/blog_voyager-4.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Empty/minimal blog category",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "No separate new category",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/blog/voyager-4/feed",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/brochure-des-ecoles-belges-au-maroc",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/brochure-des-ecoles-belges-au-maroc.md",
+      "intendedDestinations": [
+        "/le-reseau",
+        "/pedagogie",
+        "/apres-les-ebm"
+      ],
+      "currentPassDestinations": [
+        "/le-reseau",
+        "/pedagogie",
+        "/apres-les-ebm"
+      ],
+      "section": "Framework/values/levels; archival graduate statistics",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Keep PDF and historical qualifiers",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/calendrier",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/calendrier.md",
+      "intendedDestinations": [
+        "/calendrier"
+      ],
+      "currentPassDestinations": [
+        "/calendrier"
+      ],
+      "section": "School calendar and linked PDF",
+      "status": "published-source",
+      "disposition": "Retain path",
+      "note": "No self-redirect; PDF vs HTML conflicts",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/calendrier-des-admissions",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/calendrier-des-admissions.md",
+      "intendedDestinations": [
+        "/calendrier"
+      ],
+      "currentPassDestinations": [
+        "/calendrier"
+      ],
+      "section": "Broken image-only historical calendar",
+      "status": "historical",
+      "disposition": "Archive",
+      "note": "No invented dates",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/campagne-recrutement-2024-2025",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/campagne-recrutement-2024-2025.md",
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "Empty historical career campaign",
+      "status": "historical",
+      "disposition": "Archive",
+      "note": "Do not revive as current",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/casablanca",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/casablanca.md",
+      "intendedDestinations": [
+        "/nos-campus/casablanca",
+        "/grandir-aux-ebm"
+      ],
+      "currentPassDestinations": [
+        "/nos-campus/casablanca",
+        "/grandir-aux-ebm"
+      ],
+      "section": "Campus facts/photos; practical services",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Counts/hours/provider details need date review",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/classe-d-accueil",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/classe-d-accueil.md",
+      "intendedDestinations": [
+        "/pedagogie#maternelle",
+        "/admissions/comprendre#faq"
+      ],
+      "currentPassDestinations": [
+        "/pedagogie#maternelle",
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Early-years model and unique Q&A",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Exclude stale birth years/monthly fees; review hours/class size",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/comment-inscrire-mon-enfant",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/comment-inscrire-mon-enfant.md",
+      "intendedDestinations": [
+        "/admissions/candidater",
+        "/admissions/documents-et-frais"
+      ],
+      "currentPassDestinations": [
+        "/admissions/candidater",
+        "/admissions/documents-et-frais"
+      ],
+      "section": "Eduka handoff + conditional document checklist",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Outdated report years",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/contactez-nous",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/contactez-nous.md",
+      "intendedDestinations": [
+        "/contact"
+      ],
+      "currentPassDestinations": [
+        "/contact"
+      ],
+      "section": "Primary contacts/directions",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Clean display strings; no invented WhatsApp ownership",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/contactez-nous-1",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/contactez-nous-1.md",
+      "intendedDestinations": [
+        "/contact"
+      ],
+      "currentPassDestinations": [
+        "/contact"
+      ],
+      "section": "Alternate contact source",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "E-mail spelling conflict",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/contactss",
+      "fetchedAt": null,
+      "fetchStatus": "error",
+      "sourceFile": null,
+      "intendedDestinations": [
+        "/contact"
+      ],
+      "currentPassDestinations": [
+        "/contact"
+      ],
+      "section": "Indexed legacy contact URL 404",
+      "status": "missing",
+      "disposition": "Missing source",
+      "note": "Use /contactez-nous",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/contactus",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/contactus.md",
+      "intendedDestinations": [
+        "/contact"
+      ],
+      "currentPassDestinations": [
+        "/contact"
+      ],
+      "section": "Contact alias",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Same content as contactez-nous",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/cursus-scolaire",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/cursus-scolaire.md",
+      "intendedDestinations": [
+        "/pedagogie"
+      ],
+      "currentPassDestinations": [
+        "/pedagogie"
+      ],
+      "section": "Legacy curriculum graphic",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Check image against current programme; little text",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/demande",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/demande.md",
+      "intendedDestinations": [
+        "/admissions/candidater"
+      ],
+      "currentPassDestinations": [
+        "/admissions/candidater"
+      ],
+      "section": "Older application procedure",
+      "status": "historical",
+      "disposition": "Archive",
+      "note": "Obsolete years and old upload constraints",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/demande-2025-2026",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/demande-2025-2026.md",
+      "intendedDestinations": [
+        "/admissions/candidater"
+      ],
+      "currentPassDestinations": [
+        "/admissions/candidater"
+      ],
+      "section": "Older application procedure",
+      "status": "historical",
+      "disposition": "Archive",
+      "note": "Old /web/12 Eduka URL; misleading page title",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/ecole-du-dehors",
+      "fetchedAt": null,
+      "fetchStatus": "error",
+      "sourceFile": null,
+      "intendedDestinations": [
+        "/ecole-du-dehors"
+      ],
+      "currentPassDestinations": [
+        "/ecole-du-dehors"
+      ],
+      "section": "Old URL 404; new dedicated page from article",
+      "status": "missing",
+      "disposition": "Missing source",
+      "note": "No old working dedicated page found",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/engagement",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/engagement.md",
+      "intendedDestinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "currentPassDestinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "section": "Four values; learning goals",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Do not reduce four official named values to three",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/faq",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/faq.md",
+      "intendedDestinations": [
+        "/admissions/comprendre#faq",
+        "/pedagogie",
+        "/grandir-aux-ebm",
+        "/apres-les-ebm"
+      ],
+      "currentPassDestinations": [
+        "/admissions/comprendre#faq",
+        "/pedagogie",
+        "/grandir-aux-ebm",
+        "/apres-les-ebm"
+      ],
+      "section": "Unique FAQ + contextual short summaries",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Deduplicate three repeated primary questions; preserve visits conflict",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/faqs",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/faqs.md",
+      "intendedDestinations": [
+        "/admissions/comprendre#faq",
+        "/pedagogie",
+        "/grandir-aux-ebm"
+      ],
+      "currentPassDestinations": [
+        "/admissions/comprendre#faq",
+        "/pedagogie",
+        "/grandir-aux-ebm"
+      ],
+      "section": "Only unique safe supplementary answers",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Contains stale data and cookie boilerplate as answers",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/fondamentaux",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/fondamentaux.md",
+      "intendedDestinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "currentPassDestinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "section": "Institutional framework; teaching/certification context",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Diploma wording requires careful qualification",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/forum",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/forum/aide-1",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/forum/aide-1/faq",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/frais-scolaire",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/frais-scolaire.md",
+      "intendedDestinations": [
+        "/admissions/documents-et-frais"
+      ],
+      "currentPassDestinations": [
+        "/admissions/documents-et-frais"
+      ],
+      "section": "Three tariff categories and conditions",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "School year unspecified; review-only figures",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/inscription",
+      "fetchedAt": null,
+      "fetchStatus": "error",
+      "sourceFile": null,
+      "intendedDestinations": [
+        "/admissions/candidater"
+      ],
+      "currentPassDestinations": [
+        "/admissions/candidater"
+      ],
+      "section": "Broken old link",
+      "status": "missing",
+      "disposition": "Missing source",
+      "note": "Use verified Eduka handoff",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/jobs.md",
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "Recruitment overview/title candidates only",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "No confirmed current vacancies",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/apply/professeur-de-francais-1",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/apply/professeur-de-mathematique-4",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/apply/professeur-eps-2",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/detail/professeur-de-francais-1",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/jobs_detail_professeur-de-francais-1.md",
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "Job title and archival listing",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Generic sales/software template; vacancy/date not verified",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/detail/professeur-de-mathematique-4",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/jobs_detail_professeur-de-mathematique-4.md",
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "Job title and archival listing",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Generic sales/software template; vacancy/date not verified",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/detail/professeur-eps-2",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/jobs_detail_professeur-eps-2.md",
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "Job title and archival listing",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Generic sales/software template; vacancy/date not verified",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/professeur-de-francais-1",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/jobs_professeur-de-francais-1.md",
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "Job title and archival listing",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Generic sales/software template; vacancy/date not verified",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/professeur-de-mathematique-4",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/jobs_professeur-de-mathematique-4.md",
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "Job title and archival listing",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Generic sales/software template; vacancy/date not verified",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/jobs/professeur-eps-2",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/jobs_professeur-eps-2.md",
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "Job title and archival listing",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Generic sales/software template; vacancy/date not verified",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/maternelle",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/maternelle.md",
+      "intendedDestinations": [
+        "/pedagogie#maternelle"
+      ],
+      "currentPassDestinations": [
+        "/pedagogie#maternelle"
+      ],
+      "section": "Early-years objectives",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "No separate new level page",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/mentions-legales",
+      "fetchedAt": null,
+      "fetchStatus": "error",
+      "sourceFile": null,
+      "intendedDestinations": [
+        "/mentions-legales"
+      ],
+      "currentPassDestinations": [
+        "/mentions-legales"
+      ],
+      "section": "404 on old site",
+      "status": "missing",
+      "disposition": "Missing source",
+      "note": "New review draft requires publisher details",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/message",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/message.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Contact thank-you state",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "Not a standalone editorial page; no fake new submission",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/mot-directeur",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/mot-directeur.md",
+      "intendedDestinations": [
+        "/le-reseau"
+      ],
+      "currentPassDestinations": [
+        "/le-reseau"
+      ],
+      "section": "Leadership message/portrait",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Title/body role mismatch; current role review",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/nos-ecoles",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/nos-ecoles.md",
+      "intendedDestinations": [
+        "/nos-campus"
+      ],
+      "currentPassDestinations": [
+        "/nos-campus"
+      ],
+      "section": "Campus comparison and cards",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Detailed campus records are shared",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/nos-engagements",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/nos-engagements.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Empty source",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "No usable content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/nos-engagements-3",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/nos-engagements-3.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo editorial instructions",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "Template copy, not school facts",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/nos-offres",
+      "fetchedAt": null,
+      "fetchStatus": "error",
+      "sourceFile": null,
+      "intendedDestinations": [
+        "/recrutement"
+      ],
+      "currentPassDestinations": [
+        "/recrutement"
+      ],
+      "section": "404 on old site",
+      "status": "missing",
+      "disposition": "Missing source",
+      "note": "Do not infer open posts",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/notre-projet-pedagogique",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/notre-projet-pedagogique.md",
+      "intendedDestinations": [
+        "/pedagogie",
+        "/le-reseau"
+      ],
+      "currentPassDestinations": [
+        "/pedagogie",
+        "/le-reseau"
+      ],
+      "section": "Core pedagogical narrative; concise mission",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Primary teaching source",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/nouveautes",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/nouveautes.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Generic new-feature placeholder",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "Not school editorial content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/page-maintenance",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/page-maintenance.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Maintenance placeholder",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "Do not recreate",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/philosophie-d-education",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/philosophie-d-education.md",
+      "intendedDestinations": [
+        "/pedagogie"
+      ],
+      "currentPassDestinations": [
+        "/pedagogie"
+      ],
+      "section": "Same level-content narrative",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Duplicate/alias of approche-valeurs",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/pouquoi-choisir-ebm",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/pouquoi-choisir-ebm.md",
+      "intendedDestinations": [
+        "/le-reseau",
+        "/pedagogie",
+        "/"
+      ],
+      "currentPassDestinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "section": "Teacher/framework/pedagogy foundations",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Old typo URL only",
+      "homepageHandling": "Preserved and excluded from implementation by latest user request."
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/pourquoi-choisir-nos-ecoles",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/pourquoi-choisir-nos-ecoles.md",
+      "intendedDestinations": [
+        "/le-reseau",
+        "/pedagogie",
+        "/"
+      ],
+      "currentPassDestinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "section": "Sourced benefits and qualifications",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Do not make unconditional admission/outcome claims",
+      "homepageHandling": "Preserved and excluded from implementation by latest user request."
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/presse",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/presse.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Empty press page",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "No separate press page in new 15-page map",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/privacy",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/privacy.md",
+      "intendedDestinations": [
+        "/confidentialite"
+      ],
+      "currentPassDestinations": [
+        "/confidentialite"
+      ],
+      "section": "Review context only",
+      "status": "needs-confirmation",
+      "disposition": "Review",
+      "note": "Generic old policy not suitable to certify new processing",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/processus-admission",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/processus-admission.md",
+      "intendedDestinations": [
+        "/admissions",
+        "/admissions/comprendre"
+      ],
+      "currentPassDestinations": [
+        "/admissions",
+        "/admissions/comprendre"
+      ],
+      "section": "Summary + full seven-step process",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Current published order differs from proposed PDF journey",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/profile/ranks_badges",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/profile/users",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/rabat",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/rabat.md",
+      "intendedDestinations": [
+        "/nos-campus/rabat",
+        "/grandir-aux-ebm"
+      ],
+      "currentPassDestinations": [
+        "/nos-campus/rabat",
+        "/grandir-aux-ebm"
+      ],
+      "section": "Campus facts/photos; practical services",
+      "status": "published-source",
+      "disposition": "Split",
+      "note": "Contradictory levels/area/counts/hours",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/regles",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/regles.md",
+      "intendedDestinations": [
+        "/admissions/comprendre"
+      ],
+      "currentPassDestinations": [
+        "/admissions/comprendre"
+      ],
+      "section": "Level eligibility/observations/availability",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Do not substitute broken indexed regles-dadmission",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/regles-dadmission",
+      "fetchedAt": null,
+      "fetchStatus": "error",
+      "sourceFile": null,
+      "intendedDestinations": [
+        "/admissions/comprendre"
+      ],
+      "currentPassDestinations": [
+        "/admissions/comprendre"
+      ],
+      "section": "Old/indexed URL 404",
+      "status": "missing",
+      "disposition": "Missing source",
+      "note": "Use working /regles source",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/shop",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/slides",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/slides/all",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/terms",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/terms.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo sales boilerplate",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "Not school admissions/legal copy",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/test",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/test.md",
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Historical test page",
+      "status": "excluded",
+      "disposition": "Exclude",
+      "note": "Old admissions dates/typos; do not recreate",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/types-admission",
+      "fetchedAt": "2026-10-24",
+      "fetchStatus": "200",
+      "sourceFile": "/Users/ayoub/Documents/ayoub/UI projects/EBM WEBSITE/EBM_Migration_Pack/sources/types-admission.md",
+      "intendedDestinations": [
+        "/admissions/comprendre"
+      ],
+      "currentPassDestinations": [
+        "/admissions/comprendre"
+      ],
+      "section": "Admission categories and exceptions",
+      "status": "published-source",
+      "disposition": "Merge",
+      "note": "Review live policy before enforcing",
+      "homepageHandling": null
+    },
+    {
+      "kind": "inventory-disposition",
+      "sourceUrl": "https://www.ecolebelge.org/website/info",
+      "fetchedAt": null,
+      "fetchStatus": "not-fetched-intentionally",
+      "sourceFile": null,
+      "intendedDestinations": [],
+      "currentPassDestinations": [],
+      "section": "Odoo module/feed/form controller",
+      "status": "excluded",
+      "disposition": "Excluded technical route",
+      "note": "Inventoried from sitemap; not migrated as school content",
+      "homepageHandling": null
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "network-framework",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/fondamentaux"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "section": "Statut, programme, titres, inspection et certificats",
+      "status": "published-source",
+      "applicableYear": null,
+      "campus": "both",
+      "note": "Reformulation des déclarations institutionnelles EBM. Pas de garantie d’admission universitaire.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "director-message",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/mot-directeur"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/le-reseau"
+      ],
+      "section": "Message signé et portrait",
+      "status": "needs-confirmation",
+      "applicableYear": null,
+      "campus": null,
+      "note": "Message authentique; rôle actuel et accord de republication du portrait à confirmer.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "mission-values",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/notre-projet-pedagogique",
+        "https://www.ecolebelge.org/engagement"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/le-reseau",
+        "/pedagogie"
+      ],
+      "section": "Projet éducatif et quatre valeurs",
+      "status": "published-source",
+      "applicableYear": null,
+      "campus": "both",
+      "note": null,
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "network-history",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/fondamentaux",
+        "https://www.ecolebelge.org/rabat",
+        "https://www.ecolebelge.org/blog/actualites-2/le-site-de-la-section-secondaire-de-l-ecole-belge-de-rabat-officiellement-inaugure-9"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/le-reseau"
+      ],
+      "section": "Accord 2014, ouverture 2018, inauguration 2023",
+      "status": "historical",
+      "applicableYear": null,
+      "campus": null,
+      "note": null,
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "level-pathways",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/approche-valeurs",
+        "https://www.ecolebelge.org/maternelle",
+        "https://www.ecolebelge.org/classe-d-accueil",
+        "https://www.ecolebelge.org/web/content/1060?unique=acab899e24308f36f3aa25c9998050576776dac9&download=true"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/pedagogie"
+      ],
+      "section": "Accueil, maternelle, primaire, secondaire",
+      "status": "published-source",
+      "applicableYear": null,
+      "campus": null,
+      "note": "Âges indicatifs; niveaux effectivement ouverts à Rabat à confirmer. Anciennes options non importées comme catalogue actuel.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "language-pathways",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/fondamentaux",
+        "https://www.ecolebelge.org/casablanca",
+        "https://www.ecolebelge.org/faqs"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/pedagogie"
+      ],
+      "section": "Français, arabe, anglais, espagnol; choix Rabat",
+      "status": "needs-confirmation",
+      "applicableYear": null,
+      "campus": null,
+      "note": "Débuts publiés conservés; anglais/néerlandais à Rabat signalé à confirmer. B2 présenté comme objectif.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "support-wellbeing",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/notre-projet-pedagogique",
+        "https://www.ecolebelge.org/faq"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/pedagogie",
+        "/grandir-aux-ebm"
+      ],
+      "section": "Évaluation, méthodes, dialogue et climat scolaire",
+      "status": "published-source",
+      "applicableYear": null,
+      "campus": null,
+      "note": null,
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "outdoor-overview",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/blog/actualites-2/l-ecole-belge-de-casablanca-lance-son-ecole-du-dehors-8",
+        "https://www.ecolebelge.org/casablanca"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/ecole-du-dehors",
+        "/pedagogie"
+      ],
+      "section": "Pédagogie mixte et espace de 1,5 hectare",
+      "status": "published-source",
+      "applicableYear": null,
+      "campus": "casablanca",
+      "note": "Équipements décrits au futur dans l’article de lancement exclus de l’offre actuelle.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "outdoor-scope",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/blog/actualites-2/l-ecole-belge-de-casablanca-lance-son-ecole-du-dehors-8"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/ecole-du-dehors"
+      ],
+      "section": "Déploiement initial accueil–P2, 2–7 ans",
+      "status": "historical",
+      "applicableYear": "2024",
+      "campus": "casablanca",
+      "note": "Aucun horaire de séance ni périmètre actuel inventé.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "activities",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq",
+        "https://www.ecolebelge.org/faqs"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/grandir-aux-ebm"
+      ],
+      "section": "Sport, arts et culture",
+      "status": "needs-confirmation",
+      "applicableYear": null,
+      "campus": null,
+      "note": "Domaines publiés, catalogue par campus/niveau non fourni. Clubs détaillés anciens exclus de l’offre actuelle.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "trip-2024",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/blog/actualites-2/les-futurs-laureats-de-la-promotion-2024-2025-en-voyage-de-retho-18"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/grandir-aux-ebm",
+        "/apres-les-ebm"
+      ],
+      "section": "Voyage de rhéto promotion 2024–2025",
+      "status": "historical",
+      "applicableYear": "2024–2025",
+      "campus": "casablanca",
+      "note": "Article du 12 novembre 2024; visites de campus, pas preuve d’inscription universitaire.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "german-2024",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/blog/actualites-2/partenariat-entre-l-ambassade-d-allemagne-l-institut-goethe-et-l-ecole-belge-de-rabat-17"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/grandir-aux-ebm",
+        "/pedagogie"
+      ],
+      "section": "Ateliers germanophones de Rabat",
+      "status": "historical",
+      "applicableYear": "2024",
+      "campus": "rabat",
+      "note": "Article du 9 octobre 2024; ne constitue pas un cours universel actuel.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "solidarity-2024",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/blog/actualites-2/un-precieux-moment-de-rencontre-et-de-partage-11"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/grandir-aux-ebm"
+      ],
+      "section": "Projet de solidarité à Imzayne",
+      "status": "historical",
+      "applicableYear": "2024",
+      "campus": "rabat",
+      "note": null,
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "cess-guidance",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq",
+        "https://www.ecolebelge.org/notre-projet-pedagogique"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/apres-les-ebm"
+      ],
+      "section": "CESS, équivalences et orientation",
+      "status": "published-source",
+      "applicableYear": null,
+      "campus": null,
+      "note": "Conditions propres à chaque établissement conservées. Préparation médecine non annoncée comme active.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "historical-outcomes",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/web/content/1060?unique=acab899e24308f36f3aa25c9998050576776dac9&download=true"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/apres-les-ebm"
+      ],
+      "section": "Brochure pages 30–33",
+      "status": "historical",
+      "applicableYear": "2018–2023 / quatre promotions non datées",
+      "campus": null,
+      "note": "Données transcrites depuis les graphiques vérifiés. Effectifs et années de cohortes non fournis.",
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "missing-material",
+      "sourceUrls": [],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/le-reseau",
+        "/pedagogie",
+        "/ecole-du-dehors",
+        "/grandir-aux-ebm",
+        "/apres-les-ebm"
+      ],
+      "section": "Portraits d’équipes, vidéos, témoignages et profils alumni",
+      "status": "missing",
+      "applicableYear": null,
+      "campus": null,
+      "note": null,
+      "module": "src/content/migration/school.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "S09",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/casablanca"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/casablanca",
+        "/contact"
+      ],
+      "section": "Casablanca; published campus description and services",
+      "status": "published-source",
+      "note": "Counts omitted. Exact hours and childcare conditions require confirmation.",
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "S10",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/rabat"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/rabat",
+        "/contact"
+      ],
+      "section": "Rabat; opening, setting, services and published timetable",
+      "status": "published-source",
+      "note": "Area, pupil count and highest secondary level conflict; excluded from current facts.",
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "S24",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/contactez-nous"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/contact",
+        "/nos-campus",
+        "/nos-campus/casablanca",
+        "/nos-campus/rabat"
+      ],
+      "section": "Campus and service contacts",
+      "status": "published-source",
+      "note": "Rabat email uses valid mailto value; malformed address-as-phone link discarded.",
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "S25",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/contactez-nous-1"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/contact"
+      ],
+      "section": "Alternate contact page",
+      "status": "needs-confirmation",
+      "note": "Alternate fondamentale@ spelling retained in gap register; primary fondamental@ wins.",
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "S02",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/fondamentaux"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/nos-campus",
+        "/nos-campus/rabat"
+      ],
+      "section": "Shared Belgian curriculum and French-language teaching",
+      "status": "published-source",
+      "note": null,
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "S11",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/nos-ecoles"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/nos-campus"
+      ],
+      "section": "Published two-campus network overview",
+      "status": "published-source",
+      "note": null,
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "S17",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/nos-campus/casablanca",
+        "/nos-campus/rabat"
+      ],
+      "section": "Service providers and campus-specific transport policy",
+      "status": "published-source",
+      "note": "Class/childcare hours conflict with campus pages and are separately flagged.",
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "B02",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/blog/actualites-2/le-site-de-la-section-secondaire-de-l-ecole-belge-de-rabat-officiellement-inaugure-9"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/nos-campus/rabat"
+      ],
+      "section": "Event 14 November 2023; article 12 January 2024",
+      "status": "historical",
+      "note": "Past forecast of complete cycle in September 2026 is not current confirmation.",
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceId": "B01",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/blog/actualites-2/l-ecole-belge-de-casablanca-lance-son-ecole-du-dehors-8"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/nos-campus/casablanca",
+        "/nos-campus"
+      ],
+      "section": "Outdoor school; article 12 January 2024",
+      "status": "historical",
+      "note": "No claim that every planned facility has been delivered.",
+      "module": "src/content/migration/campuses.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#parcours"
+      ],
+      "section": "S’informer et échanger",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#parcours"
+      ],
+      "section": "Déposer le dossier sur Eduka",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#parcours"
+      ],
+      "section": "Rencontrer la famille",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#parcours"
+      ],
+      "section": "Observer et comprendre les acquis",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#parcours"
+      ],
+      "section": "Recevoir la décision",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#parcours"
+      ],
+      "section": "Échanger après l’admission",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#parcours"
+      ],
+      "section": "Confirmer l’inscription",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#niveaux"
+      ],
+      "section": "Une rencontre avec vous et votre enfant",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#niveaux"
+      ],
+      "section": "Une matinée d’observation en classe",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/processus-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#niveaux"
+      ],
+      "section": "Une analyse pédagogique",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/types-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#conditions"
+      ],
+      "section": "Fratries en maternelle",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/types-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#conditions"
+      ],
+      "section": "Admission sur dossier",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/types-admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#conditions"
+      ],
+      "section": "Entretien, observation ou analyse pédagogique",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/comment-inscrire-mon-enfant"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/documents-et-frais#documents"
+      ],
+      "section": "Photo d’identité de l’élève",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/comment-inscrire-mon-enfant"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/documents-et-frais#documents"
+      ],
+      "section": "Pièce d’identité du tuteur légal",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/comment-inscrire-mon-enfant"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/documents-et-frais#documents"
+      ],
+      "section": "Certificat de scolarité",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/comment-inscrire-mon-enfant"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/documents-et-frais#documents"
+      ],
+      "section": "Bulletins des deux dernières années",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/comment-inscrire-mon-enfant"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/documents-et-frais#documents"
+      ],
+      "section": "Pièce d’identité de l’élève belge",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/frais-scolaire"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/documents-et-frais"
+      ],
+      "section": "Fee data",
+      "status": "needs-confirmation",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/calendrier#visites"
+      ],
+      "section": "Une visite dans le cadre de votre candidature",
+      "status": "published-source",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-section",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/admission"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions#dates"
+      ],
+      "section": "Dates communiquées par le service admissions",
+      "status": "missing",
+      "campus": "network",
+      "schoolYear": null,
+      "module": "src/content/migration/admissions.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-01",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab326676_1",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Qu’est-ce que l’enseignement belge francophone ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-02",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab326676_2",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "En quoi le système belge est-il différent des autres systèmes internationaux ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-03",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab326676_3",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Comment est le niveau académique à l’école belge ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-04",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231040",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Le CESS est-il reconnu au Maroc ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-05",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231042",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Le CESS est-il reconnu à l’international ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-06",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231044",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Vers quels types d’études supérieures les élèves peuvent-ils s’orienter après le CESS ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-07",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231046",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Le CESS permet-il l’accès aux grandes écoles et aux universités sélectives ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [
+        "Unconfirmed medicine preparation announcement excluded."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-08",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231048",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Que se passe-t-il si un élève change de système scolaire en cours de parcours ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-09",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767953338447",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quelle est la philosophie pédagogique des écoles belges ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-10",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231053",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Qu’entend-on par pédagogie active ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-11",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231055",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Comment apprend-on concrètement dans les classes ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-12",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231057",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Comment sont évalués les élèves ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-13",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231059",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Y a-t-il des devoirs à la maison ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-14",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767181231061",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "L’exigence académique est-elle compatible avec un cadre bienveillant ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-15",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845339",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Est-ce que tous vos enseignants sont diplômés et certifiés ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-16",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845341",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Qu’est-ce qui garantit le niveau de qualification des enseignants dans le temps ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-18",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845345",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quel est concrètement le rôle de la direction pédagogique au quotidien ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-19",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098008",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quel est le climat éducatif dans les écoles ?",
+      "category": "Vie scolaire et bien-être",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-20",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098010",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quelle place est donnée au respect, au cadre et aux règles ?",
+      "category": "Vie scolaire et bien-être",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-21",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098012",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Comment sont gérées les situations de conflit ?",
+      "category": "Vie scolaire et bien-être",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-22",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098014",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quelle relation entretenez-vous avec les parents ?",
+      "category": "Vie scolaire et bien-être",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-25",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098021",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Proposez-vous un service de restauration scolaire ?",
+      "category": "Transport et cantine",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-26",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098023",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Proposez-vous un service de transport scolaire ?",
+      "category": "Transport et cantine",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-27",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098025",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Proposez-vous des activités extrascolaires ?",
+      "category": "Transport et cantine",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-28",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098027",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quels sont les horaires de la journée scolaire ?",
+      "category": "Vie scolaire et bien-être",
+      "status": "needs-confirmation",
+      "notes": [
+        "Conflicting schedules retained as explicit confirmation requirement."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-29",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098029",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Existe-t-il une garderie ou une étude encadrée avant ou après la classe ?",
+      "category": "Vie scolaire et bien-être",
+      "status": "needs-confirmation",
+      "notes": [
+        "No generalised 18:00 childcare promise."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-30",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767182098031",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quel est le calendrier des vacances scolaires ?",
+      "category": "Vie scolaire et bien-être",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-31",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845352",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "À partir de quel âge peut-on inscrire un enfant ?",
+      "category": "Admissions",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-32",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845354",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Les places sont-elles limitées ?",
+      "category": "Admissions",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-33",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845356",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quelle est la procédure d’admission ?",
+      "category": "Admissions",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-34",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845358",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Y a-t-il des tests d’admission ?",
+      "category": "Admissions",
+      "status": "published-source",
+      "notes": [
+        "Detailed current process resolves general FAQ level shorthand."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-35",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845360",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Comment se déroule un entretien avec la famille ?",
+      "category": "Admissions",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faq-36",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faq"
+      ],
+      "sourceAnchor": "myCollapseTab1767629845364",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Est-il possible de visiter l’école ?",
+      "category": "Visites",
+      "status": "published-source",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faqs-41",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faqs"
+      ],
+      "sourceAnchor": "myCollapseTab1704124850824",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Qu’est-ce qui inscrit les EBM dans la durée ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faqs-43",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faqs"
+      ],
+      "sourceAnchor": "myCollapseTab1704124851321",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quelle place pour la langue et la culture arabes ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faqs-44",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faqs"
+      ],
+      "sourceAnchor": "myCollapseTab1704124851488",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quelles langues étrangères sont proposées ?",
+      "category": "Pédagogie et diplômes",
+      "status": "needs-confirmation",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faqs-45",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faqs"
+      ],
+      "sourceAnchor": "myCollapseTab1704124851657",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quelle place pour les outils numériques ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "faqs-49",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/faqs"
+      ],
+      "sourceAnchor": "myCollapseTab1704124852320",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Faut-il préparer son enfant à l’analyse pédagogique ?",
+      "category": "Admissions",
+      "status": "published-source",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "classe-d-accueil-52",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/classe-d-accueil"
+      ],
+      "sourceAnchor": "myCollapseTab341572_1",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Pourquoi commencer par la classe d’accueil ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "classe-d-accueil-53",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/classe-d-accueil"
+      ],
+      "sourceAnchor": "myCollapseTab341572_2",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Que découvre-t-on en classe d’accueil ?",
+      "category": "Pédagogie et diplômes",
+      "status": "published-source",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "classe-d-accueil-54",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/classe-d-accueil"
+      ],
+      "sourceAnchor": "myCollapseTab341572_3",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "La propreté est-elle nécessaire en classe d’accueil ?",
+      "category": "Admissions",
+      "status": "needs-confirmation",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "classe-d-accueil-56",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/classe-d-accueil"
+      ],
+      "sourceAnchor": "myCollapseTab1704044695758",
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Peut-on rejoindre la classe d’accueil en cours d’année ?",
+      "category": "Admissions",
+      "status": "needs-confirmation",
+      "notes": [
+        "Paraphrased from secondary source; stale dates and unsourced current capacity omitted."
+      ],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "fees-overview",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/frais-scolaire"
+      ],
+      "sourceAnchor": null,
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Où trouver les frais de scolarité ?",
+      "category": "Frais et paiement",
+      "status": "needs-confirmation",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "fees-payment",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/frais-scolaire"
+      ],
+      "sourceAnchor": null,
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Comment les frais sont-ils échelonnés ?",
+      "category": "Frais et paiement",
+      "status": "needs-confirmation",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "fees-reduced",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/frais-scolaire"
+      ],
+      "sourceAnchor": null,
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Comment demander le tarif réduit ?",
+      "category": "Frais et paiement",
+      "status": "needs-confirmation",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-faq",
+      "sourceId": "documents-prepare",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/comment-inscrire-mon-enfant"
+      ],
+      "sourceAnchor": null,
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/admissions/comprendre#faq"
+      ],
+      "section": "Quelles pièces préparer pour la candidature ?",
+      "category": "Documents",
+      "status": "needs-confirmation",
+      "notes": [],
+      "module": "src/content/migration/admissions-faq.ts"
+    },
+    {
+      "kind": "implemented-document",
+      "sourceUrls": [
+        "https://www.ecolebelge.org/calendrier",
+        "https://www.ecolebelge.org/web/content/4779?unique=24bcf465973967fadfa9dc1b9b75f1068bb29a6a&download=true"
+      ],
+      "fetchedAt": "2026-10-24",
+      "destinations": [
+        "/calendrier"
+      ],
+      "section": "23 school-calendar records and one-time ICS export",
+      "status": "published-source",
+      "schoolYear": "2026-2027",
+      "note": "Signed PDF visually transcribed in supplied pack. Lunar estimates remain tentative. This is not a source of visit slots.",
+      "module": "src/content/migration/admissions-calendar.ts"
+    }
+  ]
+}
