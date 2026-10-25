@@ -1,4 +1,4 @@
-import { OutdoorsPage } from '@/components/inner/school/school-pages'
+import { OutdoorsPage } from '@/components/inner/school/outdoor-page'
 import { outdoorsPage } from '@/content/migration/school'
 import { pageMetadata } from '@/lib/metadata'
 

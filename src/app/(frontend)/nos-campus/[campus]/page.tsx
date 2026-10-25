@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { CampusDetail } from '@/components/inner/campuses/campus-pages'
+import { CampusDetail } from '@/components/inner/campuses/campus-views'
 import { getMigratedCampus, migratedCampuses } from '@/content/migration/campuses'
 import { pageMetadata } from '@/lib/metadata'
 

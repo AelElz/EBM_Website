@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { home } from '@/content/home'
 import { Container } from '@/components/ui/container'
 
-import { Emphasis } from './emphasis'
+import { SectionHeading } from './emphasis'
 import styles from './stages.module.css'
 
 /*
@@ -21,12 +21,7 @@ export function Stages() {
   return (
     <section aria-labelledby="stages-title" className="pt-section">
       <Container className="text-center">
-        <h2
-          id="stages-title"
-          className="mx-auto max-w-[11em] font-sans text-[clamp(2.25rem,4.6vw,4rem)] leading-[1.02] font-semibold tracking-[-0.025em]"
-        >
-          <Emphasis text={title} accentClassName="text-terracotta" />
-        </h2>
+        <SectionHeading id="stages-title" text={title} className="mx-auto max-w-[11em]" />
       </Container>
 
       <Container size="wide" className="mt-10 lg:mt-12">

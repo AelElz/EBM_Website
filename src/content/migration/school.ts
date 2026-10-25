@@ -100,6 +100,13 @@ export const networkPage = {
     { date: '14 novembre 2023', title: 'Un site pour le secondaire à Rabat', text: 'Inauguration du site secondaire en présence de Pierre-Yves Jeholet. L’article qui relate cet événement a été publié le 12 janvier 2024.' },
   ],
   teamGap: 'Les portraits, biographies et fonctions actuelles des directions de campus restent à fournir par EBM.',
+  /** The four figures under the hero (network-page.tsx), all from this page's own content. */
+  keyFacts: [
+    { value: '2014', label: 'Accord de coopération entre le Maroc et la Fédération Wallonie-Bruxelles' },
+    { value: '2', label: 'campus, à Casablanca et à Rabat' },
+    { value: '2–18', label: 'ans, de la classe d’accueil au CESS' },
+    { value: '4', label: 'valeurs partagées par les équipes' },
+  ],
   partnersIntro: 'Les EBM présentent la Fédération Wallonie-Bruxelles, Wallonie-Bruxelles International et l’Association des Écoles Belges à l’Étranger parmi leurs partenaires institutionnels.',
 }
 
@@ -146,11 +153,18 @@ export const pedagogyPage = {
   ],
   diplomaGap: 'Terminologie à valider : la page institutionnelle actuelle emploie « CEB », tandis que l’ancienne FAQ et la brochure utilisent « CEP ». Aucun lien d’équivalence entre ces termes n’est déduit ici.',
   videoGap: 'Les épisodes identifiés et autorisés de la série « Parole d’enseignant », leurs sous-titres et leurs visuels restent à fournir par EBM.',
+  /** The four figures under the hero (pedagogy-page.tsx), all from this page's own content. */
+  keyFacts: [
+    { value: '3', label: 'niveaux : maternelle, primaire et secondaire' },
+    { value: '4', label: 'langues au fil du parcours, du français à l’espagnol' },
+    { value: '1,5 ha', label: 'd’école du dehors sur le campus de Casablanca' },
+    { value: '3', label: 'épreuves externes : fin du primaire, du 1er degré et du secondaire' },
+  ],
 }
 
 export const outdoorsPage = {
   title: 'L’école du dehors',
-  intro: 'À Casablanca, apprendre passe aussi par la nature : observer, explorer et expérimenter, en complément de la classe.',
+  intro: 'À Casablanca, apprendre passe aussi par la nature\u202f: observer, explorer et expérimenter, en complément de la classe.',
   description: 'Découvrez l’école du dehors du campus EBM de Casablanca : une pédagogie qui relie apprentissages en classe, exploration et nature à Dar Bouazza.',
   introduction: ['Un terrain naturel devient un lieu d’apprentissage à part entière. Les enfants y mobilisent leur curiosité, leur langage et leur capacité à agir ensemble, puis relient ces expériences au travail en classe.', 'Le projet, présenté dans une publication de janvier 2024 après trois années de développement, associe expertise pédagogique et formation des enseignants. La page actuelle du campus confirme une pédagogie mixte « indoor/outdoor ».'],
   principles: [

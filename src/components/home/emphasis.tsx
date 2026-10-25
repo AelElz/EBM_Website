@@ -47,3 +47,39 @@ export function SectionLabel({ children, tone }: { children: string; tone: 'ligh
     </p>
   )
 }
+
+/*
+ * Every section title of the home (25 Oct 2026, the polish pass): one voice for the whole page,
+ * Ayoub's mixed style extended from sections 2 to 5 to all of them. Avenir Next semibold at one
+ * size (36 to 56px), with the accent words in Playfair italic. The hero and the closing CTA band
+ * keep their large Playfair display: they open and close the page.
+ *
+ * `text` is one string, or one string per line when the break matters.
+ */
+export const sectionHeadingClass =
+  'font-sans text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.04] font-semibold tracking-[-0.025em] text-balance'
+
+export function SectionHeading({
+  id,
+  text,
+  accentClassName = 'text-terracotta',
+  className,
+}: {
+  id: string
+  text: string | string[]
+  /** Clay on light grounds; a light tint on dark ones. */
+  accentClassName?: string
+  className?: string
+}) {
+  return (
+    <h2 id={id} className={cn(sectionHeadingClass, className)}>
+      {Array.isArray(text)
+        ? text.map((line) => (
+            <span key={line} className="block">
+              <Emphasis text={line} accentClassName={accentClassName} />
+            </span>
+          ))
+        : <Emphasis text={text} accentClassName={accentClassName} />}
+    </h2>
+  )
+}

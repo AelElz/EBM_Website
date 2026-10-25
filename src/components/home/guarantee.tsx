@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/container'
 
 import { CertificatePath } from './certificate-path'
 import styles from './guarantee.module.css'
+import { SectionHeading } from './emphasis'
 
 /** One connected diagram, instead of the former eight-row institutional table. */
 export function Guarantee() {
@@ -12,9 +13,7 @@ export function Guarantee() {
     <section aria-labelledby="guarantee-title" className={styles.section}>
       <Container>
         <div className={styles.heading}>
-          <h2 id="guarantee-title" className="font-sans text-h2 font-semibold tracking-[-0.025em]">
-            {guarantee.title}
-          </h2>
+          <SectionHeading id="guarantee-title" text={guarantee.title} accentClassName="text-[color:var(--certificate-orange)]" />
           <p>{guarantee.text}</p>
         </div>
         <CertificatePath className={styles.path}>

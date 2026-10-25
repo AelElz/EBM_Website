@@ -51,10 +51,12 @@ export interface MigratedCampus {
   contacts: CampusContact[]
   levels: { title: string; detail: string; review?: string }
   facts: Array<{ label: string; value: string; source: string }>
-  services: Array<{ title: string; summary?: string; text: string; source: string }>
+  /** `short`: the one line the campus pages show (25 Oct 2026); `text` keeps the full source wording. */
+  services: Array<{ title: string; summary?: string; short: string; text: string; source: string }>
   timetable: Array<{ group: string; rows: Array<{ label: string; value: string }> }>
   timetableReview: string
   gallery: CampusGalleryItem[]
+  /** `title` marks its accent words with asterisks, like the home's section titles. */
   feature: { title: string; text: string; href: string; label: string; image: ImageAsset }
   history: Array<{ date: string; text: string; source: string }>
   sourceIds: string[]
@@ -83,10 +85,10 @@ export const migratedCampuses: MigratedCampus[] = [
       { label: 'L’enseignement', value: 'En français', source: 'S09' },
     ],
     services: [
-      { title: 'Cantine', text: 'Un repas chaud est préparé et servi sur place par ProxyRest, prestataire mentionné sur le site de l’école. Le menu est communiqué aux parents chaque début de mois.', source: 'S09' },
-      { title: 'Transport scolaire', text: 'Le transport est assuré par RUN RUN, prestataire mentionné sur le site de l’école. Les circuits dépendent des demandes des familles en début d’année. Trajets, inscription et règlement sont à voir avec le prestataire.', source: 'S09' },
-      { title: 'Garderie', text: 'Un accueil est prévu autour du temps scolaire au fondamental. Les horaires et les conditions de garde payante sont à confirmer auprès du campus.', source: 'S09' },
-      { title: 'EBM ExtraClub', text: 'Des activités créatives, culturelles et sportives prolongent les apprentissages. L’offre et les modalités sont à demander au campus.', source: 'S09' },
+      { title: 'Cantine', short: 'Un repas chaud préparé sur place, menu envoyé chaque mois.', text: 'Un repas chaud est préparé et servi sur place par ProxyRest, prestataire mentionné sur le site de l’école. Le menu est communiqué aux parents chaque début de mois.', source: 'S09' },
+      { title: 'Transport scolaire', short: 'Des circuits organisés selon les demandes des familles.', text: 'Le transport est assuré par RUN RUN, prestataire mentionné sur le site de l’école. Les circuits dépendent des demandes des familles en début d’année. Trajets, inscription et règlement sont à voir avec le prestataire.', source: 'S09' },
+      { title: 'Garderie', short: 'Un accueil autour du temps scolaire, au fondamental.', text: 'Un accueil est prévu autour du temps scolaire au fondamental. Les horaires et les conditions de garde payante sont à confirmer auprès du campus.', source: 'S09' },
+      { title: 'EBM ExtraClub', short: 'Des activités créatives, culturelles et sportives.', text: 'Des activités créatives, culturelles et sportives prolongent les apprentissages. L’offre et les modalités sont à demander au campus.', source: 'S09' },
     ],
     timetable: [
       { group: 'Section fondamentale', rows: [ { label: 'Ouverture des portes', value: '07 h 45' }, { label: 'Début des cours', value: '08 h 25 ; 08 h 50 en maternelle' }, { label: 'Fin des cours', value: '15 h 30' }, { label: 'Mercredi', value: '12 h 10 en maternelle ; 13 h en primaire' }, { label: 'Fermeture des portes', value: '17 h' } ] },
@@ -98,7 +100,7 @@ export const migratedCampuses: MigratedCampus[] = [
       { src: '/images/casablanca-bibliotheque.jpg', alt: 'La bibliothèque de la section secondaire à Casablanca.', width: 1535, height: 1025, caption: 'La bibliothèque du secondaire.', source: 'Photos/CASABLANCA/Biblio_secondaire_EBC.png' },
       { src: '/images/casablanca-cour-secondaire.jpg', alt: 'La cour du secondaire au campus de Casablanca.', width: 1448, height: 1086, caption: 'La cour du secondaire.', source: 'Photos/CASABLANCA/6bdda8ee-a9c1-43b4-9d99-61829e02b72d.png' },
     ],
-    feature: { title: 'Apprendre aussi dehors.', text: 'Au sein du campus, l’école du dehors occupe un espace de 1,5 hectare. La nature devient un terrain d’observation et d’expérimentation, en complément des apprentissages en classe.', href: '/ecole-du-dehors', label: 'Découvrir l’école du dehors', image: { src: '/images/casablanca-ecole-du-dehors.jpg', alt: 'L’espace de l’école du dehors au campus de Casablanca.', width: 900, height: 1600 } },
+    feature: { title: 'Apprendre aussi *dehors*', text: 'Au sein du campus, l’école du dehors occupe un espace de 1,5 hectare. La nature devient un terrain d’observation et d’expérimentation, en complément des apprentissages en classe.', href: '/ecole-du-dehors', label: 'Découvrir l’école du dehors', image: { src: '/images/casablanca-ecole-du-dehors.jpg', alt: 'L’espace de l’école du dehors au campus de Casablanca.', width: 900, height: 1600 } },
     history: [{ date: 'Janvier 2024', text: 'Le lancement de l’école du dehors est présenté dans une publication du réseau. Les équipements alors annoncés en cours d’aménagement ne sont pas tous confirmés comme réalisés.', source: 'B01' }],
     sourceIds: ['S09', 'S17', 'S24', 'B01'], facebook: 'https://www.facebook.com/ecolebelgedecasablanca',
   },
@@ -117,10 +119,10 @@ export const migratedCampuses: MigratedCampus[] = [
       { label: 'L’enseignement', value: 'En français', source: 'S02' },
     ],
     services: [
-      { title: 'Cantine', text: 'Un repas chaud, avec entrée, plat et dessert, est préparé et servi sur place par ProxyRest, prestataire mentionné sur le site de l’école.', source: 'S10' },
-      { title: 'Transport scolaire', summary: 'Transport non proposé dans la FAQ', text: 'La FAQ du réseau indique que le transport scolaire n’est pas proposé à Rabat au moment de sa rédaction. Faites confirmer la situation actuelle auprès du campus avant de vous organiser.', source: 'S17' },
-      { title: 'Garderie', text: 'Un accueil des élèves du fondamental est organisé autour du temps scolaire. Demandez au campus les plages de garde et les conditions applicables à votre enfant.', source: 'S10' },
-      { title: 'EBM ExtraClub', text: 'Des activités créatives, culturelles et sportives sont proposées en complément de la vie de classe. Le programme actuel est à demander au campus.', source: 'S10' },
+      { title: 'Cantine', short: 'Un repas chaud préparé sur place\u202f: entrée, plat et dessert.', text: 'Un repas chaud, avec entrée, plat et dessert, est préparé et servi sur place par ProxyRest, prestataire mentionné sur le site de l’école.', source: 'S10' },
+      { title: 'Transport scolaire', summary: 'Transport non proposé dans la FAQ', short: 'Non proposé selon la FAQ, à confirmer avec le campus.', text: 'La FAQ du réseau indique que le transport scolaire n’est pas proposé à Rabat au moment de sa rédaction. Faites confirmer la situation actuelle auprès du campus avant de vous organiser.', source: 'S17' },
+      { title: 'Garderie', short: 'Un accueil autour du temps scolaire, au fondamental.', text: 'Un accueil des élèves du fondamental est organisé autour du temps scolaire. Demandez au campus les plages de garde et les conditions applicables à votre enfant.', source: 'S10' },
+      { title: 'EBM ExtraClub', short: 'Des activités créatives, culturelles et sportives.', text: 'Des activités créatives, culturelles et sportives sont proposées en complément de la vie de classe. Le programme actuel est à demander au campus.', source: 'S10' },
     ],
     timetable: [
       { group: 'Section fondamentale', rows: [{ label: 'Ouverture des portes', value: '07 h 45' }, { label: 'Cours', value: '08 h 25 – 15 h 30' }, { label: 'Mercredi', value: '12 h 10 en maternelle ; 13 h en primaire' }, { label: 'Fermeture des portes', value: '18 h' }] },
@@ -132,7 +134,7 @@ export const migratedCampuses: MigratedCampus[] = [
       { src: '/images/campus-rabat.jpg', alt: 'Les espaces extérieurs et les terrains de sport du campus de Rabat.', width: 1600, height: 1068, caption: 'Les espaces extérieurs du campus.', source: 'A06 Rabat/04_Rabat 4.jpg' },
       { src: '/images/alumni-rabat.jpg', alt: 'Photo de groupe d’élèves dans le hall de l’École belge de Rabat.', width: 1600, height: 1142, caption: 'Des élèves réunis dans le hall du campus de Rabat.', source: 'A06 Rabat/03_Rabat 1.jpg' },
     ],
-    feature: { title: 'Une école au cœur de Hay Riad.', text: 'Le campus s’inscrit dans la vie de Hay Riad. Son site secondaire a été officiellement inauguré le 14 novembre 2023, une étape dans le développement de l’école.', href: '/le-reseau#histoire', label: 'L’histoire du réseau', image: { src: '/images/hero-rabat-entree.jpg', alt: 'L’entrée du secondaire de l’École belge de Rabat à Hay Riad.', width: 2400, height: 1600 } },
+    feature: { title: 'Une école *au cœur de Hay Riad*', text: 'Le campus s’inscrit dans la vie de Hay Riad. Son site secondaire a été officiellement inauguré le 14 novembre 2023, une étape dans le développement de l’école.', href: '/le-reseau#histoire', label: 'L’histoire du réseau', image: { src: '/images/hero-rabat-entree.jpg', alt: 'L’entrée du secondaire de l’École belge de Rabat à Hay Riad.', width: 2400, height: 1600 } },
     history: [ { date: 'Septembre 2018', text: 'Ouverture de l’École belge de Rabat.', source: 'S10' }, { date: 'Novembre 2018', text: 'Inauguration par la Princesse Astrid de Belgique.', source: 'S10' }, { date: '14 novembre 2023', text: 'Inauguration officielle du site secondaire. L’article qui relate l’événement est publié le 12 janvier 2024.', source: 'B02' } ],
     sourceIds: ['S02', 'S10', 'S17', 'S24', 'B02'], facebook: 'https://www.facebook.com/ecolebelgederabat/',
   },

@@ -4,12 +4,11 @@ import Link from 'next/link'
 import { DisclosureList, DocumentLink, InnerHero, LinkList, PageActions, PageSection, PhotoGallery, ReviewNote, SectionNav, SplitSection, TextBlock } from '@/components/inner/blocks'
 import { ButtonLink } from '@/components/ui/button'
 import { migratedCampuses } from '@/content/migration/campuses'
-import { alumniDestinations, alumniPage, alumniStudyFields, historicalResults, networkPage, outdoorsPage, pedagogyPage, schoolActivities, schoolImages, schoolLevels, schoolLifePage, schoolStories } from '@/content/migration/school'
+import { alumniDestinations, alumniPage, alumniStudyFields, historicalResults, schoolActivities, schoolImages, schoolLifePage, schoolStories } from '@/content/migration/school'
 import { routes } from '@/lib/routes'
 import { site } from '@/content/site'
 
 import { ActivityFilter } from './activity-filter'
-import { LevelTabs } from './level-tabs'
 import styles from './school.module.css'
 
 const admissionsActions = { primary: { label: 'Candidater', href: routes.candidater }, secondary: { label: 'Demander une visite', href: routes.reserverVisite } }
@@ -17,58 +16,6 @@ const visitQualification = 'Les visites s’organisent avec l’équipe dans le 
 
 function Principles({ items }: { items: { title: string; text: string }[] }) {
   return <div className={styles.principles}>{items.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
-}
-
-export function NetworkPage() {
-  return <>
-    <InnerHero title={networkPage.title} intro={networkPage.intro} image={schoolImages.network} breadcrumb={[{ label: 'Le réseau EBM' }]}><div className={styles.actions}><ButtonLink href={routes.campus} variant="outline-dark" size="lg">Découvrir les deux campus</ButtonLink></div></InnerHero>
-    <SectionNav items={[{ label: 'Notre projet', href: '#projet' }, { label: 'Le cadre belge', href: '#cadre-belge' }, { label: 'Notre histoire', href: '#histoire' }, { label: 'Les équipes', href: '#equipes' }]} />
-    <SplitSection id="direction" title={networkPage.director.title} paragraphs={networkPage.director.paragraphs} image={schoolImages.director} reverse>
-      <blockquote className={styles.quote}>« {networkPage.director.quote} »</blockquote><p className={styles.signature}>{networkPage.director.name}<span>{networkPage.director.role}</span></p>
-    </SplitSection>
-    <PageSection id="projet" title={networkPage.mission.title} tone="paper">
-      <div className={styles.twoColumns}><TextBlock paragraphs={networkPage.mission.paragraphs} /><div className={styles.values}>{networkPage.values.map(value => <article key={value.title} className={styles.value}><h3>{value.title}</h3><p>{value.text}</p></article>)}</div></div>
-    </PageSection>
-    <SplitSection id="cadre-belge" title={networkPage.framework.title} paragraphs={networkPage.framework.paragraphs} image={schoolImages.sciences}>
-      <ul className={styles.factsList}>{networkPage.framework.facts.map(fact => <li key={fact}>{fact}</li>)}</ul><Link href={routes.pedagogie} className={styles.textLink}>Comprendre notre pédagogie</Link>
-    </SplitSection>
-    <PageSection id="histoire" title="Les étapes du réseau" tone="paper"><ol className={styles.timeline}>{networkPage.history.map(event => <li key={event.date}><time>{event.date}</time><div><h3>{event.title}</h3><p>{event.text}</p></div></li>)}</ol></PageSection>
-    <PageSection id="equipes" title="Des équipes, deux campus"><LinkList items={migratedCampuses.map(campus => ({ label: campus.title, href: `${campus.route}#acces`, description: `Échanger avec l’équipe de ${campus.city}, à ${campus.district}.` }))} /><ReviewNote title="Le réseau en version de travail">{networkPage.teamGap} La fonction actuelle du directeur du réseau et la republication du message restent à valider.</ReviewNote></PageSection>
-    <PageSection id="partenaires" title="Un réseau ancré dans la coopération" intro={networkPage.partnersIntro} tone="paper"><div className={styles.partners}><Image src="/brand/partners-white.png" width={856} height={170} alt="Fédération Wallonie-Bruxelles, Wallonie-Bruxelles International et AEBE : les logos partenaires fournis par EBM." /></div></PageSection>
-    <PageActions title="Faire connaissance avec les EBM" text={visitQualification} {...admissionsActions} />
-    <PageSection title="Envie de rejoindre nos équipes ?"><LinkList items={[{ label: 'Prendre contact pour un recrutement', href: routes.recrutement, description: 'Aucune offre non vérifiée n’est présentée comme un poste actuellement ouvert.' }]} /></PageSection>
-  </>
-}
-
-export function PedagogyPage() {
-  return <>
-    <InnerHero title={pedagogyPage.title} intro={pedagogyPage.intro} image={schoolImages.sciences} breadcrumb={[{ label: 'Pédagogie' }]} />
-    <SectionNav items={[{ label: 'Notre approche', href: '#approche' }, { label: 'Les trois niveaux', href: '#niveaux' }, { label: 'Les langues', href: '#langues' }, { label: 'L’accompagnement', href: '#accompagnement' }]} />
-    <PageSection id="approche" title="L’élève agit, comprend et progresse"><Principles items={pedagogyPage.principles} /></PageSection>
-    <PageSection id="niveaux" title="À chaque étape, des objectifs clairs" tone="paper">
-      <LevelTabs levels={schoolLevels.map(({ id, label }) => ({ id, label }))}>{schoolLevels.map(level => <div key={level.id} className={styles.levelContent}><div className={styles.levelCopy}><p className={styles.age}>{level.ages}</p><h3>{level.title}</h3><p>{level.text}</p><h4>Ce que l’enfant développe</h4><ul>{level.objectives.map(objective => <li key={objective}>{objective}</li>)}</ul><h4>Les apprentissages</h4><p>{level.subjects}</p><h4>Les repères du parcours</h4><p>{level.milestone}</p></div><figure className={styles.levelPhoto}><Image src={level.image.src} alt={level.image.alt} fill sizes="(min-width:1240px) 500px, (min-width:768px) 42vw, 100vw" /></figure></div>)}</LevelTabs>
-      <ReviewNote title="Certificats et programme : points à valider">{pedagogyPage.diplomaGap} Le détail des niveaux ouverts à Rabat, des options actuelles et des journées types par niveau reste à confirmer avec EBM.</ReviewNote>
-    </PageSection>
-    <SplitSection title={pedagogyPage.outdoorTitle} paragraphs={[pedagogyPage.outdoorText]} image={schoolImages.outdoor}><Link href={routes.ecoleDuDehors} className={styles.textLink}>Découvrir l’école du dehors</Link></SplitSection>
-    <PageSection id="langues" title="Des langues pour rencontrer le monde" intro={pedagogyPage.languageIntro} tone="paper"><Principles items={pedagogyPage.languages} /><LinkList items={[{ label: 'Un exemple d’ouverture à Rabat, en octobre 2024', href: `${routes.grandir}#temps-forts`, description: 'Les ateliers germanophones annoncés avec l’Ambassade d’Allemagne et l’Institut Goethe.' }]} /></PageSection>
-    <PageSection id="parole-enseignant" title="La parole aux enseignants"><ReviewNote title="Des médias à compléter">{pedagogyPage.videoGap}</ReviewNote></PageSection>
-    <PageSection id="accompagnement" title="Accompagner la progression" tone="paper"><DisclosureList items={pedagogyPage.supports} /><Link href={routes.faq} className={styles.textLink}>Toutes les questions des familles</Link></PageSection>
-    <PageActions title="Trouver le bon cadre pour votre enfant" text={visitQualification} {...admissionsActions} />
-  </>
-}
-
-export function OutdoorsPage() {
-  return <>
-    <InnerHero title={outdoorsPage.title} intro={outdoorsPage.intro} image={schoolImages.outdoor} breadcrumb={[{ label: 'Pédagogie', href: routes.pedagogie }, { label: 'L’école du dehors' }]}><div className={styles.actions}><ButtonLink href={`${routes.reserverVisite}?campus=casablanca`} size="lg">Demander une visite à Casablanca</ButtonLink><ButtonLink href={`${routes.contact}?campus=casablanca`} variant="outline-dark" size="lg">Contacter le campus</ButtonLink></div></InnerHero>
-    <SectionNav items={[{ label: 'L’approche', href: '#approche' }, { label: 'En images', href: '#images' }, { label: 'Les séances', href: '#seances' }, { label: 'Le lieu', href: '#lieu' }]} />
-    <PageSection id="approche" title="La nature prolonge la classe"><div className={styles.twoColumns}><TextBlock paragraphs={outdoorsPage.introduction} /><Principles items={outdoorsPage.principles} /></div></PageSection>
-    <PageSection id="images" title="Le dehors, en images" tone="paper"><PhotoGallery images={[{ ...schoolImages.outdoor, caption: 'Apprendre dans l’espace naturel de Casablanca, photographie du campus.' }, { ...schoolImages.outdoorLaunch, caption: 'Le lancement du projet, relaté dans un article publié le 12 janvier 2024.' }]} /></PageSection>
-    <PageSection id="seances" title={outdoorsPage.session.title}><TextBlock paragraphs={[outdoorsPage.session.text]} /><ReviewNote title="Le programme de cette année">{outdoorsPage.session.gap}</ReviewNote></PageSection>
-    <PageSection id="voix" title="Ceux qui vivent l’école du dehors" tone="paper"><ReviewNote title="Témoignages et vidéos à recueillir">{outdoorsPage.voicesGap}</ReviewNote></PageSection>
-    <SplitSection id="lieu" title={outdoorsPage.location.title} paragraphs={[outdoorsPage.location.text]} image={schoolImages.network} reverse><Link href={`${routes.campusCasablanca}#acces`} className={styles.textLink}>Le campus et ses accès</Link></SplitSection>
-    <PageSection id="agenda" title="Découvrir le lieu" tone="paper"><TextBlock paragraphs={[outdoorsPage.events]} /><Link href={routes.calendrier} className={styles.textLink}>Consulter le calendrier scolaire</Link></PageSection>
-    <PageActions title="Échanger avec l’équipe de Casablanca" text={visitQualification} primary={{ label: 'Contacter le campus', href: `${routes.contact}?campus=casablanca` }} secondary={{ label: 'Demander une visite', href: `${routes.reserverVisite}?campus=casablanca` }} />
-  </>
 }
 
 export function SchoolLifePage() {

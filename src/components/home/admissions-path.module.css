@@ -1,8 +1,6 @@
 .section { padding-block: var(--spacing-section); background: white; color: var(--color-charcoal); }
 .layout { display: grid; grid-template-areas: 'intro' 'process' 'visual'; gap: 36px; }
 .intro { grid-area: intro; }
-.heading { font-family: var(--font-display); font-size: clamp(2.125rem, 4vw, 3.25rem); font-weight: 600; line-height: 1.1; letter-spacing: -.015em; }
-.heading span { display: block; }
 .lead { max-width: 36ch; margin-top: 20px; font-size: 18px; line-height: 1.5; color: var(--color-ink-soft); }
 .process { grid-area: process; align-self: center; min-width: 0; }
 .steps { margin: 0; padding: 0; list-style: none; }
@@ -24,7 +22,6 @@
 
 @media (min-width: 48rem) {
   .layout { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); grid-template-areas: 'intro process' 'visual process'; column-gap: clamp(40px, 6vw, 88px); row-gap: 28px; }
-  .heading { font-size: clamp(2rem, 3.8vw, 3.25rem); }
   .photo { aspect-ratio: 16 / 10; }
   .step { grid-template-columns: 48px minmax(0, 1fr); column-gap: 20px; padding-bottom: 36px; }
   .number { width: 48px; height: 48px; }

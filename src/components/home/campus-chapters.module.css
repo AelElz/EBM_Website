@@ -112,9 +112,12 @@
     grid-template-rows: auto minmax(0, 1fr) auto;
     column-gap: 32px;
     row-gap: 0;
-    padding: calc(var(--spacing-header) + 32px) calc(var(--peek-width) + 48px) 32px 32px;
+    /* The open side lines up with the page's own margin (140px at 1440), like every other
+       section's text; the other side leaves room for the next campus's preview. */
+    --page-edge: max(32px, calc((100vw - var(--container-site)) / 2 + var(--spacing-gutter)));
+    padding: calc(var(--spacing-header) + 32px) calc(var(--peek-width) + 48px) 32px var(--page-edge);
   }
-  .panel:last-child .inner { padding-right: 32px; padding-left: calc(var(--peek-width) + 48px); }
+  .panel:last-child .inner { padding-right: var(--page-edge); padding-left: calc(var(--peek-width) + 48px); }
   .title { grid-area: 1 / 1; }
   .facts { grid-area: 1 / 3; justify-self: end; text-align: right; }
   .portrait { grid-area: 1 / 2 / 4 / 3; align-self: center; width: auto; height: min(70svh, 660px); margin: 0; }

@@ -6,6 +6,7 @@ import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 
 import styles from './admissions-path.module.css'
+import { SectionHeading } from './emphasis'
 
 /** A literal, readable admissions sequence; all content is rendered on the server. */
 export function AdmissionsPath() {
@@ -15,9 +16,7 @@ export function AdmissionsPath() {
     <section aria-labelledby="admissions-title" className={styles.section}>
       <Container className={styles.layout}>
         <div className={styles.intro}>
-          <h2 id="admissions-title" className={styles.heading}>
-            {title.map(line => <span key={line}>{line}</span>)}
-          </h2>
+          <SectionHeading id="admissions-title" text={title} />
           <p className={styles.lead}>{text}</p>
         </div>
 

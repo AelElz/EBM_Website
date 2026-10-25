@@ -409,7 +409,7 @@ export const home: HomeContent = {
   ],
 
   instagram: {
-    title: 'Actualités & projets',
+    title: 'Actualités & *projets*',
     handle: site.instagram.handle,
     url: site.instagram.url,
     linkLabel: `Suivre ${site.instagram.handle}`,

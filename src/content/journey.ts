@@ -7,7 +7,7 @@ export type CampusKey = 'casablanca' | 'rabat'
  * Detailed timetables and services are archived in docs/content-archive/home-detailed-copy.md.
  */
 export const journey = {
-  title: ['À chaque âge,', 'son parcours.'],
+  title: ['À chaque âge,', '*son parcours*'],
   text: 'Choisissez son âge. Découvrez l’essentiel.',
   note: 'Âges indicatifs à la rentrée.',
   admission: 'Admissions jusqu’en 1re secondaire, selon les places disponibles.',
@@ -17,7 +17,7 @@ export const journey = {
       id: 'maternelle',
       ages: '2–5',
       name: 'Maternelle',
-      title: 'Jouer pour apprendre.',
+      title: 'Jouer pour apprendre',
       facts: [
         'Une classe d’accueil dès 2 ans.',
         'Apprendre par le jeu et l’exploration.',
@@ -33,7 +33,7 @@ export const journey = {
       id: 'primaire',
       ages: '6–11',
       name: 'Primaire',
-      title: 'Prendre confiance.',
+      title: 'Prendre confiance',
       facts: [
         'Lire, écrire, compter et découvrir.',
         'Anglais, ou néerlandais à Rabat, dès la 1re primaire.',
@@ -49,7 +49,7 @@ export const journey = {
       id: 'secondaire',
       ages: '12–18',
       name: 'Secondaire',
-      title: 'Préparer son avenir.',
+      title: 'Préparer son avenir',
       facts: [
         'Approfondir les sciences et les langues.',
         'Espagnol dès la 4e secondaire.',

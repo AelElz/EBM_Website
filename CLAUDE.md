@@ -32,7 +32,7 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   gets a short live announcement, reduced motion switches instantly, and no-JS campus links
   remain available. `docs/HOME-UX-UPDATE.md` records this behaviour and earlier checks.
   Admissions now uses a direct numbered ordered list: candidature, meeting, then decision
-  and confirmation. A Playfair heading and real Rabat entrance photo with an olive reassurance
+  and confirmation. A section heading and real Rabat entrance photo with an olive reassurance
   strip sit left of the Avenir steps/actions on desktop; phones show heading, steps/actions,
   then photo. Shorter copy preserves entry/place limits, the commission decision and existing
   clay application button/details link. This is a static Server Component; the decorative
@@ -70,6 +70,36 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   Legal/privacy/recruitment and visit-support pages are honest review/request pages. The existing
   site-directory page remains indexable. Applications hand off to the current hosted Eduka form;
   contact/visit tools prepare a local e-mail link and do not deliver/store messages or book slots.
+- Editorial inner pages (25 Oct 2026, Ayoub: "enhance"): `/le-reseau` and `/pedagogie` have
+  their own components (`network-page.tsx`, `pedagogy-page.tsx` in `components/inner/school/`)
+  sharing `editorial-hero.tsx` (photo to the right edge + four key figures from the page's
+  `keyFacts`; titles over 32 characters step down a size) and `editorial.module.css`;
+  `pedagogy.module.css` holds Pédagogie's own sections (principles under clay rules, level tabs
+  with a tall photo, olive outdoor band, languages as a path, question cards that open).
+  Le réseau in detail: its own component
+  `components/inner/school/network-page.tsx` + `editorial.module.css` instead of the generic
+  blocks (same content, plus four key figures in `networkPage.keyFacts`). A hero with the photo
+  running to the right edge and the key figures, the director's motto large beside his portrait,
+  values on a Fired Clay band, the Belgian framework as a checklist, history as a timeline on
+  olive, the campuses as photo cards, partners on charcoal. The shared inner blocks are unchanged,
+  so the other inner pages are untouched.
+- `/ecole-du-dehors` (25 Oct 2026): Ayoub asked for a design unlike the editorial pages, then
+  for less ("too much overkill … keep the home branding, simple but clean") and the taste
+  skill. Direction "The sentence is the layout": the title "L'école [photo] du dehors" holds the
+  garden photo inline, the same photo opens wide below with the home stages' rounded top
+  corners, then each section is a statement left with its evidence right (principles list,
+  a ledger of figures aligned on the comma, the launch photo, notes, the campus photo).
+  Headings use the home's `SectionHeading`. `outdoor-page.tsx` + `outdoor.module.css`; no
+  drawings, no pinned scenes. Taste inspector: 0 FAIL.
+- Campus pages (25 Oct 2026, Ayoub: "the most important pages … clean, without too much text
+  or slop"): `/nos-campus` and `/nos-campus/[campus]` render `components/inner/campuses/
+  campus-views.tsx` + `campus.module.css` (the contact page keeps `campus-pages.tsx`). Overview:
+  title, two large campus cards (photo, pictogram, three facts), four photos "De l'intérieur",
+  a four-row comparison, both contacts. Campus page: title + wide photo, figures row, photo
+  mosaic (skips the feature's photo), the feature (+ Rabat's milestones), "Au quotidien" on olive
+  (one-line `services[].short` + hours cards), contacts. Empty placeholders (events, the team's
+  word, social links, map notice) were removed; facts to confirm stay as one short line.
+  Taste inspector: 0 FAIL on both.
 - No integration (Eduka, Supabase, Resend, Trigger.dev, Turnstile, Instagram) is built. Never
   present a placeholder or mock as a working feature. Hosted Eduka links and local e-mail
   requests are functional handoffs, not an Eduka API or website delivery/booking integration.
@@ -90,6 +120,12 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   scene), the three-dot uppercase label and the white tracked button (scene, alumni), and
   rounded top corners on the stage panels. Keep that language to those sections unless
   Ayoub extends it.
+- Home section titles (25 Oct 2026 polish pass, Ayoub: "better design, polish the current
+  look"): every home section h2 uses `SectionHeading` (`components/home/emphasis.tsx`), the
+  mixed style above at one size (Avenir 600, clamp 36-56px, one Playfair italic accent word in
+  clay, or a light tint on olive), no full stop. The hero h1 and the CTA band keep their large
+  Playfair: they open and close the page. The director's letter keeps its small opening line.
+  The campus frame's text aligns to the page margin from 1280px.
 - Real EBM photos and copy only; anything unknown is a visible `[placeholder]`.
 
 ## Performance rules

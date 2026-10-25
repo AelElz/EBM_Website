@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/container'
 import { FaqCards } from './faq-cards'
 import { VideoFacade } from './video-facade'
 import styles from './faq.module.css'
+import { SectionHeading } from './emphasis'
 
 export function Faq() {
   return (
@@ -13,9 +14,7 @@ export function Faq() {
       <section aria-labelledby="school-video-title" className={styles.videoSection}>
         <Container>
           <div className={styles.videoHeading}>
-            <h2 id="school-video-title" className="font-sans text-h2 font-semibold tracking-[-0.025em]">
-              L’école, de l’intérieur.
-            </h2>
+            <SectionHeading id="school-video-title" text="L’école, *de l’intérieur*" />
             <p>Jad vous fait découvrir les Écoles Belges au Maroc.</p>
           </div>
           <VideoFacade id={faq.video.id} title={faq.video.title} poster={faq.video.poster} />
@@ -25,7 +24,7 @@ export function Faq() {
         <Container>
           <div className={styles.layout}>
             <div>
-              <h2 id="faq-title" className="font-sans text-h2 font-semibold tracking-[-0.025em]">{faq.title}</h2>
+              <SectionHeading id="faq-title" text={faq.title} />
               <p className={styles.intro}>Une question, une réponse.</p>
             </div>
             <FaqCards items={faq.items} />

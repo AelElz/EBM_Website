@@ -186,7 +186,8 @@ An earthy, sun-warmed palette: one clay accent with its deeper ink, an olive cou
 ### Hierarchy
 - **Display** (Playfair 600, clamp(40px, 5.6vw, 76px), line-height 1.06, -0.01em): the home hero title only, max 11em wide, balanced wrapping. The 40px floor keeps "Un enseignement" on one line from 360px wide.
 - **H1** (Playfair 600, clamp(40px, 4.8vw, 64px), 1.08): the title of every inner page and the 404.
-- **H2** (Playfair 600, clamp(34px, 3.6vw, 48px), 1.1): section titles ("Un enseignement belge, de la maternelle au CESS", "Actualités & projets", "Prêt à rejoindre les EBM ?").
+- **H2** (Playfair 600, clamp(34px, 3.6vw, 48px), 1.1): section titles of the inner pages, and the home's closing CTA band ("Prêt à rejoindre les EBM ?").
+- **Home section title** (25 Oct 2026; `SectionHeading`, `components/home/emphasis.tsx`): Avenir 600, clamp(36px, 4vw, 56px), line-height 1.04, -0.025em, with one accent word in Playfair italic (clay on light grounds, a light tint on olive), no full stop: "Un seul parcours, *de 2 à 18 ans*", "Questions *fréquentes*", "Actualités & *projets*". Every home section uses it, so the page speaks in one voice between the Playfair hero and the Playfair CTA band.
 - **H3** (Playfair 600, clamp(24px, 2.2vw, 30px), 1.2): large sub-titles only, such as the site map groups.
 - **Title** (Avenir 700, 18px, 1.375): headings inside panels and cards (the three highlights). Footer headings use the same voice at 15px.
 - **Lead** (Avenir 400, clamp(17px, 1.4vw, 19px), 1.55): the paragraph under a hero or section title, max 32 to 34em.

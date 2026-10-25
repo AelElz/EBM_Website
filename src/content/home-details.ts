@@ -22,7 +22,7 @@ import type { ImageAsset, LinkItem } from './types'
 /* ------------------------------------------------------------------------------------------ */
 
 export const guarantee = {
-  title: 'Un parcours belge reconnu.',
+  title: 'Un parcours belge *reconnu*',
   text: 'Les mêmes épreuves officielles qu’en Belgique francophone.',
   milestones: [
     { code: 'CEB', when: 'Fin de 6e primaire', name: 'Certificat d’études de base' },
@@ -120,10 +120,10 @@ export const campusChapters: CampusChapter[] = [
 /* ------------------------------------------------------------------------------------------ */
 
 export const admissionsPath = {
-  title: ['Rejoindre les EBM,', 'pas à pas'],
+  title: ['Rejoindre les EBM,', '*pas à pas*'],
   text: 'Dès 2 ans et jusqu’en 1re secondaire, selon les places disponibles.',
   reassurance: {
-    title: 'Une admission est un dialogue.',
+    title: 'Une admission est un dialogue',
     text: 'Sans test sélectif.',
   },
   image: {
@@ -154,7 +154,7 @@ export const admissionsPath = {
 /* ------------------------------------------------------------------------------------------ */
 
 export const faq = {
-  title: 'Questions fréquentes',
+  title: 'Questions *fréquentes*',
   video: {
     /** YouTube video published by EBM on its current site ("Tout savoir sur l'école belge"). */
     id: 'KdE5q6_kTSk',

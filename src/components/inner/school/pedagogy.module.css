@@ -1,0 +1,391 @@
+/*
+ * Pédagogie's own sections (pedagogy-page.tsx); the hero, titles, prose and links come from
+ * editorial.module.css. Grounds in page order: paper hero, white approach, paper levels, olive
+ * outdoor school, white languages, a quiet paper note, white questions, then the shared actions.
+ * White on olive is 7.4:1.
+ */
+
+/* ---- The approach ------------------------------------------------------------------------ */
+
+.approach {
+  padding-block: var(--spacing-section);
+}
+
+.approachGrid {
+  display: grid;
+  gap: 40px;
+}
+
+.principles {
+  display: grid;
+  gap: 32px;
+}
+
+.principles li {
+  padding-top: 20px;
+  border-top: 3px solid var(--color-terracotta);
+}
+
+.principles h3 {
+  font-family: var(--font-accent);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.principles p {
+  max-width: 38ch;
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 48rem) {
+  .principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 40px;
+    row-gap: 48px;
+  }
+}
+
+@media (min-width: 64rem) {
+  .approachGrid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 80px;
+    align-items: start;
+  }
+}
+
+/* ---- The three levels -------------------------------------------------------------------- */
+
+.levels {
+  padding-block: var(--spacing-section);
+  background-color: var(--color-paper);
+}
+
+.tabsWrap {
+  margin-top: clamp(32px, 4vw, 48px);
+}
+
+.level {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.ages {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: var(--color-cream);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-terracotta-ink);
+}
+
+.levelCopy h3 {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.levelText {
+  max-width: 60ch;
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.levelFacts {
+  display: grid;
+  gap: 1px;
+  margin-top: 28px;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--color-cream);
+}
+
+.levelFacts > div {
+  padding: 18px 20px;
+  background-color: #fff;
+}
+
+.levelFacts dt {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-terracotta-ink);
+}
+
+.levelFacts dd {
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.levelFacts dd li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.levelFacts dd li + li {
+  margin-top: 4px;
+}
+
+.levelFacts dd li::before {
+  content: '';
+  position: absolute;
+  top: 0.62em;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-olive);
+}
+
+.levelPhoto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.note {
+  max-width: 720px;
+  margin-top: 40px;
+}
+
+@media (min-width: 64rem) {
+  .level {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .levelPhoto {
+    position: sticky;
+    top: calc(var(--spacing-header) + 32px);
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* ---- The outdoor school, on olive --------------------------------------------------------- */
+
+.outdoor {
+  padding-block: var(--spacing-section);
+  background-color: var(--color-olive);
+  color: #fff;
+}
+
+.outdoorGrid {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+.outdoorPhoto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-width: 420px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+}
+
+.outdoorText {
+  max-width: 46ch;
+  margin-top: 20px;
+  font-size: var(--text-lead);
+  line-height: 1.55;
+}
+
+@media (min-width: 64rem) {
+  .outdoorGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 80px;
+  }
+
+  .outdoorPhoto {
+    max-width: none;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* ---- Languages, a path through the years --------------------------------------------------- */
+
+.languages {
+  padding-block: var(--spacing-section);
+}
+
+.languagesIntro {
+  display: grid;
+  gap: 16px;
+}
+
+.languagesIntro p {
+  max-width: 56ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.languagePath {
+  display: grid;
+  gap: 16px;
+  margin-block: clamp(32px, 4vw, 56px) 16px;
+}
+
+/* Each step is a card with a clay rule on its left: read top to bottom, the rules form one path
+   from the first school day to the S4. From 1024px the stage sits left of its text. */
+.languagePath li {
+  position: relative;
+  padding: 20px 24px;
+  border-left: 3px solid var(--color-terracotta);
+  border-radius: 0 4px 4px 0;
+  background-color: var(--color-paper);
+}
+
+.when {
+  font-family: var(--font-accent);
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  font-style: italic;
+  line-height: 1.15;
+  color: var(--color-terracotta-ink);
+}
+
+.languagePath h3 {
+  margin-top: 8px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.languagePath li > p:last-child {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+}
+
+
+@media (min-width: 64rem) {
+  .languagesIntro {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 80px;
+    align-items: end;
+  }
+
+  .languagePath {
+    gap: 8px;
+  }
+
+  .languagePath li {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: 40px;
+    align-items: baseline;
+    padding: 24px 32px;
+  }
+
+  .languagePath h3 {
+    grid-column: 1;
+  }
+
+  .languagePath li > p:last-child {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+    font-size: 16px;
+  }
+
+}
+
+/* ---- The teachers' voice --------------------------------------------------------------------- */
+
+.voices {
+  padding-block: clamp(56px, 6vw, 88px);
+  background-color: var(--color-paper);
+}
+
+.voicesGrid {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (min-width: 64rem) {
+  .voicesGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 80px;
+  }
+}
+
+/* ---- Follow-up questions, cards that open ------------------------------------------------------- */
+
+.support {
+  padding-block: var(--spacing-section);
+}
+
+.supportGrid {
+  display: grid;
+  gap: 32px;
+}
+
+.questions {
+  display: grid;
+  gap: 12px;
+}
+
+.question {
+  border-radius: 4px;
+  background-color: var(--color-paper);
+}
+
+.question summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+  padding: 16px 20px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  list-style: none;
+}
+
+.question summary::-webkit-details-marker {
+  display: none;
+}
+
+.plus {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--color-terracotta);
+  transition: transform 250ms var(--ease-out-expo);
+}
+
+.question[open] .plus {
+  transform: rotate(45deg);
+}
+
+.question p {
+  max-width: 64ch;
+  padding: 0 20px 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 64rem) {
+  .supportGrid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 80px;
+    align-items: start;
+  }
+}

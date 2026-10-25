@@ -1,4 +1,4 @@
-import { CampusHub } from '@/components/inner/campuses/campus-pages'
+import { CampusHub } from '@/components/inner/campuses/campus-views'
 import { pageMetadata } from '@/lib/metadata'
 
 export const metadata = pageMetadata({

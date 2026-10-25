@@ -1,4 +1,4 @@
-import { NetworkPage } from '@/components/inner/school/school-pages'
+import { NetworkPage } from '@/components/inner/school/network-page'
 import { networkPage } from '@/content/migration/school'
 import { pageMetadata } from '@/lib/metadata'
 

@@ -1,4 +1,4 @@
-import { PedagogyPage } from '@/components/inner/school/school-pages'
+import { PedagogyPage } from '@/components/inner/school/pedagogy-page'
 import { pedagogyPage } from '@/content/migration/school'
 import { pageMetadata } from '@/lib/metadata'
 

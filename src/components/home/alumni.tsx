@@ -6,7 +6,7 @@ import { Container } from '@/components/ui/container'
 import { NNBSP } from '@/lib/typography'
 
 import styles from './alumni.module.css'
-import { Emphasis, SectionLabel } from './emphasis'
+import { SectionHeading, SectionLabel } from './emphasis'
 import { StoryDeck } from './story-deck'
 
 /*
@@ -28,12 +28,7 @@ export function Alumni() {
     <section aria-labelledby="alumni-title" data-source={source} className="overflow-x-clip py-section">
       <Container className="flex flex-col items-center text-center">
         <SectionLabel tone="dark">{label}</SectionLabel>
-        <h2
-          id="alumni-title"
-          className="mt-4 font-sans text-[clamp(2.25rem,4.6vw,4rem)] leading-[1.02] font-semibold tracking-[-0.025em]"
-        >
-          <Emphasis text={title} accentClassName="text-terracotta" />
-        </h2>
+        <SectionHeading id="alumni-title" text={title} className="mt-4" />
         <p className="mt-5 max-w-[36em] text-lead text-ink-soft">{text}</p>
         <p className="mt-3 max-w-[36em] text-sm leading-[1.5] text-ink-soft">{note}</p>
       </Container>

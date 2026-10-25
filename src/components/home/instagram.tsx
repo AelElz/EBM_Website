@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import { home } from '@/content/home'
 import { Container } from '@/components/ui/container'
+import { SectionHeading } from './emphasis'
 
 /*
  * "Actualités & projets" (docs/HOME-SPEC.md, home section 7).
@@ -18,9 +19,7 @@ export function Instagram() {
     <section aria-labelledby="instagram-title" data-source={source} className="py-section">
       <Container>
         <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
-          <h2 id="instagram-title" className="font-display text-h2 font-semibold">
-            {title}
-          </h2>
+          <SectionHeading id="instagram-title" text={title} />
           <a
             href={url}
             target="_blank"
