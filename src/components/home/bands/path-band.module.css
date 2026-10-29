@@ -1,0 +1,373 @@
+/*
+ * Home band 5 (path-band.tsx): "De 2 à 18 ans", from Ayoub's mock-ups of 29 Oct 2026.
+ * Native radio tabs on grey shields; the checked tab shows its panel and its picture through
+ * :has(). Pictures and panels each share one grid cell, so nothing jumps on a change.
+ */
+
+.section {
+  overflow: clip;
+  padding-block: var(--spacing-section);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.copy {
+  min-width: 0;
+}
+
+/* Phones and tablets: title, picture, tabs, panel, button (the copy box dissolves into the grid). */
+@media (max-width: 63.99rem) {
+  .copy {
+    display: contents;
+  }
+
+  .head {
+    order: 0;
+  }
+
+  .visual {
+    order: 1;
+  }
+
+  .tabs {
+    order: 2;
+  }
+
+  .panels {
+    order: 3;
+  }
+
+  .actions {
+    order: 4;
+  }
+}
+
+@media (min-width: 64rem) {
+  /* The children stand on the band's lower edge: no bottom padding, the copy keeps its own. */
+  .section {
+    padding-bottom: 0;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: clamp(40px, 5vw, 88px);
+  }
+
+  .copy {
+    align-self: center;
+    padding-bottom: var(--spacing-section);
+  }
+}
+
+/* ---------- Tabs on shields ---------- */
+
+/* One row. Below 1280px it scrolls sideways under the thumb, from the screen edge (the cut tab
+   at the edge shows there is more); from 1280px the five spread across the column. */
+.tabs {
+  display: flex;
+  min-inline-size: 0;
+  gap: 12px;
+  margin: 36px calc(-1 * var(--spacing-gutter)) 0;
+  padding: 4px var(--spacing-gutter);
+  border: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--spacing-gutter);
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 80rem) {
+  .tabs {
+    justify-content: space-between;
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+  }
+}
+
+.tab {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  min-width: 104px;
+  height: 92px;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.radio {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  opacity: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+.shield {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 84px;
+  fill: var(--color-paper);
+  transform: translate(-50%, -50%);
+  transition: fill 300ms ease-out;
+}
+
+.tabName {
+  position: relative;
+  color: #736d66; /* 5.1:1 on white, 4.7:1 on the shield */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color 250ms ease-out;
+}
+
+.tab:hover .tabName {
+  color: var(--color-charcoal);
+}
+
+.tab:has(.radio:checked) .tabName {
+  color: var(--color-terracotta-ink);
+}
+
+.tab:has(.radio:checked) .shield {
+  fill: #f6ece6;
+}
+
+.tab:has(.radio:focus-visible) {
+  border-radius: 4px;
+  outline: 2px solid var(--color-terracotta-ink);
+  outline-offset: -2px;
+}
+
+/* ---------- Panels: one grid cell, the shown one rises in ---------- */
+
+.panels {
+  display: grid;
+  margin-top: 32px;
+}
+
+.panel {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out,
+    visibility 0s linear 300ms;
+}
+
+.panel p {
+  max-width: 66ch;
+  font-size: clamp(1.0625rem, 1.3vw, 1.1875rem);
+  line-height: 1.55;
+}
+
+.panel p + p {
+  margin-top: 14px;
+}
+
+.panel strong {
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  margin-top: 36px;
+}
+
+@media (min-width: 64rem) {
+  .actions {
+    justify-content: flex-end;
+  }
+}
+
+/* The board's pill: Fired Clay, medium weight, a thin arrow. */
+.action {
+  height: 56px;
+  padding-inline: 34px;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 500;
+  gap: 14px;
+}
+
+/* ---------- The picture: children or circles ---------- */
+
+.visual {
+  display: grid;
+  margin-top: 48px;
+}
+
+.visual > * {
+  grid-area: 1 / 1;
+}
+
+@media (min-width: 64rem) {
+  .visual {
+    margin-top: 0;
+  }
+}
+
+.kids {
+  justify-self: center;
+  align-self: end;
+  width: min(44%, 240px);
+}
+
+.kids img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 64rem) {
+  .kids {
+    justify-self: end;
+    width: min(100%, 460px);
+  }
+}
+
+/* Three discs of one size: the photo in front, a mid clay and a light clay one behind, offset to
+   the right. Hidden, they sit stacked; when the stage is chosen they fan out from behind. */
+.circles {
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  width: min(64%, 340px);
+  aspect-ratio: 1;
+  margin-right: 12%;
+}
+
+@media (min-width: 64rem) {
+  .circles {
+    justify-self: start;
+    width: 84%;
+    margin-top: calc(-0.5 * var(--spacing-section));
+    margin-right: 0;
+  }
+}
+
+.ringBack,
+.ringMid,
+.disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.ringBack {
+  background-color: #f8c9b5; /* the board's peach */
+}
+
+.ringMid {
+  background-color: color-mix(in srgb, var(--color-terracotta) 72%, #fff);
+}
+
+.disc {
+  overflow: hidden;
+  background-color: var(--color-terracotta);
+}
+
+/* Hidden state of every picture, and how it leaves. */
+.kids,
+.circles {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 350ms ease-out,
+    visibility 0s linear 350ms;
+}
+
+.kids {
+  transform: translateY(24px);
+  transition:
+    opacity 350ms ease-out,
+    transform 350ms ease-out,
+    visibility 0s linear 350ms;
+}
+
+/* Shown state: the checked tab's panel and picture. */
+.section:has(input[value='ensemble']:checked) :is([data-stage='ensemble'], [data-visual='ensemble']),
+.section:has(input[value='accueil']:checked) :is([data-stage='accueil'], [data-visual='accueil']),
+.section:has(input[value='maternelle']:checked) :is([data-stage='maternelle'], [data-visual='maternelle']),
+.section:has(input[value='primaire']:checked) :is([data-stage='primaire'], [data-visual='primaire']),
+.section:has(input[value='secondaire']:checked) :is([data-stage='secondaire'], [data-visual='secondaire']) {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 600ms ease-out 120ms,
+    transform 900ms var(--ease-out-expo) 120ms,
+    visibility 0s;
+}
+
+/* A chosen stage: the photo settles, then the two clay circles slide out to the right. */
+.section:has(input[value='accueil']:checked) [data-visual='accueil'],
+.section:has(input[value='maternelle']:checked) [data-visual='maternelle'],
+.section:has(input[value='primaire']:checked) [data-visual='primaire'],
+.section:has(input[value='secondaire']:checked) [data-visual='secondaire'] {
+  --fan: 1;
+}
+
+.circles .disc,
+.circles .disc img {
+  transform: scale(calc(1 + (1 - var(--fan, 0)) * 0.1));
+}
+
+.circles .ringMid {
+  transform: translateX(calc(var(--fan, 0) * 11%));
+}
+
+.circles .ringBack {
+  transform: translateX(calc(var(--fan, 0) * 18%));
+}
+
+[data-visual] .disc {
+  transition: transform 900ms var(--ease-out-expo) 120ms;
+}
+
+[data-visual] .disc img {
+  transition: transform 1400ms var(--ease-out-expo) 120ms;
+}
+
+[data-visual] .ringMid {
+  transition: transform 1000ms var(--ease-out-expo) 260ms;
+}
+
+[data-visual] .ringBack {
+  transition: transform 1100ms var(--ease-out-expo) 360ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .visual {
+      animation: visual-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes visual-rise {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}

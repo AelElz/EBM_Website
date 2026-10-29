@@ -132,10 +132,13 @@ screen with the white stacked logo in the middle, which then slides up and out (
 only, `src/components/site/intro.tsx`). Not shown on later loads in the session, nor under
 `prefers-reduced-motion`.
 
-## Current homepage order (24 Oct 2026)
+## Current homepage order (29 Oct 2026)
 
-Hero + highlights → statement → stages → direct age groups → Belgian certificate diagram →
-experience scene → alumni → key figures → shared campus frame (Casablanca ↔ Rabat) → director's
+Hero + highlights → values band → network + figures → institutional anchorage → pedagogy →
+school path (the five bands of Ayoub's board, `components/home/bands/`, copy in
+`src/content/home-bands.ts`; they replace the statement, stages, age groups and key figures,
+whose specifications below are kept for history) → Belgian certificate diagram →
+experience scene → alumni → shared campus frame (Casablanca ↔ Rabat) → director's
 letter → admissions path → large muted-preview video → expandable FAQ → Instagram preview → CTA band →
 shared footer. Keep the experience scene immediately before the alumni deck.
 
@@ -186,7 +189,7 @@ The FAQ uses the installed Radix Accordion: ten rounded white question cards, on
 open at a time, with a downward height animation and reduced-motion fallback. The all-questions
 link comes after the cards on phones. No new packages, backend or service integration.
 
-Copy remains in `src/content/home-details.ts` and `src/content/journey.ts`. See
+Copy remains in `src/content/home-details.ts` and `src/content/home-bands.ts`. See
 `HOME-UX-UPDATE.md` for the latest checks. The original section specifications below still
 describe retained sections; their numbering is superseded by the current sequence above.
 

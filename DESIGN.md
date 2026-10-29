@@ -239,7 +239,7 @@ Flat by default. Depth comes from photography under overlays and from tonal band
 Quiet geometry. Buttons and fields have small 4px corners; photographs, panels, bands and tiles are square-cornered. Circles appear only where they mean something round: the 48px slider controls with their thin white outline, and the two 1.5px decorative circle outlines (Fired Clay at 35%, Grove Olive at 40%) that sit in the inner-page heroes, never covering a photo.
 
 ### Named Rules
-**The Square Photo Rule.** Photographs are never rounded, masked into shapes or cut out. They are full-bleed, or rectangles in a grid. Exception: the school-stages block has rounded top corners, from Ayoub's Korowa screenshot.
+**The Square Photo Rule.** Photographs are never rounded, masked into shapes or cut out. They are full-bleed, or rectangles in a grid. Exception: the school-stages block has rounded top corners, from Ayoub's Korowa screenshot. Since 29 Oct 2026 the home school-path band (Ayoub's mock-up) shows each stage's photo in a circle with two Fired Clay circles behind it, and its children photo is a cutout.
 
 ## Components
 

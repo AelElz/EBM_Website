@@ -1,0 +1,525 @@
+/*
+ * Home bands 1 to 4 (Ayoub's board Bandeaux_website.ai, 29 Oct 2026): values, network,
+ * institutional anchorage, pedagogy; plus the band heading shared with band 5
+ * (band-heading.tsx). Band 5 has its own module (path-band.module.css).
+ *
+ * Motion: scroll-driven CSS only (animation-timeline: view()), transform / opacity / clip-path,
+ * inside `prefers-reduced-motion: no-preference` and `@supports`. Where either is missing the
+ * bands are simply still and complete; nothing is hidden waiting for a script.
+ */
+
+/* ---------- Band heading (bands 2 to 5) ---------- */
+
+.label {
+  font-size: clamp(1rem, 1.3vw, 1.1875rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* The board's clay label and numbers on charcoal, lightened to read: 5.4:1 on charcoal. */
+.labelEmber {
+  color: #e4835f;
+}
+
+.title {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 2.9vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+
+/* ---------- Band 1: values on Fired Clay ---------- */
+
+/* The board's three touching dots: two white, the last a little softer. */
+.dots {
+  display: flex;
+  justify-content: center;
+}
+
+.dots span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.dots span + span {
+  margin-left: -2px;
+}
+
+.dots span:last-child {
+  background-color: var(--color-cream);
+}
+
+.statement {
+  max-width: 25em;
+  margin: 28px auto 0;
+  color: #fff;
+  font-size: clamp(1.625rem, 3.1vw, 2.875rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+.values {
+  display: grid;
+  gap: 36px;
+  max-width: 68rem;
+  margin: clamp(48px, 6vw, 80px) auto 0;
+}
+
+@media (min-width: 48rem) {
+  .values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(28px, 4vw, 72px);
+  }
+}
+
+/* ---------- Band 2: the network on charcoal ---------- */
+
+.network {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(72px, 8vw, 112px);
+  background-color: var(--color-charcoal);
+  color: #fff;
+}
+
+.networkPhoto {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.22;
+}
+
+.networkText {
+  max-width: 50ch;
+  margin: 20px auto 0;
+  font-size: var(--text-lead);
+  line-height: 1.55;
+}
+
+.networkText p + p {
+  margin-top: 1em;
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 44px 16px;
+  margin-top: clamp(56px, 6vw, 80px);
+}
+
+@media (min-width: 48rem) {
+  .figures {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 80rem) {
+  .figures {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0 8px;
+  }
+}
+
+/* Source order dt, value, icon; painted icon, value, label (flex-col-reverse). */
+.figure {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.figureIconCell {
+  margin-bottom: 16px;
+}
+
+.figureIcon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+}
+
+.figureLabel {
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.figureValue {
+  color: #e4835f;
+  font-size: clamp(2rem, 2.9vw, 2.625rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.figureUnit {
+  font-size: 0.7em;
+}
+
+/* ---------- Band 3: the institutional anchorage on white ---------- */
+
+.anchorage {
+  display: grid;
+  gap: 48px;
+}
+
+@media (min-width: 64rem) {
+  .anchorage {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 32px clamp(40px, 5vw, 80px);
+  }
+}
+
+.anchorageText {
+  text-align: center;
+}
+
+.galleryFrame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2 / 1;
+  background-color: var(--color-paper);
+}
+
+/* The incoming photo wipes in over the previous one, from the side of the arrow pressed. */
+.slide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  clip-path: inset(0 0 0 100%);
+}
+
+.galleryFrame[data-direction='prev'] .slide {
+  clip-path: inset(0 100% 0 0);
+}
+
+.galleryFrame .slide[data-state='previous'] {
+  z-index: 1;
+  clip-path: inset(0);
+}
+
+.galleryFrame .slide[data-state='active'] {
+  z-index: 2;
+  clip-path: inset(0);
+  transition: clip-path 900ms var(--ease-out-expo);
+}
+
+.slide img {
+  transform: scale(1.08);
+  transition: transform 1400ms var(--ease-out-expo);
+}
+
+.slide[data-state='active'] img {
+  transform: none;
+}
+
+.galleryCaption {
+  margin-top: 10px;
+  color: var(--color-ink-soft);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* The board's two photos below the large one: the left a little narrower. */
+.galleryThumbs {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  grid-auto-rows: clamp(120px, 15vw, 196px);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-paper);
+  cursor: pointer;
+}
+
+.thumbImage {
+  transition: opacity 200ms ease-out;
+  animation: thumb-in 500ms ease-out both;
+}
+
+.thumb:hover .thumbImage {
+  opacity: 0.82;
+}
+
+@keyframes thumb-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The two round arrows at the band's lower right, as on the board. */
+.galleryArrows {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Below 1024px the arrows follow the photos they move, before the text. */
+@media (max-width: 63.99rem) {
+  .galleryArrows {
+    order: 1;
+    margin-top: -32px;
+  }
+
+  .anchorageText {
+    order: 2;
+  }
+}
+
+@media (min-width: 64rem) {
+  .galleryArrows {
+    grid-column: 1 / -1;
+    margin-top: -16px;
+  }
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: 50%;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition:
+    background-color 200ms ease-out,
+    color 200ms ease-out;
+}
+
+.arrow:hover {
+  background-color: var(--color-charcoal);
+  color: #fff;
+}
+
+.flags {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 36px);
+  margin-top: 28px;
+}
+
+.flag {
+  display: block;
+  width: 66px;
+  height: 44px;
+  object-fit: cover;
+}
+
+.partners {
+  width: min(100%, 300px);
+  height: auto;
+  margin: 36px auto 0;
+  filter: brightness(0);
+  opacity: 0.85;
+}
+
+/* ---------- Band 4: the pedagogy on olive ---------- */
+
+.pillars {
+  display: grid;
+  gap: 48px;
+  max-width: 64rem;
+  margin: clamp(40px, 5vw, 64px) auto 0;
+}
+
+@media (min-width: 48rem) {
+  .pillars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(20px, 3vw, 48px);
+  }
+}
+
+.medallion {
+  width: clamp(136px, 12vw, 172px);
+  margin-inline: auto;
+  aspect-ratio: 1;
+}
+
+.medallion img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pillarTitle {
+  margin-top: 20px;
+  font-size: clamp(1rem, 1.3vw, 1.1875rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* The board's white pill: Avenir 500, a thin arrow. Static: colour change only. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 56px;
+  margin-top: clamp(44px, 5vw, 64px);
+  padding-inline: 32px;
+  border-radius: 999px;
+  background-color: #fff;
+  color: var(--color-charcoal);
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 200ms ease-out;
+}
+
+.pill:hover {
+  background-color: var(--color-cream);
+}
+
+.pill:focus-visible {
+  outline-color: #fff;
+}
+
+/* ---------- Scroll-driven motion ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* Band 1: each line of the statement lights up as it rises past the lower third. */
+    .word {
+      animation: word-light linear both;
+      animation-timeline: view();
+      animation-range: entry 100% cover 38%;
+    }
+
+    /* Band 2: the courtyard drifts and settles behind the text. */
+    .networkPhoto img {
+      animation: photo-drift linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+
+    .figure {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 70%;
+    }
+
+    .figure:nth-child(even) {
+      animation-range: entry 20% entry 80%;
+    }
+
+    /* Band 3: the large frame opens; the flags unfold one after the other. */
+    .galleryFrame {
+      animation: frame-open linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+
+    .flag {
+      transform-origin: 0 50%;
+      animation: unfold linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+
+    .flagItem:nth-child(2) .flag {
+      animation-range: entry 40% cover 27%;
+    }
+
+    .flagItem:nth-child(3) .flag {
+      animation-range: entry 80% cover 32%;
+    }
+
+    /* Band 4: each medallion opens through a circle and turns into place. */
+    .medallion {
+      animation: iris linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 42%;
+    }
+
+    .pillar:nth-child(2) .medallion {
+      animation-range: entry 12% cover 48%;
+    }
+
+    .pillar:nth-child(3) .medallion {
+      animation-range: entry 24% cover 54%;
+    }
+
+    .pillar h3,
+    .pillar p {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 20% entry 90%;
+    }
+  }
+}
+
+@keyframes word-light {
+  from {
+    opacity: 0.3;
+  }
+}
+
+@keyframes photo-drift {
+  from {
+    transform: scale(1.2) translateY(-5%);
+  }
+
+  to {
+    transform: scale(1.06) translateY(4%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes frame-open {
+  from {
+    clip-path: inset(10% 14% 10% 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes unfold {
+  from {
+    opacity: 0;
+    transform: scaleX(0.2);
+  }
+}
+
+@keyframes iris {
+  from {
+    clip-path: circle(0% at 50% 50%);
+    transform: rotate(-28deg) scale(0.86);
+  }
+
+  to {
+    clip-path: circle(72% at 50% 50%);
+    transform: none;
+  }
+}

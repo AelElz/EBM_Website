@@ -17,9 +17,9 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
 
 ## Status
 
-- Home page: 15 content sections plus the shared footer. Order: hero + highlights,
-  statement, school stages, direct age groups, Belgian certificate diagram, experience scroll
-  scene, alumni deck, key figures, shared campus frame, director's letter, admissions path,
+- Home page: 15 content sections plus the shared footer. Order: hero + highlights, then the
+  five bands of Ayoub's board (29 Oct 2026, below), Belgian certificate diagram, experience scroll
+  scene, alumni deck, shared campus frame, director's letter, admissions path,
   large video, expandable FAQ cards, Instagram preview, CTA band. The latest additions were checked at 360, 390,
   768 and 1440px on 24 Oct 2026. The established scene/stage designs are preserved.
   The shared campus frame starts on Casablanca (olive) with Rabat's photo peeking from the
@@ -120,6 +120,22 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   scene), the three-dot uppercase label and the white tracked button (scene, alumni), and
   rounded top corners on the stage panels. Keep that language to those sections unless
   Ayoub extends it.
+- Home bands (29 Oct 2026, Ayoub's board `UI projects/EBM WEBSITE/Bandeaux_website.ai` plus two
+  mock-ups sent in chat for band 5): `components/home/bands/`, copy in `src/content/home-bands.ts`.
+  They replaced the statement, school stages, age-group chooser and key figures. 1 values (Fired
+  Clay statement whose words light up line by line on scroll, three values), 2 network on charcoal
+  over the B&W courtyard + six count-up figures (a lighter clay, #e4835f: Fired Clay on charcoal is 2.2:1),
+  3 institutional anchorage (photo gallery with a clip-path wipe, flags that unfold, the 2014
+  agreement, partners logo strip in charcoal), 4 pedagogy on olive (three medallions that open
+  through a circle), 5 school path drawn to Ayoub's mock-ups: clay uppercase label, plain Playfair
+  title, uppercase tabs on grey shields (native radios + :has), the docx paragraphs, a pill
+  "En savoir plus"; the children cutout for the overview, three clay circles fanning out behind
+  the stage photo for each stage. Bands 2 to 5 follow the board's layout (Ayoub: "fix the
+  layout"): an uppercase label and a plain Playfair title with a full stop (`band-heading.tsx`),
+  centred bands 1, 2 and 4, the cooperation text centred beside the photos with round arrows at
+  the lower right, six figures in one row from 1280px, uppercase pillar names, pill buttons.
+  These, the shields and the round photos are Ayoub's own exceptions to the rules above. Figures (200 staff, 120 Belgian expatriates,
+  90 000 m²) are the board's and await EBM confirmation. Motion is scroll-driven CSS only.
 - Home section titles (25 Oct 2026 polish pass, Ayoub: "better design, polish the current
   look"): every home section h2 uses `SectionHeading` (`components/home/emphasis.tsx`), the
   mixed style above at one size (Avenir 600, clamp 36-56px, one Playfair italic accent word in
@@ -134,8 +150,9 @@ Static routes; Server Components by default; client components only for header s
 mobile sheet, hero slider, mobile action bar, the home scroll-scene driver (`collage-zoom.tsx`,
 writes two CSS variables; shared code in `scroll-scene.ts`) and the alumni deck
 (`story-deck.tsx`; the cards are server-rendered children) and the key-figure count-up
-(`count-up.tsx`; the final value is in the server HTML), the FAQ accordion, video player, shared campus switcher and certificate-path viewport trigger.
-The age-group chooser is native radio inputs + CSS, with no client component or slider. Admissions is static server-rendered HTML/CSS, without a scroll-driven diagram or client code.
+(`count-up.tsx`; the final value is in the server HTML), the anchorage photo gallery
+(`bands/anchorage-gallery.tsx`), the FAQ accordion, video player, shared campus switcher and certificate-path viewport trigger.
+The school-path tabs (band 5) are native radio inputs + CSS, with no client component. Admissions is static server-rendered HTML/CSS, without a scroll-driven diagram or client code.
 Scoped inner-page client islands cover level tabs, activity filtering, FAQ search/disclosures,
 fee selection, the school-calendar browser and local e-mail composition; long content and shared
 blocks stay server-rendered. No animation or carousel library. `next/image`

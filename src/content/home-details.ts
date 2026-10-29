@@ -1,13 +1,14 @@
 import { routes } from '@/lib/routes'
 import { NNBSP } from '@/lib/typography'
 
-import type { CampusKey } from './journey'
 import type { ImageAsset, LinkItem } from './types'
+
+export type CampusKey = 'casablanca' | 'rabat'
 
 /*
  * The home page's "convince the parents" sections (25 Oct 2026, Ayoub: "fill it up with the most
  * useful content"): the Belgian guarantee, the network director's letter, the two campuses, the
- * admission path and the FAQ. The age-group explorer has its own module (journey.ts).
+ * admission path and the FAQ.
  *
  * Every fact comes from EBM's current site (ecolebelge.org, exported to
  * UI projects/EBM WEBSITE/EBM_Site_Actuel/ecolebelge-contenu.html): "Statut et fonctionnement",
