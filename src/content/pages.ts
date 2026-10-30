@@ -28,6 +28,8 @@ export type PageSlug =
   // system placeholders
   | 'mentions-legales'
   | 'confidentialite'
+  | 'conditions-utilisation'
+  | 'cookies'
   | 'recrutement'
 
 export interface PlaceholderPageContent {
@@ -264,18 +266,26 @@ export const pages: Record<PageSlug, PlaceholderPageContent> = {
   confidentialite: system({
     slug: 'confidentialite',
     route: routes.confidentialite,
-    title: 'Politique de confidentialité',
-    intro: 'Comment nous traitons vos données personnelles, conformément à la loi 09-08.',
+    title: 'Confidentialité et sécurité',
+    intro: 'Ce que le site sait de vous, ce qu’il en fait et comment il est protégé (loi 09-08).',
     section: null,
-    planned: [
-      'Responsable du traitement',
-      'Données collectées et finalités',
-      'Durées de conservation',
-      'Vos droits au titre de la loi 09-08',
-      'Déclarations auprès de la CNDP',
-      'Cookies et mesure d’audience',
-      'Exercer vos droits',
-    ],
+    planned: [],
+  }),
+  'conditions-utilisation': system({
+    slug: 'conditions-utilisation',
+    route: routes.conditions,
+    title: 'Conditions d’utilisation',
+    intro: 'Les règles d’utilisation du site, la propriété des contenus et le droit applicable.',
+    section: null,
+    planned: [],
+  }),
+  cookies: system({
+    slug: 'cookies',
+    route: routes.cookies,
+    title: 'Cookies',
+    intro: 'Ce que le site enregistre dans votre navigateur, la vidéo YouTube et vos choix.',
+    section: null,
+    planned: [],
   }),
   recrutement: system({
     slug: 'recrutement',

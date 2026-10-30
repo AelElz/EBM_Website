@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
 import type { ImageAsset } from '@/content/types'
+import { readVideoChoice } from '@/lib/video-choice'
 
 import styles from './faq.module.css'
 
@@ -57,7 +58,8 @@ function loadPlayer(): Promise<YouTube> {
 }
 
 /** Autoplay once, muted; the running iframe owns playback and sound controls.
- * Reduced motion keeps a poster with a labelled play control. A YouTube link survives failures.
+ * Reduced motion, or "Seulement quand je clique" on /cookies, keeps a poster with a labelled play
+ * control. A YouTube link survives failures.
  */
 export function VideoFacade({ id, title, poster }: { id: string; title: string; poster: ImageAsset }) {
   const viewport = useRef<HTMLDivElement>(null)
@@ -74,11 +76,13 @@ export function VideoFacade({ id, title, poster }: { id: string; title: string; 
 
   useEffect(() => {
     const preference = matchMedia('(prefers-reduced-motion: reduce)')
-    reduced.current = preference.matches
+    // "Seulement quand je clique" on /cookies behaves like reduced motion: poster and play.
+    const clickOnly = readVideoChoice() === 'click'
+    reduced.current = preference.matches || clickOnly
     const onPreference = () => {
-      reduced.current = preference.matches
+      reduced.current = preference.matches || clickOnly
       if (preference.matches && !requestedRef.current) player.current?.pauseVideo()
-      if (!preference.matches && visible.current && !hasPlayed.current) {
+      if (!reduced.current && visible.current && !hasPlayed.current) {
         setLoad(true)
         player.current?.playVideo()
       }

@@ -276,7 +276,9 @@ export const footerNav: FooterColumn[] = [
 /** Bottom bar links (charcoal footer bar). */
 export const legalLinks: LinkItem[] = [
   { label: 'Mentions légales', href: routes.mentionsLegales },
-  { label: 'Politique de confidentialité', href: routes.confidentialite },
+  { label: 'Conditions d’utilisation', href: routes.conditions },
+  { label: 'Confidentialité et sécurité', href: routes.confidentialite },
+  { label: 'Cookies', href: routes.cookies },
   { label: 'Plan du site', href: routes.planDuSite },
 ]
 

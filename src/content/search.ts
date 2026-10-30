@@ -38,7 +38,9 @@ const keywords: Partial<Record<PageSlug, string>> = {
   calendrier: 'evenements dates agenda visites visite visiter rendez-vous reserver rentree vacances',
   contact: 'telephone tel email mail adresse joindre ecrire',
   recrutement: 'emploi travail poste carriere enseignant professeur candidature spontanee',
-  confidentialite: 'donnees personnelles vie privee rgpd cookies',
+  confidentialite: 'donnees personnelles vie privee rgpd securite 09-08 cndp droits',
+  'conditions-utilisation': 'cgu conditions generales utilisation regles droits auteur responsabilite',
+  cookies: 'cookies traceurs stockage youtube video consentement',
 }
 
 const sectionLabel = (id: string | null) => navigation.find((group) => group.id === id)?.label

@@ -1,0 +1,434 @@
+/*
+ * The legal pages (legal-page.tsx), 30 Oct 2026, Apple design skill: a Riad Paper head, pill
+ * tabs between the four documents (the chosen one a white pill), then a 68ch reading column
+ * with a sticky table of contents from 1024px. Type and space carry the hierarchy; the clay is
+ * the only accent. Tables keep their rules (real tables); below 768px each row becomes a card.
+ */
+
+.head {
+  padding-block: clamp(28px, 4vw, 48px) clamp(32px, 4vw, 48px);
+  background-color: var(--color-paper);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--color-ink-soft);
+  font-size: 13px;
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: 8px;
+}
+
+.breadcrumb a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.label {
+  margin-top: clamp(28px, 4vw, 48px);
+  color: var(--color-terracotta-ink);
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(2.375rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.intro {
+  max-width: 56ch;
+  margin-top: 18px;
+  color: var(--color-ink-soft);
+  font-size: var(--text-lead);
+  line-height: 1.55;
+}
+
+.updated {
+  margin-top: 16px;
+  color: var(--color-ink-soft);
+  font-size: 14px;
+}
+
+/* The four documents as pills; scrolls sideways on narrow phones. */
+.tabs {
+  margin: 28px calc(-1 * var(--spacing-gutter)) 0;
+  padding-inline: var(--spacing-gutter);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs ul {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background-color: rgb(40 40 40 / 0.06);
+}
+
+.tabs a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: var(--color-ink-soft);
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background-color 180ms var(--ease-apple),
+    color 180ms var(--ease-apple);
+}
+
+.tabs a:hover {
+  color: var(--color-charcoal);
+}
+
+.tabs a[aria-current='page'] {
+  background-color: #fff;
+  color: var(--color-charcoal);
+}
+
+/* ---- Body: table of contents and the text ------------------------------------------------- */
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  padding-block: clamp(40px, 5vw, 72px) var(--spacing-section);
+}
+
+@media (min-width: 64rem) {
+  .body {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 72px;
+    align-items: start;
+  }
+}
+
+.toc {
+  padding: 20px 22px;
+  border-radius: var(--radius-card);
+  background-color: var(--color-paper);
+}
+
+@media (min-width: 64rem) {
+  .toc {
+    position: sticky;
+    top: calc(var(--spacing-header) + 24px);
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+.tocTitle {
+  color: var(--color-ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.toc ol {
+  display: grid;
+  gap: 2px;
+  margin-top: 10px;
+  counter-reset: toc;
+}
+
+.toc li {
+  counter-increment: toc;
+}
+
+.toc a {
+  display: flex;
+  gap: 10px;
+  min-height: 36px;
+  align-items: center;
+  color: var(--color-charcoal);
+  font-size: 15px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.toc a::before {
+  content: counter(toc);
+  min-width: 1.4em;
+  color: var(--color-terracotta-ink);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.toc a:hover {
+  color: var(--color-terracotta-ink);
+}
+
+.article {
+  min-width: 0;
+  max-width: 72ch;
+}
+
+.section {
+  scroll-margin-top: calc(var(--spacing-header) + 24px);
+}
+
+.section + .section {
+  margin-top: clamp(40px, 5vw, 56px);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.number {
+  color: var(--color-terracotta-ink);
+  font-family: var(--font-sans);
+  font-size: 0.6em;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.prose a {
+  color: var(--color-terracotta-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose strong {
+  font-weight: 700;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+.list li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  top: 0.68em;
+  left: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-terracotta);
+}
+
+/* ---- Tables (data, cookies) --------------------------------------------------------------- */
+
+.tableWrap {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background-color: var(--color-paper);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.table th,
+.table td {
+  padding: 14px 18px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table thead th {
+  color: var(--color-ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.table tbody tr {
+  border-top: 1px solid var(--color-hairline); /* taste-skill-ignore: rows of a real table */
+}
+
+.table tbody th {
+  font-weight: 700;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+/* Cookie names stay whole (ebm-intro-seen, not ebm- / intro-seen). */
+@media (min-width: 48rem) {
+  .table tbody th {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .tableWrap {
+    background-color: transparent;
+  }
+
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .table tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  .table tbody tr {
+    display: grid;
+    gap: 8px;
+    padding: 16px 18px;
+    border-top: 0;
+    border-radius: 16px;
+    background-color: var(--color-paper);
+  }
+
+  .table th,
+  .table td {
+    padding: 0;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--color-ink-soft);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}
+
+/* ---- What EBM still has to provide, and the contact line ---------------------------------- */
+
+.missing {
+  margin-top: clamp(48px, 6vw, 72px);
+  padding: 22px 24px;
+  border-radius: var(--radius-card);
+  background-color: #f6e1d7;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.missingTitle {
+  color: var(--color-terracotta-ink);
+  font-weight: 700;
+}
+
+.missing ul {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 40px;
+  font-size: 17px;
+}
+
+.contact a {
+  color: var(--color-terracotta-ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ---- The video choice on /cookies ---------------------------------------------------------- */
+
+.choice {
+  margin-top: 20px;
+  padding: 20px 22px;
+  border-radius: var(--radius-card);
+  background-color: var(--color-paper);
+}
+
+.choiceLabel {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.choiceGroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 12px;
+  padding: 4px;
+  border-radius: 24px;
+  background-color: rgb(40 40 40 / 0.06);
+}
+
+.choiceOption {
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  color: var(--color-ink-soft);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 180ms var(--ease-apple),
+    color 180ms var(--ease-apple);
+}
+
+.choiceOption:hover {
+  color: var(--color-charcoal);
+}
+
+.choiceOption[aria-checked='true'] {
+  background-color: #fff;
+  color: var(--color-charcoal);
+}
+
+.choiceStatus {
+  margin-top: 10px;
+  color: var(--color-ink-soft);
+  font-size: 14px;
+}

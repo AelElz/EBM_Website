@@ -32,6 +32,23 @@ const nextConfig: NextConfig = {
     return webpackConfig
   },
   // Explicit source-backed legacy aliases; archived campaigns and Odoo modules are excluded.
+  /* Security headers on every response (30 Oct 2026, described on /confidentialite#securite):
+     HTTPS only (HSTS), no framing by other sites, exact content types, a short referrer to
+     external sites, and no camera, microphone or location access. */
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()' },
+        ],
+      },
+    ]
+  },
   async redirects() {
     return [
     // 30 Oct 2026: "Comprendre les admissions" merged into /admissions (same section ids, so

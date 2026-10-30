@@ -27,6 +27,8 @@ export const routes = {
   recrutement: '/recrutement',
   mentionsLegales: '/mentions-legales',
   confidentialite: '/confidentialite',
+  conditions: '/conditions-utilisation',
+  cookies: '/cookies',
   planDuSite: '/plan-du-site',
   recherche: '/recherche',
 } as const

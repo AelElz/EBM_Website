@@ -98,6 +98,15 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   values on a Fired Clay band, the Belgian framework as a checklist, history as a timeline on
   olive, the campuses as photo cards, partners on charcoal. The shared inner blocks are unchanged,
   so the other inner pages are untouched.
+- Legal pages (30 Oct 2026, Ayoub: "the big 3"): `/conditions-utilisation`, `/confidentialite`
+  (now "Confidentialité et sécurité"), `/cookies`, plus `/mentions-legales` in the same layout
+  (`components/legal/`, content in `src/content/legal.ts`, Moroccan loi 09-08 / CNDP / loi
+  2-00). Every statement matches the code: keep `legal.ts` in sync when the site starts storing
+  or sending anything new (analytics, forms, embeds). Facts only EBM can give are in each
+  document's `missing` box, never invented. `/cookies` holds the video choice (`ebm-videos`,
+  `src/lib/video-choice.ts`): "Seulement quand je clique" keeps YouTube unloaded until play.
+  Security headers (HSTS, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy) are set
+  in next.config.ts. To be reviewed by EBM's legal adviser before launch.
 - Admissions merged (30 Oct 2026, Ayoub: remove the duplicated pages, "make a good user
   experience specially on understanding which page need to go"): five pages, in the order of a
   candidature, each with a one-line `hint` in the menu (`NavItem.hint`, shown in the desktop
