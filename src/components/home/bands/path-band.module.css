@@ -14,16 +14,13 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
+/* The copy box dissolves into the band's grid, so the picture can line up with its rows. */
 .copy {
-  min-width: 0;
+  display: contents;
 }
 
-/* Phones and tablets: title, picture, tabs, panel, button (the copy box dissolves into the grid). */
+/* Phones and tablets: title, picture, tabs, panel, button. */
 @media (max-width: 63.99rem) {
-  .copy {
-    display: contents;
-  }
-
   .head {
     order: 0;
   }
@@ -45,20 +42,24 @@
   }
 }
 
+/* From 1024px: the copy in the left column; the picture in the right one, from the label down to
+   the panel's last line, so the children stand level with the end of the text (Ayoub, 30 Oct). */
 @media (min-width: 64rem) {
-  /* The children stand on the band's lower edge: no bottom padding, the copy keeps its own. */
-  .section {
-    padding-bottom: 0;
-  }
-
   .layout {
     grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-    gap: clamp(40px, 5vw, 88px);
+    column-gap: clamp(40px, 5vw, 88px);
   }
 
-  .copy {
-    align-self: center;
-    padding-bottom: var(--spacing-section);
+  .head,
+  .tabs,
+  .panels,
+  .actions {
+    grid-column: 1;
+  }
+
+  .visual {
+    grid-column: 2;
+    grid-row: 1 / 4;
   }
 }
 
@@ -219,8 +220,12 @@
   grid-area: 1 / 1;
 }
 
+/* The picture takes the height of the rows beside it and adds none of its own (a size
+   container, so the circles can also keep within that height). */
 @media (min-width: 64rem) {
   .visual {
+    container-type: size;
+    grid-template-rows: minmax(0, 1fr);
     margin-top: 0;
   }
 }
@@ -239,8 +244,14 @@
 
 @media (min-width: 64rem) {
   .kids {
-    justify-self: end;
-    width: min(100%, 460px);
+    width: 100%;
+    height: 100%;
+  }
+
+  .kids img {
+    height: 100%;
+    object-fit: contain;
+    object-position: 50% 100%;
   }
 }
 
@@ -258,8 +269,7 @@
 @media (min-width: 64rem) {
   .circles {
     justify-self: start;
-    width: 84%;
-    margin-top: calc(-0.5 * var(--spacing-section));
+    width: min(84%, 100cqh);
     margin-right: 0;
   }
 }
