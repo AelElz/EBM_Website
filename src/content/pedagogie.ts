@@ -1,5 +1,9 @@
 import { NNBSP } from '@/lib/typography'
 
+import type { ParcoursStage } from './parcours'
+
+type StageId = ParcoursStage['id']
+
 /*
  * /pedagogie, word for word from EBM's validated `Notre_pédagogie.docx` (Ayoub, 30 Oct 2026:
  * "this is the real validated data"). Only the typography is the site's: curly apostrophes and a
@@ -69,11 +73,15 @@ export const pedagogie = {
       'L’anglais s’inscrit dans une progression accompagnée de certifications Cambridge, avec pour objectif le développement d’une maîtrise fonctionnelle de la langue.',
       'Cette ouverture linguistique et culturelle prépare les élèves à évoluer dans des environnements diversifiés.',
     ],
+    /** `stage` ties each level to its tab in the school path (the cross-links in pedagogy-page.tsx). */
     timeline: [
-      { level: 'Maternelle', text: 'Français et éveil à l’arabe' },
-      { level: 'Primaire', text: 'Français, arabe et anglais' },
-      { level: 'Secondaire', text: 'Poursuite des langues, espagnol et certifications' },
+      { level: 'Maternelle', stage: 'maternelle' as StageId, text: 'Français et éveil à l’arabe' },
+      { level: 'Primaire', stage: 'primaire' as StageId, text: 'Français, arabe et anglais' },
+      { level: 'Secondaire', stage: 'secondaire' as StageId, text: 'Poursuite des langues, espagnol et certifications' },
     ],
+    /** The classe d'accueil has no line of its own in the timeline: French, the language of
+        instruction (the document's first sentence on languages). */
+    accueil: 'Le français, langue d’enseignement',
   },
 
   diplomas: {
@@ -92,6 +100,7 @@ export const pedagogie = {
     items: [
       {
         code: 'CEB',
+        stage: 'primaire' as StageId,
         name: 'Certificat d’études de base',
         after: 'P6',
         when: 'Fin du primaire',
@@ -99,6 +108,7 @@ export const pedagogie = {
       },
       {
         code: 'CE1D',
+        stage: 'secondaire' as StageId,
         name: 'Certificat d’études du premier degré',
         after: 'S2',
         when: 'Fin du 1er degré secondaire',
@@ -106,6 +116,7 @@ export const pedagogie = {
       },
       {
         code: 'CESS',
+        stage: 'secondaire' as StageId,
         name: 'Certificat d’enseignement secondaire supérieur',
         after: 'S6',
         when: 'Fin du secondaire',

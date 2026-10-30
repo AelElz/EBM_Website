@@ -1,3 +1,4 @@
+import { ArrowDown } from 'lucide-react'
 import Image from 'next/image'
 import type { CSSProperties } from 'react'
 
@@ -5,7 +6,7 @@ import { PageActions, SectionNav } from '@/components/inner/blocks'
 import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { schoolImages } from '@/content/migration/school'
-import { parcoursOverview, parcoursStages } from '@/content/parcours'
+import { parcoursOverview, parcoursStages, type ParcoursStage } from '@/content/parcours'
 import { pedagogie } from '@/content/pedagogie'
 import { routes } from '@/lib/routes'
 
@@ -67,6 +68,28 @@ function SectionHead({ id, label, title, paragraphs }: { id: string; label: stri
 function tabLabel(name: string) {
   const bare = name.replace(/^(La |Le )/, '')
   return bare.charAt(0).toUpperCase() + bare.slice(1)
+}
+
+/*
+ * What ties a stage to the rest of the page: its languages, the diploma it leads to (primaire and
+ * secondaire only) and the way of teaching, which holds for every stage. Each mark links to its
+ * section; those sections link back to the stage's tab.
+ */
+function stageMarks(stage: ParcoursStage['id']) {
+  const { languages, diplomas, method } = pedagogie
+  const language = stage === 'accueil' ? languages.accueil : languages.timeline.find((step) => step.stage === stage)?.text
+  const leadsTo = diplomas.items.filter((diploma) => diploma.stage === stage)
+  return [
+    { label: 'Les langues', value: language, href: '#langues' },
+    leadsTo.length
+      ? {
+          label: leadsTo.length > 1 ? 'Les diplômes' : 'Le diplôme',
+          value: leadsTo.map((diploma) => `${diploma.code} (${diploma.when.toLowerCase()})`).join(', puis '),
+          href: '#diplomes',
+        }
+      : null,
+    { label: 'Notre manière d’enseigner', value: method.steps.map((step) => step.name).join(' · '), href: '#methode' },
+  ].filter((mark) => mark !== null)
 }
 
 export function PedagogyPage() {
@@ -168,6 +191,17 @@ export function PedagogyPage() {
                       style={{ objectPosition: stage.photo.position }}
                     />
                   </figure>
+                  <ul role="list" className={styles.marks} aria-label={`Repères pour ${stage.name.toLowerCase()}`}>
+                    {stageMarks(stage.id).map((mark) => (
+                      <li key={mark.label}>
+                        <a href={mark.href} className={styles.mark}>
+                          <span className={styles.markLabel}>{mark.label}</span>
+                          <span className={styles.markValue}>{mark.value}</span>
+                          <ArrowDown aria-hidden="true" size={20} strokeWidth={1.75} className={styles.markArrow} />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </LevelTabs>
@@ -183,7 +217,9 @@ export function PedagogyPage() {
             {languages.timeline.map((step, index) => (
               <li key={step.level} className={styles.timelineStep} style={{ '--i': index } as CSSProperties}>
                 <span aria-hidden="true" className={styles.timelineDot} />
-                <p className={styles.timelineLevel}>{step.level}</p>
+                <p className={styles.timelineLevel}>
+                  <a href={`#${step.stage}`}>{step.level}</a>
+                </p>
                 <p className={styles.timelineText}>{step.text}</p>
               </li>
             ))}
@@ -207,7 +243,9 @@ export function PedagogyPage() {
                   <p className={styles.stairName}>{diploma.name}</p>
                 </div>
                 <div className={styles.stairFoot}>
-                  <p className={styles.stairWhen}>{diploma.when}</p>
+                  <p className={styles.stairWhen}>
+                    <a href={`#${diploma.stage}`}>{diploma.when}</a>
+                  </p>
                   <ul role="list" className={styles.stairYears} aria-label={`Les années jusqu’au ${diploma.code}`}>
                     {diploma.years.map((year) => (
                       <li key={year} data-final={year === diploma.after ? '' : undefined}>

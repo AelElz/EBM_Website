@@ -86,7 +86,10 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   diploma on its landing and the years that lead to it at its foot. Ayoub's board
   `Parcours_scolaire.ai` is for the data only, not a design to copy (he said so on 30 Oct). The
   board says CEP, the validated text CEB, so CEB is used. Then the three savoirs as overlapping rings on
-  Fired Clay. The old migrated principles, outdoor band, language cards, teacher-voice note and
+  Fired Clay. Each stage tab ends with "Repères" cards (its languages, the diploma it leads to,
+  the way of teaching) linking down to those sections. The language levels and the staircase link
+  back to the stage tab (`#maternelle` etc.; `level-tabs.tsx` opens the tab and scrolls its row
+  into view). The old migrated principles, outdoor band, language cards, teacher-voice note and
   follow-up questions were removed from that page (not in the validated document).
   Le réseau in detail: its own component
   `components/inner/school/network-page.tsx` + `editorial.module.css` instead of the generic
