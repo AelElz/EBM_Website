@@ -6,8 +6,7 @@ import { NNBSP } from '@/lib/typography'
  * narrow no-break space before colons. Each section's `label` is the document's bullet heading,
  * its `title` the bold sentence under it. The document's "Traitement graphique" notes became the
  * figures in pedagogy-page.tsx: three sober markers, four numbered steps, a timeline of the
- * languages, the diplomas on the school-year line (the board Parcours_scolaire.ai) and the
- * three "savoirs". The school path itself comes from parcours.ts.
+ * languages, the diplomas as a staircase and the three "savoirs". The school path itself comes from parcours.ts.
  */
 
 export const pedagogie = {
@@ -85,11 +84,33 @@ export const pedagogie = {
       'Le CEB marque la fin du primaire, le CE1D constitue un repère à la fin du premier degré secondaire, et le CESS sanctionne l’achèvement des études secondaires.',
       'Ces diplômes s’inscrivent dans un parcours qui prépare les élèves à poursuivre leurs études supérieures, au Maroc comme à l’international, selon les conditions des établissements choisis.',
     ],
-    /** `after` is the school year the diploma closes, as on the board and in the document. */
+    /**
+     * The three steps of the staircase (pedagogy-page.tsx). `code`, `after` and `when` are the
+     * document's; `name` is the diploma's full name in the Fédération Wallonie-Bruxelles, and
+     * `years` the school years that lead to it (Ayoub's board Parcours_scolaire.ai).
+     */
     items: [
-      { code: 'CEB', after: 'P6', when: 'Fin du primaire' },
-      { code: 'CE1D', after: 'S2', when: 'Fin du 1er degré secondaire' },
-      { code: 'CESS', after: 'S6', when: 'Fin du secondaire' },
+      {
+        code: 'CEB',
+        name: 'Certificat d’études de base',
+        after: 'P6',
+        when: 'Fin du primaire',
+        years: ['P1', 'P2', 'P3', 'P4', 'P5', 'P6'],
+      },
+      {
+        code: 'CE1D',
+        name: 'Certificat d’études du premier degré',
+        after: 'S2',
+        when: 'Fin du 1er degré secondaire',
+        years: ['S1', 'S2'],
+      },
+      {
+        code: 'CESS',
+        name: 'Certificat d’enseignement secondaire supérieur',
+        after: 'S6',
+        when: 'Fin du secondaire',
+        years: ['S3', 'S4', 'S5', 'S6'],
+      },
     ],
   },
 
@@ -108,23 +129,3 @@ export const pedagogie = {
     ],
   },
 }
-
-/*
- * The school years on the diplomas' line, from Ayoub's board Parcours_scolaire.ai: the classe
- * d'accueil, then the three cycles with each year's usual age.
- */
-export const schoolYears = [
-  { cycle: null, years: [{ code: 'CA', age: '2 ans', name: 'Classe d’accueil' }] },
-  {
-    cycle: 'Maternelle',
-    years: [1, 2, 3].map((n) => ({ code: `M${n}`, age: `${n + 2} ans`, name: `${n}${n === 1 ? 're' : 'e'} maternelle` })),
-  },
-  {
-    cycle: 'Primaire',
-    years: [1, 2, 3, 4, 5, 6].map((n) => ({ code: `P${n}`, age: `${n + 5} ans`, name: `${n}${n === 1 ? 're' : 'e'} primaire` })),
-  },
-  {
-    cycle: 'Secondaire',
-    years: [1, 2, 3, 4, 5, 6].map((n) => ({ code: `S${n}`, age: `${n + 11} ans`, name: `${n}${n === 1 ? 're' : 'e'} secondaire` })),
-  },
-]

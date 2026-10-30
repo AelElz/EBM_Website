@@ -3,8 +3,8 @@
  * hero, the h2 size and the links come from editorial.module.css. Grounds in page order: paper
  * hero, white framework, paper way of teaching, white school path, olive languages, white
  * diplomas, Fired Clay autonomy, then the shared actions.
- * Contrast: white on olive 7.4:1, cream on olive 5.7:1, white on Fired Clay 4.8:1; white on the
- * Fired Clay and olive year discs, charcoal on the sand, blush and sage ones (>= 4.5:1).
+ * Contrast: white on olive 7.4:1, cream on olive 5.7:1, white on Fired Clay 4.8:1, charcoal on
+ * the first step's light clay (#dda38a) 7:1.
  *
  * Motion: scroll-driven CSS only (animation-timeline: view()), transform / opacity, inside
  * `prefers-reduced-motion: no-preference` and `@supports`; elsewhere every figure is complete.
@@ -25,7 +25,9 @@
   color: #fff;
 }
 
+/* Clipped sideways: the outer savoir rings slide in from beyond the column on phones. */
 .clay {
+  overflow-x: clip;
   background-color: var(--color-terracotta);
   color: #fff;
 }
@@ -351,229 +353,113 @@
   }
 }
 
-/* ---- 5. The diplomas on the school-year line (board Parcours_scolaire.ai) -------------------- */
+/* ---- 5. The diplomas, a staircase -------------------------------------------------------------- */
 
-/* Below about 1000px the line scrolls sideways under the thumb, from the screen edge. */
-.yearsScroll {
-  margin: clamp(48px, 6vw, 72px) calc(-1 * var(--spacing-gutter)) 0;
-  padding: 0 var(--spacing-gutter) 8px;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scrollbar-width: none;
-}
-
-.yearsScroll::-webkit-scrollbar {
-  display: none;
-}
-
-.years {
-  --gap: 10px;
-  --dot: min(100%, 58px);
+/* Phones: the steps stack, each wider than the one above, so the staircase climbs to the right.
+   From 768px: three columns standing on one floor, each taller than the last. */
+.stairs {
   display: grid;
-  grid-template-columns: repeat(16, minmax(0, 1fr));
-  grid-template-rows: 44px auto auto;
-  column-gap: var(--gap);
-  min-width: 900px;
-  /* Room for the CESS badge, which hangs from the line's very end. */
-  padding-right: 32px;
+  gap: 12px;
+  margin-top: clamp(48px, 6vw, 80px);
 }
 
-/* A cycle: its name over a rule, then the grey field behind its years. */
-.cycle {
-  grid-row: 1 / 3;
-  background-color: var(--color-paper);
-}
-
-.cycle span {
+.stair {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  border-bottom: 1px solid var(--color-charcoal); /* taste-skill-ignore: the board's rule under each cycle name */
-  background-color: #fff;
-  font-size: clamp(0.9375rem, 1.3vw, 1.1875rem);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* The clay line through the discs, with a small dot at each end. */
-.yearLine {
-  position: relative;
-  z-index: 1;
-  grid-row: 2;
-  grid-column: 1 / -1;
-  align-self: start;
-  height: 3px;
-  margin-top: calc(20px + var(--dot) / 2 - 1.5px);
-  margin-inline: -14px;
-  background-color: var(--color-terracotta);
-  transform-origin: 0 50%;
-}
-
-.yearLine::before,
-.yearLine::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background-color: var(--color-terracotta);
-  transform: translateY(-50%);
-}
-
-.yearLine::before {
-  left: 0;
-}
-
-.yearLine::after {
-  right: 0;
-}
-
-.yearList {
-  display: contents;
-}
-
-.year {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  grid-row: 2;
   flex-direction: column;
-  align-items: center;
-  padding: 20px 0 18px;
-}
-
-.yearDot {
-  display: grid;
-  place-items: center;
-  width: var(--dot);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  font-size: clamp(0.9375rem, 1.35vw, 1.1875rem);
-  font-weight: 700;
-}
-
-.toneSand {
-  background-color: #e6cbb3;
-  color: var(--color-charcoal);
-}
-
-.toneBlush {
+  justify-content: space-between;
+  gap: 40px;
+  width: calc(72% + var(--i) * 14%);
+  padding: clamp(22px, 2.6vw, 36px);
+  border-radius: 24px 24px 4px 4px;
   background-color: #dda38a;
   color: var(--color-charcoal);
 }
 
-.toneClay {
+.stair:nth-child(2) {
   background-color: var(--color-terracotta);
   color: #fff;
 }
 
-.toneSage {
-  background-color: #c4c2ad;
-  color: var(--color-charcoal);
-}
-
-.toneOlive {
+.stair:nth-child(3) {
   background-color: var(--color-olive);
   color: #fff;
 }
 
-.yearAge {
-  margin-top: 10px;
+.stairCode {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.4vw, 5.75rem);
+  font-weight: 500;
+  line-height: 0.95;
+  font-variant-numeric: lining-nums; /* the 1 of CE1D at full height */
+  letter-spacing: -0.01em;
+}
+
+.stairCode abbr {
+  text-decoration: none;
+}
+
+.stairName {
+  max-width: 24ch;
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.stairWhen {
   font-size: 14px;
-  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-/* Each diploma hangs from the line at the end of its year (CEB after the P6, CE1D after the S2,
-   CESS at the end), on a dotted stem; the CE1D hangs higher, as on the board, so the three never
-   meet. The item has no width: its contents overflow from the point where the stem falls. */
-.diplomaList {
-  display: contents;
-}
-
-.diploma {
-  --stem: 72px;
+/* The years at the foot of the step; the one the diploma closes is filled. */
+.stairYears {
   display: flex;
-  grid-row: 3;
-  flex-direction: column;
-  align-items: center;
-  justify-self: end;
-  width: 0;
-  margin-right: calc(-1 * var(--gap) / 2);
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
 }
 
-.diploma:nth-child(2) {
-  --stem: 20px;
-}
-
-.diploma[data-last] {
-  margin-right: 0;
-}
-
-/* The stem starts at the line, above the ages. */
-.diplomaStem {
-  width: 0;
-  height: calc(var(--stem) + 64px);
-  margin-top: -64px;
-  border-left: 2px dotted var(--color-charcoal);
-  transform-origin: 50% 0;
-}
-
-.diplomaBadge {
+.stairYears li {
   display: grid;
-  flex: none;
   place-items: center;
-  align-content: center;
-  gap: 2px;
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background-color: #ecc9b6;
+  min-width: 44px;
+  height: 32px;
+  padding-inline: 10px;
+  border-radius: 999px;
+  background-color: rgb(0 0 0 / 0.16); /* darker than the step, so white stays >= 4.5:1 */
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.stair:nth-child(1) .stairYears li {
+  background-color: rgb(255 255 255 / 0.45);
+}
+
+.stairYears li[data-final] {
+  background-color: #fff;
   color: var(--color-terracotta-ink);
 }
 
-.diplomaBadge strong {
-  color: var(--color-charcoal);
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.badgeOlive {
-  background-color: var(--color-olive);
+.stair:nth-child(1) .stairYears li[data-final] {
+  background-color: var(--color-charcoal);
   color: #fff;
 }
 
-.badgeOlive strong {
-  color: #fff;
+.stair:nth-child(3) .stairYears li[data-final] {
+  color: var(--color-olive);
 }
 
-/* The text runs left of the stem for the CEB and the CESS, right of it for the CE1D. */
-.diplomaWhen {
-  display: block;
-  flex: none;
-  width: 200px;
-  margin-top: 12px;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.35;
-  text-align: right;
-  transform: translateX(calc(-50% + 42px));
-}
+@media (min-width: 48rem) {
+  .stairs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: end;
+  }
 
-.diploma:nth-child(2) .diplomaWhen {
-  text-align: left;
-  transform: translateX(calc(50% - 42px));
-}
-
-.diplomaAfter {
-  display: block;
-  margin-bottom: 2px;
-  color: var(--color-ink-soft);
-  font-size: 14px;
-  font-weight: 400;
+  .stair {
+    width: auto;
+    min-height: calc(clamp(260px, 27vw, 330px) + var(--i) * clamp(72px, 8vw, 112px));
+  }
 }
 
 /* ---- 6. The three savoirs, rings that meet ----------------------------------------------------- */
@@ -663,29 +549,18 @@
       animation-range: entry 20% cover 45%;
     }
 
-    .yearLine {
-      animation: draw-x linear both;
+    /* Each step is built from the floor up, one after the other; all three are complete by the
+       time the staircase is fully on screen. */
+    .stair {
+      animation: build linear both;
       animation-timeline: view();
-      animation-range: entry 30% cover 40%;
+      animation-range: entry calc(5% + var(--i) * 10%) entry calc(75% + var(--i) * 10%);
     }
 
-    .yearDot {
-      animation: pop linear both;
+    .stair > * {
+      animation: rise linear both;
       animation-timeline: view();
-      animation-range: entry calc(30% + var(--i) * 4%) cover calc(28% + var(--i) * 1%);
-    }
-
-    .diplomaStem {
-      animation: draw-y linear both;
-      animation-timeline: view();
-      animation-range: entry calc(40% + var(--d) * 20%) cover calc(40% + var(--d) * 4%);
-    }
-
-    .diplomaBadge,
-    .diplomaWhen {
-      animation: drop linear both;
-      animation-timeline: view();
-      animation-range: entry calc(60% + var(--d) * 15%) cover calc(42% + var(--d) * 4%);
+      animation-range: entry calc(35% + var(--i) * 10%) entry calc(80% + var(--i) * 10%);
     }
 
     .savoir {
@@ -719,6 +594,16 @@
   }
 }
 
+@keyframes build {
+  from {
+    clip-path: inset(100% 0 0 0 round 24px 24px 4px 4px);
+  }
+
+  to {
+    clip-path: inset(0 round 24px 24px 4px 4px);
+  }
+}
+
 @keyframes draw-x {
   from {
     transform: scaleX(0);
@@ -728,20 +613,6 @@
 @keyframes draw-y {
   from {
     transform: scaleY(0);
-  }
-}
-
-@keyframes pop {
-  from {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-}
-
-@keyframes drop {
-  from {
-    opacity: 0;
-    translate: 0 -16px;
   }
 }
 

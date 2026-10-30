@@ -82,8 +82,10 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   paragraphs + bold closing line) and `/pedagogie` (full stages with their lists). `/pedagogie`
   follows the document's order and its "Traitement graphique" notes: framework + three sober
   markers, way of teaching + steps 01-04, the four stages as tabs, languages timeline on olive,
-  diplomas on the school-year line from Ayoub's board `Parcours_scolaire.ai` (CA to S6; the board
-  says CEP, the validated text CEB, so CEB is used), the three savoirs as overlapping rings on
+  diplomas as a staircase of three steps (CEB, CE1D, CESS), each taller than the last, the
+  diploma on its landing and the years that lead to it at its foot. Ayoub's board
+  `Parcours_scolaire.ai` is for the data only, not a design to copy (he said so on 30 Oct). The
+  board says CEP, the validated text CEB, so CEB is used. Then the three savoirs as overlapping rings on
   Fired Clay. The old migrated principles, outdoor band, language cards, teacher-voice note and
   follow-up questions were removed from that page (not in the validated document).
   Le réseau in detail: its own component

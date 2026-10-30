@@ -1,4 +1,3 @@
-import { GraduationCap, ScrollText } from 'lucide-react'
 import Image from 'next/image'
 import type { CSSProperties } from 'react'
 
@@ -7,7 +6,7 @@ import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { schoolImages } from '@/content/migration/school'
 import { parcoursOverview, parcoursStages } from '@/content/parcours'
-import { pedagogie, schoolYears } from '@/content/pedagogie'
+import { pedagogie } from '@/content/pedagogie'
 import { routes } from '@/lib/routes'
 
 import { EditorialHero } from './editorial-hero'
@@ -24,8 +23,9 @@ import styles from './pedagogy.module.css'
  *   the way of teaching: the four steps 01 to 04 on one line;
  *   the school path: the four stages as tabs, each with its full text and photo;
  *   the languages: a timeline across the three levels, on olive;
- *   the diplomas: the school-year line of Ayoub's board Parcours_scolaire.ai, CA to S6, with
- *     the three diplomas hanging from it (the board says CEP; the validated text says CEB);
+ *   the diplomas: a staircase of three steps, each taller than the last, the diploma on its
+ *     landing and the years that lead to it at its foot (data from Ayoub's board
+ *     Parcours_scolaire.ai; the board says CEP, the validated text CEB);
  *   autonomy: the three "savoirs" as rings that meet, on Fired Clay.
  * Server Component; the stage tabs are the only client island (level-tabs.tsx). Motion is
  * scroll-driven CSS (pedagogy.module.css), complete and still without support or with reduced
@@ -69,23 +69,8 @@ function tabLabel(name: string) {
   return bare.charAt(0).toUpperCase() + bare.slice(1)
 }
 
-/* Board colours: sand for the classe d'accueil, light clay for maternelle, Fired Clay for
-   primaire, sage for S1 to S3 and olive for S4 to S6. */
-function yearTone(code: string) {
-  if (code === 'CA') return styles.toneSand
-  if (code.startsWith('M')) return styles.toneBlush
-  if (code.startsWith('P')) return styles.toneClay
-  return Number(code.slice(1)) <= 3 ? styles.toneSage : styles.toneOlive
-}
-
 export function PedagogyPage() {
   const { framework, method, path, languages, diplomas, autonomy } = pedagogie
-  const years = schoolYears.flatMap((group) => group.years)
-  const column = (code: string) => years.findIndex((year) => year.code === code) + 1
-  const cycles = schoolYears.reduce<{ name: string; start: number; span: number }[]>((list, group, index) => {
-    const start = schoolYears.slice(0, index).reduce((sum, previous) => sum + previous.years.length, 1)
-    return group.cycle ? [...list, { name: group.cycle, start, span: group.years.length }] : list
-  }, [])
 
   return (
     <>
@@ -206,60 +191,34 @@ export function PedagogyPage() {
         </Container>
       </section>
 
-      {/* ---- 5. The diplomas on the school-year line (board Parcours_scolaire.ai) -------- */}
+      {/* ---- 5. The diplomas, a staircase ------------------------------------------------ */}
       <section id="diplomes" aria-labelledby="diplomes-title" className={styles.section}>
         <Container>
           <SectionHead id="diplomes-title" {...diplomas} />
-          <div className={styles.yearsScroll}>
-            <div className={styles.years}>
-              {cycles.map((cycle) => (
-                <p
-                  key={cycle.name}
-                  aria-hidden="true"
-                  className={styles.cycle}
-                  style={{ gridColumn: `${cycle.start} / span ${cycle.span}` }}
-                >
-                  <span>{cycle.name}</span>
-                </p>
-              ))}
-              <span aria-hidden="true" className={styles.yearLine} />
-              <ol className={styles.yearList} aria-label="Les années, de la classe d’accueil à la 6e secondaire">
-                {years.map((year, index) => (
-                  <li key={year.code} className={styles.year} style={{ gridColumn: index + 1, '--i': index } as CSSProperties}>
-                    <span className={`${styles.yearDot} ${yearTone(year.code)}`}>
-                      <span aria-hidden="true">{year.code}</span>
-                      <span className="sr-only">{year.name}</span>
-                    </span>
-                    <span className={styles.yearAge}>{year.age}</span>
-                  </li>
-                ))}
-              </ol>
-              <ul role="list" className={styles.diplomaList} aria-label="Les diplômes">
-                {diplomas.items.map((diploma, index) => (
-                  <li
-                    key={diploma.code}
-                    className={styles.diploma}
-                    data-last={index === diplomas.items.length - 1 ? '' : undefined}
-                    style={{ gridColumn: column(diploma.after), '--d': index } as CSSProperties}
-                  >
-                    <span aria-hidden="true" className={styles.diplomaStem} />
-                    <span className={`${styles.diplomaBadge} ${diploma.code === 'CE1D' ? styles.badgeOlive : ''}`}>
-                      {diploma.code === 'CE1D' ? (
-                        <ScrollText aria-hidden="true" size={22} strokeWidth={1.75} />
-                      ) : (
-                        <GraduationCap aria-hidden="true" size={24} strokeWidth={1.75} />
-                      )}
-                      <strong>{diploma.code}</strong>
-                    </span>
-                    <span className={styles.diplomaWhen}>
-                      <span className={styles.diplomaAfter}>{diploma.after}</span>
-                      {diploma.when}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          {/* Three steps that climb to the right, each taller than the last: the diploma lands on
+              top, the years that lead to it stand at the foot. */}
+          <ol className={styles.stairs}>
+            {diplomas.items.map((diploma, index) => (
+              <li key={diploma.code} className={styles.stair} style={{ '--i': index } as CSSProperties}>
+                <div className={styles.stairTop}>
+                  <p className={styles.stairCode}>
+                    <abbr title={diploma.name}>{diploma.code}</abbr>
+                  </p>
+                  <p className={styles.stairName}>{diploma.name}</p>
+                </div>
+                <div className={styles.stairFoot}>
+                  <p className={styles.stairWhen}>{diploma.when}</p>
+                  <ul role="list" className={styles.stairYears} aria-label={`Les années jusqu’au ${diploma.code}`}>
+                    {diploma.years.map((year) => (
+                      <li key={year} data-final={year === diploma.after ? '' : undefined}>
+                        {year}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ol>
         </Container>
       </section>
 
