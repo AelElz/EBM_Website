@@ -98,6 +98,16 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   values on a Fired Clay band, the Belgian framework as a checklist, history as a timeline on
   olive, the campuses as photo cards, partners on charcoal. The shared inner blocks are unchanged,
   so the other inner pages are untouched.
+- `/calendrier` (30 Oct 2026, Ayoub: "a dashboard that could be working with the CMS", Apple
+  design skill, utility surface): four cards at a glance (today, next date, next holidays, year
+  progress), one month at a time chosen by month and year (arrows, "Aujourd'hui", the chosen
+  day's dates beside it), then the agenda with segmented filters
+  (`components/inner/calendar/`). The dates come from `src/lib/calendar.ts`: the Payload
+  collection `calendar-events` (`src/collections/CalendarEvents.ts`, staff edit it in `/admin`,
+  published dates only for visitors, the page revalidates on every change) once `DATABASE_URI`
+  is set, else the signed 2026–2027 transcription. `npm run seed:calendar` copies that
+  transcription into the CMS. `/calendrier/ebm.ics` serves the same dates. No database is
+  connected yet, so the page runs on the document today.
 - `/ecole-du-dehors` (25 Oct 2026): Ayoub asked for a design unlike the editorial pages, then
   for less ("too much overkill … keep the home branding, simple but clean") and the taste
   skill. Direction "The sentence is the layout". Since 30 Oct 2026 the title follows Ayoub's

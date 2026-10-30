@@ -1,5 +1,6 @@
 /** Signed 2026–2027 school PDF, visually transcribed in the migration pack on 2026-10-24.
- * Inclusive end dates are converted to exclusive DTEND in the ICS export. No event is bookable. */
+ * The fallback of /calendrier until the CMS is connected (src/lib/calendar.ts), and the seed of
+ * the Payload collection `calendar-events`. End dates are inclusive. No event is bookable. */
 export interface SchoolCalendarEvent {
  title: string
  start_date: string
@@ -206,29 +207,3 @@ export const schoolCalendar = {
 export const schoolCalendarEvents: SchoolCalendarEvent[] = [...schoolCalendar.events]
 export const calendarPdfHref = '/documents/school-calendar-2026-2027.pdf'
 
-const compactDate = (date: string) => date.replaceAll('-', '')
-function nextDay(date: string): string {
- const d = new Date(`${date}T12:00:00Z`)
- d.setUTCDate(d.getUTCDate() + 1)
- return d.toISOString().slice(0, 10)
-}
-const escapeIcs = (value: string) => value.replaceAll('\\', '\\\\').replaceAll('\n', '\\n').replaceAll(';', '\\;').replaceAll(',', '\\,')
-export function schoolCalendarIcs(): string {
- const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//EBM//Calendrier scolaire de consultation//FR', 'CALSCALE:GREGORIAN', 'X-WR-CALNAME:EBM 2026–2027', 'X-WR-TIMEZONE:Africa/Casablanca']
- schoolCalendarEvents.forEach((event, index) => {
-  const tentative = event.tentative_in_source || event.title === 'Premier Moharem'
-  lines.push('BEGIN:VEVENT', `UID:ebm-2026-2027-${index}@ecolebelge.org`, 'DTSTAMP:20261024T120000Z', `DTSTART;VALUE=DATE:${compactDate(event.start_date)}`, `DTEND;VALUE=DATE:${compactDate(nextDay(event.end_date_inclusive ?? event.start_date))}`, `SUMMARY:${escapeIcs(event.title + (tentative ? ' (date estimée)' : ''))}`, `DESCRIPTION:${escapeIcs('Calendrier scolaire EBM 2026–2027. Source : document scolaire signé. ' + (tentative ? 'Date lunaire à confirmer. ' : '') + (event.title === 'rentrée' ? 'Selon l’organisation de chaque école. ' : '') + 'Cette date ne constitue pas un créneau de visite. Export ponctuel ; pas de mise à jour automatique.')}`, `STATUS:${tentative ? 'TENTATIVE' : 'CONFIRMED'}`, 'TRANSP:TRANSPARENT', 'END:VEVENT')
- })
- lines.push('END:VCALENDAR')
- // RFC 5545: fold content at 75 UTF-8 octets without cutting a character.
- return lines.map(line => {
-  const folded: string[] = []
-  let part = ''
-  for (const char of line) {
-   if (new TextEncoder().encode(part + char).length > 75) { folded.push(part); part = ' ' }
-   part += char
-  }
-  folded.push(part)
-  return folded.join('\r\n')
- }).join('\r\n') + '\r\n'
-}

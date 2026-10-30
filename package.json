@@ -13,7 +13,8 @@
     "qa:hero-contrast": "node scripts/qa/hero-contrast.mjs",
     "payload": "NODE_OPTIONS=--no-deprecation payload",
     "generate:types": "NODE_OPTIONS=--no-deprecation payload generate:types",
-    "generate:importmap": "NODE_OPTIONS=--no-deprecation payload generate:importmap"
+    "generate:importmap": "NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "seed:calendar": "NODE_OPTIONS=--no-deprecation payload run scripts/seed-calendar.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.91.0",

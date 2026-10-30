@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    'calendar-events': CalendarEvent;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +79,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'calendar-events': CalendarEventsSelect<false> | CalendarEventsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -163,6 +165,35 @@ export interface Media {
   focalY?: number | null;
 }
 /**
+ * Les dates affichées sur la page Calendrier du site. La date de fin est incluse.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "calendar-events".
+ */
+export interface CalendarEvent {
+  id: number;
+  title: string;
+  startDate: string;
+  /**
+   * Laisser vide pour une date d’un seul jour.
+   */
+  endDate?: string | null;
+  category: 'holidays' | 'school' | 'public' | 'event';
+  campus: 'network' | 'casablanca' | 'rabat';
+  tentative?: boolean | null;
+  /**
+   * Une phrase courte, affichée sous la date. Facultatif.
+   */
+  note?: string | null;
+  /**
+   * Par exemple 2026-2027.
+   */
+  schoolYear: string;
+  published?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -193,6 +224,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'calendar-events';
+        value: number | CalendarEvent;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -276,6 +311,23 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "calendar-events_select".
+ */
+export interface CalendarEventsSelect<T extends boolean = true> {
+  title?: T;
+  startDate?: T;
+  endDate?: T;
+  category?: T;
+  campus?: T;
+  tentative?: T;
+  note?: T;
+  schoolYear?: T;
+  published?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
