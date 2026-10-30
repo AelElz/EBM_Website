@@ -12,7 +12,9 @@ import { routes } from '@/lib/routes'
 import styles from './outdoor.module.css'
 
 /*
- * L'école du dehors (/ecole-du-dehors), 25 Oct 2026. Ayoub: simple and clean, in the home page's
+ * L'école du dehors (/ecole-du-dehors), 25 Oct 2026. The title follows Ayoub's mock-up of 30 Oct
+ * 2026 ("L'école" beside a clay pill holding "du dehors"); the rest of the 25 Oct direction stands.
+ * Originally: Ayoub: simple and clean, in the home page's
  * branding, made with the design-taste skill. Direction dealt: "The sentence is the layout"
  * (brand palette and type kept). The idea: the children in the garden sit inside the title, where
  * a word would be ("L'école [photo] du dehors"), then the same photograph opens wide below. Every
@@ -48,33 +50,23 @@ export function OutdoorsPage() {
               </li>
             </ol>
           </nav>
+          {/* Ayoub's mock-up of 30 Oct 2026: "du dehors" inside a Fired Clay pill, two lighter
+              pills fanning out behind it (the home band 5's circles), the buttons right under. */}
           <h1 id="page-title" className={styles.sentence}>
-            <span className={styles.line}>
-              L’école
-              <span className={styles.slot} aria-hidden="true">
-                <Image
-                  src={schoolImages.outdoor.src}
-                  alt=""
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 26vw, 40vw"
-                  className="object-cover"
-                  style={{ objectPosition: '50% 64%' }}
-                />
-              </span>
+            L’école{' '}
+            <span className={styles.pill}>
+              <span aria-hidden="true" className={styles.pillBack} />
+              <span aria-hidden="true" className={styles.pillMid} />
+              <em className={styles.pillFront}>du dehors</em>
             </span>
-            <em className={styles.line}>du dehors</em>
           </h1>
-          <div className={styles.heroFoot}>
-            <p>{page.intro}</p>
-            <div className={styles.actions}>
-              <ButtonLink href={`${routes.reserverVisite}?campus=casablanca`} size="lg">
-                Demander une visite
-              </ButtonLink>
-              <ButtonLink href={`${routes.contact}?campus=casablanca`} variant="outline-dark" size="lg">
-                Contacter le campus
-              </ButtonLink>
-            </div>
+          <div className={styles.actions}>
+            <ButtonLink href={`${routes.reserverVisite}?campus=casablanca`} size="lg">
+              Demander une visite
+            </ButtonLink>
+            <ButtonLink href={`${routes.contact}?campus=casablanca`} variant="outline-dark" size="lg">
+              Contacter le campus
+            </ButtonLink>
           </div>
         </Container>
         {/* The window opens: the same photograph, wide. */}

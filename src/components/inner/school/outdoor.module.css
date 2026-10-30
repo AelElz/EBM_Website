@@ -30,64 +30,85 @@
 }
 
 .sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.12em 0.2em;
   margin-top: clamp(40px, 7vw, 104px);
   font-family: var(--font-sans);
-  font-size: clamp(3.25rem, 10vw, 9.5rem);
+  font-size: clamp(3.25rem, 8.8vw, 8rem);
   font-weight: 600;
-  line-height: 0.98;
+  line-height: 1;
   letter-spacing: -0.04em;
 }
 
-.line {
-  display: flex;
-  align-items: center;
-  gap: 0.18em;
-}
-
-.sentence em {
-  font-family: var(--font-accent);
-  font-size: 1.06em;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: var(--color-terracotta);
-}
-
-/* The garden, one line tall, where a word would be. It stretches to the end of the first line,
-   and from 1024px the second line sits against the right margin: the title spans the width. */
-.slot {
+/* "du dehors" in white Playfair italic on a Fired Clay pill, with a mid clay and a peach pill of
+   the same size behind, offset to the right (the home band 5's circles). On load the two slide
+   out from behind it. */
+.pill {
   position: relative;
-  display: inline-block;
-  flex: 1 1 auto;
-  min-width: 2.2em;
-  height: 0.8em;
-  overflow: hidden;
+  display: inline-grid;
+  margin-right: 0.45em;
+}
+
+.pillFront,
+.pillMid,
+.pillBack {
+  grid-area: 1 / 1;
   border-radius: 999px;
 }
 
-@media (min-width: 64rem) {
-  .sentence em.line {
-    justify-content: flex-end;
-  }
+.pillFront {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  /* 0.88 of the title size, the lettering a little smaller and set low, as on the mock-up. */
+  height: 1.05em;
+  padding: 0 0.72em 0.02em 0.66em;
+  background-color: var(--color-terracotta);
+  color: #fff;
+  font-family: var(--font-accent);
+  font-size: 0.84em;
+  line-height: 1;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
-.heroFoot {
-  display: grid;
-  gap: 24px;
-  margin-top: clamp(32px, 4vw, 56px);
+.pillMid {
+  z-index: 1;
+  background-color: color-mix(in srgb, var(--color-terracotta) 72%, #fff);
+  transform: translateX(0.22em);
 }
 
-.heroFoot p {
-  max-width: 40ch;
-  font-size: var(--text-lead);
-  line-height: 1.55;
-  color: var(--color-ink-soft);
+.pillBack {
+  background-color: #f8c9b5;
+  transform: translateX(0.45em);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: clamp(32px, 3.6vw, 48px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pillMid {
+    animation: pill-fan 1000ms var(--ease-out-expo) 260ms both;
+  }
+
+  .pillBack {
+    animation: pill-fan 1100ms var(--ease-out-expo) 380ms both;
+  }
+}
+
+@keyframes pill-fan {
+  from {
+    transform: none;
+  }
 }
 
 .wideWrap {
@@ -99,13 +120,6 @@
   height: min(72svh, 720px);
   overflow: hidden;
   border-radius: 24px 24px 0 0;
-}
-
-@media (min-width: 64rem) {
-  .heroFoot {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
-  }
 }
 
 /* ---- Statement left, evidence right -------------------------------------------------------- */

@@ -95,8 +95,10 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   so the other inner pages are untouched.
 - `/ecole-du-dehors` (25 Oct 2026): Ayoub asked for a design unlike the editorial pages, then
   for less ("too much overkill … keep the home branding, simple but clean") and the taste
-  skill. Direction "The sentence is the layout": the title "L'école [photo] du dehors" holds the
-  garden photo inline, the same photo opens wide below with the home stages' rounded top
+  skill. Direction "The sentence is the layout". Since 30 Oct 2026 the title follows Ayoub's
+  mock-up: "L'école" beside a Fired Clay pill holding "du dehors" in white Playfair italic, two
+  lighter pills fanning out behind it (the home band 5's circles), the buttons right under (no
+  intro sentence in the hero). The garden photo opens wide below with the home stages' rounded top
   corners, then each section is a statement left with its evidence right (principles list,
   a ledger of figures aligned on the comma, the launch photo, notes, the campus photo).
   Headings use the home's `SectionHeading`. `outdoor-page.tsx` + `outdoor.module.css`; no
