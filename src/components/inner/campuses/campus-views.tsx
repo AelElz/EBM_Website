@@ -269,7 +269,7 @@ export function CampusDetail({ campus }: { campus: MigratedCampus }) {
             <div className={styles.campusLead}>
               <p>{campus.intro}</p>
               <div className={styles.actions}>
-                <ButtonLink href={`${routes.candidater}?campus=${campus.slug}`} size="lg">
+                <ButtonLink href={routes.candidater} size="lg">
                   Candidater
                 </ButtonLink>
                 <ButtonLink href="#acces" variant="outline-dark" size="lg">
@@ -425,7 +425,7 @@ export function CampusDetail({ campus }: { campus: MigratedCampus }) {
         title={`Rencontrons-nous à ${campus.city}`}
         text="Les visites sont réservées aux familles ayant déjà déposé une candidature."
         primary={{ label: 'Demander une visite par e-mail', href: campusRequestHref(campus, 'Demande de visite après candidature') }}
-        secondary={{ label: 'Candidater', href: `${routes.candidater}?campus=${campus.slug}` }}
+        secondary={{ label: 'Candidater', href: routes.candidater }}
       />
     </>
   )

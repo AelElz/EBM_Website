@@ -18,7 +18,6 @@ import { site } from '@/content/site'
 import { pageMetadata } from '@/lib/metadata'
 import { routes } from '@/lib/routes'
 import { cn } from '@/lib/utils'
-import { AUTH_TEST_PATH } from '@/features/auth-test/contract'
 import { Emphasis, SectionLabel } from '@/components/home/emphasis'
 import { ButtonLink } from '@/components/ui/button'
 
@@ -108,10 +107,6 @@ export default function EspaceEdukaPage() {
               )
             })}
           </ul>
-          <div className={styles.testEntry}>
-            <p>Un aperçu du futur espace EBM.</p>
-            <Link href={AUTH_TEST_PATH}>Tester la connexion<ArrowRight aria-hidden="true" size={16} /></Link>
-          </div>
         </div>
       </div>
 

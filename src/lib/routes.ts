@@ -18,7 +18,8 @@ export const routes = {
   /** Since 30 Oct 2026 the steps, conditions and questions live on /admissions itself. */
   faq: '/admissions#faq',
   documentsEtFrais: '/admissions/documents-et-frais',
-  candidater: '/admissions/candidater',
+  /** The "Candidater" section of /admissions (the separate page merged there on 30 Oct 2026). */
+  candidater: '/admissions#candidater',
   contact: '/contact',
   espaceEduka: '/espace-eduka',
   /** The visit request form, on the calendar page since 30 Oct 2026 (visitFor() picks a campus). */

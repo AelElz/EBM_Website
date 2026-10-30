@@ -105,8 +105,10 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   steps, levels, conditions, FAQ, contacts; same section ids) and opens with "Par où commencer
   ?". The visit request is on `/calendrier#visite` (`routes.reserverVisite`, `visitFor(campus)`).
   `/admissions/comprendre` redirects in next.config.ts; `/reserver-une-visite` redirects in its
-  page, keeping `?campus=`. Admissions menu: Admissions, Documents & frais, Candidater en
-  ligne, Contact. Calendrier & visites is in the Vie scolaire menu only (Ayoub: the same link
+  page, keeping `?campus=`. `/admissions/candidater` merged into `/admissions#candidater`
+  the same day (only its campus/level/pieces cards and the Eduka panel were unique;
+  `routes.candidater` is that anchor, redirect in next.config.ts). Admissions menu: Admissions,
+  Documents & frais, Contact; the header's Candidater button goes to #candidater. Calendrier & visites is in the Vie scolaire menu only (Ayoub: the same link
   was in both).
 - Apple-style pass, site-wide (30 Oct 2026, Ayoub: "make all the website feel like Apple style
   … keep the design the same"): pill buttons (semibold, a press dims them, no movement), circle

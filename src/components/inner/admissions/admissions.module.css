@@ -76,7 +76,8 @@
 .side p {font-size:16px;line-height:1.6;margin:0 0 20px;}
 .side a {display:inline-flex;align-items:center;min-height:44px;font-weight:600;text-decoration:underline;text-underline-offset:5px;}
 .empty {padding:32px;background:var(--color-paper);line-height:1.6;}
-.applyPanel {background:var(--color-olive);color:white;padding:clamp(28px,5vw,56px);max-width:880px;}
+.applyPanel {margin-top:40px;border-radius:var(--radius-card);background:var(--color-olive);color:white;padding:clamp(28px,5vw,56px);max-width:880px;}
+.summary a {color:var(--color-terracotta-ink);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
 .applyPanel h2 {font:600 clamp(28px,3vw,40px)/1.15 var(--font-display);margin:0 0 20px;}
 .applyPanel p {font-size:18px;line-height:1.6;max-width:62ch;}
 .applyPanel a {display:inline-flex;align-items:center;justify-content:center;min-height:52px;background:white;color:var(--color-charcoal);font-size:16px;font-weight:700;padding:12px 24px;border-radius:999px;margin-top:18px;}

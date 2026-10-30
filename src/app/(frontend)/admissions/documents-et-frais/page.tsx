@@ -36,6 +36,6 @@ export default function DocumentsPage() {
    <ReviewNote title="Vérifier les consignes de téléversement">Les anciennes pages demandent des documents scannés en PDF A4, hors photo de l’élève, et refusent les captures d’écran. Les formats et les limites actuels d’Eduka restent à vérifier. Aucun téléversement n’est collecté sur ce site.</ReviewNote>
    <p className={styles.help}>Aucun PDF officiel dédié aux tarifs, au paiement ou à cette liste de pièces n’a été trouvé. Aucun document de substitution n’est présenté comme officiel.</p>
   </PageSection>
-  <PageActions title="Tout est plus clair ?" text="Confirmez les montants et les modalités auprès du campus, puis poursuivez votre candidature sur Eduka." primary={{ label: 'Préparer ma candidature', href: '/admissions/candidater' }} secondary={{ label: 'Contacter le campus', href: '/contact' }} />
+  <PageActions title="Tout est plus clair ?" text="Confirmez les montants et les modalités auprès du campus, puis poursuivez votre candidature sur Eduka." primary={{ label: 'Préparer ma candidature', href: '/admissions#candidater' }} secondary={{ label: 'Contacter le campus', href: '/contact' }} />
  </>
 }

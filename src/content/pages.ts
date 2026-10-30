@@ -24,7 +24,6 @@ export type PageSlug =
   | 'admissions'
   | 'admissions-documents-et-frais'
   | 'calendrier'
-  | 'admissions-candidater'
   | 'contact'
   // system placeholders
   | 'mentions-legales'
@@ -229,24 +228,6 @@ export const pages: Record<PageSlug, PlaceholderPageContent> = {
       'Réservation en ligne',
       'Calendrier scolaire',
       'Abonnement au calendrier (.ics)',
-    ],
-  }),
-  'admissions-candidater': main({
-    slug: 'admissions-candidater',
-    route: routes.candidater,
-    title: 'Candidater en ligne',
-    intro: 'Le dossier de candidature, aujourd’hui sur Eduka.',
-    section: 'admissions',
-    parent: 'admissions',
-    planned: [
-      `Avant de commencer${NNBSP}: les documents à préparer`,
-      'Le formulaire de candidature',
-      'Le suivi du dossier dans l’Espace Eduka',
-      'Les prochaines étapes après l’envoi',
-    ],
-    links: [
-      { label: 'Ouvrir le formulaire Eduka', href: site.eduka.applicationUrl, external: true },
-      ...contactLinks.slice(0, 2),
     ],
   }),
   contact: main({

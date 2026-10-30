@@ -86,7 +86,7 @@ EBM_Website/
 │   │   │   ├── nos-campus/      the overview, and [campus]/ for Casablanca and Rabat
 │   │   │   ├── admissions/      comprendre, documents-et-frais, candidater
 │   │   │   ├── calendrier/  reserver-une-visite/  contact/  espace-eduka/  recherche/
-│   │   │   └── mentions-legales/  confidentialite/  recrutement/  plan-du-site/  connexion-test/
+│   │   │   └── mentions-legales/  confidentialite/  recrutement/  plan-du-site/
 │   │   ├── (payload)/           the Payload admin (/admin) and its REST/GraphQL API (/api)
 │   │   ├── global-not-found.tsx the designed French 404
 │   │   ├── robots.ts, sitemap.ts
@@ -102,7 +102,6 @@ EBM_Website/
 │   │   ├── site/                header (menus, search overlay, mobile sheet), footer, CTA band,
 │   │   │                        intro curtain, mobile action bar
 │   │   ├── ui/                  primitives: button, container, accordion, sheet, smart link
-│   │   └── auth-test/           the login prototype on /connexion-test (not real authentication)
 │   │
 │   ├── content/                 ALL the site's text and data, typed (no CMS yet)
 │   │   ├── site.ts              name, addresses, phones, e-mails, navigation, Eduka links
@@ -113,7 +112,6 @@ EBM_Website/
 │   │
 │   ├── lib/                     routes, metadata, structured data (JSON-LD), fonts, typography
 │   ├── collections/             Payload collections: Users, Media
-│   ├── features/auth-test/      the login prototype's contract and preview logic
 │   ├── fonts/                   Avenir Next and Playfair Display files
 │   ├── payload.config.ts        Payload configuration
 │   └── payload-types.ts         generated Payload types
@@ -185,7 +183,6 @@ The full system is in **[DESIGN.md](DESIGN.md)**. In short:
 | `/espace-eduka` | The families' sign-in page; it hands off to Eduka's own secure sign-in |
 | `/recherche` | Search (also an overlay from the header) |
 | `/mentions-legales`, `/confidentialite`, `/recrutement`, `/plan-du-site` | Legal, privacy, recruitment, site map |
-| `/connexion-test` | A login **prototype** only, not real authentication (see `docs/AUTH-TEST.md`) |
 
 ---
 
@@ -203,7 +200,7 @@ The full system is in **[DESIGN.md](DESIGN.md)**. In short:
 - any Eduka integration: links hand off to Eduka's pages. Eduka passwords are never handled by
   this site;
 - the Instagram feed: the home shows a static preview linking to the account;
-- real authentication: `/connexion-test` is a frontend demo.
+- real authentication (parents sign in on Eduka).
 
 ---
 
@@ -216,7 +213,6 @@ The full system is in **[DESIGN.md](DESIGN.md)**. In short:
 | [docs/HOME-SPEC.md](docs/HOME-SPEC.md) | Tokens, navigation, header and footer, home sections, performance budget |
 | [docs/CONTENT-MIGRATION.md](docs/CONTENT-MIGRATION.md) | How the inner pages' content was migrated |
 | [docs/CONTENT-GAPS.md](docs/CONTENT-GAPS.md) | What EBM still has to provide or confirm |
-| [docs/AUTH-TEST.md](docs/AUTH-TEST.md) | The login prototype and the plan for real authentication |
 | [DESIGN.md](DESIGN.md) / [PRODUCT.md](PRODUCT.md) | Design system; audience and goals |
 | [CLAUDE.md](CLAUDE.md) | Working rules and the detailed status of each page |
 

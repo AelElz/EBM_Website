@@ -11,7 +11,6 @@ export const migrationPages = [
   {slug:'admissions',route:'/admissions',title:'Admissions',description:'Les étapes, les conditions selon le niveau et les réponses aux questions des familles.'},
   {slug:'admissions-documents-et-frais',route:'/admissions/documents-et-frais',title:'Documents & frais',description:'Préparer les pièces du dossier et consulter les barèmes publiés, dont l’année reste à confirmer.'},
   {slug:'calendrier',route:'/calendrier',title:'Calendrier & visites',description:'Le calendrier scolaire 2026–2027 et la demande de visite auprès du campus.'},
-  {slug:'admissions-candidater',route:'/admissions/candidater',title:'Candidater en ligne',description:'Préparer le dossier et poursuivre la candidature dans le formulaire officiel Eduka.'},
   {slug:'contact',route:'/contact',title:'Contact',description:'Les téléphones, e-mails et adresses des bons services à Casablanca et à Rabat.'},
 ] as const
 

@@ -232,12 +232,12 @@ export const navigation: NavGroup[] = [
     label: 'Admissions',
     href: routes.admissions,
     items: [
-      /* 30 Oct 2026 (Ayoub): four pages, in the order of a candidature, each with the one line
-         that says when to go there. "Comprendre" and the questions merged into Admissions,
-         "Réserver une visite" into Calendrier & visites, which is in Vie scolaire only. */
-      { label: 'Admissions', href: routes.admissions, hint: 'Les étapes, les conditions et vos questions' },
+      /* 30 Oct 2026 (Ayoub): no page repeats another. "Comprendre", the questions and
+         "Candidater en ligne" merged into Admissions (the Candidater button in the header goes
+         to its #candidater section); "Réserver une visite" into Calendrier & visites, which is
+         in Vie scolaire only. */
+      { label: 'Admissions', href: routes.admissions, hint: 'Les étapes, vos questions, candidater en ligne' },
       { label: 'Documents & frais', href: routes.documentsEtFrais, hint: 'Les pièces du dossier et le barème' },
-      { label: 'Candidater en ligne', href: routes.candidater, hint: 'Déposer le dossier sur Eduka' },
       { label: 'Contact', href: routes.contact, hint: 'Écrire ou appeler votre campus' },
     ],
   },

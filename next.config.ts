@@ -38,6 +38,11 @@ const nextConfig: NextConfig = {
     // /admissions/comprendre#faq lands on /admissions#faq). /reserver-une-visite redirects in its
     // page, to keep the chosen campus (app/(frontend)/reserver-une-visite/page.tsx).
     {
+        "source": "/admissions/candidater",
+        "destination": "/admissions#candidater",
+        "permanent": true
+    },
+    {
         "source": "/admissions/comprendre",
         "destination": "/admissions",
         "permanent": true
@@ -129,7 +134,7 @@ const nextConfig: NextConfig = {
     },
     {
         "source": "/comment-inscrire-mon-enfant",
-        "destination": "/admissions/candidater",
+        "destination": "/admissions#candidater",
         "permanent": true
     },
     {
