@@ -17,7 +17,7 @@ import { SearchTrigger } from './search-trigger'
  */
 
 const linkClass =
-  'inline-flex h-11 min-w-11 shrink-0 items-center justify-center gap-2 rounded-ui text-[15px] ' +
+  'inline-flex h-11 min-w-11 shrink-0 items-center justify-center gap-2 rounded-full text-[15px] ' +
   'font-semibold whitespace-nowrap text-charcoal transition-colors duration-200 hover:text-terracotta-ink'
 
 function Icon({ icon: Glyph }: { icon: LucideIcon }) {

@@ -46,7 +46,7 @@
 .fields { display:grid; gap:24px; margin-top:28px; }
 .field { display:grid; gap:10px; min-width:0; }
 .field > span { font-weight:700; font-size:16px; }
-.field input,.field select,.field textarea { width:100%; border:1px solid var(--color-ink-soft); background:white; padding:14px; border-radius:4px; min-height:52px; color:var(--color-charcoal); font:inherit; }
+.field input,.field select,.field textarea { width:100%; border:1px solid var(--color-ink-soft); background:white; padding:14px; border-radius:var(--radius-ui); min-height:52px; color:var(--color-charcoal); font:inherit; }
 .field textarea { resize:vertical; min-height:150px; line-height:1.6; }
 .field > .fieldHint { font-size:15px; line-height:1.55; color:var(--color-ink-soft); }
 .notice { max-width:66ch; font-size:16px; line-height:1.65; }

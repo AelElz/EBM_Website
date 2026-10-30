@@ -63,7 +63,8 @@ typography:
     lineHeight: 1.1
     fontFeature: "tnum"
 rounded:
-  ui: "4px"
+  ui: "12px"
+  card: "20px"
   full: "9999px"
 spacing:
   gutter: "clamp(20px, 4vw, 40px)"
@@ -75,22 +76,22 @@ components:
     backgroundColor: "{colors.fired-clay}"
     textColor: "{colors.chalk-white}"
     typography: "{typography.label}"
-    rounded: "{rounded.ui}"
-    padding: "0 20px"
+    rounded: "{rounded.full}"
+    padding: "0 22px"
     height: "44px"
   button-primary-hover:
     backgroundColor: "{colors.kiln-ink}"
   button-primary-large:
     backgroundColor: "{colors.fired-clay}"
     textColor: "{colors.chalk-white}"
-    rounded: "{rounded.ui}"
-    padding: "0 26px"
+    rounded: "{rounded.full}"
+    padding: "0 30px"
     height: "52px"
   button-outline-dark:
     backgroundColor: "transparent"
     textColor: "{colors.charcoal-ink}"
     typography: "{typography.label}"
-    rounded: "{rounded.ui}"
+    rounded: "{rounded.full}"
     padding: "0 18px"
     height: "44px"
   button-outline-dark-hover:
@@ -99,8 +100,8 @@ components:
   button-outline-light:
     backgroundColor: "transparent"
     textColor: "{colors.chalk-white}"
-    rounded: "{rounded.ui}"
-    padding: "0 26px"
+    rounded: "{rounded.full}"
+    padding: "0 30px"
     height: "52px"
   button-outline-light-hover:
     backgroundColor: "{colors.chalk-white}"
@@ -236,21 +237,22 @@ Flat by default. Depth comes from photography under overlays and from tonal band
 
 ## Shapes
 
-Quiet geometry. Buttons and fields have small 4px corners; photographs, panels, bands and tiles are square-cornered. Circles appear only where they mean something round: the 48px slider controls with their thin white outline, and the two 1.5px decorative circle outlines (Fired Clay at 35%, Grove Olive at 40%) that sit in the inner-page heroes, never covering a photo.
+Quiet geometry, Apple style since 30 Oct 2026 (Ayoub: the whole site "like Apple style", design kept): buttons are pills, icon buttons circles, fields and small tiles have 12px corners, cards and inner-page photos 20px (the newer sections use 24px). Bands stay square to the screen edges. Circles appear only where they mean something round: the 48px slider controls with their thin white outline, and the two 1.5px decorative circle outlines (Fired Clay at 35%, Grove Olive at 40%) that sit in the inner-page heroes, never covering a photo.
 
 ### Named Rules
-**The Square Photo Rule.** Photographs are never rounded, masked into shapes or cut out. They are full-bleed, or rectangles in a grid. Exception: the school-stages block has rounded top corners, from Ayoub's Korowa screenshot. Since 29 Oct 2026 the home school-path band (Ayoub's mock-up) shows each stage's photo in a circle with two Fired Clay circles behind it, and its children photo is a cutout.
+**The Square Photo Rule** (superseded on 30 Oct 2026 for corners: photos in the page column now have 20 to 24px corners; full-bleed photos stay square). Photographs are never masked into shapes or cut out. They are full-bleed, or rectangles in a grid. Exception: the school-stages block has rounded top corners, from Ayoub's Korowa screenshot. Since 29 Oct 2026 the home school-path band (Ayoub's mock-up) shows each stage's photo in a circle with two Fired Clay circles behind it, and its children photo is a cutout.
 
 ## Components
 
 ### Buttons
-Static and confident: solid rectangles with bold sentence-case labels that only change colour.
-- **Shape:** small 4px corners; heights 44px (header, bars, compact) and 52px (hero, CTA band, page actions); label Avenir 700 at 15 to 16px.
-- **Primary:** Fired Clay fill, white label, 20px side padding (26px at 52px). Hover: Kiln Ink fill. The main action everywhere ("Candidater", "Réserver une visite", "Visiter nos écoles").
+Static and confident: solid pills with semibold sentence-case labels that only change colour (Apple style since 30 Oct 2026).
+- **Shape:** full pill; heights 44px (header, bars, compact) and 52px (hero, CTA band, page actions); label Avenir 600 at 15 to 16px.
+- **Primary:** Fired Clay fill, white label, 22px side padding (30px at 52px). Hover: Kiln Ink fill. The main action everywhere ("Candidater", "Réserver une visite", "Visiter nos écoles").
 - **Outline dark:** transparent with a 1.5px Charcoal Ink border on light grounds ("Calendrier" in the header and the phone bar). Hover: charcoal fill, white label.
 - **Outline light:** transparent with a 1.5px white border at 85% on photos ("Candidater en ligne" in the hero and CTA band). Hover: white fill, charcoal label.
-- **Icon (ghost):** 44 by 44px, no fill, Riad Paper on hover, always with an accessible name (search, menu).
-- **Focus:** a 2px Kiln Ink outline 3px outside the shape; white on dark or photo grounds. Colour transitions only (200ms); no movement, no scale, no shadow.
+- **Icon (ghost):** a 44px circle, no fill, Riad Paper on hover, always with an accessible name (search, menu).
+- **Focus:** a 2px Kiln Ink outline 3px outside the shape; white on dark or photo grounds. Colour transitions only (200ms, Apple's ease); a press dims the button to 80% for a moment; no movement, no scale, no shadow.
+- **Page changes:** the old page fades out (160ms) and the new one fades in rising 12px (420ms), through React's `<ViewTransition>` keyed by the path (`components/site/page-transition.tsx`); none under reduced motion.
 - Light (white fill) and dark (charcoal fill) variants exist in the code but are not used on the built pages.
 
 ### Inputs / Fields

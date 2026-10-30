@@ -85,7 +85,7 @@ export function MobileSheet({ open, onOpenChange, triggerRef }: MobileSheetProps
           </Link>
           <SheetClose
             ref={closeRef}
-            className="-mr-2.5 grid size-11 shrink-0 cursor-pointer place-items-center rounded-ui text-charcoal transition-colors duration-200 hover:bg-paper"
+            className="-mr-2.5 grid size-11 shrink-0 cursor-pointer place-items-center rounded-full text-charcoal transition-colors duration-200 hover:bg-paper"
           >
             <X aria-hidden="true" strokeWidth={1.5} className="size-6" />
             <span className="sr-only">Fermer le menu</span>

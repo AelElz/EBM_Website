@@ -5,15 +5,18 @@ import type { ComponentProps, ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
 /*
- * EBM buttons (docs/HOME-SPEC.md): rectangles, 4px radius, weight 700, heights 44 / 52px.
- * Static controls: colour transitions only, never movement (no translate, scale or shadow lift).
+ * EBM buttons. Since 30 Oct 2026 (Ayoub: the whole site "like Apple style", design kept): pills,
+ * semibold, heights 44 / 52px, the same colours. The colour eases on hover and a press dims the
+ * button for a moment, as on apple.com. Static controls: no movement, no scale, no lift
+ * (Ayoub wants motion in scenes, never in controls).
  * Server-safe: no hooks, no 'use client'.
  */
 export const buttonVariants = cva(
   [
-    'inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-ui',
-    'font-sans font-bold leading-none no-underline select-none',
-    'transition-colors duration-200 ease-out',
+    'inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full',
+    'font-sans font-semibold leading-none no-underline select-none',
+    'transition-[background-color,border-color,color,opacity] duration-200 ease-apple',
+    'active:opacity-80 active:duration-75',
     'disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50',
     '[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-[1.125em]',
   ],
@@ -37,9 +40,9 @@ export const buttonVariants = cva(
       },
       size: {
         /** 44px: header, bars, compact contexts. */
-        md: 'h-11 px-5 text-[15px]',
+        md: 'h-11 px-[22px] text-[15px]',
         /** 52px: hero, CTA band, page actions. */
-        lg: 'h-[52px] px-[26px] text-base',
+        lg: 'h-[52px] px-[30px] text-base',
         /** 44 x 44 icon-only button (always give it an aria-label). */
         icon: 'size-11 p-0',
       },

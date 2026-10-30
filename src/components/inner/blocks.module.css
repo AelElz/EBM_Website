@@ -9,7 +9,7 @@
 .heroCopy > p { max-width: 53ch; margin-top: 24px; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: var(--color-ink-soft); }
 .heroExtra { margin-top: 24px; }
 .figure { margin: 0; min-width: 0; }
-.photo, .heroPhoto { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: var(--color-cream); }
+.photo, .heroPhoto { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-card); background: var(--color-cream); }
 .heroPhoto { aspect-ratio: 5 / 4; }
 .figure figcaption { margin-top: 12px; font-size: 14px; line-height: 1.5; color: var(--color-ink-soft); }
 .section { padding-block: clamp(56px, 7vw, 96px); color: var(--color-charcoal); background: white; scroll-margin-top: calc(var(--spacing-header) + 20px); }

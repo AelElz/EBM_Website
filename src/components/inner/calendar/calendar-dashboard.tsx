@@ -11,8 +11,8 @@ import styles from './calendar.module.css'
  * The /calendrier dashboard (30 Oct 2026, Apple design skill, utility surface: quiet chrome, type
  * and space, state changes only). Four cards answer the families' questions at a glance (where
  * we are today, the next date, the next holidays, how far into the year); one month at a time,
- * chosen by month and year (Ayoub, 30 Oct), with the chosen day's dates beside it; then the
- * agenda lists every date with its filters. The data comes
+ * chosen by month and year (Ayoub, 30 Oct), with the chosen day's dates beside it; then what
+ * comes next: the dates not over yet, six first, no filters (Ayoub: "clean up the events"). The data comes
  * from the CMS or the signed document (src/lib/calendar.ts); `today` is computed on the server
  * in Casablanca time and refreshed here when the tab comes back.
  */
@@ -96,9 +96,8 @@ function Segmented<T extends string>({
 
 export function CalendarDashboard({ entries, initialToday }: { entries: CalendarEntry[]; initialToday: string }) {
   const [today, setToday] = useState(initialToday)
-  const [category, setCategory] = useState<'all' | CalendarCategory>('all')
   const [campus, setCampus] = useState<CalendarCampus>('network')
-  const [upcomingOnly, setUpcomingOnly] = useState(true)
+  const [showAll, setShowAll] = useState(false)
 
   useEffect(() => {
     const update = () =>
@@ -162,14 +161,10 @@ export function CalendarDashboard({ entries, initialToday }: { entries: Calendar
     picked ?? (today.startsWith(shown) ? today : (inShown.map((entry) => (entry.start < shownFirst ? shownFirst : entry.start))[0] ?? shownFirst))
   const focusEntries = onDay(focusDay)
 
-  /* ---- The agenda ---- */
-  const listed = forCampus.filter(
-    (entry) => (category === 'all' || entry.category === category) && (!upcomingOnly || lastDay(entry) >= today),
-  )
-  const listedMonths = [...new Set(listed.map((entry) => entry.start.slice(0, 7)))]
-  const categories = (['holidays', 'school', 'public', 'event'] as CalendarCategory[]).filter((value) =>
-    sorted.some((entry) => entry.category === value),
-  )
+  /* ---- What comes next: dates not over yet, the next few first ---- */
+  const upcoming = forCampus.filter((entry) => lastDay(entry) >= today)
+  const FIRST = 6
+  const listed = showAll ? upcoming : upcoming.slice(0, FIRST)
   const hasCampusDates = sorted.some((entry) => entry.campus !== 'network')
 
   return (
@@ -381,97 +376,69 @@ export function CalendarDashboard({ entries, initialToday }: { entries: Calendar
         </div>
       </section>
 
-      {/* ---- The agenda ---- */}
+      {/* ---- What comes next ---- */}
       <section aria-labelledby="agenda-title" className={styles.agendaSection}>
         <div className={styles.agendaHead}>
           <h2 id="agenda-title" className={styles.panelTitle}>
-            Toutes les dates
+            À venir
           </h2>
-          <div className={styles.filters}>
-            <Segmented
-              label="Type de date"
-              value={category}
-              onChange={setCategory}
-              options={[{ value: 'all', label: 'Tout' }, ...categories.map((value) => ({ value, label: categoryLabels[value] }))]}
-            />
-            {hasCampusDates ? (
+          {hasCampusDates ? (
+            <div className={styles.filters}>
               <Segmented
                 label="Campus"
                 value={campus}
                 onChange={setCampus}
                 options={(['network', 'casablanca', 'rabat'] as CalendarCampus[]).map((value) => ({ value, label: campusLabels[value] }))}
               />
-            ) : null}
-            <Segmented
-              label="Période"
-              value={upcomingOnly ? 'upcoming' : 'year'}
-              onChange={(value) => setUpcomingOnly(value === 'upcoming')}
-              options={[
-                { value: 'upcoming', label: 'À venir' },
-                { value: 'year', label: 'Toute l’année' },
-              ]}
-            />
-          </div>
+            </div>
+          ) : null}
         </div>
 
-        <p className={styles.count} role="status" aria-live="polite">
-          {listed.length} {listed.length > 1 ? 'dates' : 'date'}
-        </p>
-
-        {listedMonths.length === 0 ? (
-          <p className={styles.empty}>Aucune date ne correspond. Essayez « Toute l’année » ou « Tout ».</p>
+        {upcoming.length === 0 ? (
+          <p className={styles.empty}>Les dates de la prochaine année scolaire seront publiées ici.</p>
         ) : (
-          listedMonths.map((month) => (
-            <section key={month} id={`mois-${month}`} tabIndex={-1} aria-labelledby={`titre-${month}`} className={styles.agendaMonth}>
-              <h3 id={`titre-${month}`} className={styles.agendaMonthTitle}>
-                {capitalise(monthYear.format(day(`${month}-01`)))}
-              </h3>
-              <ol className={styles.agenda}>
-                {listed
-                  .filter((entry) => entry.start.startsWith(month))
-                  .map((entry) => {
-                    const end = lastDay(entry)
-                    const past = end < today
-                    const ongoing = covers(entry, today)
-                    const back = entry.category === 'holidays' ? resume(end) : undefined
-                    return (
-                      <li key={entry.id} className={styles.item} data-category={entry.category} data-past={past ? '' : undefined}>
-                        <time dateTime={entry.start} className={styles.itemDate}>
-                          <span className={styles.itemDay}>{Number(entry.start.slice(8))}</span>
-                          <span className={styles.itemMonth}>{monthShort.format(day(entry.start)).replace('.', '')}</span>
-                        </time>
-                        <div className={styles.itemBody}>
-                          <h4 className={styles.itemTitle}>
-                            <span aria-hidden="true" className={styles.dot} />
-                            {entry.title}
-                          </h4>
-                          <p className={styles.itemMeta}>
-                            {entry.end
-                              ? `${capitalise(weekdayDayMonth.format(day(entry.start)))} – ${weekdayDayMonth.format(day(entry.end))} · ${daysBetween(entry.start, entry.end) + 1} jours`
-                              : capitalise(weekdayDayMonth.format(day(entry.start)))}
-                            {entry.campus !== 'network' ? ` · ${campusLabels[entry.campus]}` : ''}
-                          </p>
-                          {entry.tentative || entry.note || back ? (
-                            <p className={styles.itemNote}>
-                              {[
-                                entry.tentative ? 'Date estimée, à confirmer par l’école.' : '',
-                                entry.note ?? '',
-                                back ? `Reprise le ${weekdayDayMonth.format(day(back.start))}.` : '',
-                              ]
-                                .filter(Boolean)
-                                .join(' ')}
-                            </p>
-                          ) : null}
-                        </div>
-                        <p className={styles.itemStatus} data-ongoing={ongoing ? '' : undefined}>
-                          {past ? 'Passée' : ongoing ? 'En cours' : inDays(daysBetween(today, entry.start))}
-                        </p>
-                      </li>
-                    )
-                  })}
-              </ol>
-            </section>
-          ))
+          <>
+            <ol className={styles.agenda} aria-live="polite">
+              {listed.map((entry) => {
+                const ongoing = covers(entry, today)
+                const back = entry.category === 'holidays' ? resume(lastDay(entry)) : undefined
+                const extra = [
+                  entry.tentative ? 'date estimée' : '',
+                  back ? `reprise le ${weekdayDayMonth.format(day(back.start))}` : '',
+                  entry.note ?? '',
+                ].filter(Boolean)
+                return (
+                  <li key={entry.id} className={styles.item} data-category={entry.category}>
+                    <time dateTime={entry.start} className={styles.itemDate}>
+                      <span className={styles.itemDay}>{Number(entry.start.slice(8))}</span>
+                      <span className={styles.itemMonth}>{monthShort.format(day(entry.start)).replace('.', '')}</span>
+                    </time>
+                    <div className={styles.itemBody}>
+                      <h3 className={styles.itemTitle}>
+                        <span aria-hidden="true" className={styles.dot} />
+                        {entry.title}
+                      </h3>
+                      <p className={styles.itemMeta}>
+                        {entry.end
+                          ? `${span(entry.start, entry.end)} · ${daysBetween(entry.start, entry.end) + 1} jours`
+                          : capitalise(weekdayDayMonth.format(day(entry.start)))}
+                        {entry.campus !== 'network' ? ` · ${campusLabels[entry.campus]}` : ''}
+                        {extra.length ? ` · ${capitalise(extra.join(', '))}` : ''}
+                      </p>
+                    </div>
+                    <p className={styles.itemStatus} data-ongoing={ongoing ? '' : undefined}>
+                      {ongoing ? 'En cours' : inDays(daysBetween(today, entry.start))}
+                    </p>
+                  </li>
+                )
+              })}
+            </ol>
+            {upcoming.length > FIRST ? (
+              <button type="button" className={styles.showMore} aria-expanded={showAll} onClick={() => setShowAll(!showAll)}>
+                {showAll ? 'Afficher moins' : `Afficher les ${upcoming.length - FIRST} autres dates`}
+              </button>
+            ) : null}
+          </>
         )}
       </section>
     </div>

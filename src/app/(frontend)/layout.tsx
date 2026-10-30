@@ -8,6 +8,7 @@ import { Footer } from '@/components/site/footer'
 import { Header } from '@/components/site/header/header'
 import { Intro } from '@/components/site/intro'
 import { MobileActionBar } from '@/components/site/mobile-action-bar'
+import { PageTransition } from '@/components/site/page-transition'
 
 import './globals.css'
 
@@ -50,7 +51,8 @@ export default function FrontendLayout({ children }: { children: ReactNode }) {
         </a>
         <Header />
         <main id="contenu" tabIndex={-1}>
-          {children}
+          {/* Page changes fade and rise in, Apple style; the header and footer stay put. */}
+          <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
         <MobileActionBar />

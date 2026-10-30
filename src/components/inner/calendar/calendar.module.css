@@ -534,12 +534,6 @@
   box-shadow: 0 1px 3px rgb(40 30 20 / 0.12); /* taste-skill-ignore: the raised thumb of a segmented control */
 }
 
-.count {
-  margin-top: 20px;
-  color: var(--color-ink-soft);
-  font-size: 14px;
-}
-
 .empty {
   margin-top: 24px;
   padding: 32px;
@@ -549,21 +543,29 @@
   text-align: center;
 }
 
-.agendaMonth {
-  margin-top: 28px;
-  scroll-margin-top: calc(var(--spacing-header) + 24px);
-  outline: none;
-}
-
-.agendaMonthTitle {
-  font-size: 17px;
-  font-weight: 700;
-}
-
 .agenda {
   display: grid;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 20px;
+}
+
+/* "Afficher les N autres dates": a quiet pill under the list. */
+.showMore {
+  display: block;
+  min-height: 44px;
+  margin: 16px auto 0;
+  padding: 0 22px;
+  border-radius: 999px;
+  background-color: var(--color-paper);
+  color: var(--color-charcoal);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 180ms ease-out;
+}
+
+.showMore:hover {
+  background-color: var(--color-cream);
 }
 
 .item {
@@ -574,10 +576,6 @@
   padding: 16px;
   border-radius: 16px;
   background-color: var(--color-paper);
-}
-
-.item[data-past] {
-  opacity: 0.6;
 }
 
 .itemDate {
@@ -622,12 +620,6 @@
 .itemMeta {
   margin-top: 4px;
   color: var(--color-ink-soft);
-  font-size: 15px;
-  line-height: 1.45;
-}
-
-.itemNote {
-  margin-top: 6px;
   font-size: 15px;
   line-height: 1.45;
 }

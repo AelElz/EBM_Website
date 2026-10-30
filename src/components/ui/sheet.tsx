@@ -91,7 +91,7 @@ function SheetContent({
       >
         {children}
         {showCloseButton ? (
-          <SheetPrimitive.Close className="absolute top-2.5 right-2.5 grid size-11 place-items-center rounded-ui text-charcoal transition-colors duration-200 hover:bg-paper">
+          <SheetPrimitive.Close className="absolute top-2.5 right-2.5 grid size-11 place-items-center rounded-full text-charcoal transition-colors duration-200 hover:bg-paper">
             <X aria-hidden="true" strokeWidth={1.5} className="size-6" />
             <span className="sr-only">{closeLabel}</span>
           </SheetPrimitive.Close>

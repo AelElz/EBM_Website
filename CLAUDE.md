@@ -98,11 +98,18 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   values on a Fired Clay band, the Belgian framework as a checklist, history as a timeline on
   olive, the campuses as photo cards, partners on charcoal. The shared inner blocks are unchanged,
   so the other inner pages are untouched.
+- Apple-style pass, site-wide (30 Oct 2026, Ayoub: "make all the website feel like Apple style
+  … keep the design the same"): pill buttons (semibold, a press dims them, no movement), circle
+  icon buttons, 12px fields and tiles, 20px cards and inner photos (`--radius-ui`,
+  `--radius-card`), smooth in-page scrolling, no iOS tap flash, and a page-change transition
+  (`components/site/page-transition.tsx` + `.page` in globals.css). DESIGN.md Shapes/Buttons
+  updated to match.
 - `/calendrier` (30 Oct 2026, Ayoub: "a dashboard that could be working with the CMS", Apple
   design skill, utility surface): four cards at a glance (today, next date, next holidays, year
   progress), one month at a time chosen by month and year (arrows, "Aujourd'hui", the chosen
-  day's dates beside it), then the agenda with segmented filters
-  (`components/inner/calendar/`). The dates come from `src/lib/calendar.ts`: the Payload
+  day's dates beside it), then "À venir": only the dates not over yet, six first then a
+  button for the rest, no filters (Ayoub: "clean up the events"; a campus filter appears only
+  once a date is campus-specific) (`components/inner/calendar/`). The dates come from `src/lib/calendar.ts`: the Payload
   collection `calendar-events` (`src/collections/CalendarEvents.ts`, staff edit it in `/admin`,
   published dates only for visitors, the page revalidates on every change) once `DATABASE_URI`
   is set, else the signed 2026–2027 transcription. `npm run seed:calendar` copies that

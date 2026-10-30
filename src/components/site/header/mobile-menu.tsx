@@ -48,7 +48,7 @@ export function MobileMenu({ className }: { className?: string }) {
           setOpen(true)
         }}
         className={[
-          'inline-flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-ui text-charcoal',
+          'inline-flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-full text-charcoal',
           'transition-colors duration-200 hover:bg-paper',
           className,
         ]

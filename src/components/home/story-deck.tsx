@@ -116,7 +116,7 @@ export function StoryDeck({ label, children }: { label: string; children: ReactN
       <div className="mt-9 flex items-center justify-center gap-3" onKeyDown={onKeyDown}>
         <button
           type="button"
-          className="inline-flex size-11 cursor-pointer items-center justify-center rounded-ui text-charcoal transition-colors duration-200 hover:bg-paper disabled:cursor-default disabled:opacity-35 disabled:hover:bg-transparent"
+          className="inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-charcoal transition-colors duration-200 hover:bg-paper disabled:cursor-default disabled:opacity-35 disabled:hover:bg-transparent"
           aria-label="Témoignage précédent"
           disabled={index === 0}
           onClick={() => go(index - 1)}
@@ -141,7 +141,7 @@ export function StoryDeck({ label, children }: { label: string; children: ReactN
         </div>
         <button
           type="button"
-          className="inline-flex size-11 cursor-pointer items-center justify-center rounded-ui text-charcoal transition-colors duration-200 hover:bg-paper disabled:cursor-default disabled:opacity-35 disabled:hover:bg-transparent"
+          className="inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-charcoal transition-colors duration-200 hover:bg-paper disabled:cursor-default disabled:opacity-35 disabled:hover:bg-transparent"
           aria-label="Témoignage suivant"
           disabled={index === count - 1}
           onClick={() => go(index + 1)}

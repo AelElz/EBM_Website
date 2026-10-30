@@ -80,7 +80,7 @@
 
 .picto {
   flex: none;
-  border-radius: 4px;
+  border-radius: var(--radius-ui);
 }
 
 .actions {
@@ -246,7 +246,7 @@
   display: block;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
 }
 
 .strip li:nth-child(odd) .stripFrame {
@@ -352,7 +352,7 @@
   gap: 20px;
   align-content: start;
   padding: clamp(20px, 2.4vw, 32px);
-  border-radius: 4px;
+  border-radius: var(--radius-card);
   background-color: #fff;
 }
 
@@ -488,7 +488,7 @@
   gap: 1px;
   margin-top: clamp(40px, 5vw, 64px);
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
   background-color: var(--color-hairline);
 }
 
@@ -555,7 +555,7 @@
   display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
 }
 
 .mosaicLarge .mosaicFrame {
@@ -727,7 +727,7 @@
 
 .hoursCard {
   padding: clamp(20px, 2.4vw, 28px);
-  border-radius: 4px;
+  border-radius: var(--radius-card);
   background-color: rgb(255 255 255 / 0.08);
 }
 

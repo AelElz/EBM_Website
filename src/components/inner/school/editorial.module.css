@@ -128,7 +128,7 @@
   gap: 1px;
   margin-top: clamp(32px, 4vw, 56px);
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
   background-color: var(--color-cream);
 }
 
@@ -199,7 +199,7 @@
   aspect-ratio: 4 / 5;
   max-width: 440px;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
 }
 
 .motto {
@@ -323,7 +323,7 @@
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
 }
 
 .checklist {
@@ -475,7 +475,7 @@
 .campusCard {
   display: grid;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
   background-color: var(--color-paper);
   transition: background-color 200ms ease-out;
 }

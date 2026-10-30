@@ -68,12 +68,16 @@
   --spacing-section: clamp(88px, 10vw, 140px); /* py-section, pt-section, pb-section */
   --spacing-header: 76px; /* sticky main bar height on desktop */
 
-  /* Shape and depth */
-  --radius-ui: 4px; /* rounded-ui: buttons, fields */
+  /* Shape and depth. Since 30 Oct 2026 (Ayoub: the whole site "like Apple style"): buttons are
+     pills (button.tsx), icon buttons circles, fields and small tiles 12px, cards and photos 20px. */
+  --radius-ui: 12px; /* rounded-ui: fields, small tiles */
+  --radius-card: 20px; /* cards and photos */
   --shadow-card: 0 24px 60px -24px rgb(40 30 20 / 0.28);
 
-  /* Motion: exponential ease-out for the few scene transitions (ease-out-expo) */
+  /* Motion: exponential ease-out for the few scene transitions (ease-out-expo); Apple's quick
+     ease for controls and the page change (ease-apple). */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /*
@@ -148,6 +152,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     accent-color: var(--color-terracotta);
+    /* No grey flash on tap (iOS): every control has its own pressed state. */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* In-page links glide to their target (the global reduced-motion guard below turns it off). */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   @media (min-width: 64rem) {
@@ -230,7 +243,7 @@
     align-items: center;
     min-height: 44px;
     padding: 0 18px;
-    border-radius: var(--radius-ui);
+    border-radius: 999px;
     background-color: var(--color-charcoal);
     color: #fff;
     font-size: 15px;
@@ -285,6 +298,48 @@
   from {
     opacity: 0;
     transform: translateY(24px);
+  }
+}
+
+/*
+ * Moving between pages (30 Oct 2026, Apple style): the old page fades out quickly, the new one
+ * fades in and rises 12px, as an iPhone app swaps screens. React's <ViewTransition>, keyed by
+ * the path (components/site/page-transition.tsx), gives the leaving and the arriving page the
+ * class `page`; the header and footer stay still. Browsers without the View Transitions API
+ * simply change page.
+ */
+::view-transition-old(.page) {
+  animation: 160ms var(--ease-apple) both page-out;
+}
+
+::view-transition-new(.page) {
+  animation: 420ms var(--ease-out-expo) 60ms both page-in;
+}
+
+/* The header, footer and action bar do not move: the rest of the window switches at once. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }
 

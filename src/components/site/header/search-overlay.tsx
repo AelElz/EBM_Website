@@ -266,7 +266,7 @@ export function SearchOverlay({ open, onOpenChange, triggerRef }: SearchOverlayP
                           setQuery(suggestion)
                           inputRef.current?.focus()
                         }}
-                        className="h-11 cursor-pointer rounded-ui border border-white/70 px-4 text-[15px] font-semibold transition-colors duration-200 hover:border-white hover:bg-white hover:text-terracotta-ink focus-visible:outline-white"
+                        className="h-11 cursor-pointer rounded-full border border-white/70 px-4 text-[15px] font-semibold transition-colors duration-200 hover:border-white hover:bg-white hover:text-terracotta-ink focus-visible:outline-white"
                       >
                         {suggestion}
                       </button>
