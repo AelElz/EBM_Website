@@ -72,14 +72,14 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   contact/visit tools prepare a local e-mail link and do not deliver/store messages or book slots.
 - Editorial inner pages (25 Oct 2026, Ayoub: "enhance"): `/le-reseau` and `/pedagogie` have
   their own components (`network-page.tsx`, `pedagogy-page.tsx` in `components/inner/school/`)
-  sharing `editorial-hero.tsx` (photo to the right edge + four key figures from the page's
+  sharing `editorial-hero.tsx` (photo beside the copy inside the page margins + four key figures from the page's
   `keyFacts`; titles over 32 characters step down a size) and `editorial.module.css`;
   `pedagogy.module.css` holds Pédagogie's own sections (principles under clay rules, level tabs
   with a tall photo, olive outdoor band, languages as a path, question cards that open).
   Le réseau in detail: its own component
   `components/inner/school/network-page.tsx` + `editorial.module.css` instead of the generic
   blocks (same content, plus four key figures in `networkPage.keyFacts`). A hero with the photo
-  running to the right edge and the key figures, the director's motto large beside his portrait,
+  inside the page margins and the key figures, the director's motto large beside his portrait,
   values on a Fired Clay band, the Belgian framework as a checklist, history as a timeline on
   olive, the campuses as photo cards, partners on charcoal. The shared inner blocks are unchanged,
   so the other inner pages are untouched.

@@ -15,7 +15,7 @@ import styles from './editorial.module.css'
 /*
  * Le réseau EBM (/le-reseau), the 25 Oct 2026 design pass (Ayoub: "enhance"). Same content as the
  * migration pass; the page now speaks the home page's language instead of a stack of generic
- * blocks: a hero with a photo running to the edge and four key figures, the director's motto set
+ * blocks: a hero with a large photo and four key figures, the director's motto set
  * large beside his portrait, the values on a Fired Clay band, the Belgian framework as a
  * checklist, the history as a timeline on an olive band, the two campuses as photo cards, the
  * partners on a charcoal band. Server Component, no client JS; entrances use the global `reveal`

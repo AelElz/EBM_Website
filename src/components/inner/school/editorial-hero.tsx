@@ -9,8 +9,8 @@ import styles from './editorial.module.css'
 
 /*
  * The hero of the editorial inner pages: breadcrumb, a large Playfair title and its sentence on
- * Riad Paper, the actions, a photo that runs to the screen's right edge from 1024px, then a strip
- * of four key figures taken from the page's own content.
+ * Riad Paper, the actions, the photo beside them from 1024px (inside the page margins, like the
+ * figures), then a strip of four key figures taken from the page's own content.
  */
 export function EditorialHero({
   title,
