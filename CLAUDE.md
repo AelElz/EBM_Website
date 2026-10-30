@@ -98,6 +98,16 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   values on a Fired Clay band, the Belgian framework as a checklist, history as a timeline on
   olive, the campuses as photo cards, partners on charcoal. The shared inner blocks are unchanged,
   so the other inner pages are untouched.
+- Admissions merged (30 Oct 2026, Ayoub: remove the duplicated pages, "make a good user
+  experience specially on understanding which page need to go"): five pages, in the order of a
+  candidature, each with a one-line `hint` in the menu (`NavItem.hint`, shown in the desktop
+  panel and the phone sheet). `/admissions` holds what `/admissions/comprendre` held (seven
+  steps, levels, conditions, FAQ, contacts; same section ids) and opens with "Par où commencer
+  ?". The visit request is on `/calendrier#visite` (`routes.reserverVisite`, `visitFor(campus)`).
+  `/admissions/comprendre` redirects in next.config.ts; `/reserver-une-visite` redirects in its
+  page, keeping `?campus=`. Admissions menu: Admissions, Documents & frais, Candidater en
+  ligne, Contact. Calendrier & visites is in the Vie scolaire menu only (Ayoub: the same link
+  was in both).
 - Apple-style pass, site-wide (30 Oct 2026, Ayoub: "make all the website feel like Apple style
   … keep the design the same"): pill buttons (semibold, a press dims them, no movement), circle
   icon buttons, 12px fields and tiles, 20px cards and inner photos (`--radius-ui`,
@@ -120,11 +130,15 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   skill. Direction "The sentence is the layout". Since 30 Oct 2026 the title follows Ayoub's
   mock-up: "L'école" beside a Fired Clay pill holding "du dehors" in white Playfair italic, two
   lighter pills fanning out behind it (the home band 5's circles), the buttons right under (no
-  intro sentence in the hero). The garden photo opens wide below with the home stages' rounded top
-  corners, then each section is a statement left with its evidence right (principles list,
-  a ledger of figures aligned on the comma, the launch photo, notes, the campus photo).
-  Headings use the home's `SectionHeading`. `outdoor-page.tsx` + `outdoor.module.css`; no
-  drawings, no pinned scenes. Taste inspector: 0 FAIL.
+  intro sentence in the hero). Rebuilt below the title on 30 Oct 2026 (Ayoub: "an ass design",
+  then "easy, smooth and good", Apple design skill): a pinned scene where the garden photo opens
+  from a rounded window to the whole screen and the page sentence rises over it; the statement
+  lighting up word by word; three principles under three square photos of the garden (Ayoub's
+  own `Photos/CASABLANCA/DEHORS`, cropped low to leave out the building site behind); the area
+  as one fifth of the campus (five plots, the garden in olive) and the first levels CA–P2; the
+  launch; the place. Headings use the home bands' `BandHeading`. The notes about missing
+  content (current sessions, testimonials, events) left the page; they stay in
+  docs/MIGRATION-SCHOOL-GAPS.md. `outdoor-page.tsx` + `outdoor.module.css`. Taste lint: 0 FAIL.
 - Campus pages (25 Oct 2026, Ayoub: "the most important pages … clean, without too much text
   or slop"): `/nos-campus` and `/nos-campus/[campus]` render `components/inner/campuses/
   campus-views.tsx` + `campus.module.css` (the contact page keeps `campus-pages.tsx`). Overview:

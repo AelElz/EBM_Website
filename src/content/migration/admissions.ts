@@ -19,19 +19,19 @@ export const admissionSteps = [
   { title: 'Recevoir la décision', text: 'La commission admissions examine les échanges et le profil pédagogique. Sa décision est communiquée aux parents par courriel.' },
   { title: 'Échanger après l’admission', text: 'Pour les familles des enfants admis, un échange permet de partager les observations, répondre aux dernières questions et préparer la suite.' },
   { title: 'Confirmer l’inscription', text: 'La famille confirme son choix, complète les formalités administratives et règle les frais requis. L’inscription devient définitive à l’issue de cette étape.' },
-].map(step => ({ ...step, source: evidence('processus-admission', '/admissions/comprendre#parcours') }))
+].map(step => ({ ...step, source: evidence('processus-admission', '/admissions#parcours') }))
 
 export const admissionLevelRequirements = [
   { level: 'Accueil / M0 et M1', title: 'Une rencontre avec vous et votre enfant', text: 'Un rendez-vous à l’école permet de faire connaissance avec la famille et l’enfant.' },
   { level: 'M2, M3 et P1', title: 'Une matinée d’observation en classe', text: 'L’enfant est observé en situation de classe afin d’apprécier son adaptation possible au cadre scolaire, sur rendez-vous.' },
   { level: 'P2 à S1', title: 'Une analyse pédagogique', text: 'Les acquis nécessaires à l’intégration sont analysés. Le processus publié prévoit une matinée du samedi, organisée en fonction des places disponibles.' },
-].map(row => ({ ...row, source: evidence('processus-admission', '/admissions/comprendre#niveaux') }))
+].map(row => ({ ...row, source: evidence('processus-admission', '/admissions#niveaux') }))
 
 export const admissionCategories = [
   { question: 'Fratries en maternelle', answer: 'La page des catégories décrit une admission automatique pour les frères et sœurs d’élèves déjà scolarisés dans les établissements, lorsqu’ils demandent une entrée en maternelle. Les modalités et la campagne applicable sont à confirmer par le service admissions.' },
   { question: 'Admission sur dossier', answer: 'Cette catégorie concerne les enfants du personnel expatrié des EBM, de la Délégation générale Wallonie-Bruxelles, de l’APEFE, de l’Ambassade et des Consulats du Royaume de Belgique au Maroc. Elle concerne aussi les élèves ayant suivi au moins les deux dernières années complètes dans une école belge francophone à programme et diplôme de la Fédération Wallonie-Bruxelles. L’éligibilité exacte est examinée par l’école.' },
   { question: 'Entretien, observation ou analyse pédagogique', answer: 'Hors catégories particulières, le mode d’examen dépend du niveau demandé : entretien en accueil/M0 et M1, observation de M2 à P1, puis vérification des acquis de P2 à S1. L’école confirme le déroulement et les places disponibles pour chaque situation.' },
-].map(row => ({ ...row, source: evidence('types-admission', '/admissions/comprendre#conditions', 'needs-confirmation') }))
+].map(row => ({ ...row, source: evidence('types-admission', '/admissions#conditions', 'needs-confirmation') }))
 
 export const applicationDocuments = [
   { title: 'Photo d’identité de l’élève', condition: 'Pour tous les dossiers', text: 'Une photo datant de moins de trois mois.' },

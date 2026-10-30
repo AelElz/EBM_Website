@@ -26,7 +26,7 @@ export default async function RecherchePage({ searchParams }: { searchParams: Pr
       </form>
       {query ? <>
         <p className="mb-6 text-base" role="status">{results.length ? `${results.length} résultat${results.length > 1 ? 's' : ''}` : 'Aucun résultat pour cette recherche.'}</p>
-        {results.length ? <LinkList items={results.map(result => ({ label: result.title, href: result.href, description: result.text, external: result.external }))} /> : <><TextBlock paragraphs={['Essayez un mot plus court ou un autre terme. Vous pouvez aussi contacter directement le campus.']} /><LinkList items={[{label:'Questions fréquentes',href:'/admissions/comprendre#faq'},{label:'Contacter les EBM',href:'/contact'}]} /></>}
+        {results.length ? <LinkList items={results.map(result => ({ label: result.title, href: result.href, description: result.text, external: result.external }))} /> : <><TextBlock paragraphs={['Essayez un mot plus court ou un autre terme. Vous pouvez aussi contacter directement le campus.']} /><LinkList items={[{label:'Questions fréquentes',href:'/admissions#faq'},{label:'Contacter les EBM',href:'/contact'}]} /></>}
       </> : <LinkList items={migrationPages.map(page => ({ label: page.title, href: page.route, description: page.description }))} />}
     </PageSection>
   </>

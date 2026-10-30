@@ -148,7 +148,7 @@ export const home: HomeContent = {
         position: '50% 45%',
       },
     ],
-    primary: { label: 'Réserver une visite', href: routes.calendrier },
+    primary: { label: 'Demander une visite', href: routes.reserverVisite },
     secondary: { label: 'Candidater en ligne', href: routes.candidater },
   },
 

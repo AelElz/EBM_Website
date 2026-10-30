@@ -325,6 +325,9 @@ export function DesktopNav({ groups, className }: DesktopNavProps) {
                           )}
                         >
                           {item.label}
+                          {item.hint ? (
+                            <span className="block text-[13px] leading-5 font-normal text-ink-soft">{item.hint}</span>
+                          ) : null}
                         </Link>
                       </li>
                     )

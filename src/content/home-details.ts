@@ -147,7 +147,7 @@ export const admissionsPath = {
     },
   ],
   apply: { label: 'Candidater en ligne', href: routes.candidater } satisfies LinkItem,
-  more: { label: 'Comprendre les admissions', href: routes.comprendre } satisfies LinkItem,
+  more: { label: 'Les étapes de l’admission', href: `${routes.admissions}#parcours` } satisfies LinkItem,
 }
 
 /* ------------------------------------------------------------------------------------------ */

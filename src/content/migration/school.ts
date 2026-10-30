@@ -59,6 +59,9 @@ export const schoolImages = {
   primary: { src: '/images/collage-dessin.jpg', width: 1600, height: 1067, alt: 'Une élève des EBM réalise un dessin en classe.' },
   secondary: { src: '/images/parcours-secondaire.jpg', width: 1600, height: 1066, alt: 'Des élèves du secondaire des EBM lors d’un cours.' },
   outdoor: { src: '/images/casablanca-ecole-du-dehors.jpg', width: 900, height: 1600, alt: 'Des enfants et leur enseignante apprennent dehors, dans l’espace naturel de Casablanca.', position: '50% 58%' },
+  outdoorMeadow: { src: '/images/dehors-prairie.jpg', width: 900, height: 1600, alt: 'La prairie de l’école du dehors à Dar Bouazza, des fleurs au premier plan et un groupe d’enfants au loin.', position: '50% 100%' },
+  outdoorGroup: { src: '/images/dehors-groupe.jpg', width: 900, height: 1600, alt: 'Un groupe d’enfants et leurs enseignantes assis dans l’herbe de l’école du dehors.', position: '50% 100%' },
+  outdoorCircle: { src: '/images/dehors-cercle.jpg', width: 900, height: 1600, alt: 'Des enfants réunis autour de leur enseignante sous un jeune arbre, à l’école du dehors.', position: '50% 70%' },
   outdoorLaunch: { src: '/images/migration-school/outdoor-launch.webp', width: 1600, height: 1067, alt: 'Photographie du lancement de l’école du dehors, publiée en janvier 2024.' },
   sport: { src: '/images/collage-badminton.jpg', width: 1600, height: 1067, alt: 'Des élèves des EBM pratiquent le badminton.' },
   ceremony: { src: '/images/ceremonie-diplomes.jpg', width: 1920, height: 1269, alt: 'Une cérémonie de remise de diplômes des EBM. L’année de la photographie reste à confirmer.', position: '50% 55%' },
@@ -111,20 +114,27 @@ export const networkPage = {
   partnersIntro: 'Les EBM présentent la Fédération Wallonie-Bruxelles, Wallonie-Bruxelles International et l’Association des Écoles Belges à l’Étranger parmi leurs partenaires institutionnels.',
 }
 
+/*
+ * L'école du dehors (outdoor-page.tsx), 30 Oct 2026 pass. Same facts as the migration pass; the
+ * notes about what is still missing (current levels and sessions, testimonials, videos, public
+ * events) left the page and stay in docs/MIGRATION-SCHOOL-GAPS.md.
+ */
 export const outdoorsPage = {
   title: 'L’école du dehors',
   intro: 'À Casablanca, apprendre passe aussi par la nature\u202f: observer, explorer et expérimenter, en complément de la classe.',
   description: 'Découvrez l’école du dehors du campus EBM de Casablanca : une pédagogie qui relie apprentissages en classe, exploration et nature à Dar Bouazza.',
-  introduction: ['Un terrain naturel devient un lieu d’apprentissage à part entière. Les enfants y mobilisent leur curiosité, leur langage et leur capacité à agir ensemble, puis relient ces expériences au travail en classe.', 'Le projet, présenté dans une publication de janvier 2024 après trois années de développement, associe expertise pédagogique et formation des enseignants. La page actuelle du campus confirme une pédagogie mixte « indoor/outdoor ».'],
+  statement: 'Un terrain naturel devient un lieu d’apprentissage à part entière. Les enfants y mobilisent leur curiosité, leur langage et leur capacité à agir ensemble, puis relient ces expériences au travail en classe.',
   principles: [
     { title: 'Apprendre en faisant', text: 'L’exploration et l’expérimentation donnent une place concrète à l’observation et au questionnement.' },
     { title: 'Faire place à la nature', text: 'Le dehors devient un support pour découvrir le vivant et observer son environnement.' },
     { title: 'Agir avec les autres', text: 'Les situations vécues en groupe permettent d’exercer l’autonomie et la coopération.' },
   ],
-  session: { title: 'Comment se déroule une séance ?', text: 'La publication de 2024 annonçait un premier déploiement de la classe d’accueil à la P2, pour les enfants de 2 à 7 ans. Le programme par niveau et l’organisation d’une séance actuelle restent à confirmer avec l’équipe de Casablanca.', gap: 'À compléter par EBM : niveaux participants cette année, fréquence des séances, déroulé concret et consignes aux familles.' },
-  voicesGap: 'Un témoignage attribué et autorisé d’un enseignant, d’un parent ou d’un élève reste à recueillir. Les vidéos pédagogiques du dehors restent également à fournir.',
-  location: { title: 'À Dar Bouazza, au sein du campus', text: 'L’espace de 1,5 hectare se situe dans l’enceinte du campus de Casablanca, sur la route d’Azemmour. Les informations d’accès et le contact sont regroupés sur la page du campus.' },
-  events: 'Aucun événement public de l’école du dehors n’est confirmé dans les données disponibles. Contactez le campus pour connaître les possibilités de découverte dans le cadre de votre candidature.',
+  area: { outdoor: '1,5', campus: '7,5', text: 'L’école du dehors occupe un cinquième du campus de Dar Bouazza.' },
+  /** The first deployment announced in January 2024 (classe d'accueil to P2). */
+  firstLevels: ['CA', 'M1', 'M2', 'M3', 'P1', 'P2'],
+  firstScope: 'Le premier déploiement, annoncé en janvier 2024, concerne les enfants de 2 à 7 ans, de la classe d’accueil à la P2.',
+  launch: 'Présenté en janvier 2024 après trois années de développement, le projet associe expertise pédagogique et formation des enseignants. La classe et le plein air se complètent, dans une pédagogie mixte.',
+  location: 'L’espace de 1,5 hectare se situe dans l’enceinte du campus de Casablanca, sur la route d’Azemmour, à Dar Bouazza.',
 }
 
 export interface SchoolActivity {

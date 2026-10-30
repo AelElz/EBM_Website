@@ -25,7 +25,7 @@ import { MobileMenu } from './mobile-menu'
  *   1024–1279px  logo · 4 menus · search icon · Eduka icon | Candidater
  *   1280–1439px  logo · 4 menus · search icon · Eduka icon | Calendrier · Candidater
  *   ≥ 1440px     logo · 4 menus · Rechercher · Espace Eduka | Calendrier · Candidater
- * The visit ("Réserver une visite") is in the Admissions menu, not in the bar.
+ * The visit ("Demander une visite", on /calendrier#visite) is in the Vie scolaire menu, not in the bar.
  *
  * Client islands: desktop-nav.tsx (menus + active section), mobile-menu.tsx (button; the sheet
  * is a separate chunk loaded on demand), header-scroll-state.tsx (renders nothing).

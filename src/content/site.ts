@@ -159,13 +159,14 @@ export const site: SiteConfig = {
 
   /*
    * Header and phone-bar actions (Ayoub, 24 Oct 2026): Calendrier + Candidater. The visit is a
-   * later step, for families already convinced, so it lives in the Admissions menu and the
-   * footer ("Réserver une visite"), not in the bars. Contact details live in the footer only.
+   * later step, for families already convinced: the form is on /calendrier#visite (since
+   * 30 Oct 2026, "Calendrier & visites" in the Vie scolaire menu) and in the footer ("Demander
+   * une visite"), not in the bars. Contact details live in the footer only.
    */
   actions: {
     calendar: { label: 'Calendrier', href: routes.calendrier },
     apply: { label: 'Candidater', longLabel: 'Candidater en ligne', href: routes.candidater },
-    visit: { label: 'Réserver une visite', href: routes.reserverVisite },
+    visit: { label: 'Demander une visite', href: routes.reserverVisite },
     contact: { label: 'Nous contacter', href: routes.contact },
     search: { label: 'Rechercher', placeholder: 'Rechercher…', href: routes.recherche },
   },
@@ -177,26 +178,33 @@ export const site: SiteConfig = {
 
 export type NavId = 'ecole' | 'campus' | 'vie' | 'admissions'
 
+/** A menu link; `hint` is the one line under it saying when to go there. */
+export interface NavItem extends LinkItem {
+  hint?: string
+}
+
 export interface NavGroup {
   id: NavId
   /** Menu trigger label. */
   label: string
   /** Landing page of the group (first link of the panel). */
   href: string
-  items: LinkItem[]
+  items: NavItem[]
 }
 
-/** Header mega-menus (4 groups) and mobile sheet accordions, in display order. */
+/** Header mega-menus (4 groups) and mobile sheet accordions, in display order. Every item has
+ *  its one-line hint under the label (Ayoub, 30 Oct 2026: every small text beneath every big
+ *  text, in all the menus). */
 export const navigation: NavGroup[] = [
   {
     id: 'ecole',
     label: 'L’école',
     href: routes.reseau,
     items: [
-      { label: 'Le réseau EBM', href: routes.reseau },
-      { label: 'Pédagogie', href: routes.pedagogie },
-      { label: 'L’école du dehors', href: routes.ecoleDuDehors },
-      { label: 'Après les EBM', href: routes.apresLesEbm },
+      { label: 'Le réseau EBM', href: routes.reseau, hint: 'Notre histoire, nos valeurs, le cadre belge' },
+      { label: 'Pédagogie', href: routes.pedagogie, hint: 'Le parcours de 2 à 18 ans, langues et diplômes' },
+      { label: 'L’école du dehors', href: routes.ecoleDuDehors, hint: 'Apprendre dans la nature, à Casablanca' },
+      { label: 'Après les EBM', href: routes.apresLesEbm, hint: 'Le CESS, l’orientation, les études supérieures' },
     ],
   },
   {
@@ -204,9 +212,9 @@ export const navigation: NavGroup[] = [
     label: 'Nos campus',
     href: routes.campus,
     items: [
-      { label: 'Nos campus', href: routes.campus },
-      { label: 'Campus de Casablanca', href: routes.campusCasablanca },
-      { label: 'Campus de Rabat', href: routes.campusRabat },
+      { label: 'Nos campus', href: routes.campus, hint: 'Comparer Casablanca et Rabat' },
+      { label: 'Campus de Casablanca', href: routes.campusCasablanca, hint: `Dar Bouazza${NNBSP}: espaces, services, accès` },
+      { label: 'Campus de Rabat', href: routes.campusRabat, hint: `Hay Riad${NNBSP}: espaces, services, accès` },
     ],
   },
   {
@@ -214,8 +222,9 @@ export const navigation: NavGroup[] = [
     label: 'Vie scolaire',
     href: routes.grandir,
     items: [
-      { label: 'Grandir aux EBM', href: routes.grandir },
-      { label: 'Calendrier & visites', href: routes.calendrier },
+      { label: 'Grandir aux EBM', href: routes.grandir, hint: 'Activités, projets et services' },
+      /* 30 Oct 2026 (Ayoub): the calendar sits here only, not also under Admissions. */
+      { label: 'Calendrier & visites', href: routes.calendrier, hint: 'Les dates de l’année, demander une visite' },
     ],
   },
   {
@@ -223,14 +232,13 @@ export const navigation: NavGroup[] = [
     label: 'Admissions',
     href: routes.admissions,
     items: [
-      { label: 'Admissions', href: routes.admissions },
-      { label: 'Comprendre les admissions', href: routes.comprendre },
-      { label: 'Documents & frais', href: routes.documentsEtFrais },
-      { label: 'Calendrier & visites', href: routes.calendrier },
-      { label: 'Réserver une visite', href: routes.reserverVisite },
-      { label: 'Candidater en ligne', href: routes.candidater },
-      { label: 'Questions fréquentes', href: routes.faq },
-      { label: 'Contact', href: routes.contact },
+      /* 30 Oct 2026 (Ayoub): four pages, in the order of a candidature, each with the one line
+         that says when to go there. "Comprendre" and the questions merged into Admissions,
+         "Réserver une visite" into Calendrier & visites, which is in Vie scolaire only. */
+      { label: 'Admissions', href: routes.admissions, hint: 'Les étapes, les conditions et vos questions' },
+      { label: 'Documents & frais', href: routes.documentsEtFrais, hint: 'Les pièces du dossier et le barème' },
+      { label: 'Candidater en ligne', href: routes.candidater, hint: 'Déposer le dossier sur Eduka' },
+      { label: 'Contact', href: routes.contact, hint: 'Écrire ou appeler votre campus' },
     ],
   },
 ]
@@ -246,7 +254,7 @@ export const footerNav: FooterColumn[] = [
     title: 'Accès rapides',
     links: [
       { label: 'Calendrier', href: routes.calendrier },
-      { label: 'Réserver une visite', href: routes.reserverVisite },
+      { label: 'Demander une visite', href: routes.reserverVisite },
       { label: 'Candidater en ligne', href: routes.candidater },
       { label: 'Parents · Espace Eduka', href: routes.espaceEduka },
       { label: 'Nous contacter', href: routes.contact },

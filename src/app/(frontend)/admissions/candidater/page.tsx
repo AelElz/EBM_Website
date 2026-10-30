@@ -15,7 +15,7 @@ export default function CandidaterPage() {
     <article><h3>Préciser le niveau</h3><p>Préparez la date de naissance et le parcours scolaire. L’école confirme la classe accessible et les places disponibles.</p></article>
     <article><h3>Réunir les pièces</h3><p>Gardez les documents utiles à portée de main. Les pièces exactes et les formats attendus sont précisés dans Eduka.</p></article>
    </div>
-   <LinkList items={[{ label: 'Comprendre les sept étapes', href: '/admissions/comprendre#parcours' }, { label: 'Consulter les frais et leurs conditions', href: '/admissions/documents-et-frais#frais' }]} />
+   <LinkList items={[{ label: 'Comprendre les sept étapes', href: '/admissions#parcours' }, { label: 'Consulter les frais et leurs conditions', href: '/admissions/documents-et-frais#frais' }]} />
   </PageSection>
   <PageSection title="Poursuivre sur le portail Eduka" tone="paper">
    <div className={styles.applyPanel}><h2>Déposer ma candidature sur Eduka</h2><p>Vous rejoignez le formulaire public de candidature des EBM. Les informations familiales, les pièces et le suivi du dossier restent sur le portail de l’école.</p><p>Vérifiez l’adresse : <strong>{site.eduka.host}</strong></p><a href={site.eduka.applicationUrl}>Ouvrir le formulaire Eduka</a></div>
@@ -27,9 +27,9 @@ export default function CandidaterPage() {
   </PageSection>
   <PageSection title="Et après le dépôt ?" tone="cream">
    <TextBlock paragraphs={['Le dossier permet à l’école de préparer l’entretien individuel avec la famille, puis l’observation ou l’analyse pédagogique adaptée au niveau demandé. La commission communique ensuite sa décision par courriel.', 'Les échanges de suivi et toute référence de dossier proviennent d’Eduka ou du service admissions. Si vous avez déjà un accès parent, utilisez le portail pour suivre votre démarche.']} />
-   <LinkList items={[{ label: 'Rejoindre mon espace Eduka', href: '/espace-eduka' }, { label: 'Revoir le parcours complet', href: '/admissions/comprendre#parcours' }]} />
+   <LinkList items={[{ label: 'Rejoindre mon espace Eduka', href: '/espace-eduka' }, { label: 'Revoir le parcours complet', href: '/admissions#parcours' }]} />
   </PageSection>
   <PageSection title="Besoin d’aide avant de continuer ?"><AdmissionsContacts /></PageSection>
-  <PageActions title="Une dernière question ?" primary={{ label: 'Consulter les questions fréquentes', href: '/admissions/comprendre#faq' }} secondary={{ label: 'Contacter le campus', href: '/contact' }} />
+  <PageActions title="Une dernière question ?" primary={{ label: 'Consulter les questions fréquentes', href: '/admissions#faq' }} secondary={{ label: 'Contacter le campus', href: '/contact' }} />
  </>
 }

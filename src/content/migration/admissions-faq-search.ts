@@ -3,7 +3,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-01",
     "title": "Qu’est-ce que l’enseignement belge francophone ?",
-    "href": "/admissions/comprendre#faq-faq-01",
+    "href": "/admissions#faq-faq-01",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "enseignement",
@@ -66,7 +66,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-02",
     "title": "En quoi le système belge est-il différent des autres systèmes internationaux ?",
-    "href": "/admissions/comprendre#faq-faq-02",
+    "href": "/admissions#faq-faq-02",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "grands",
@@ -136,7 +136,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-03",
     "title": "Comment est le niveau académique à l’école belge ?",
-    "href": "/admissions/comprendre#faq-faq-03",
+    "href": "/admissions#faq-faq-03",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "niveau",
@@ -183,7 +183,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-04",
     "title": "Le CESS est-il reconnu au Maroc ?",
-    "href": "/admissions/comprendre#faq-faq-04",
+    "href": "/admissions#faq-faq-04",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "oui",
@@ -257,7 +257,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-05",
     "title": "Le CESS est-il reconnu à l’international ?",
-    "href": "/admissions/comprendre#faq-faq-05",
+    "href": "/admissions#faq-faq-05",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "oui",
@@ -318,7 +318,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-06",
     "title": "Vers quels types d’études supérieures les élèves peuvent-ils s’orienter après le CESS ?",
-    "href": "/admissions/comprendre#faq-faq-06",
+    "href": "/admissions#faq-faq-06",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "eleves",
@@ -351,7 +351,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-07",
     "title": "Le CESS permet-il l’accès aux grandes écoles et aux universités sélectives ?",
-    "href": "/admissions/comprendre#faq-faq-07",
+    "href": "/admissions#faq-faq-07",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "oui",
@@ -391,7 +391,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-08",
     "title": "Que se passe-t-il si un élève change de système scolaire en cours de parcours ?",
-    "href": "/admissions/comprendre#faq-faq-08",
+    "href": "/admissions#faq-faq-08",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "changer",
@@ -452,7 +452,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-09",
     "title": "Quelle est la philosophie pédagogique des écoles belges ?",
-    "href": "/admissions/comprendre#faq-faq-09",
+    "href": "/admissions#faq-faq-09",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "pedagogie",
@@ -502,7 +502,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-10",
     "title": "Qu’entend-on par pédagogie active ?",
-    "href": "/admissions/comprendre#faq-faq-10",
+    "href": "/admissions#faq-faq-10",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "pedagogie",
@@ -551,7 +551,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-11",
     "title": "Comment apprend-on concrètement dans les classes ?",
-    "href": "/admissions/comprendre#faq-faq-11",
+    "href": "/admissions#faq-faq-11",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "ecoles",
@@ -603,7 +603,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-12",
     "title": "Comment sont évalués les élèves ?",
-    "href": "/admissions/comprendre#faq-faq-12",
+    "href": "/admissions#faq-faq-12",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "enseignement",
@@ -677,7 +677,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-13",
     "title": "Y a-t-il des devoirs à la maison ?",
-    "href": "/admissions/comprendre#faq-faq-13",
+    "href": "/admissions#faq-faq-13",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "ecole",
@@ -727,7 +727,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-14",
     "title": "L’exigence académique est-elle compatible avec un cadre bienveillant ?",
-    "href": "/admissions/comprendre#faq-faq-14",
+    "href": "/admissions#faq-faq-14",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "exigence",
@@ -771,7 +771,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-15",
     "title": "Est-ce que tous vos enseignants sont diplômés et certifiés ?",
-    "href": "/admissions/comprendre#faq-faq-15",
+    "href": "/admissions#faq-faq-15",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "oui",
@@ -843,7 +843,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-16",
     "title": "Qu’est-ce qui garantit le niveau de qualification des enseignants dans le temps ?",
-    "href": "/admissions/comprendre#faq-faq-16",
+    "href": "/admissions#faq-faq-16",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "niveau",
@@ -880,7 +880,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-18",
     "title": "Quel est concrètement le rôle de la direction pédagogique au quotidien ?",
-    "href": "/admissions/comprendre#faq-faq-18",
+    "href": "/admissions#faq-faq-18",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "direction",
@@ -935,7 +935,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-19",
     "title": "Quel est le climat éducatif dans les écoles ?",
-    "href": "/admissions/comprendre#faq-faq-19",
+    "href": "/admissions#faq-faq-19",
     "text": "Questions fréquentes, Vie scolaire et bien-être",
     "keywords": [
       "ecoles",
@@ -979,7 +979,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-20",
     "title": "Quelle place est donnée au respect, au cadre et aux règles ?",
-    "href": "/admissions/comprendre#faq-faq-20",
+    "href": "/admissions#faq-faq-20",
     "text": "Questions fréquentes, Vie scolaire et bien-être",
     "keywords": [
       "respect",
@@ -1018,7 +1018,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-21",
     "title": "Comment sont gérées les situations de conflit ?",
-    "href": "/admissions/comprendre#faq-faq-21",
+    "href": "/admissions#faq-faq-21",
     "text": "Questions fréquentes, Vie scolaire et bien-être",
     "keywords": [
       "priorite",
@@ -1065,7 +1065,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-22",
     "title": "Quelle relation entretenez-vous avec les parents ?",
-    "href": "/admissions/comprendre#faq-faq-22",
+    "href": "/admissions#faq-faq-22",
     "text": "Questions fréquentes, Vie scolaire et bien-être",
     "keywords": [
       "portons",
@@ -1118,7 +1118,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-25",
     "title": "Proposez-vous un service de restauration scolaire ?",
-    "href": "/admissions/comprendre#faq-faq-25",
+    "href": "/admissions#faq-faq-25",
     "text": "Questions fréquentes, Transport et cantine",
     "keywords": [
       "oui",
@@ -1176,7 +1176,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-26",
     "title": "Proposez-vous un service de transport scolaire ?",
-    "href": "/admissions/comprendre#faq-faq-26",
+    "href": "/admissions#faq-faq-26",
     "text": "Questions fréquentes, Transport et cantine",
     "keywords": [
       "oui",
@@ -1222,7 +1222,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-27",
     "title": "Proposez-vous des activités extrascolaires ?",
-    "href": "/admissions/comprendre#faq-faq-27",
+    "href": "/admissions#faq-faq-27",
     "text": "Questions fréquentes, Transport et cantine",
     "keywords": [
       "oui",
@@ -1283,7 +1283,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-28",
     "title": "Quels sont les horaires de la journée scolaire ?",
-    "href": "/admissions/comprendre#faq-faq-28",
+    "href": "/admissions#faq-faq-28",
     "text": "Questions fréquentes, Vie scolaire et bien-être",
     "keywords": [
       "horaires",
@@ -1315,7 +1315,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-29",
     "title": "Existe-t-il une garderie ou une étude encadrée avant ou après la classe ?",
-    "href": "/admissions/comprendre#faq-faq-29",
+    "href": "/admissions#faq-faq-29",
     "text": "Questions fréquentes, Vie scolaire et bien-être",
     "keywords": [
       "existe",
@@ -1354,7 +1354,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-30",
     "title": "Quel est le calendrier des vacances scolaires ?",
-    "href": "/admissions/comprendre#faq-faq-30",
+    "href": "/admissions#faq-faq-30",
     "text": "Questions fréquentes, Vie scolaire et bien-être",
     "keywords": [
       "calendrier",
@@ -1391,7 +1391,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-31",
     "title": "À partir de quel âge peut-on inscrire un enfant ?",
-    "href": "/admissions/comprendre#faq-faq-31",
+    "href": "/admissions#faq-faq-31",
     "text": "Questions fréquentes, Admissions",
     "keywords": [
       "ecoles",
@@ -1419,7 +1419,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-32",
     "title": "Les places sont-elles limitées ?",
-    "href": "/admissions/comprendre#faq-faq-32",
+    "href": "/admissions#faq-faq-32",
     "text": "Questions fréquentes, Admissions",
     "keywords": [
       "oui",
@@ -1443,7 +1443,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-33",
     "title": "Quelle est la procédure d’admission ?",
-    "href": "/admissions/comprendre#faq-faq-33",
+    "href": "/admissions#faq-faq-33",
     "text": "Questions fréquentes, Admissions",
     "keywords": [
       "admission",
@@ -1524,7 +1524,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-34",
     "title": "Y a-t-il des tests d’admission ?",
-    "href": "/admissions/comprendre#faq-faq-34",
+    "href": "/admissions#faq-faq-34",
     "text": "Questions fréquentes, Admissions",
     "keywords": [
       "objectif",
@@ -1567,7 +1567,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-35",
     "title": "Comment se déroule un entretien avec la famille ?",
-    "href": "/admissions/comprendre#faq-faq-35",
+    "href": "/admissions#faq-faq-35",
     "text": "Questions fréquentes, Admissions",
     "keywords": [
       "entretien",
@@ -1624,7 +1624,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faq-36",
     "title": "Est-il possible de visiter l’école ?",
-    "href": "/admissions/comprendre#faq-faq-36",
+    "href": "/admissions#faq-faq-36",
     "text": "Questions fréquentes, Visites",
     "keywords": [
       "oui",
@@ -1659,7 +1659,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faqs-41",
     "title": "Qu’est-ce qui inscrit les EBM dans la durée ?",
-    "href": "/admissions/comprendre#faq-faqs-41",
+    "href": "/admissions#faq-faqs-41",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "ebm",
@@ -1683,7 +1683,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faqs-43",
     "title": "Quelle place pour la langue et la culture arabes ?",
-    "href": "/admissions/comprendre#faq-faqs-43",
+    "href": "/admissions#faq-faqs-43",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "enseignement",
@@ -1714,7 +1714,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faqs-44",
     "title": "Quelles langues étrangères sont proposées ?",
-    "href": "/admissions/comprendre#faq-faqs-44",
+    "href": "/admissions#faq-faqs-44",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "apprentissage",
@@ -1749,7 +1749,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faqs-45",
     "title": "Quelle place pour les outils numériques ?",
-    "href": "/admissions/comprendre#faq-faqs-45",
+    "href": "/admissions#faq-faqs-45",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "eleves",
@@ -1778,7 +1778,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "faqs-49",
     "title": "Faut-il préparer son enfant à l’analyse pédagogique ?",
-    "href": "/admissions/comprendre#faq-faqs-49",
+    "href": "/admissions#faq-faqs-49",
     "text": "Questions fréquentes, Admissions",
     "keywords": [
       "ancienne",
@@ -1807,7 +1807,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "classe-d-accueil-52",
     "title": "Pourquoi commencer par la classe d’accueil ?",
-    "href": "/admissions/comprendre#faq-classe-d-accueil-52",
+    "href": "/admissions#faq-classe-d-accueil-52",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "classe",
@@ -1833,7 +1833,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "classe-d-accueil-53",
     "title": "Que découvre-t-on en classe d’accueil ?",
-    "href": "/admissions/comprendre#faq-classe-d-accueil-53",
+    "href": "/admissions#faq-classe-d-accueil-53",
     "text": "Questions fréquentes, Pédagogie et diplômes",
     "keywords": [
       "langage",
@@ -1857,7 +1857,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "classe-d-accueil-54",
     "title": "La propreté est-elle nécessaire en classe d’accueil ?",
-    "href": "/admissions/comprendre#faq-classe-d-accueil-54",
+    "href": "/admissions#faq-classe-d-accueil-54",
     "text": "Questions fréquentes, Admissions",
     "keywords": [
       "page",
@@ -1885,7 +1885,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "classe-d-accueil-56",
     "title": "Peut-on rejoindre la classe d’accueil en cours d’année ?",
-    "href": "/admissions/comprendre#faq-classe-d-accueil-56",
+    "href": "/admissions#faq-classe-d-accueil-56",
     "text": "Questions fréquentes, Admissions",
     "keywords": [
       "page",
@@ -1913,7 +1913,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "fees-overview",
     "title": "Où trouver les frais de scolarité ?",
-    "href": "/admissions/comprendre#faq-fees-overview",
+    "href": "/admissions#faq-fees-overview",
     "text": "Questions fréquentes, Frais et paiement",
     "keywords": [
       "page",
@@ -1940,7 +1940,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "fees-payment",
     "title": "Comment les frais sont-ils échelonnés ?",
-    "href": "/admissions/comprendre#faq-fees-payment",
+    "href": "/admissions#faq-fees-payment",
     "text": "Questions fréquentes, Frais et paiement",
     "keywords": [
       "bareme",
@@ -1967,7 +1967,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "fees-reduced",
     "title": "Comment demander le tarif réduit ?",
-    "href": "/admissions/comprendre#faq-fees-reduced",
+    "href": "/admissions#faq-fees-reduced",
     "text": "Questions fréquentes, Frais et paiement",
     "keywords": [
       "demande",
@@ -1993,7 +1993,7 @@ export const admissionsFaqSearchEntries = [
   {
     "id": "documents-prepare",
     "title": "Quelles pièces préparer pour la candidature ?",
-    "href": "/admissions/comprendre#faq-documents-prepare",
+    "href": "/admissions#faq-documents-prepare",
     "text": "Questions fréquentes, Documents",
     "keywords": [
       "preparez",

@@ -16,7 +16,7 @@ export interface PlaceholderNoticeProps {
   text?: string
   /** Heading of the planned-sections panel (h3). */
   plannedTitle?: string
-  /** Optional id on the section, e.g. "faq" so /admissions/comprendre#faq lands here. */
+  /** Optional id on the section, e.g. "faq" so /admissions#faq lands here. */
   id?: string
 }
 

@@ -15,13 +15,14 @@ export const routes = {
   grandir: '/grandir-aux-ebm',
   calendrier: '/calendrier',
   admissions: '/admissions',
-  comprendre: '/admissions/comprendre',
-  faq: '/admissions/comprendre#faq',
+  /** Since 30 Oct 2026 the steps, conditions and questions live on /admissions itself. */
+  faq: '/admissions#faq',
   documentsEtFrais: '/admissions/documents-et-frais',
   candidater: '/admissions/candidater',
   contact: '/contact',
   espaceEduka: '/espace-eduka',
-  reserverVisite: '/reserver-une-visite',
+  /** The visit request form, on the calendar page since 30 Oct 2026 (visitFor() picks a campus). */
+  reserverVisite: '/calendrier#visite',
   recrutement: '/recrutement',
   mentionsLegales: '/mentions-legales',
   confidentialite: '/confidentialite',
@@ -29,9 +30,14 @@ export const routes = {
   recherche: '/recherche',
 } as const
 
+/** The visit request form with a campus already chosen. */
+export function visitFor(campus: 'casablanca' | 'rabat'): string {
+  return `${routes.calendrier}?campus=${campus}#visite`
+}
+
 /*
- * Which header menu is active for a path. `/calendrier` appears in two menus (Vie scolaire and
- * Admissions); it is attributed to Admissions because visits are the first admissions step.
+ * Which header menu is active for a path. `/calendrier` (with the visit request) belongs to Vie
+ * scolaire since 30 Oct 2026.
  * System pages (legal, search, recruitment...) highlight no menu.
  */
 const sectionPrefixes: ReadonlyArray<readonly [string, NavId]> = [
@@ -41,8 +47,7 @@ const sectionPrefixes: ReadonlyArray<readonly [string, NavId]> = [
   [routes.apresLesEbm, 'ecole'],
   [routes.campus, 'campus'],
   [routes.grandir, 'vie'],
-  [routes.calendrier, 'admissions'],
-  [routes.reserverVisite, 'admissions'],
+  [routes.calendrier, 'vie'],
   [routes.admissions, 'admissions'],
   [routes.contact, 'admissions'],
 ]

@@ -239,7 +239,7 @@ export function CampusHub() {
       <PageActions
         title="Et la prochaine étape ?"
         text="Les visites sont réservées aux familles ayant déposé une candidature."
-        primary={{ label: 'Comprendre les admissions', href: routes.comprendre }}
+        primary={{ label: 'Les étapes de l’admission', href: `${routes.admissions}#parcours` }}
         secondary={{ label: 'Candidater', href: routes.candidater }}
       />
     </>

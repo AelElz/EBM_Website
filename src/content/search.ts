@@ -33,14 +33,12 @@ const keywords: Partial<Record<PageSlug, string>> = {
   'campus-casablanca': 'casa dar bouazza adresse plan',
   'campus-rabat': 'hay riad adresse plan',
   'apres-les-ebm': 'anciens alumni etudes superieures universite carriere diplome',
-  admissions: 'inscription inscrire admission rentree',
-  'admissions-comprendre': 'etapes conditions faq questions age',
+  admissions: 'inscription inscrire admission rentree etapes conditions age niveau faq questions comprendre',
   'admissions-documents-et-frais': 'frais tarifs prix scolarite cout documents dossier papiers',
-  calendrier: 'evenements dates agenda visites rentree vacances',
+  calendrier: 'evenements dates agenda visites visite visiter rendez-vous reserver rentree vacances',
   'admissions-candidater': 'candidature inscription dossier en ligne formulaire eduka',
   contact: 'telephone tel email mail adresse joindre ecrire',
   recrutement: 'emploi travail poste carriere enseignant professeur candidature spontanee',
-  'reserver-une-visite': 'visite visiter rendez-vous decouvrir',
   confidentialite: 'donnees personnelles vie privee rgpd cookies',
 }
 

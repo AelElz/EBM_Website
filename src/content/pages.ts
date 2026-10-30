@@ -22,7 +22,6 @@ export type PageSlug =
   | 'campus-rabat'
   | 'apres-les-ebm'
   | 'admissions'
-  | 'admissions-comprendre'
   | 'admissions-documents-et-frais'
   | 'calendrier'
   | 'admissions-candidater'
@@ -31,7 +30,6 @@ export type PageSlug =
   | 'mentions-legales'
   | 'confidentialite'
   | 'recrutement'
-  | 'reserver-une-visite'
 
 export interface PlaceholderPageContent {
   slug: PageSlug
@@ -202,21 +200,6 @@ export const pages: Record<PageSlug, PlaceholderPageContent> = {
       ...contactLinks.slice(0, 2),
     ],
   }),
-  'admissions-comprendre': main({
-    slug: 'admissions-comprendre',
-    route: routes.comprendre,
-    title: 'Comprendre les admissions',
-    intro: 'Les étapes, les conditions et les questions fréquentes.',
-    section: 'admissions',
-    parent: 'admissions',
-    planned: [
-      'Les étapes de l’admission',
-      'Conditions d’admission',
-      'Visites et entretiens',
-      `Après la candidature${NNBSP}: réponse et inscription`,
-      'Questions fréquentes',
-    ],
-  }),
   'admissions-documents-et-frais': main({
     slug: 'admissions-documents-et-frais',
     route: routes.documentsEtFrais,
@@ -324,24 +307,6 @@ export const pages: Record<PageSlug, PlaceholderPageContent> = {
       'Postes ouverts sur nos deux campus',
       'Candidature spontanée',
       'Contact recrutement',
-    ],
-  }),
-  'reserver-une-visite': system({
-    slug: 'reserver-une-visite',
-    route: routes.reserverVisite,
-    title: 'Réserver une visite',
-    intro: 'La réservation en ligne d’une visite de nos campus.',
-    section: 'admissions',
-    parent: 'calendrier',
-    planned: [
-      'Choix du campus et du type de visite',
-      'Créneaux disponibles',
-      'Vos coordonnées',
-      'Confirmation par l’équipe des admissions',
-    ],
-    links: [
-      { label: 'Calendrier & visites', href: routes.calendrier },
-      ...contactLinks.slice(0, 2),
     ],
   }),
 }

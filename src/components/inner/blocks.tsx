@@ -31,10 +31,10 @@ function Photo({ image, hero = false }: { image: ContentImage; hero?: boolean })
 }
 
 /** Inner-page-only blocks. The approved homepage never imports this module. */
-export function InnerHero({ title, intro, breadcrumb = [], image, children }: { title: string; intro: string; breadcrumb?: BreadcrumbItem[]; image?: ContentImage; children?: ReactNode }) {
+export function InnerHero({ title, intro, breadcrumb = [], image, tone, children }: { title: string; intro: string; breadcrumb?: BreadcrumbItem[]; image?: ContentImage; /** A green hero with white text (Grandir aux EBM). */ tone?: 'olive'; children?: ReactNode }) {
   const trail = [{ label: 'Accueil', href: '/' }, ...(breadcrumb.length ? breadcrumb : [{ label: title }])]
   return (
-    <section className={styles.hero} aria-labelledby="page-title">
+    <section className={styles.hero} data-tone={tone} aria-labelledby="page-title">
       <Container>
         <nav className={styles.breadcrumb} aria-label="Fil d’Ariane"><ol>{trail.map((item, index) => <li key={`${item.label}-${index}`}>{index < trail.length - 1 && item.href ? <Link href={item.href}>{item.label}</Link> : <span aria-current="page">{item.label}</span>}</li>)}</ol></nav>
         <div className={styles.heroLayout} data-photo={image ? '' : undefined}>

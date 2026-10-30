@@ -18,9 +18,10 @@ function Principles({ items }: { items: { title: string; text: string }[] }) {
   return <div className={styles.principles}>{items.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
 }
 
+/* Grandir aux EBM: the hero on green with white text (Ayoub, 30 Oct 2026: that block only). */
 export function SchoolLifePage() {
   return <>
-    <InnerHero title={schoolLifePage.title} intro={schoolLifePage.intro} image={schoolImages.sport} breadcrumb={[{ label: 'Grandir aux EBM' }]} />
+    <InnerHero title={schoolLifePage.title} intro={schoolLifePage.intro} image={schoolImages.sport} breadcrumb={[{ label: 'Grandir aux EBM' }]} tone="olive" />
     <SectionNav items={[{ label: 'Les activités', href: '#activites' }, { label: 'Les temps forts', href: '#temps-forts' }, { label: 'La vie pratique', href: '#vie-pratique' }, { label: 'Le bien-être', href: '#bien-etre' }]} />
     <PageSection id="activites" title="Trouver ce qui donne envie" intro={schoolLifePage.activityIntro}>
       <ActivityFilter activities={schoolActivities.map(({ id, type }) => ({ id, type }))}>{schoolActivities.map(activity => <article key={activity.id} className={styles.activity}><figure><Image src={activity.image.src} alt={activity.image.alt} fill sizes="(min-width:1240px) 370px, (min-width:768px) 30vw, 100vw" /></figure><h3>{activity.title}</h3><p>{activity.text}</p></article>)}</ActivityFilter><ReviewNote title="L’offre détaillée reste à compléter">{schoolLifePage.activitiesGap}</ReviewNote>

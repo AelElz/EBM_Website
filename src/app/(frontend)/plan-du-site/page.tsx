@@ -23,7 +23,6 @@ const groups: SitemapGroup[] = [
   {
     title: 'Informations',
     links: [
-      { label: 'Réserver une visite', href: routes.reserverVisite },
       { label: 'Recrutement', href: routes.recrutement },
       { label: 'Recherche', href: routes.recherche },
       ...legalLinks,

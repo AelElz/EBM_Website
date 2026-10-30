@@ -8,10 +8,9 @@ export const migrationPages = [
   {slug:'campus-casablanca',route:'/nos-campus/casablanca',title:'Campus de Casablanca',description:'Le campus de Dar Bouazza, ses espaces, ses services et ses contacts.'},
   {slug:'campus-rabat',route:'/nos-campus/rabat',title:'Campus de Rabat',description:'Le campus de Hay Riad, son histoire, ses espaces et ses contacts.'},
   {slug:'apres-les-ebm',route:'/apres-les-ebm',title:'Après les EBM',description:'CESS, orientation et poursuite d’études, avec des repères d’archives clairement datés.'},
-  {slug:'admissions',route:'/admissions',title:'Admissions',description:'Les démarches, les conditions, les documents et les contacts pour préparer une candidature.'},
-  {slug:'admissions-comprendre',route:'/admissions/comprendre',title:'Comprendre les admissions',description:'Les sept étapes d’admission, les conditions d’entrée et les réponses aux questions fréquentes.'},
+  {slug:'admissions',route:'/admissions',title:'Admissions',description:'Les étapes, les conditions selon le niveau et les réponses aux questions des familles.'},
   {slug:'admissions-documents-et-frais',route:'/admissions/documents-et-frais',title:'Documents & frais',description:'Préparer les pièces du dossier et consulter les barèmes publiés, dont l’année reste à confirmer.'},
-  {slug:'calendrier',route:'/calendrier',title:'Calendrier & visites',description:'Consulter le calendrier scolaire 2026–2027 et les modalités de demande de visite.'},
+  {slug:'calendrier',route:'/calendrier',title:'Calendrier & visites',description:'Le calendrier scolaire 2026–2027 et la demande de visite auprès du campus.'},
   {slug:'admissions-candidater',route:'/admissions/candidater',title:'Candidater en ligne',description:'Préparer le dossier et poursuivre la candidature dans le formulaire officiel Eduka.'},
   {slug:'contact',route:'/contact',title:'Contact',description:'Les téléphones, e-mails et adresses des bons services à Casablanca et à Rabat.'},
 ] as const

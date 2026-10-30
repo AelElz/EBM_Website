@@ -9,6 +9,9 @@
 .overview li::before {content:counter(overview);display:block;font-size:44px;font-weight:600;color:var(--color-terracotta);margin-bottom:18px;line-height:1;}
 .overview h3 {font:600 20px/1.35 var(--font-sans);margin:0 0 10px;}
 .overview p {color:var(--color-ink-soft);line-height:1.6;}
+.journeyLink {display:inline-block;margin-top:4px;padding-block:10px;font-size:16px;font-weight:700;line-height:1.4;color:var(--color-terracotta-ink);}
+.journeyLink::after {content:'→';display:inline-block;margin-left:6px;transition:translate 200ms var(--ease-apple);}
+.journeyLink:hover::after {translate:3px 0;}
 .levels,.contacts {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;}
 .level {padding:28px;background:var(--color-paper);}
 .levelLabel {display:block;color:var(--color-terracotta-ink);font-size:17px;font-weight:600;margin-bottom:16px;}

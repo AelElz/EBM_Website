@@ -650,60 +650,73 @@
   }
 }
 
-/* ---- Below the dashboard: visits and help ---------------------------------------------------------- */
+/* ---- Visits (#visite), on white below the dashboard ---------------------------------------------- */
 
-.more {
+.visitBand {
+  padding-block: var(--spacing-section);
+  scroll-margin-top: var(--spacing-header);
+}
+
+.visitGrid {
   display: grid;
-  gap: 16px;
-  margin-top: 16px;
+  gap: 40px;
 }
 
 @media (min-width: 64rem) {
-  .more {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .visitGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 72px;
+    align-items: start;
   }
 }
 
-.moreCard {
-  padding: clamp(24px, 3vw, 36px);
-  border-radius: 24px;
-  background-color: #fff;
+.visitTitle {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 
-.moreCard h2 {
-  font-size: clamp(1.375rem, 2vw, 1.75rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.moreCard p {
-  max-width: 52ch;
-  margin-top: 12px;
+.visitText {
+  max-width: 46ch;
+  margin-top: 16px;
   color: var(--color-ink-soft);
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
-.moreLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-  margin-top: 20px;
+.visitDirect {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
 }
 
-.moreLinks a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
+.visitDirect li {
+  display: grid;
+  gap: 2px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background-color: var(--color-paper);
+}
+
+.visitDirect span {
+  color: var(--color-ink-soft);
+  font-size: 14px;
+}
+
+.visitDirect a {
   color: var(--color-terracotta-ink);
   font-size: 16px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
-.moreLinks a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+.visitForm {
+  padding: clamp(20px, 3vw, 36px);
+  border-radius: 24px;
+  background-color: var(--color-paper);
 }
 
 .sourceNote {

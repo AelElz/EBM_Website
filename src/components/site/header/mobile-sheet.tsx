@@ -111,11 +111,12 @@ export function MobileSheet({ open, onOpenChange, triggerRef }: MobileSheetProps
                               onClick={close}
                               aria-current={isCurrent ? 'page' : undefined}
                               className={cn(
-                                'flex min-h-11 items-center py-2 pl-3 text-base transition-colors duration-200 hover:text-terracotta-ink',
+                                'flex min-h-11 flex-col justify-center py-2 pl-3 text-base transition-colors duration-200 hover:text-terracotta-ink',
                                 isCurrent ? 'font-semibold text-terracotta-ink' : 'text-charcoal',
                               )}
                             >
                               {item.label}
+                              {item.hint ? <span className="text-sm font-normal text-ink-soft">{item.hint}</span> : null}
                             </Link>
                           </li>
                         )

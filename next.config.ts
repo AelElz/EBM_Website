@@ -34,6 +34,14 @@ const nextConfig: NextConfig = {
   // Explicit source-backed legacy aliases; archived campaigns and Odoo modules are excluded.
   async redirects() {
     return [
+    // 30 Oct 2026: "Comprendre les admissions" merged into /admissions (same section ids, so
+    // /admissions/comprendre#faq lands on /admissions#faq). /reserver-une-visite redirects in its
+    // page, to keep the chosen campus (app/(frontend)/reserver-une-visite/page.tsx).
+    {
+        "source": "/admissions/comprendre",
+        "destination": "/admissions",
+        "permanent": true
+    },
     {
         "source": "/acceuil",
         "destination": "/",
@@ -106,17 +114,17 @@ const nextConfig: NextConfig = {
     },
     {
         "source": "/processus-admission",
-        "destination": "/admissions/comprendre",
+        "destination": "/admissions",
         "permanent": true
     },
     {
         "source": "/regles",
-        "destination": "/admissions/comprendre#conditions",
+        "destination": "/admissions#conditions",
         "permanent": true
     },
     {
         "source": "/types-admission",
-        "destination": "/admissions/comprendre#conditions",
+        "destination": "/admissions#conditions",
         "permanent": true
     },
     {
@@ -131,12 +139,12 @@ const nextConfig: NextConfig = {
     },
     {
         "source": "/faq",
-        "destination": "/admissions/comprendre#faq",
+        "destination": "/admissions#faq",
         "permanent": true
     },
     {
         "source": "/faqs",
-        "destination": "/admissions/comprendre#faq",
+        "destination": "/admissions#faq",
         "permanent": true
     },
     {
