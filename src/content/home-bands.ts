@@ -1,6 +1,7 @@
 import { routes } from '@/lib/routes'
 import { NNBSP } from '@/lib/typography'
 
+import { parcoursOverview, parcoursStages, type ParcoursStage } from './parcours'
 import type { ImageAsset, LinkItem } from './types'
 
 /*
@@ -32,11 +33,30 @@ export interface PathStage {
   id: 'ensemble' | 'accueil' | 'maternelle' | 'primaire' | 'secondaire'
   /** Tab label, one string per line (the board sets "Vue / d’ensemble" on two lines). */
   tab: string[]
-  /** Paragraphs from Parcours_scolaire.docx; **double asterisks** mark the bold runs. */
+  /** Paragraphs from Parcours_scolaire.docx (parcours.ts); **double asterisks** mark the bold runs. */
   paragraphs: string[]
   /** The photo in the front circle; the overview shows the children cutout instead. */
   photo?: ImageAsset
 }
+
+const pathTabs: Record<ParcoursStage['id'], string[]> = {
+  accueil: ['Classe', 'd’accueil'],
+  maternelle: ['Maternelle'],
+  primaire: ['Primaire'],
+  secondaire: ['Secondaire'],
+}
+
+const pathStages: PathStage[] = [
+  { id: 'ensemble', tab: ['Vue', 'd’ensemble'], paragraphs: parcoursOverview },
+  ...parcoursStages.map((stage) => ({
+    id: stage.id,
+    tab: pathTabs[stage.id],
+    // The stage's opening paragraphs and its bold closing sentence; the full stage (heading,
+    // list) is on /pedagogie.
+    paragraphs: [...stage.paragraphs, `**${stage.closing}**`],
+    photo: stage.photo,
+  })),
+]
 
 export const homeBands = {
   values: {
@@ -160,76 +180,6 @@ export const homeBands = {
       width: 1008,
       height: 1511,
     } satisfies ImageAsset,
-    stages: [
-      {
-        id: 'ensemble',
-        tab: ['Vue', 'd’ensemble'],
-        paragraphs: [
-          'Les Écoles Belges au Maroc proposent **un parcours scolaire complet, de la maternelle au secondaire**, fondé sur les programmes officiels de l’enseignement belge francophone.',
-          'Chaque étape répond à des objectifs pédagogiques précis et prépare la suivante, assurant une progression cohérente et continue des apprentissages.',
-          'Cette continuité repose notamment sur **l’expertise d’enseignants qualifiés, formés en Belgique et spécialisés dans leur discipline**, conformément aux exigences de la Fédération Wallonie-Bruxelles.',
-        ],
-      },
-      {
-        id: 'accueil',
-        tab: ['Classe', 'd’accueil'],
-        paragraphs: [
-          'La classe d’accueil marque **la première rencontre de l’enfant avec le monde scolaire**.',
-          'À 2 ans, l’essentiel est de découvrir un nouvel environnement, d’apprendre progressivement à vivre en collectivité et de développer ses premières formes d’autonomie.',
-        ],
-        photo: {
-          src: '/images/collage-maternelle.jpg',
-          alt: 'Une petite fille joue avec des formes en bois en classe.',
-          width: 1600,
-          height: 1068,
-          position: '58% 55%',
-        },
-      },
-      {
-        id: 'maternelle',
-        tab: ['Maternelle'],
-        paragraphs: [
-          'Les années de maternelle construisent **les fondations essentielles du parcours scolaire**.',
-          'À travers une pédagogie active, les enfants développent progressivement leurs capacités cognitives, langagières, motrices, sociales et émotionnelles, accompagnés par des enseignants formés à la petite enfance.',
-        ],
-        photo: {
-          src: '/images/collage-dessin.jpg',
-          alt: 'Un enfant de maternelle et son enseignante devant un tableau de couleurs et de chiffres.',
-          width: 1600,
-          height: 1067,
-          position: '40% 50%',
-        },
-      },
-      {
-        id: 'primaire',
-        tab: ['Primaire'],
-        paragraphs: [
-          'Le primaire permet à chaque élève d’acquérir **les connaissances et les méthodes qui lui serviront tout au long de sa scolarité**.',
-          `Les apprentissages progressent de manière structurée${NNBSP}: les notions sont découvertes, approfondies puis réinvesties au fil des années pour consolider les acquis.`,
-        ],
-        photo: {
-          src: '/images/collage-sciences.jpg',
-          alt: 'Deux élèves font une expérience de sciences en blouse et lunettes de protection.',
-          width: 1600,
-          height: 900,
-          position: '45% 45%',
-        },
-      },
-      {
-        id: 'secondaire',
-        tab: ['Secondaire'],
-        paragraphs: [
-          'Le secondaire accompagne les élèves vers **une autonomie croissante** et les prépare progressivement aux études supérieures.',
-          'Les connaissances s’approfondissent, les exigences académiques évoluent et chaque élève affine ses centres d’intérêt et ses choix d’orientation.',
-        ],
-        photo: {
-          src: '/images/parcours-secondaire.jpg',
-          alt: 'Une classe du secondaire au travail dans une salle lumineuse.',
-          width: 1600,
-          height: 1066,
-          position: '45% 60%',
-        },
-      },
-    ] satisfies PathStage[],
+    stages: pathStages,
   },
 }

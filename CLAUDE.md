@@ -74,8 +74,18 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   their own components (`network-page.tsx`, `pedagogy-page.tsx` in `components/inner/school/`)
   sharing `editorial-hero.tsx` (photo beside the copy inside the page margins + four key figures from the page's
   `keyFacts`; titles over 32 characters step down a size) and `editorial.module.css`;
-  `pedagogy.module.css` holds Pédagogie's own sections (principles under clay rules, level tabs
-  with a tall photo, olive outdoor band, languages as a path, question cards that open).
+  `pedagogy.module.css` holds Pédagogie's own sections.
+- Validated copy (30 Oct 2026, Ayoub: "this is the real validated data"): EBM's
+  `UI projects/EBM WEBSITE/Notre_pédagogie.docx` and `Parcours_scolaire.docx`, word for word
+  (site typography only) in `src/content/pedagogie.ts` and `src/content/parcours.ts`. Do not
+  rewrite or add to that copy. `parcours.ts` feeds both the home band 5 (each stage's opening
+  paragraphs + bold closing line) and `/pedagogie` (full stages with their lists). `/pedagogie`
+  follows the document's order and its "Traitement graphique" notes: framework + three sober
+  markers, way of teaching + steps 01-04, the four stages as tabs, languages timeline on olive,
+  diplomas on the school-year line from Ayoub's board `Parcours_scolaire.ai` (CA to S6; the board
+  says CEP, the validated text CEB, so CEB is used), the three savoirs as overlapping rings on
+  Fired Clay. The old migrated principles, outdoor band, language cards, teacher-voice note and
+  follow-up questions were removed from that page (not in the validated document).
   Le réseau in detail: its own component
   `components/inner/school/network-page.tsx` + `editorial.module.css` instead of the generic
   blocks (same content, plus four key figures in `networkPage.keyFacts`). A hero with the photo

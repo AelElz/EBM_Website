@@ -21,7 +21,8 @@ export function EditorialHero({
   facts,
 }: {
   title: string
-  intro: string
+  /** One sentence, or several paragraphs (Pédagogie's validated introduction). */
+  intro: string | string[]
   /** The breadcrumb after "Accueil"; the last item is the current page. */
   trail: { label: string; href?: string }[]
   image: ImageAsset
@@ -52,7 +53,11 @@ export function EditorialHero({
           <h1 id="page-title" className={title.length > 32 ? styles.longTitle : undefined}>
             {title}
           </h1>
-          <p>{intro}</p>
+          {(Array.isArray(intro) ? intro : [intro]).map((paragraph) => (
+            <p key={paragraph} className={Array.isArray(intro) ? styles.heroIntroLong : undefined}>
+              {paragraph}
+            </p>
+          ))}
           {actions ? <div className={styles.heroActions}>{actions}</div> : null}
         </div>
         <div className={styles.heroPhoto}>

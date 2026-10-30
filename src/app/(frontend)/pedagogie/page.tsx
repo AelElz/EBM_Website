@@ -1,10 +1,10 @@
 import { PedagogyPage } from '@/components/inner/school/pedagogy-page'
-import { pedagogyPage } from '@/content/migration/school'
+import { pedagogie } from '@/content/pedagogie'
 import { pageMetadata } from '@/lib/metadata'
 
 export const metadata = pageMetadata({
-  title: 'Pédagogie',
-  description: pedagogyPage.description,
+  title: 'Notre pédagogie',
+  description: pedagogie.description,
   path: '/pedagogie',
   index: false,
 })

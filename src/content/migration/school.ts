@@ -53,6 +53,7 @@ export const schoolSourceLedger: SchoolSourceRecord[] = [
 export const schoolImages = {
   network: { src: '/images/collage-cour-casablanca.jpg', width: 1600, height: 1067, alt: 'La cour et les bâtiments du campus EBM de Casablanca.', position: '50% 58%' },
   director: { src: '/images/directeur-reseau.jpg', width: 1200, height: 800, alt: 'Axel Bex Chaval à son bureau, portrait publié par les EBM.', position: '46% 50%' },
+  library: { src: '/images/casablanca-bibliotheque.jpg', width: 1535, height: 1025, alt: 'Des élèves lisent et travaillent à la bibliothèque du campus de Casablanca.', position: '50% 60%' },
   sciences: { src: '/images/collage-sciences.jpg', width: 1600, height: 900, alt: 'Des élèves des EBM travaillent ensemble en sciences.' },
   nursery: { src: '/images/collage-maternelle.jpg', width: 1600, height: 1068, alt: 'Un moment d’apprentissage en maternelle aux EBM.' },
   primary: { src: '/images/collage-dessin.jpg', width: 1600, height: 1067, alt: 'Une élève des EBM réalise un dessin en classe.' },
@@ -108,58 +109,6 @@ export const networkPage = {
     { value: '4', label: 'valeurs partagées par les équipes' },
   ],
   partnersIntro: 'Les EBM présentent la Fédération Wallonie-Bruxelles, Wallonie-Bruxelles International et l’Association des Écoles Belges à l’Étranger parmi leurs partenaires institutionnels.',
-}
-
-export interface SchoolLevel {
-  id: 'maternelle' | 'primaire' | 'secondaire'
-  label: string
-  ages: string
-  title: string
-  text: string
-  objectives: string[]
-  subjects: string
-  milestone: string
-  image: ImageAsset
-}
-export const schoolLevels: SchoolLevel[] = [
-  { id: 'maternelle', label: 'Maternelle', ages: 'Dès 2 ans en accueil · puis 3 à 6 ans en maternelle', title: 'Prendre confiance et découvrir', text: 'La classe d’accueil accompagne la première scolarisation dès 2 ans révolus. Les trois années de maternelle posent ensuite les bases du langage, de la pensée et des relations avec les autres, dans le respect du rythme de chaque enfant.', objectives: ['Développer le langage, la curiosité et la confiance.', 'Manipuler, explorer et apprendre par le jeu.', 'Grandir dans la relation aux autres et gagner en autonomie.'], subjects: 'Langage, découvertes mathématiques, éveil, expression créative et psychomotricité.', milestone: 'Des observations et échanges avec la famille accompagnent la progression. L’admission et le niveau d’entrée dépendent des conditions précisées par l’école.', image: schoolImages.nursery },
-  { id: 'primaire', label: 'Primaire', ages: 'Environ 6 à 12 ans', title: 'Comprendre, consolider, devenir autonome', text: 'Au fil des six années du primaire, les élèves construisent des bases académiques durables. Les notions sont reprises et approfondies progressivement : cette démarche spiralaire relie les nouveaux apprentissages à ce qui est déjà compris.', objectives: ['Lire, écrire et s’exprimer avec précision.', 'Raisonner, résoudre des problèmes et structurer sa pensée.', 'Installer des méthodes de travail et apprendre à coopérer.'], subjects: 'Français, mathématiques, éveil scientifique et culturel, langues, éducation physique et expression artistique.', milestone: 'Fin de 6e primaire : épreuves externes et CEB, selon la terminologie de la page institutionnelle actuelle.', image: schoolImages.primary },
-  { id: 'secondaire', label: 'Secondaire', ages: 'Environ 12 à 18 ans', title: 'Approfondir ses savoirs, préparer ses choix', text: 'Le secondaire associe des fondations communes, des choix progressifs d’options et une préparation méthodologique aux études supérieures. L’élève apprend à organiser son travail et à construire son projet d’orientation.', objectives: ['Approfondir les connaissances et argumenter.', 'Développer rigueur, autonomie et méthodes de travail.', 'Préparer un projet personnel d’études supérieures.'], subjects: 'Socle commun, langues, sciences, mathématiques et options progressives. Le détail actuel des options et des niveaux ouverts se confirme auprès du campus.', milestone: 'Fin de S2 : CE1D. Fin de S6 : CESS. Les établissements supérieurs conservent leurs conditions propres d’admission.', image: schoolImages.secondary },
-]
-export const pedagogyPage = {
-  title: 'Comprendre pour apprendre, apprendre pour grandir',
-  intro: 'De la première découverte aux choix d’orientation, une pédagogie active dans un cadre belge exigeant et bienveillant.',
-  description: 'La pédagogie des EBM : maternelle, primaire, secondaire, langues, certificats belges, méthodes de travail et accompagnement des élèves.',
-  principles: [
-    { title: 'Partir du concret', text: 'Observer, manipuler et expérimenter pour comprendre les notions avant de les réutiliser.' },
-    { title: 'S’appuyer sur des enseignants qualifiés', text: 'Des équipes formées à l’enseignement belge francophone ajustent leurs pratiques à la progression des élèves.' },
-    { title: 'Progresser avec des repères clairs', text: 'Des objectifs explicites et des apprentissages construits sur la durée, dans le respect des programmes officiels.' },
-    { title: 'Construire l’autonomie ensemble', text: 'L’école, l’élève et sa famille partagent une relation de confiance et des responsabilités complémentaires.' },
-  ],
-  outdoorTitle: 'À Casablanca, la classe s’ouvre sur la nature',
-  outdoorText: 'L’école du dehors complète les apprentissages en salle. Observer, explorer et expérimenter prend aussi place dans un espace naturel de 1,5 hectare sur le campus de Dar Bouazza.',
-  languageIntro: 'Le français est la langue d’enseignement. Les langues et la culture du Maroc complètent le programme belge, tandis que les langues étrangères élargissent les possibilités de communication.',
-  languages: [
-    { title: 'Arabe dès la M3', text: 'Langue et culture arabes, complétées par l’histoire et la géographie du Maroc au fil du parcours.' },
-    { title: 'Anglais dès la P1', text: 'À Casablanca, l’anglais commence en 1re primaire. Des certifications Cambridge jalonnent le parcours; le niveau B2 en fin de secondaire est un objectif annoncé, pas un résultat garanti.' },
-    { title: 'Une offre propre à Rabat', text: 'Le site EBM publie un choix entre anglais et néerlandais dès la P1 à Rabat. L’organisation actuelle et les places se confirment auprès du campus.' },
-    { title: 'Espagnol à partir de la S4', text: 'L’introduction de l’espagnol en 4e secondaire est décrite dans le cadre institutionnel. L’offre de langues dépend du parcours et du campus.' },
-  ],
-  supports: [
-    { question: 'Comment les élèves sont-ils évalués ?', answer: 'Les évaluations formatives servent à repérer ce qui est compris et à progresser; leurs points ne sont pas repris au bulletin. Les évaluations certificatives valident les acquis travaillés et contribuent aux décisions de passage ou de certification.' },
-    { question: 'Quelle place pour les devoirs ?', answer: 'À l’école fondamentale, les devoirs consolident les apprentissages de classe, en quantité limitée. Le travail personnel augmente progressivement au secondaire pour apprendre à organiser son temps et préparer les études supérieures.' },
-    { question: 'Comment l’école échange-t-elle avec les familles ?', answer: 'La communication régulière, les échanges avec les enseignants et les directions et le dialogue autour de la progression de l’élève font partie du projet éducatif. Les modalités se précisent avec le campus.' },
-    { question: 'Comment se prépare l’orientation ?', answer: 'La connaissance de soi, les méthodes de travail et la construction du projet personnel sont travaillées progressivement. Le voyage de rhéto décrit en novembre 2024 illustre une rencontre avec des établissements supérieurs et des conseillers en orientation.' },
-  ],
-  diplomaGap: 'Terminologie à valider : la page institutionnelle actuelle emploie « CEB », tandis que l’ancienne FAQ et la brochure utilisent « CEP ». Aucun lien d’équivalence entre ces termes n’est déduit ici.',
-  videoGap: 'Les épisodes identifiés et autorisés de la série « Parole d’enseignant », leurs sous-titres et leurs visuels restent à fournir par EBM.',
-  /** The four figures under the hero (pedagogy-page.tsx), all from this page's own content. */
-  keyFacts: [
-    { value: '3', label: 'niveaux : maternelle, primaire et secondaire' },
-    { value: '4', label: 'langues au fil du parcours, du français à l’espagnol' },
-    { value: '1,5 ha', label: 'd’école du dehors sur le campus de Casablanca' },
-    { value: '3', label: 'épreuves externes : fin du primaire, du 1er degré et du secondaire' },
-  ],
 }
 
 export const outdoorsPage = {

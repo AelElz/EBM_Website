@@ -97,6 +97,17 @@
   color: var(--color-ink-soft);
 }
 
+/* Several intro paragraphs read as body text, on a wider measure. */
+.heroCopy > p.heroIntroLong {
+  max-width: 46ch;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.heroCopy > p + p {
+  margin-top: 14px;
+}
+
 .heroActions {
   display: flex;
   flex-wrap: wrap;

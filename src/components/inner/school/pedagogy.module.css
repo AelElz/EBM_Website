@@ -1,79 +1,187 @@
 /*
- * Pédagogie's own sections (pedagogy-page.tsx); the hero, titles, prose and links come from
- * editorial.module.css. Grounds in page order: paper hero, white approach, paper levels, olive
- * outdoor school, white languages, a quiet paper note, white questions, then the shared actions.
- * White on olive is 7.4:1.
+ * Pédagogie's own sections (pedagogy-page.tsx, 30 Oct 2026, from the validated documents); the
+ * hero, the h2 size and the links come from editorial.module.css. Grounds in page order: paper
+ * hero, white framework, paper way of teaching, white school path, olive languages, white
+ * diplomas, Fired Clay autonomy, then the shared actions.
+ * Contrast: white on olive 7.4:1, cream on olive 5.7:1, white on Fired Clay 4.8:1; white on the
+ * Fired Clay and olive year discs, charcoal on the sand, blush and sage ones (>= 4.5:1).
+ *
+ * Motion: scroll-driven CSS only (animation-timeline: view()), transform / opacity, inside
+ * `prefers-reduced-motion: no-preference` and `@supports`; elsewhere every figure is complete.
  */
 
-/* ---- The approach ------------------------------------------------------------------------ */
+/* ---- Sections and their heads --------------------------------------------------------------- */
 
-.approach {
+.section {
   padding-block: var(--spacing-section);
 }
 
-.approachGrid {
-  display: grid;
-  gap: 40px;
-}
-
-.principles {
-  display: grid;
-  gap: 32px;
-}
-
-.principles li {
-  padding-top: 20px;
-  border-top: 3px solid var(--color-terracotta);
-}
-
-.principles h3 {
-  font-family: var(--font-accent);
-  font-size: clamp(1.5rem, 2.2vw, 2rem);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.15;
-  text-wrap: balance;
-}
-
-.principles p {
-  max-width: 38ch;
-  margin-top: 12px;
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--color-ink-soft);
-}
-
-@media (min-width: 48rem) {
-  .principles {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 40px;
-    row-gap: 48px;
-  }
-}
-
-@media (min-width: 64rem) {
-  .approachGrid {
-    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-    gap: 80px;
-    align-items: start;
-  }
-}
-
-/* ---- The three levels -------------------------------------------------------------------- */
-
-.levels {
-  padding-block: var(--spacing-section);
+.paper {
   background-color: var(--color-paper);
 }
 
-.tabsWrap {
-  margin-top: clamp(32px, 4vw, 48px);
+.olive {
+  background-color: var(--color-olive);
+  color: #fff;
 }
 
-.level {
+.clay {
+  background-color: var(--color-terracotta);
+  color: #fff;
+}
+
+/* The home bands' label: uppercase, Avenir 500, tracked, in clay. */
+.label {
+  color: var(--color-terracotta-ink);
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.olive .label {
+  color: var(--color-cream);
+}
+
+.clay .label {
+  color: #fff;
+}
+
+.head {
+  display: grid;
+  gap: 24px;
+}
+
+.headTitle {
+  max-width: 18ch;
+  margin-top: 12px;
+}
+
+.headText {
+  display: grid;
+  gap: 14px;
+  max-width: 60ch;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.headText strong {
+  font-weight: 700;
+}
+
+@media (min-width: 64rem) {
+  .head {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 80px;
+    align-items: start;
+  }
+
+  .headText {
+    padding-top: 36px;
+  }
+}
+
+/* ---- 1. Three sober markers ------------------------------------------------------------------ */
+
+.markers {
   display: grid;
   gap: 32px;
-  margin-top: 32px;
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.markers li {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.markers li::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  margin-bottom: 16px;
+  background-color: var(--color-terracotta);
+}
+
+@media (min-width: 48rem) {
+  .markers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .markers {
+    gap: 40px;
+  }
+}
+
+/* ---- 2. Four steps on one line --------------------------------------------------------------- */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 24px;
+  margin-top: clamp(48px, 6vw, 80px);
+}
+
+/* Each step's dot sits on its rule; from 768px the four rules join into one line. */
+.step {
+  position: relative;
+  padding-top: 28px;
+  border-top: 2px solid var(--color-terracotta);
+}
+
+.step::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-terracotta);
+}
+
+.stepNumber {
+  display: block;
+  color: var(--color-terracotta-ink);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.4vw, 4.75rem);
+  font-weight: 500;
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+}
+
+.stepName {
+  display: block;
+  margin-top: 14px;
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 48rem) {
+  .steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 0;
+  }
+
+  .step {
+    padding-right: 24px;
+  }
+}
+
+/* ---- 3. The school path ---------------------------------------------------------------------- */
+
+.stagesWrap {
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.stage {
+  display: grid;
+  gap: 32px;
 }
 
 .ages {
@@ -81,311 +189,566 @@
   padding: 6px 12px;
   border-radius: 4px;
   background-color: var(--color-cream);
+  color: var(--color-terracotta-ink);
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-terracotta-ink);
 }
 
-.levelCopy h3 {
+.stageCopy h3 {
   margin-top: 16px;
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 2.8vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.12;
   text-wrap: balance;
 }
 
-.levelText {
+.stageText {
   max-width: 60ch;
-  margin-top: 16px;
+  margin-top: 14px;
   font-size: 17px;
   line-height: 1.6;
 }
 
-.levelFacts {
-  display: grid;
-  gap: 1px;
-  margin-top: 28px;
-  overflow: hidden;
-  border-radius: 4px;
-  background-color: var(--color-cream);
+.stageCopy h3 + .stageText {
+  margin-top: 18px;
 }
 
-.levelFacts > div {
-  padding: 18px 20px;
-  background-color: #fff;
-}
-
-.levelFacts dt {
-  font-size: 14px;
+.listIntro {
+  margin-top: 24px;
+  font-size: 17px;
   font-weight: 700;
-  color: var(--color-terracotta-ink);
 }
 
-.levelFacts dd {
-  margin-top: 6px;
-  font-size: 16px;
-  line-height: 1.55;
+.points {
+  display: grid;
+  gap: 8px;
+  max-width: 60ch;
+  margin-top: 12px;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
-.levelFacts dd li {
+.points li {
   position: relative;
-  padding-left: 18px;
+  padding-left: 22px;
 }
 
-.levelFacts dd li + li {
-  margin-top: 4px;
-}
-
-.levelFacts dd li::before {
+.points li::before {
   content: '';
   position: absolute;
-  top: 0.62em;
+  top: 0.6em;
   left: 2px;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: var(--color-olive);
+  background-color: var(--color-terracotta);
 }
 
-.levelPhoto {
+.closing {
+  max-width: 54ch;
+  margin-top: 28px;
+  padding-left: 20px;
+  border-left: 3px solid var(--color-terracotta);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.stagePhoto {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 4px;
-}
-
-.note {
-  max-width: 720px;
-  margin-top: 40px;
+  border-radius: 24px;
 }
 
 @media (min-width: 64rem) {
-  .level {
+  .stage {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     gap: 64px;
-    align-items: start;
+    align-items: stretch;
   }
 
-  .levelPhoto {
-    position: sticky;
-    top: calc(var(--spacing-header) + 32px);
-    aspect-ratio: 4 / 5;
+  .stagePhoto {
+    aspect-ratio: auto;
+    min-height: 420px;
   }
 }
 
-/* ---- The outdoor school, on olive --------------------------------------------------------- */
+/* ---- 4. The languages: a timeline across the levels ----------------------------------------- */
 
-.outdoor {
-  padding-block: var(--spacing-section);
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 32px;
+  margin-top: clamp(48px, 6vw, 80px);
+  padding-left: 28px;
+}
+
+/* The line: down the left on phones, across the top from 768px. */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 5px;
+  width: 2px;
+  background-color: rgb(255 255 255 / 0.45);
+  transform-origin: 50% 0;
+}
+
+.timelineStep {
+  position: relative;
+}
+
+.timelineDot {
+  position: absolute;
+  top: 6px;
+  left: -28px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.timelineLevel {
+  color: var(--color-cream);
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.timelineText {
+  max-width: 24ch;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  line-height: 1.25;
+}
+
+@media (min-width: 48rem) {
+  .timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    padding-top: 44px;
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    top: 5px;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    height: 2px;
+    transform-origin: 0 50%;
+  }
+
+  .timelineDot {
+    top: -44px;
+    left: 0;
+  }
+}
+
+/* ---- 5. The diplomas on the school-year line (board Parcours_scolaire.ai) -------------------- */
+
+/* Below about 1000px the line scrolls sideways under the thumb, from the screen edge. */
+.yearsScroll {
+  margin: clamp(48px, 6vw, 72px) calc(-1 * var(--spacing-gutter)) 0;
+  padding: 0 var(--spacing-gutter) 8px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.yearsScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.years {
+  --gap: 10px;
+  --dot: min(100%, 58px);
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  grid-template-rows: 44px auto auto;
+  column-gap: var(--gap);
+  min-width: 900px;
+  /* Room for the CESS badge, which hangs from the line's very end. */
+  padding-right: 32px;
+}
+
+/* A cycle: its name over a rule, then the grey field behind its years. */
+.cycle {
+  grid-row: 1 / 3;
+  background-color: var(--color-paper);
+}
+
+.cycle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border-bottom: 1px solid var(--color-charcoal); /* taste-skill-ignore: the board's rule under each cycle name */
+  background-color: #fff;
+  font-size: clamp(0.9375rem, 1.3vw, 1.1875rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* The clay line through the discs, with a small dot at each end. */
+.yearLine {
+  position: relative;
+  z-index: 1;
+  grid-row: 2;
+  grid-column: 1 / -1;
+  align-self: start;
+  height: 3px;
+  margin-top: calc(20px + var(--dot) / 2 - 1.5px);
+  margin-inline: -14px;
+  background-color: var(--color-terracotta);
+  transform-origin: 0 50%;
+}
+
+.yearLine::before,
+.yearLine::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--color-terracotta);
+  transform: translateY(-50%);
+}
+
+.yearLine::before {
+  left: 0;
+}
+
+.yearLine::after {
+  right: 0;
+}
+
+.yearList {
+  display: contents;
+}
+
+.year {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  grid-row: 2;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 18px;
+}
+
+.yearDot {
+  display: grid;
+  place-items: center;
+  width: var(--dot);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  font-size: clamp(0.9375rem, 1.35vw, 1.1875rem);
+  font-weight: 700;
+}
+
+.toneSand {
+  background-color: #e6cbb3;
+  color: var(--color-charcoal);
+}
+
+.toneBlush {
+  background-color: #dda38a;
+  color: var(--color-charcoal);
+}
+
+.toneClay {
+  background-color: var(--color-terracotta);
+  color: #fff;
+}
+
+.toneSage {
+  background-color: #c4c2ad;
+  color: var(--color-charcoal);
+}
+
+.toneOlive {
   background-color: var(--color-olive);
   color: #fff;
 }
 
-.outdoorGrid {
-  display: grid;
-  gap: 40px;
+.yearAge {
+  margin-top: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Each diploma hangs from the line at the end of its year (CEB after the P6, CE1D after the S2,
+   CESS at the end), on a dotted stem; the CE1D hangs higher, as on the board, so the three never
+   meet. The item has no width: its contents overflow from the point where the stem falls. */
+.diplomaList {
+  display: contents;
+}
+
+.diploma {
+  --stem: 72px;
+  display: flex;
+  grid-row: 3;
+  flex-direction: column;
   align-items: center;
+  justify-self: end;
+  width: 0;
+  margin-right: calc(-1 * var(--gap) / 2);
 }
 
-.outdoorPhoto {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  max-width: 420px;
-  overflow: hidden;
-  border-radius: 24px 24px 0 0;
+.diploma:nth-child(2) {
+  --stem: 20px;
 }
 
-.outdoorText {
-  max-width: 46ch;
-  margin-top: 20px;
-  font-size: var(--text-lead);
-  line-height: 1.55;
+.diploma[data-last] {
+  margin-right: 0;
 }
 
-@media (min-width: 64rem) {
-  .outdoorGrid {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 80px;
-  }
-
-  .outdoorPhoto {
-    max-width: none;
-    aspect-ratio: 3 / 4;
-  }
+/* The stem starts at the line, above the ages. */
+.diplomaStem {
+  width: 0;
+  height: calc(var(--stem) + 64px);
+  margin-top: -64px;
+  border-left: 2px dotted var(--color-charcoal);
+  transform-origin: 50% 0;
 }
 
-/* ---- Languages, a path through the years --------------------------------------------------- */
-
-.languages {
-  padding-block: var(--spacing-section);
-}
-
-.languagesIntro {
+.diplomaBadge {
   display: grid;
-  gap: 16px;
-}
-
-.languagesIntro p {
-  max-width: 56ch;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--color-ink-soft);
-}
-
-.languagePath {
-  display: grid;
-  gap: 16px;
-  margin-block: clamp(32px, 4vw, 56px) 16px;
-}
-
-/* Each step is a card with a clay rule on its left: read top to bottom, the rules form one path
-   from the first school day to the S4. From 1024px the stage sits left of its text. */
-.languagePath li {
-  position: relative;
-  padding: 20px 24px;
-  border-left: 3px solid var(--color-terracotta);
-  border-radius: 0 4px 4px 0;
-  background-color: var(--color-paper);
-}
-
-.when {
-  font-family: var(--font-accent);
-  font-size: clamp(1.375rem, 2vw, 1.75rem);
-  font-style: italic;
-  line-height: 1.15;
+  flex: none;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background-color: #ecc9b6;
   color: var(--color-terracotta-ink);
 }
 
-.languagePath h3 {
-  margin-top: 8px;
-  font-size: 19px;
-  font-weight: 700;
-}
-
-.languagePath li > p:last-child {
-  margin-top: 10px;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--color-ink-soft);
-}
-
-
-@media (min-width: 64rem) {
-  .languagesIntro {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 80px;
-    align-items: end;
-  }
-
-  .languagePath {
-    gap: 8px;
-  }
-
-  .languagePath li {
-    display: grid;
-    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-    column-gap: 40px;
-    align-items: baseline;
-    padding: 24px 32px;
-  }
-
-  .languagePath h3 {
-    grid-column: 1;
-  }
-
-  .languagePath li > p:last-child {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    margin-top: 0;
-    font-size: 16px;
-  }
-
-}
-
-/* ---- The teachers' voice --------------------------------------------------------------------- */
-
-.voices {
-  padding-block: clamp(56px, 6vw, 88px);
-  background-color: var(--color-paper);
-}
-
-.voicesGrid {
-  display: grid;
-  gap: 24px;
-  align-items: center;
-}
-
-@media (min-width: 64rem) {
-  .voicesGrid {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 80px;
-  }
-}
-
-/* ---- Follow-up questions, cards that open ------------------------------------------------------- */
-
-.support {
-  padding-block: var(--spacing-section);
-}
-
-.supportGrid {
-  display: grid;
-  gap: 32px;
-}
-
-.questions {
-  display: grid;
-  gap: 12px;
-}
-
-.question {
-  border-radius: 4px;
-  background-color: var(--color-paper);
-}
-
-.question summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 64px;
-  padding: 16px 20px;
+.diplomaBadge strong {
+  color: var(--color-charcoal);
   font-size: 17px;
-  font-weight: 600;
-  line-height: 1.4;
-  cursor: pointer;
-  list-style: none;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.question summary::-webkit-details-marker {
-  display: none;
+.badgeOlive {
+  background-color: var(--color-olive);
+  color: #fff;
 }
 
-.plus {
-  width: 20px;
-  height: 20px;
+.badgeOlive strong {
+  color: #fff;
+}
+
+/* The text runs left of the stem for the CEB and the CESS, right of it for the CE1D. */
+.diplomaWhen {
+  display: block;
   flex: none;
-  color: var(--color-terracotta);
-  transition: transform 250ms var(--ease-out-expo);
+  width: 200px;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: right;
+  transform: translateX(calc(-50% + 42px));
 }
 
-.question[open] .plus {
-  transform: rotate(45deg);
+.diploma:nth-child(2) .diplomaWhen {
+  text-align: left;
+  transform: translateX(calc(50% - 42px));
 }
 
-.question p {
-  max-width: 64ch;
-  padding: 0 20px 20px;
-  font-size: 16px;
-  line-height: 1.6;
+.diplomaAfter {
+  display: block;
+  margin-bottom: 2px;
   color: var(--color-ink-soft);
+  font-size: 14px;
+  font-weight: 400;
 }
 
-@media (min-width: 64rem) {
-  .supportGrid {
-    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-    gap: 80px;
-    align-items: start;
+/* ---- 6. The three savoirs, rings that meet ----------------------------------------------------- */
+
+.savoirs {
+  display: grid;
+  justify-items: center;
+  margin-top: clamp(48px, 6vw, 80px);
+}
+
+.savoir {
+  display: grid;
+  place-content: center;
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+  padding: 36px;
+  border: 1.5px solid rgb(255 255 255 / 0.85);
+  border-radius: 50%;
+  text-align: center;
+}
+
+.savoir + .savoir {
+  margin-top: -40px;
+}
+
+.savoir h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.6vw, 2.375rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.savoir p {
+  max-width: 18ch;
+  margin: 12px auto 0;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+@media (min-width: 48rem) {
+  .savoirs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: stretch;
+  }
+
+  .savoir {
+    width: calc(100% + 40px);
+    padding: 28px;
+  }
+
+  .savoir:nth-child(2) {
+    margin-left: -20px;
+  }
+
+  .savoir:nth-child(3) {
+    margin-left: -40px;
+  }
+
+  .savoir + .savoir {
+    margin-top: 0;
+  }
+}
+
+/* ---- Scroll-driven motion ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .markers li,
+    .step,
+    .timelineStep {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry calc(10% + var(--i, 0) * 12%) entry calc(70% + var(--i, 0) * 10%);
+    }
+
+    .markers li:nth-child(2) {
+      --i: 1;
+    }
+
+    .markers li:nth-child(3) {
+      --i: 2;
+    }
+
+    .timeline::before {
+      animation: draw-y linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 45%;
+    }
+
+    .yearLine {
+      animation: draw-x linear both;
+      animation-timeline: view();
+      animation-range: entry 30% cover 40%;
+    }
+
+    .yearDot {
+      animation: pop linear both;
+      animation-timeline: view();
+      animation-range: entry calc(30% + var(--i) * 4%) cover calc(28% + var(--i) * 1%);
+    }
+
+    .diplomaStem {
+      animation: draw-y linear both;
+      animation-timeline: view();
+      animation-range: entry calc(40% + var(--d) * 20%) cover calc(40% + var(--d) * 4%);
+    }
+
+    .diplomaBadge,
+    .diplomaWhen {
+      animation: drop linear both;
+      animation-timeline: view();
+      animation-range: entry calc(60% + var(--d) * 15%) cover calc(42% + var(--d) * 4%);
+    }
+
+    .savoir {
+      animation: meet linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 45%;
+    }
+
+    .savoir:nth-child(1) {
+      --from: -18%;
+    }
+
+    .savoir:nth-child(3) {
+      --from: 18%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 48rem) {
+  @supports (animation-timeline: view()) {
+    .timeline::before {
+      animation-name: draw-x;
+    }
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes draw-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    translate: 0 -16px;
+  }
+}
+
+/* The outer rings start apart and slide in until the three overlap. */
+@keyframes meet {
+  from {
+    opacity: 0;
+    transform: translateX(var(--from, 0));
   }
 }
