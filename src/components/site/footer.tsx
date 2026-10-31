@@ -1,9 +1,12 @@
+
+import { CmsAnchor } from '@/cms/link'
+import { getCampuses } from '@/cms/campuses'
+import { getCmsContent } from '@/cms/server'
 import { ArrowUpRight } from 'lucide-react'
-import Image from 'next/image'
+import Image from '@/cms/image'
 import type { ReactNode, SVGProps } from 'react'
 
-import { campusList } from '@/content/campuses'
-import { footerNav, legalLinks, site, type Email } from '@/content/site'
+import { footerNav as defaultFooterNav, legalLinks as defaultLegalLinks, site as defaultSite, type Email } from '@/content/site'
 import { Container } from '@/components/ui/container'
 import { SmartLink } from '@/components/ui/smart-link'
 
@@ -67,15 +70,18 @@ function withTrailingIcon(label: string, icon: ReactNode) {
 function EmailLink({ email }: { email: Email }) {
   const at = email.address.indexOf('@')
   return (
-    <a href={email.href} className={contactLinkClass}>
+    <CmsAnchor href={email.href} className={contactLinkClass}>
       {email.address.slice(0, at)}
       <wbr />
       {email.address.slice(at)}
-    </a>
+    </CmsAnchor>
   )
 }
 
-export function Footer() {
+export async function Footer() {
+  const site = await getCmsContent('site', defaultSite)
+  const [footerNav, legalLinks, campuses] = await Promise.all([getCmsContent('footerNav', defaultFooterNav), getCmsContent('legalLinks', defaultLegalLinks), getCampuses()])
+  const cmsCampusList = campuses.map(campus => ({ slug: campus.slug, name: campus.title, address: { lines: campus.address }, phone: campus.contacts[0]?.phones[0], emails: campus.contacts.map(service => ({ address: service.email, href: `mailto:${service.email}` })) }))
   const logo = site.logos.stacked
 
   return (
@@ -134,7 +140,7 @@ export function Footer() {
         })}
 
         {/* Campus de Casablanca, Campus de Rabat */}
-        {campusList.map((campus) => (
+        {cmsCampusList.map((campus) => (
           <div key={campus.slug}>
             <h2 className={headingClass}>{campus.name}</h2>
             <address className="mt-3.5 text-sm leading-6 not-italic">
@@ -147,10 +153,10 @@ export function Footer() {
               </p>
               <ul className="mt-2.5 grid gap-1">
                 <li>
-                  <a href={campus.phone.href} className={`${contactLinkClass} whitespace-nowrap`}>
+                  {campus.phone && <CmsAnchor href={campus.phone.href} className={`${contactLinkClass} whitespace-nowrap`}>
                     <span className="sr-only">Téléphone{' '}: </span>
                     {campus.phone.display}
-                  </a>
+                  </CmsAnchor>}
                 </li>
                 {campus.emails.map((email) => (
                   <li key={email.address}>

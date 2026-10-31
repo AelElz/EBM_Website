@@ -1,4 +1,6 @@
 'use client'
+import { CmsAnchor } from '@/cms/link'
+
 
 import { useEffect, useState } from 'react'
 
@@ -19,12 +21,13 @@ export function ContactComposer({ recipients, initialCampus, initialSubject, con
   const [enhanced, setEnhanced] = useState(false)
   useEffect(() => setEnhanced(true), [])
   const availableSubjects = initialSubject && !subjects.includes(initialSubject) ? [initialSubject, ...subjects] : subjects
-  const [recipientId, setRecipientId] = useState(recipients.find((item) => item.campus === initialCampus)?.id ?? recipients[0].id)
+  const [recipientId, setRecipientId] = useState(recipients.find((item) => item.campus === initialCampus)?.id ?? recipients[0]?.id ?? '')
   const [subject, setSubject] = useState(initialSubject ?? subjects[0])
   const [message, setMessage] = useState('')
   const recipient = recipients.find((item) => item.id === recipientId) ?? recipients[0]
-  const href = `mailto:${recipient.email}?subject=${encodeURIComponent(`${subject} — ${recipient.label}`)}&body=${encodeURIComponent(message)}`
+  const href = `mailto:${recipient?.email ?? ''}?subject=${encodeURIComponent(`${subject} — ${recipient?.label ?? ''}`)}&body=${encodeURIComponent(message)}`
 
+  if (!recipient) return <p className={styles.notice}>Aucun service de contact n’est publié pour le moment.</p>
   return (
     <div className={styles.composer} data-enhanced={enhanced ? '' : undefined}>
       <p className={styles.notice}>{context === 'visit' ? 'Vous préparez une demande de visite, pas une réservation confirmée. ' : 'Le formulaire d’envoi du site n’est pas encore disponible. '}Préparez un e-mail ici, puis vérifiez-le et envoyez-le dans votre messagerie. Le site ne conserve pas votre message et ne l’envoie pas.</p>
@@ -48,7 +51,7 @@ export function ContactComposer({ recipients, initialCampus, initialSubject, con
         </label>
       </div>
       <p className={styles.composerAddress}>Destinataire : <strong>{recipient.email}</strong></p>
-      <div className={styles.actions}><a className={buttonVariants({ size: 'lg' })} href={href}>Ouvrir ma messagerie</a></div>
+      <div className={styles.actions}><CmsAnchor className={buttonVariants({ size: 'lg' })} href={href}>Ouvrir ma messagerie</CmsAnchor></div>
       <noscript><p className={styles.notice}>Vous pouvez écrire directement aux adresses des campus ci-dessus.</p></noscript>
     </div>
   )

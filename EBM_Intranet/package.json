@@ -1,0 +1,30 @@
+{
+  "name": "ebm-intranet",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Espace personnel des Écoles Belges au Maroc: the staff home shown after Google sign-in.",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3200",
+    "build": "next build",
+    "start": "next start -p 3200",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "22.20.5",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "lucide-react": "1.61.0",
+    "next": "16.4.2",
+    "react": "19.2.9",
+    "react-dom": "19.2.9"
+  }
+}

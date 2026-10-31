@@ -1,6 +1,7 @@
-import Image from 'next/image'
+import { getCmsContent } from '@/cms/server'
+import Image from '@/cms/image'
 
-import { home } from '@/content/home'
+import { home as defaultHome } from '@/content/home'
 import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 
@@ -12,7 +13,8 @@ import { Container } from '@/components/ui/container'
  * Overlay: 66% charcoal rather than 62%. Measured on this photo, the brightest 1% of pixels
  * under 62% leave white text at 4.3:1; at 66% the paragraph stays >= 4.8:1 at every crop.
  */
-export function CtaBand() {
+export async function CtaBand() {
+  const home = await getCmsContent('home', defaultHome)
   const { title, text, image, primary, secondary } = home.ctaBand
 
   return (

@@ -74,7 +74,7 @@ export interface HomeAlumni {
   /** Visible notice while the stories are placeholders. */
   note: string
   /** Placeholder stories until EBM collects real ones (docs/ARCHITECTURE.md, alumni). */
-  source: 'placeholder'
+  source: 'placeholder' | 'published'
   stories: AlumniStory[]
   link: LinkItem
 }

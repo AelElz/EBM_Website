@@ -78,8 +78,9 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
 - Validated copy (30 Oct 2026, Ayoub: "this is the real validated data"): EBM's
   `UI projects/EBM WEBSITE/Notre_pédagogie.docx` and `Parcours_scolaire.docx`, word for word
   (site typography only) in `src/content/pedagogie.ts` and `src/content/parcours.ts`. Do not
-  rewrite or add to that copy. `parcours.ts` feeds both the home band 5 (each stage's opening
-  paragraphs + bold closing line) and `/pedagogie` (full stages with their lists). `/pedagogie`
+  rewrite or add to that copy. `parcours.ts` feeds both the home band 5 (since 31 Oct 2026, after sas.edu.sg: per tab one
+  clay line with the stage's title and ages, its first sentence, and a pill opening that stage
+  on /pedagogie) and `/pedagogie` (full stages with their lists). `/pedagogie`
   follows the document's order and its "Traitement graphique" notes: framework + three sober
   markers, way of teaching + steps 01-04, the four stages as tabs, languages timeline on olive,
   diplomas as a staircase of three steps (CEB, CE1D, CESS), each taller than the last, the
@@ -98,6 +99,14 @@ Do not add another backend, ORM, auth service or UI kit without explaining why.
   values on a Fired Clay band, the Belgian framework as a checklist, history as a timeline on
   olive, the campuses as photo cards, partners on charcoal. The shared inner blocks are unchanged,
   so the other inner pages are untouched.
+- Home, 31 Oct 2026: a partners strip after band 3 (`components/home/partners-marquee.tsx`,
+  content `src/content/partners.ts`): only collaborations EBM's sources document (FWB, WBI,
+  AEBE, Royaume du Maroc 2014 agreement, Ambassade d'Allemagne and Goethe-Institut in Rabat,
+  Cambridge English preparation centre). FWB/WBI/AEBE logos are cut from EBM's own strip
+  (`public/brand/partners/`); the others are wordmarks until EBM provides official, permitted
+  logo files. The static logo row of band 3 was removed (no repeat). CSS loop, paused on hover,
+  still under reduced motion. Band 5's children now rise from their feet as the band scrolls
+  in, then drift up as it leaves (`path-band.module.css`, scroll-driven).
 - Legal pages (30 Oct 2026, Ayoub: "the big 3"): `/conditions-utilisation`, `/confidentialite`
   (now "Confidentialité et sécurité"), `/cookies`, plus `/mentions-legales` in the same layout
   (`components/legal/`, content in `src/content/legal.ts`, Moroccan loi 09-08 / CNDP / loi

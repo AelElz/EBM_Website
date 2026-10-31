@@ -327,14 +327,6 @@
   object-fit: cover;
 }
 
-.partners {
-  width: min(100%, 300px);
-  height: auto;
-  margin: 36px auto 0;
-  filter: brightness(0);
-  opacity: 0.85;
-}
-
 /* ---------- Band 4: the pedagogy on olive ---------- */
 
 .pillars {

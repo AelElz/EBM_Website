@@ -1,6 +1,7 @@
-import Image from 'next/image'
+import { getCmsContent } from '@/cms/server'
+import Image from '@/cms/image'
 
-import { home } from '@/content/home'
+import { home as defaultHome } from '@/content/home'
 import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 
@@ -16,8 +17,10 @@ import { HeroSlider } from './hero-slider'
  * `#primary-actions` wraps the hero buttons: the mobile action bar shows itself once this
  * element has scrolled out of view.
  */
-export function Hero() {
+export async function Hero() {
+  const home = await getCmsContent('home', defaultHome)
   const { title, text, slides, primary, secondary } = home.hero
+  if (slides.length === 0) return null
   const [first] = slides
 
   return (

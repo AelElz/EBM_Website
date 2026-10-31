@@ -1,7 +1,8 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import { getCmsContent } from '@/cms/server'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 
-import { home } from '@/content/home'
+import { home as defaultHome } from '@/content/home'
 
 import styles from './about-collage.module.css'
 import { CollageZoom } from './collage-zoom'
@@ -17,8 +18,10 @@ import { Emphasis, SectionLabel } from './emphasis'
  * `sizes`: the focus photo ends at full screen, so it loads the 100vw candidate. The corners
  * never rest wider than ~34% of a landscape screen or ~52% of a portrait one.
  */
-export function About() {
+export async function About() {
+  const home = await getCmsContent('home', defaultHome)
   const { label, title, cta, collage } = home.about
+  if (collage.length === 0) return null
   const [focus, ...corners] = collage
 
   return (

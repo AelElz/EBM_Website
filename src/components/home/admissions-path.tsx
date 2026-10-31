@@ -1,7 +1,8 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import { getCmsContent } from '@/cms/server'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 
-import { admissionsPath } from '@/content/home-details'
+import { admissionsPath as defaultValue } from '@/content/home-details'
 import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 
@@ -9,7 +10,8 @@ import styles from './admissions-path.module.css'
 import { SectionHeading } from './emphasis'
 
 /** A literal, readable admissions sequence; all content is rendered on the server. */
-export function AdmissionsPath() {
+export async function AdmissionsPath() {
+  const { admissionsPath } = await getCmsContent('homeDetails', { admissionsPath: defaultValue })
   const { title, text, reassurance, image, phases, apply, more } = admissionsPath
 
   return (

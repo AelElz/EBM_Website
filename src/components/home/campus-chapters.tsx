@@ -1,14 +1,16 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import { getCmsContent } from '@/cms/server'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 import { Fragment, type CSSProperties } from 'react'
 
-import { campusChapters } from '@/content/home-details'
+import { campusChapters as defaultValue } from '@/content/home-details'
 
 import { CampusSwitcher } from './campus-switcher'
 import styles from './campus-chapters.module.css'
 
 /** Both campuses keep their real photos/copy, displayed in one shared frame. */
-export function CampusChapters() {
+export async function CampusChapters() {
+  const { campusChapters } = await getCmsContent('homeDetails', { campusChapters: defaultValue })
   return (
     <CampusSwitcher
       campuses={campusChapters.map(chapter => ({

@@ -1,3 +1,4 @@
+import { getCmsContent } from '@/cms/server'
 import type { Metadata } from 'next'
 
 import { home } from '@/content/home'
@@ -6,6 +7,7 @@ import { homeJsonLd, serializeJsonLd } from '@/lib/structured-data'
 import { About } from '@/components/home/about'
 import { AdmissionsPath } from '@/components/home/admissions-path'
 import { AnchorageBand } from '@/components/home/bands/anchorage-band'
+import { PartnersMarquee } from '@/components/home/partners-marquee'
 import { NetworkBand } from '@/components/home/bands/network-band'
 import { PathBand } from '@/components/home/bands/path-band'
 import { PedagogyBand } from '@/components/home/bands/pedagogy-band'
@@ -20,14 +22,9 @@ import { Highlights } from '@/components/home/highlights'
 import { Instagram } from '@/components/home/instagram'
 import { CtaBand } from '@/components/site/cta-band'
 
-const { title, description } = home.seo
-
-export const metadata: Metadata = {
-  // Absolute: the layout's "%s · Écoles Belges au Maroc" template would repeat the name.
-  title: { absolute: title },
-  description,
-  alternates: { canonical: '/' },
-  openGraph: { ...baseOpenGraph, title, description, url: '/', images: [ogImage] },
+export async function generateMetadata(): Promise<Metadata> {
+  const { seo: { title, description } } = await getCmsContent('home', home)
+  return { title: { absolute: title }, description, alternates: { canonical: '/' }, openGraph: { ...baseOpenGraph, title, description, url: '/', images: [ogImage] } }
 }
 
 /*
@@ -52,6 +49,7 @@ export default function HomePage() {
       <ValuesBand />
       <NetworkBand />
       <AnchorageBand />
+      <PartnersMarquee />
       <PedagogyBand />
       <PathBand />
       <Guarantee />

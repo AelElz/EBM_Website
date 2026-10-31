@@ -1,7 +1,8 @@
+import { getCmsContent } from '@/cms/server'
 import { ArrowRight, CalendarCheck, GraduationCap, Sprout, type LucideIcon } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/cms/link'
 
-import { home, type HomeIcon } from '@/content/home'
+import { home as defaultHome, type HomeIcon } from '@/content/home'
 import { Container } from '@/components/ui/container'
 import { NNBSP } from '@/lib/typography'
 
@@ -22,7 +23,8 @@ const icons: Partial<Record<HomeIcon, LucideIcon>> = {
   admissions: CalendarCheck,
 }
 
-export function Highlights() {
+export async function Highlights() {
+  const home = await getCmsContent('home', defaultHome)
   return (
     <section aria-label="L’essentiel" className="relative z-10 -mt-12 md:-mt-24">
       <Container>

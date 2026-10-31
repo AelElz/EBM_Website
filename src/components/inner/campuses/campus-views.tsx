@@ -1,6 +1,8 @@
+
+import { CmsAnchor } from '@/cms/link'
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 
 import { SectionHeading } from '@/components/home/emphasis'
 import { PageActions, SectionNav } from '@/components/inner/blocks'
@@ -48,7 +50,7 @@ function Contacts({ campus, heading = true }: { campus: MigratedCampus; heading?
           {campus.city}, <em>{campus.district}</em>
         </h3>
       ) : null}
-      <a href={campus.directionsUrl} target="_blank" rel="noopener noreferrer" className={styles.address}>
+      <CmsAnchor href={campus.directionsUrl} target="_blank" rel="noopener noreferrer" className={styles.address}>
         <MapPin aria-hidden="true" strokeWidth={1.75} className="size-5 shrink-0" />
         <span>
           {campus.address.join(', ')}
@@ -57,21 +59,21 @@ function Contacts({ campus, heading = true }: { campus: MigratedCampus; heading?
           </span>
           <span className="sr-only"> (nouvel onglet)</span>
         </span>
-      </a>
+      </CmsAnchor>
       {campus.contacts.map((service) => (
         <div key={service.email} className={styles.service}>
           <p className={styles.serviceName}>{service.label}</p>
           {service.phones.map((number) => (
-            <a key={number.href} href={number.href} className={styles.line}>
+            <CmsAnchor key={number.href} href={number.href} className={styles.line}>
               <Phone aria-hidden="true" strokeWidth={1.75} className="size-4 shrink-0" />
               {number.display}
               {number.label === 'Mobile' ? <span className={styles.muted}>mobile</span> : null}
-            </a>
+            </CmsAnchor>
           ))}
-          <a href={`mailto:${service.email}`} className={styles.line}>
+          <CmsAnchor href={`mailto:${service.email}`} className={styles.line}>
             <Mail aria-hidden="true" strokeWidth={1.75} className="size-4 shrink-0" />
             {service.email}
-          </a>
+          </CmsAnchor>
         </div>
       ))}
     </div>
@@ -213,9 +215,9 @@ export function CampusHub() {
                 <th scope="row">Téléphone</th>
                 {migratedCampuses.map((campus) => (
                   <td key={campus.slug}>
-                    <a href={campus.contacts[0].phones[0].href} className={styles.tableLink}>
+                    <CmsAnchor href={campus.contacts[0].phones[0].href} className={styles.tableLink}>
                       {campus.contacts[0].phones[0].display}
-                    </a>
+                    </CmsAnchor>
                   </td>
                 ))}
               </tr>

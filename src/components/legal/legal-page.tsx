@@ -1,4 +1,6 @@
-import Link from 'next/link'
+
+import { CmsAnchor } from '@/cms/link'
+import Link from '@/cms/link'
 import { Fragment, type ReactNode } from 'react'
 
 import { Container } from '@/components/ui/container'
@@ -37,10 +39,10 @@ function Rich({ text }: { text: string }) {
           {label}
         </Link>
       ) : (
-        <a key={index} href={href} target="_blank" rel="noopener noreferrer">
+        <CmsAnchor key={index} href={href} target="_blank" rel="noopener noreferrer">
           {label}
           <span className="sr-only"> (nouvel onglet)</span>
-        </a>
+        </CmsAnchor>
       )
     }
     return <Fragment key={index}>{part}</Fragment>
@@ -147,7 +149,7 @@ export function LegalPage({ doc, extra = {} }: { doc: LegalDocument; extra?: Rec
           <ol>
             {doc.sections.map((section) => (
               <li key={section.id}>
-                <a href={`#${section.id}`}>{section.title}</a>
+                <CmsAnchor href={`#${section.id}`}>{section.title}</CmsAnchor>
               </li>
             ))}
           </ol>

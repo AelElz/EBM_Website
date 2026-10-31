@@ -1,8 +1,9 @@
+import { getCmsContent } from '@/cms/server'
 import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 
-import { homeBands } from '@/content/home-bands'
+import { homeBands as defaultHomeBands } from '@/content/home-bands'
 import { Container } from '@/components/ui/container'
 
 import { BandHeading } from './band-heading'
@@ -15,7 +16,8 @@ import styles from './bands.module.css'
  * button, as on the board (his exception to the home's button and label rules).
  * Server Component, no client JS.
  */
-export function PedagogyBand() {
+export async function PedagogyBand() {
+  const homeBands = await getCmsContent('homeBands', defaultHomeBands)
   const { label, title, text, pillars, cta } = homeBands.pedagogy
 
   return (

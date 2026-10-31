@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowLeft, ArrowRight, Pause, Play } from 'lucide-react'
-import Image from 'next/image'
+import Image from '@/cms/image'
 import { useEffect, useId, useState, type FocusEvent, type PointerEvent, type ReactNode } from 'react'
 
 /*

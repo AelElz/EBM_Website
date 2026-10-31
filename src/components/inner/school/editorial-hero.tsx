@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 import type { ReactNode } from 'react'
 
 import { Container } from '@/components/ui/container'

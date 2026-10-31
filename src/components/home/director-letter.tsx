@@ -1,6 +1,7 @@
-import Image from 'next/image'
+import { getCmsContent } from '@/cms/server'
+import Image from '@/cms/image'
 
-import { director } from '@/content/home-details'
+import { director as defaultValue } from '@/content/home-details'
 import { Container } from '@/components/ui/container'
 
 /*
@@ -12,7 +13,8 @@ import { Container } from '@/components/ui/container'
  * square was too slight for the one face that signs for the network. No quotation marks: the
  * letter form says it is his voice. Server Component, no client JS.
  */
-export function DirectorLetter() {
+export async function DirectorLetter() {
+  const { director } = await getCmsContent('homeDetails', { director: defaultValue })
   const { image } = director
 
   return (

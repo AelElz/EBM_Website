@@ -1,4 +1,5 @@
-import { site } from '@/content/site'
+import { getCmsContent } from '@/cms/server'
+import { site as defaultSite } from '@/content/site'
 import { ButtonLink } from '@/components/ui/button'
 
 import { MobileActionBarFrame } from './header/mobile-action-bar-frame'
@@ -16,7 +17,8 @@ import { MobileActionBarFrame } from './header/mobile-action-bar-frame'
  * (header/mobile-action-bar-frame.tsx) carries only the visibility logic, not the content
  * modules or the button styles.
  */
-export function MobileActionBar() {
+export async function MobileActionBar() {
+  const site = await getCmsContent('site', defaultSite)
   const { calendar, apply } = site.actions
 
   return (

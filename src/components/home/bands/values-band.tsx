@@ -1,4 +1,5 @@
-import { homeBands } from '@/content/home-bands'
+import { getCmsContent } from '@/cms/server'
+import { homeBands as defaultHomeBands } from '@/content/home-bands'
 import { Container } from '@/components/ui/container'
 
 import styles from './bands.module.css'
@@ -33,7 +34,8 @@ function LitWords({ text }: { text: string }) {
   })
 }
 
-export function ValuesBand() {
+export async function ValuesBand() {
+  const homeBands = await getCmsContent('homeBands', defaultHomeBands)
   const { title, statement, items } = homeBands.values
 
   return (

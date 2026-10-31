@@ -1,6 +1,7 @@
+import { getCmsContent } from '@/cms/server'
 import { Check } from 'lucide-react'
 
-import { guarantee } from '@/content/home-details'
+import { guarantee as defaultValue } from '@/content/home-details'
 import { Container } from '@/components/ui/container'
 
 import { CertificatePath } from './certificate-path'
@@ -8,7 +9,8 @@ import styles from './guarantee.module.css'
 import { SectionHeading } from './emphasis'
 
 /** One connected diagram, instead of the former eight-row institutional table. */
-export function Guarantee() {
+export async function Guarantee() {
+  const { guarantee } = await getCmsContent('homeDetails', { guarantee: defaultValue })
   return (
     <section aria-labelledby="guarantee-title" className={styles.section}>
       <Container>

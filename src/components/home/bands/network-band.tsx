@@ -1,7 +1,8 @@
+import { getCmsContent } from '@/cms/server'
 import { Backpack, CalendarDays, LandPlot, Plane, School, UsersRound, type LucideIcon } from 'lucide-react'
-import Image from 'next/image'
+import Image from '@/cms/image'
 
-import { homeBands, type BandIcon } from '@/content/home-bands'
+import { homeBands as defaultHomeBands, type BandIcon } from '@/content/home-bands'
 import { Container } from '@/components/ui/container'
 
 import { CountUp } from '../count-up'
@@ -29,7 +30,8 @@ const icons: Record<BandIcon, LucideIcon> = {
   surface: LandPlot,
 }
 
-export function NetworkBand() {
+export async function NetworkBand() {
+  const homeBands = await getCmsContent('homeBands', defaultHomeBands)
   const { label, title, paragraphs, image, figures } = homeBands.network
 
   return (

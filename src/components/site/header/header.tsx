@@ -1,7 +1,8 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import { getCmsContent } from '@/cms/server'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 
-import { navigation, site } from '@/content/site'
+import { navigation as defaultNavigation, site as defaultSite } from '@/content/site'
 import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 
@@ -42,7 +43,9 @@ const frosted = [
   'group-data-[scrolled=true]/header:shadow-[0_12px_32px_-24px_rgb(40_30_20/0.4)]',
 ].join(' ')
 
-export function Header() {
+export async function Header() {
+  const site = await getCmsContent('site', defaultSite)
+  const navigation = await getCmsContent('navigation', defaultNavigation)
   const logo = site.logos.horizontal
   const { calendar, apply } = site.actions
 

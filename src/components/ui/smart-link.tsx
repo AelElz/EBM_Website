@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { CmsAnchor } from '@/cms/link'
+import Link from '@/cms/link'
 import type { ComponentProps, ReactNode } from 'react'
 
 export type SmartLinkProps = Omit<ComponentProps<'a'>, 'href'> & {
@@ -15,18 +16,18 @@ export type SmartLinkProps = Omit<ComponentProps<'a'>, 'href'> & {
 export function SmartLink({ href, external, children, ...props }: SmartLinkProps) {
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+      <CmsAnchor href={href} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
         <span className="sr-only"> (nouvel onglet)</span>
-      </a>
+      </CmsAnchor>
     )
   }
 
   if (/^(tel:|mailto:|https?:)/.test(href)) {
     return (
-      <a href={href} {...props}>
+      <CmsAnchor href={href} {...props}>
         {children}
-      </a>
+      </CmsAnchor>
     )
   }
 

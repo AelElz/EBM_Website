@@ -1,5 +1,6 @@
+import { CmsAnchor } from '@/cms/link'
 import { cva, type VariantProps } from 'class-variance-authority'
-import Link from 'next/link'
+import Link from '@/cms/link'
 import type { ComponentProps, ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
@@ -88,10 +89,10 @@ export function ButtonLink({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes} {...props}>
+      <CmsAnchor href={href} target="_blank" rel="noopener noreferrer" className={classes} {...props}>
         {children}
         <span className="sr-only"> (nouvel onglet)</span>
-      </a>
+      </CmsAnchor>
     )
   }
 

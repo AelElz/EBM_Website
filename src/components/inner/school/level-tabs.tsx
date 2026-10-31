@@ -1,4 +1,6 @@
 'use client'
+import { CmsAnchor } from '@/cms/link'
+
 
 import { Children, useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
 import styles from './school.module.css'
@@ -44,7 +46,7 @@ export function LevelTabs({ levels, children }: { levels: { id: string; label: s
   }
   return <div ref={root} className={styles.levels} data-enhanced={enhanced ? '' : undefined}>
     <nav aria-label="Les niveaux d’enseignement" className={styles.tabs} role={enhanced ? 'tablist' : undefined}>
-      {levels.map((level, index) => <a key={level.id} id={`tab-${level.id}`} href={`#${level.id}`} ref={node => { links.current[index] = node }} role={enhanced ? 'tab' : undefined} aria-selected={enhanced ? active === level.id : undefined} aria-controls={enhanced ? level.id : undefined} tabIndex={enhanced && active !== level.id ? -1 : 0} onClick={event => { event.preventDefault(); setActive(level.id); window.history.replaceState(null, '', `#${level.id}`) }} onKeyDown={event => move(event, index)}>{level.label}</a>)}
+      {levels.map((level, index) => <CmsAnchor key={level.id} id={`tab-${level.id}`} href={`#${level.id}`} ref={node => { links.current[index] = node }} role={enhanced ? 'tab' : undefined} aria-selected={enhanced ? active === level.id : undefined} aria-controls={enhanced ? level.id : undefined} tabIndex={enhanced && active !== level.id ? -1 : 0} onClick={event => { event.preventDefault(); setActive(level.id); window.history.replaceState(null, '', `#${level.id}`) }} onKeyDown={event => move(event, index)}>{level.label}</CmsAnchor>)}
     </nav>
     {Children.map(children, (child, index) => <div id={levels[index].id} className={styles.levelPanel} data-active={active === levels[index].id ? '' : undefined} role={enhanced ? 'tabpanel' : undefined} aria-labelledby={enhanced ? `tab-${levels[index].id}` : undefined} tabIndex={enhanced ? 0 : undefined}>{child}</div>)}
   </div>

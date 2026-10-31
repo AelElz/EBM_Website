@@ -1,7 +1,8 @@
+import { getCmsContent } from '@/cms/server'
 import { Search, UserRound, type LucideIcon } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/cms/link'
 
-import { site } from '@/content/site'
+import { site as defaultSite } from '@/content/site'
 import { routes } from '@/lib/routes'
 import { cn } from '@/lib/utils'
 
@@ -25,7 +26,8 @@ function Icon({ icon: Glyph }: { icon: LucideIcon }) {
 }
 
 /** Opens the search overlay (search-trigger.tsx); a link to /recherche without JavaScript. */
-export function SearchLink({ className, labelClassName }: { className?: string; labelClassName?: string }) {
+export async function SearchLink({ className, labelClassName }: { className?: string; labelClassName?: string }) {
+  const site = await getCmsContent('site', defaultSite)
   const { search } = site.actions
 
   return (
@@ -37,7 +39,8 @@ export function SearchLink({ className, labelClassName }: { className?: string; 
 }
 
 /** Login: the site's Espace Eduka page (/espace-eduka), which hands off to Eduka's sign-in. */
-export function EdukaLink({ className, labelClassName }: { className?: string; labelClassName?: string }) {
+export async function EdukaLink({ className, labelClassName }: { className?: string; labelClassName?: string }) {
+  const site = await getCmsContent('site', defaultSite)
   return (
     <Link href={routes.espaceEduka} className={cn(linkClass, className)}>
       <Icon icon={UserRound} />

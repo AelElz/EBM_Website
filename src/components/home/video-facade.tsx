@@ -1,7 +1,9 @@
 'use client'
+import { CmsAnchor } from '@/cms/link'
+
 
 import { Play } from 'lucide-react'
-import Image from 'next/image'
+import Image from '@/cms/image'
 import { useEffect, useRef, useState } from 'react'
 
 import type { ImageAsset } from '@/content/types'
@@ -148,7 +150,7 @@ export function VideoFacade({ id, title, poster }: { id: string; title: string; 
         <Image src={poster.src} alt="" fill sizes="(min-width: 1280px) 1240px, 100vw" className="object-cover" style={{ objectPosition: poster.position }} />
         <div ref={mount} className={styles.player} aria-hidden={!started && !requested} style={{ opacity: started || requested ? 1 : 0, pointerEvents: started || requested ? 'auto' : 'none' }} />
         {!started && !requested && (
-          <a
+          <CmsAnchor
             href={`https://www.youtube.com/watch?v=${id}`}
             target="_blank" rel="noopener noreferrer"
             aria-label={error ? 'Voir la vidéo sur YouTube (nouvel onglet)' : 'Lire la vidéo'}
@@ -167,12 +169,12 @@ export function VideoFacade({ id, title, poster }: { id: string; title: string; 
             <span className={styles.playButton}>
               <Play aria-hidden="true" size={26} strokeWidth={0} fill="currentColor" />
             </span>
-          </a>
+          </CmsAnchor>
         )}
       </div>
       <div className={styles.videoNote}>
         {error && <p role="status">Le lecteur est indisponible. La vidéo reste accessible sur YouTube.</p>}
-        <a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer">Voir sur YouTube<span className="sr-only"> (nouvel onglet)</span></a>
+        <CmsAnchor href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer">Voir sur YouTube<span className="sr-only"> (nouvel onglet)</span></CmsAnchor>
       </div>
     </div>
   )

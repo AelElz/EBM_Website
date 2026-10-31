@@ -1,8 +1,10 @@
 'use client'
+import { CmsAnchor } from '@/cms/link'
+
 
 import * as Dialog from '@radix-ui/react-dialog'
 import { ArrowRight, ArrowUpRight, Search, X } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/cms/link'
 import { useRouter } from 'next/navigation'
 import {
   useEffect,
@@ -95,10 +97,10 @@ function ResultLink({ entry, query, onNavigate }: { entry: SearchEntry; query: s
   )
 
   return entry.external ? (
-    <a href={entry.href} target="_blank" rel="noopener noreferrer" onClick={onNavigate} className={rowClass}>
+    <CmsAnchor href={entry.href} target="_blank" rel="noopener noreferrer" onClick={onNavigate} className={rowClass}>
       {content}
       <span className="sr-only"> (nouvel onglet)</span>
-    </a>
+    </CmsAnchor>
   ) : (
     <Link href={entry.href} onClick={onNavigate} className={rowClass}>
       {content}

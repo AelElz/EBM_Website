@@ -1,4 +1,6 @@
 'use client'
+import { CmsAnchor } from '@/cms/link'
+
 
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Children, useEffect, useRef, useState, type PointerEvent, type ReactNode } from 'react'
@@ -97,7 +99,7 @@ export function CampusSwitcher({ campuses, previews, children }: {
       </p>
       <noscript>
         <div className={styles.fallback}>
-          {campuses.map(campus => <a key={campus.key} href={campus.href}>Le campus de {campus.label}</a>)}
+          {campuses.map(campus => <CmsAnchor key={campus.key} href={campus.href}>Le campus de {campus.label}</CmsAnchor>)}
         </div>
       </noscript>
     </section>

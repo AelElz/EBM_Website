@@ -1,18 +1,22 @@
+
+import { CmsAnchor } from '@/cms/link'
+import { getCmsContent } from '@/cms/server'
+import { pageCopyDefaults } from '@/cms/page-defaults'
+import { getAdmissions } from '@/cms/admissions'
+import { getCampuses, contactRecipients } from '@/cms/campuses'
 import { CalendarPlus, FileDown } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/cms/link'
 
 import { CalendarDashboard } from '@/components/inner/calendar/calendar-dashboard'
 import styles from '@/components/inner/calendar/calendar.module.css'
 import { PageActions } from '@/components/inner/blocks'
 import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
-import { visitPolicy } from '@/content/migration/admissions'
 import { calendarPdfHref } from '@/content/migration/admissions-calendar'
 import { getCalendar, todayInCasablanca } from '@/lib/calendar'
 import { pageMetadata } from '@/lib/metadata'
 import { routes } from '@/lib/routes'
 import { ContactComposer } from '@/components/inner/campuses/contact-composer'
-import { campusContactRecipients, migratedCampuses } from '@/content/migration/campuses'
 
 /*
  * /calendrier (30 Oct 2026, Ayoub: "a dashboard that could be working with the CMS", Apple design
@@ -33,7 +37,9 @@ export const metadata = pageMetadata({
 })
 
 export default async function CalendrierPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  const [calendar, params] = await Promise.all([getCalendar(), searchParams])
+  const { calendarCopy: copy } = await getCmsContent('admissions', { calendarCopy: pageCopyDefaults.calendarCopy })
+  const [calendar, params, { visitPolicy }, migratedCampuses] = await Promise.all([getCalendar(), searchParams, getAdmissions(), getCampuses()])
+  const campusContactRecipients = contactRecipients(migratedCampuses)
   const campus = params.campus === 'rabat' ? 'rabat' : params.campus === 'casablanca' ? 'casablanca' : undefined
   const year = calendar.schoolYear.replace('-', '–')
 
@@ -44,34 +50,30 @@ export default async function CalendrierPage({ searchParams }: { searchParams: P
           <nav aria-label="Fil d’Ariane" className={styles.breadcrumb}>
             <ol>
               <li>
-                <Link href="/">Accueil</Link>
+                <Link href="/">{copy.texte01}</Link>
               </li>
               <li>
-                <span aria-current="page">Calendrier</span>
+                <span aria-current="page">{copy.texte02}</span>
               </li>
             </ol>
           </nav>
           <div className={styles.headGrid}>
             <div>
-              <p className={styles.label}>Calendrier scolaire</p>
+              <p className={styles.label}>{copy.texte03}</p>
               <h1 id="page-title" className={styles.title}>
-                L’année {year}.
-              </h1>
+                {copy.texte04}{year}{copy.texte05}</h1>
             </div>
             <div>
               <p className={styles.intro}>
-                Les vacances, les reprises et les jours fériés des deux campus, en un coup d’œil, et la demande de visite juste en dessous.
-              </p>
+                {copy.texte06}</p>
               <div className={styles.headActions}>
                 <ButtonLink href="/calendrier/ebm.ics" size="lg">
                   <CalendarPlus aria-hidden="true" size={18} strokeWidth={1.75} />
-                  Ajouter à mon agenda
-                </ButtonLink>
+                  {copy.texte07}</ButtonLink>
                 {calendar.source === 'document' ? (
                   <ButtonLink href={calendarPdfHref} variant="outline-dark" size="lg">
                     <FileDown aria-hidden="true" size={18} strokeWidth={1.75} />
-                    Le calendrier en PDF
-                  </ButtonLink>
+                    {copy.texte08}</ButtonLink>
                 ) : null}
               </div>
             </div>
@@ -95,22 +97,20 @@ export default async function CalendrierPage({ searchParams }: { searchParams: P
       <section id="visite" aria-labelledby="visite-title" className={styles.visitBand}>
         <Container className={styles.visitGrid}>
           <div>
-            <p className={styles.label}>Visites</p>
+            <p className={styles.label}>{copy.texte09}</p>
             <h2 id="visite-title" className={styles.visitTitle}>
-              Demander une visite.
-            </h2>
+              {copy.texte10}</h2>
             <p className={styles.visitText}>{visitPolicy.text}</p>
             <p className={styles.visitText}>
-              Votre e-mail est une demande&#8239;: l’équipe du campus vous propose une date et confirme le rendez-vous.
-            </p>
+              {copy.texte11}</p>
             <ul role="list" className={styles.visitDirect} aria-label="Écrire directement au campus">
               {migratedCampuses.flatMap((item) =>
                 item.contacts.map((service) => (
                   <li key={service.email}>
                     <span>
-                      {item.city} · {service.label}
+                      {item.city} {copy.texte12}{service.label}
                     </span>
-                    <a href={`mailto:${service.email}?subject=${encodeURIComponent('Demande de visite')}`}>{service.email}</a>
+                    <CmsAnchor href={`mailto:${service.email}?subject=${encodeURIComponent('Demande de visite')}`}>{service.email}</CmsAnchor>
                   </li>
                 )),
               )}
@@ -123,7 +123,7 @@ export default async function CalendrierPage({ searchParams }: { searchParams: P
       </section>
 
       <PageActions
-        title="Votre projet prend forme ?"
+        title={copy.titre13}
         primary={{ label: 'Préparer ma candidature', href: routes.candidater }}
         secondary={{ label: 'Consulter les questions fréquentes', href: routes.faq }}
       />

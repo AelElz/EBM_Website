@@ -1,3 +1,7 @@
+
+import { CmsAnchor } from '@/cms/link'
+import { getCmsSnapshot } from '@/cms/server'
+import { CmsProvider } from '@/cms/context'
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 
@@ -38,17 +42,19 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 }
 
-export default function FrontendLayout({ children }: { children: ReactNode }) {
+export default async function FrontendLayout({ children }: { children: ReactNode }) {
+  const cms = await getCmsSnapshot()
   return (
     // suppressHydrationWarning: the intro's inline script may add data-intro-seen to <html>
     // before hydration (src/components/site/intro.tsx). It only covers this element's attributes.
     <html lang="fr" className={fontVariables} suppressHydrationWarning>
       <body>
+        <CmsProvider value={{ mediaOverrides: cms.mediaOverrides, linkOverrides: cms.linkOverrides, site: cms.content.site, navigation: cms.content.navigation }}>
         {/* First in <body>: the curtain paints before anything else on the first load. */}
         <Intro />
-        <a href="#contenu" className="skip-link">
+        <CmsAnchor href="#contenu" className="skip-link">
           Aller au contenu
-        </a>
+        </CmsAnchor>
         <Header />
         <main id="contenu" tabIndex={-1}>
           {/* Page changes fade and rise in, Apple style; the header and footer stay put. */}
@@ -56,6 +62,7 @@ export default function FrontendLayout({ children }: { children: ReactNode }) {
         </main>
         <Footer />
         <MobileActionBar />
+        </CmsProvider>
       </body>
     </html>
   )

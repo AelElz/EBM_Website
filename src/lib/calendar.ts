@@ -1,3 +1,4 @@
+import { getCmsContent, getCmsSnapshot } from '@/cms/server'
 import { schoolCalendarEvents, type SchoolCalendarEvent } from '@/content/migration/admissions-calendar'
 
 /*
@@ -77,34 +78,11 @@ function toDay(value: string | null | undefined): string | null {
 }
 
 export async function getCalendar(): Promise<Calendar> {
-  if (!process.env.DATABASE_URI) return documentCalendar()
-  try {
-    const [{ getPayload }, { default: config }] = await Promise.all([import('payload'), import('@payload-config')])
-    const payload = await getPayload({ config })
-    const result = await payload.find({
-      collection: 'calendar-events',
-      where: { published: { equals: true } },
-      sort: 'startDate',
-      limit: 500,
-      depth: 0,
-    })
-    if (result.docs.length === 0) return documentCalendar()
-    const entries: CalendarEntry[] = result.docs.map((doc) => ({
-      id: String(doc.id),
-      title: doc.title,
-      start: toDay(doc.startDate) ?? '',
-      end: toDay(doc.endDate),
-      category: doc.category as CalendarCategory,
-      campus: doc.campus as CalendarCampus,
-      tentative: Boolean(doc.tentative),
-      note: doc.note ?? null,
-    }))
-    const years = [...new Set(result.docs.map((doc) => doc.schoolYear))].sort()
-    return { entries, source: 'cms', schoolYear: years.at(-1) ?? SCHOOL_YEAR }
-  } catch (error) {
-    console.error('[calendar] CMS unavailable, showing the signed document instead.', error)
-    return documentCalendar()
-  }
+  const fallback = documentCalendar()
+  const calendar = await getCmsContent('calendar', fallback)
+  const snapshot = await getCmsSnapshot()
+  if (!snapshot.initialized || !snapshot.content.calendar) return fallback
+  return { ...calendar, source: 'cms' }
 }
 
 /* ---- The .ics export ---------------------------------------------------------------------------------- */

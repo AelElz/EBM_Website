@@ -1,6 +1,6 @@
 import { Check } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 
 import { PageActions, ReviewNote, SectionNav } from '@/components/inner/blocks'
 import { ButtonLink } from '@/components/ui/button'

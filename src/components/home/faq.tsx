@@ -1,6 +1,7 @@
-import Link from 'next/link'
+import { getCmsContent } from '@/cms/server'
+import Link from '@/cms/link'
 
-import { faq } from '@/content/home-details'
+import { faq as defaultValue } from '@/content/home-details'
 import { Container } from '@/components/ui/container'
 
 import { FaqCards } from './faq-cards'
@@ -8,7 +9,8 @@ import { VideoFacade } from './video-facade'
 import styles from './faq.module.css'
 import { SectionHeading } from './emphasis'
 
-export function Faq() {
+export async function Faq() {
+  const { faq } = await getCmsContent('homeDetails', { faq: defaultValue })
   return (
     <>
       <section aria-labelledby="school-video-title" className={styles.videoSection}>
@@ -17,7 +19,7 @@ export function Faq() {
             <SectionHeading id="school-video-title" text="L’école, *de l’intérieur*" />
             <p>Jad vous fait découvrir les Écoles Belges au Maroc.</p>
           </div>
-          <VideoFacade id={faq.video.id} title={faq.video.title} poster={faq.video.poster} />
+          {faq.video.url && /^(?:\/(?!\/)|https?:\/\/)/i.test(faq.video.url) ? <video controls playsInline preload="metadata" poster={faq.video.poster.src} src={faq.video.url} aria-label={faq.video.title} className="aspect-video w-full object-cover">Votre navigateur ne peut pas lire cette vidéo.</video> : <VideoFacade id={faq.video.id} title={faq.video.title} poster={faq.video.poster} />}
         </Container>
       </section>
       <section aria-labelledby="faq-title" className={styles.section}>

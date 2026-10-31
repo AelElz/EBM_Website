@@ -1,6 +1,7 @@
-import Image from 'next/image'
+import { getCmsContent } from '@/cms/server'
+import Image from '@/cms/image'
 
-import { home } from '@/content/home'
+import { home as defaultHome } from '@/content/home'
 import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { NNBSP } from '@/lib/typography'
@@ -21,7 +22,8 @@ import { StoryDeck } from './story-deck'
  * The stories are placeholders (`source: 'placeholder'` in src/content/home.ts): real EBM
  * photos, invented quotes, bracketed names and a visible notice, until EBM collects real ones.
  */
-export function Alumni() {
+export async function Alumni() {
+  const home = await getCmsContent('home', defaultHome)
   const { label, title, text, note, source, stories, link } = home.alumni
 
   return (

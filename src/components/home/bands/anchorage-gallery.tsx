@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import Image from 'next/image'
+import Image from '@/cms/image'
 import { useState, type ReactNode } from 'react'
 
 import type { ImageAsset } from '@/content/types'

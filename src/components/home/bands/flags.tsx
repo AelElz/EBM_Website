@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from '@/cms/image'
 
 import styles from './bands.module.css'
 

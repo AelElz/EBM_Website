@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 import type { CSSProperties } from 'react'
 
 import { BandHeading } from '@/components/home/bands/band-heading'

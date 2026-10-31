@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { annualTuition, feeCategories, feeLevels, firstRegistration, formatMad, type FeeCategory, type FeeLevel } from '@/content/migration/admissions'
+import { annualTuition as defaultAnnualTuition, feeCategories as defaultFeeCategories, feeLevels as defaultFeeLevels, firstRegistration as defaultFirstRegistration, formatMad, type FeeCategory, type FeeLevel } from '@/content/migration/admissions'
 import styles from './admissions.module.css'
 
-export function FeeFinder() {
+const defaultData = { annualTuition: defaultAnnualTuition, feeCategories: defaultFeeCategories, feeLevels: defaultFeeLevels, firstRegistration: defaultFirstRegistration }
+export function FeeFinder({ data = defaultData }: { data?: typeof defaultData }) {
+  const { annualTuition, feeCategories, feeLevels, firstRegistration } = data
   const [campus, setCampus] = useState('casablanca')
   const [level, setLevel] = useState<FeeLevel>('maternelle')
   const [category, setCategory] = useState<FeeCategory>('standard')

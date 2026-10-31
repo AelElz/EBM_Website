@@ -1,13 +1,18 @@
-import Link from 'next/link'
+import { admissionExtras } from '@/cms/admission-extras'
+
+import { CmsAnchor } from '@/cms/link'
+import { pageCopyDefaults } from '@/cms/page-defaults'
+import { getAdmissions } from '@/cms/admissions'
+import { getCmsContent } from '@/cms/server'
+import Link from '@/cms/link'
 
 import { InnerHero, PageSection, ReviewNote, TextBlock, SectionNav, DisclosureList, LinkList } from '@/components/inner/blocks'
 import { AdmissionsContacts } from '@/components/inner/admissions/shared'
 import { FaqBrowser } from '@/components/inner/admissions/faq-browser'
-import { admissionSteps, admissionLevelRequirements, admissionCategories, admissionsCampaign } from '@/content/migration/admissions'
-import { admissionsFaqs, faqCategories } from '@/content/migration/admissions-faq'
+import { admissionsFaqs as defaultFaqs, faqCategories as defaultCategories } from '@/content/migration/admissions-faq'
 import { pageMetadata } from '@/lib/metadata'
 import { routes } from '@/lib/routes'
-import { site } from '@/content/site'
+import { site as defaultSite } from '@/content/site'
 import styles from '@/components/inner/admissions/admissions.module.css'
 
 /*
@@ -22,63 +27,61 @@ import styles from '@/components/inner/admissions/admissions.module.css'
 
 export const metadata = pageMetadata({ title: 'Admissions', description: 'Candidater aux Écoles Belges au Maroc : les sept étapes, les conditions selon le niveau, les réponses aux questions des familles et les contacts à Casablanca et Rabat.', path: '/admissions', index: false })
 
-const journey = [
-  { title: 'Comprendre', text: 'Les sept étapes, l’âge d’entrée et les conditions selon le niveau. C’est sur cette page.', link: { label: 'Les sept étapes', href: '#parcours' } },
-  { title: 'Préparer le dossier', text: 'La liste des pièces à réunir et le barème des frais.', link: { label: 'Documents & frais', href: routes.documentsEtFrais } },
-  { title: 'Rencontrer l’école', text: 'Les dates de l’année et la demande de visite auprès de votre campus.', link: { label: 'Calendrier & visites', href: routes.reserverVisite } },
-  { title: 'Candidater', text: 'Le dépôt du dossier en ligne, sur Eduka. C’est sur cette page.', link: { label: 'Candidater en ligne', href: '#candidater' } },
-]
 
-export default function AdmissionsPage() {
+
+export default async function AdmissionsPage() {
+  const { pageCopy: copy } = await getCmsContent('admissions', { pageCopy: pageCopyDefaults.pageCopy })
+  const { journey } = await getCmsContent('admissions', { journey: admissionExtras.journey })
+  const [{ admissionSteps, admissionLevelRequirements, admissionCategories, admissionsCampaign }, { items: admissionsFaqs, categories: faqCategories }, site] = await Promise.all([getAdmissions(), getCmsContent('admissionsFaq', { items: defaultFaqs, categories: defaultCategories }), getCmsContent('site', defaultSite)])
   return <>
-    <InnerHero title="Faire le premier pas, ensemble." intro="Choisir une école, c’est choisir un cadre pour grandir. Tout ce qu’il faut savoir pour candidater est ici, étape par étape." breadcrumb={[{ label: 'Admissions' }]} image={{ src: '/images/hero-rabat-entree.jpg', alt: 'L’entrée de l’École belge de Rabat, à Hay Riad.', width: 1448, height: 1086, position: '50% 50%' }} />
+    <InnerHero title={copy.titre01} intro={copy.intro02} breadcrumb={[{ label: 'Admissions' }]} image={{ src: '/images/hero-rabat-entree.jpg', alt: 'L’entrée de l’École belge de Rabat, à Hay Riad.', width: 1448, height: 1086, position: '50% 50%' }} />
     <SectionNav items={[{ label: 'Par où commencer', href: '#commencer' }, { label: 'Les sept étapes', href: '#parcours' }, { label: 'Selon le niveau', href: '#niveaux' }, { label: 'Conditions', href: '#conditions' }, { label: 'Candidater', href: '#candidater' }, { label: 'Questions fréquentes', href: '#faq' }, { label: 'Contacts', href: '#contacts' }]} />
 
-    <PageSection id="commencer" title="Par où commencer ?" intro="Une candidature se fait en quatre moments. Chacun a sa page.">
+    <PageSection id="commencer" title={copy.titre03} intro={copy.intro04}>
       <ol className={styles.overview}>
         {journey.map(item => <li key={item.title}><h3>{item.title}</h3><p>{item.text}</p><Link href={item.link.href} className={styles.journeyLink}>{item.link.label}</Link></li>)}
       </ol>
     </PageSection>
 
-    <PageSection title="À quel moment rejoindre les EBM ?" tone="paper">
-      <TextBlock paragraphs={['L’entrée est possible dès 2 ans révolus en classe d’accueil, puis jusqu’à la première secondaire (S1), sous réserve des places disponibles. Au-delà de S1, les règles publiées prévoient l’accueil d’élèves provenant d’un établissement scolaire belge.', 'Le niveau demandé dépend de l’année de naissance. À partir de P2, la décision du conseil de classe de l’établissement d’origine entre aussi en compte. Le campus examine votre situation et confirme la classe accessible.']} />
+    <PageSection title={copy.titre05} tone="paper">
+      <TextBlock paragraphs={[copy.paragraphe06, copy.paragraphe07]} />
     </PageSection>
 
-    <PageSection id="parcours" title="Les sept étapes de votre parcours">
+    <PageSection id="parcours" title={copy.titre08}>
       <ol className={styles.steps}>{admissionSteps.map(step => <li key={step.title} className={styles.step}><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol>
     </PageSection>
 
-    <PageSection id="niveaux" title="Un échange adapté à l’âge de votre enfant" intro="La forme de l’observation ou de l’analyse dépend du niveau demandé et des places disponibles." tone="paper">
+    <PageSection id="niveaux" title={copy.titre09} intro={copy.intro10} tone="paper">
       <div className={styles.levels}>{admissionLevelRequirements.map(item => <article key={item.level} className={styles.level}><span className={styles.levelLabel}>{item.level}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
-      <TextBlock paragraphs={['Pour un enfant venant d’une école officielle à programme de la Fédération Wallonie-Bruxelles, le processus actuel prévoit une analyse sur dossier scolaire, comprenant au minimum les deux dernières années. Le campus confirme les conditions et les documents attendus.']} />
+      <TextBlock paragraphs={[copy.paragraphe11]} />
     </PageSection>
 
-    <PageSection id="conditions" title="Les situations particulières" intro="Les catégories ci-dessous reprennent les conditions du site public. Elles ne constituent pas une promesse d’admission.">
+    <PageSection id="conditions" title={copy.titre12} intro={copy.intro13}>
       <DisclosureList items={admissionCategories} />
-      <ReviewNote title="Conditions à valider pour la campagne">Les modalités des fratries, les admissions sur dossier et la condition de deux années en école belge doivent être confirmées avec le service admissions.</ReviewNote>
+      <ReviewNote title={copy.titre14}>{copy.texte15}</ReviewNote>
     </PageSection>
 
     <PageSection id="dates" title={admissionsCampaign.title} tone="cream">
       <TextBlock paragraphs={[admissionsCampaign.text]} />
-      <ReviewNote title="Campagne en cours à préciser">Aucune période actuelle de dépôt n’a été confirmée pour cette version. Les anciennes affiches d’admission de 2024 et 2025 ne sont pas utilisées comme dates à venir.</ReviewNote>
+      <ReviewNote title={copy.titre16}>{copy.texte17}</ReviewNote>
       <LinkList items={[{ label: 'Calendrier & visites', href: routes.calendrier, description: 'Les dates de l’année scolaire et la demande de visite.' }]} />
     </PageSection>
 
-    <PageSection id="candidater" title="Candidater en ligne" intro="Le dossier se dépose sur Eduka, le portail des Écoles Belges au Maroc." tone="paper">
+    <PageSection id="candidater" title={copy.titre18} intro={copy.intro19} tone="paper">
       <div className={styles.summary}>
-        <article><h3>Choisir le campus</h3><p>Casablanca ou Rabat : renseignez l’école souhaitée et échangez avec l’équipe concernée.</p></article>
-        <article><h3>Préciser le niveau</h3><p>Préparez la date de naissance et le parcours scolaire. L’école confirme la classe accessible et les places disponibles.</p></article>
-        <article><h3>Réunir les pièces</h3><p>La liste est sur la page <Link href={routes.documentsEtFrais}>Documents & frais</Link>. Les formats attendus sont précisés dans Eduka.</p></article>
+        <article><h3>{copy.texte20}</h3><p>{copy.texte21}</p></article>
+        <article><h3>{copy.texte22}</h3><p>{copy.texte23}</p></article>
+        <article><h3>{copy.texte24}</h3><p>{copy.texte25}<Link href={routes.documentsEtFrais}>{copy.texte26}</Link>{copy.texte27}</p></article>
       </div>
-      <div className={styles.applyPanel}><h2>Déposer ma candidature sur Eduka</h2><p>Les informations familiales, les pièces et le suivi du dossier restent sur le portail de l’école. Vérifiez l’adresse : <strong>{site.eduka.host}</strong></p><a href={site.eduka.applicationUrl}>Ouvrir le formulaire Eduka</a></div>
-      <p className={styles.help}>Le dépôt d’un dossier ne garantit pas l’admission : la commission décide après les étapes prévues avec l’école. Déjà un accès parent ? <Link href={routes.espaceEduka}>Votre espace Eduka</Link>.</p>
+      <div className={styles.applyPanel}><h2>{copy.texte28}</h2><p>{copy.texte29}<strong>{site.eduka.host}</strong></p><CmsAnchor href={site.eduka.applicationUrl}>{copy.texte30}</CmsAnchor></div>
+      <p className={styles.help}>{copy.texte31}<Link href={routes.espaceEduka}>{copy.texte32}</Link>{copy.texte33}</p>
     </PageSection>
 
-    <PageSection id="faq" title="Vos questions, nos réponses" intro="Cherchez un mot ou choisissez un thème. Les informations pratiques qui diffèrent entre les sources sont signalées dans la réponse." >
+    <PageSection id="faq" title={copy.titre34} intro={copy.intro35} >
       <FaqBrowser items={admissionsFaqs} categories={faqCategories} />
     </PageSection>
 
-    <PageSection id="contacts" title="Une question qui reste ouverte ?" intro="Votre campus précise les conditions et les modalités propres au dossier de votre enfant. À Casablanca, choisissez la section concernée.">
+    <PageSection id="contacts" title={copy.titre36} intro={copy.intro37}>
       <AdmissionsContacts />
     </PageSection>
 

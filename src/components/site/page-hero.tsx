@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/cms/link'
 
 import { Container } from '@/components/ui/container'
 

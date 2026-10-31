@@ -36,10 +36,6 @@
   .panels {
     order: 3;
   }
-
-  .actions {
-    order: 4;
-  }
 }
 
 /* From 1024px: the copy in the left column; the picture in the right one, from the label down to
@@ -52,8 +48,7 @@
 
   .head,
   .tabs,
-  .panels,
-  .actions {
+  .panels {
     grid-column: 1;
   }
 
@@ -174,33 +169,30 @@
     visibility 0s linear 300ms;
 }
 
-.panel p {
-  max-width: 66ch;
-  font-size: clamp(1.0625rem, 1.3vw, 1.1875rem);
-  line-height: 1.55;
+/* Each tab says one thing (31 Oct 2026, after sas.edu.sg): a clay line, one sentence, one link. */
+.kicker { /* taste-skill-ignore: the stage line of the SAS reference and Ayoub's board */
+  color: var(--color-terracotta-ink);
+  font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.panel p + p {
+.text {
+  max-width: 44ch;
   margin-top: 14px;
+  font-size: clamp(1.1875rem, 1.6vw, 1.4375rem);
+  line-height: 1.5;
 }
 
-.panel strong {
+.text strong {
   font-weight: 700;
 }
 
-.actions {
-  display: flex;
-  margin-top: 36px;
-}
-
-@media (min-width: 64rem) {
-  .actions {
-    justify-content: flex-end;
-  }
-}
-
-/* The board's pill: Fired Clay, medium weight, a thin arrow. */
+/* The board's pill, as an outline here: the link of the chosen tab. */
 .action {
+  margin-top: 28px;
   height: 56px;
   padding-inline: 34px;
   border-radius: 999px;
@@ -236,16 +228,55 @@
   width: min(44%, 240px);
 }
 
+.kids {
+  position: relative;
+  isolation: isolate;
+}
+
 .kids img {
+  position: relative;
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Two discs behind the children: a light peach behind, a bolder orange in front,
+   centred on their heads and shoulders. */
+.kidsHaloBack,
+.kidsHaloMid {
+  position: absolute;
+  z-index: -1;
+  top: 6%;
+  left: 50%;
+  width: 92%;
+  aspect-ratio: 1;
+  margin-left: -46%;
+  border-radius: 50%;
+}
+
+.kidsHaloBack {
+  background-color: #f8c9b5;
+  transform: translateX(7%);
+}
+
+.kidsHaloMid {
+  /* The peach of the back disc, bolder: same hue, darker (Ayoub, 31 Oct 2026). */
+  background-color: hsl(18deg 80% 68%);
+  transform: translateX(-4%);
 }
 
 @media (min-width: 64rem) {
   .kids {
     width: 100%;
     height: 100%;
+  }
+
+  /* Sized on the column's height, which the drawn picture follows (object-fit: contain). */
+  .kidsHaloBack,
+  .kidsHaloMid {
+    top: 8%;
+    width: min(88%, 58cqh);
+    margin-left: calc(min(88%, 58cqh) / -2);
   }
 
   .kids img {
@@ -365,19 +396,115 @@
   transition: transform 1100ms var(--ease-out-expo) 360ms;
 }
 
+/*
+ * The overview's scene (Ayoub, 31 Oct 2026: "make a better animation"), tied to the scroll:
+ *   1. the two clay discs grow from a third of their size and fan apart;
+ *   2. the children rise into them from below, through a soft fading edge, a little blurred and
+ *      small, overshoot by a few pixels and settle;
+ *   3. leaving, the discs drift up faster than the children: depth.
+ * Entry uses `transform`, the exit `translate`, so the two never fight. The tab change stays on
+ * .kids. Under reduced motion (or without scroll timelines) the scene is simply complete.
+ */
+@property --kids-edge {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 115%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .visual {
-      animation: visual-rise linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 60%;
+    .visual .kidsHaloBack {
+      animation:
+        halo-back linear both,
+        halo-drift linear both;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 0% cover 38%,
+        exit 0% exit 100%;
+    }
+
+    .visual .kidsHaloMid {
+      animation:
+        halo-mid linear both,
+        halo-drift linear both;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 8% cover 42%,
+        exit 0% exit 100%;
+    }
+
+    .visual .kids img {
+      transform-origin: 50% 100%;
+      mask-image: linear-gradient(to top, #000 calc(var(--kids-edge) - 18%), transparent var(--kids-edge)); /* taste-skill-ignore: the soft edge of the rise */
+      animation:
+        kids-rise linear both,
+        kids-drift linear both;
+      animation-timeline: view(), view();
+      animation-range:
+        entry 18% cover 52%,
+        exit 0% exit 100%;
     }
   }
 }
 
-@keyframes visual-rise {
+@keyframes halo-back {
   from {
     opacity: 0;
-    transform: translateY(48px);
+    transform: translateX(0) scale(0.35);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(7%) scale(1);
+  }
+}
+
+@keyframes halo-mid {
+  from {
+    opacity: 0;
+    transform: translateX(0) scale(0.35);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-4%) scale(1);
+  }
+}
+
+@keyframes halo-drift {
+  to {
+    translate: 0 -96px;
+  }
+}
+
+@keyframes kids-rise {
+  from {
+    --kids-edge: 0%;
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(120px) scale(0.9);
+  }
+
+  35% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  80% {
+    --kids-edge: 115%;
+    transform: translateY(-8px) scale(1.01);
+  }
+
+  to {
+    --kids-edge: 115%;
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+
+@keyframes kids-drift {
+  to {
+    translate: 0 -32px;
   }
 }

@@ -1,5 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
+
+import { CmsAnchor } from '@/cms/link'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 import type { ReactNode } from 'react'
 
 import { ButtonLink } from '@/components/ui/button'
@@ -79,7 +81,7 @@ export function SectionNav({ items }: { items: { label: string; href: string }[]
 }
 
 export function DocumentLink({ href, label, note }: { href: string; label: string; note?: string }) {
-  return <div className={styles.document}><a href={href} download>{label}</a>{note && <p>{note}</p>}</div>
+  return <div className={styles.document}><CmsAnchor href={href} download>{label}</CmsAnchor>{note && <p>{note}</p>}</div>
 }
 
 export function PageActions({ title = 'Votre prochaine étape', text, primary, secondary }: { title?: string; text?: string; primary?: ContentLink; secondary?: ContentLink }) {

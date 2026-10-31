@@ -33,8 +33,12 @@ export interface PathStage {
   id: 'ensemble' | 'accueil' | 'maternelle' | 'primaire' | 'secondaire'
   /** Tab label, one string per line (the board sets "Vue / d’ensemble" on two lines). */
   tab: string[]
-  /** Paragraphs from Parcours_scolaire.docx (parcours.ts); **double asterisks** mark the bold runs. */
-  paragraphs: string[]
+  /** The clay line above the sentence: the stage's title from the document and its ages. */
+  kicker: string
+  /** One sentence from Parcours_scolaire.docx (parcours.ts); **double asterisks** mark bold runs. */
+  text: string
+  /** Opens this stage (or the whole path) on /pedagogie. */
+  link: LinkItem
   /** The photo in the front circle; the overview shows the children cutout instead. */
   photo?: ImageAsset
 }
@@ -46,14 +50,25 @@ const pathTabs: Record<ParcoursStage['id'], string[]> = {
   secondaire: ['Secondaire'],
 }
 
+/*
+ * 31 Oct 2026 (Ayoub: "too much text … I can just read easily what it's about and go to the next
+ * section", inspired by sas.edu.sg): one clay line, one sentence and one link per tab, all from
+ * the validated document; the full stages are on /pedagogie, where each link opens its tab.
+ */
 const pathStages: PathStage[] = [
-  { id: 'ensemble', tab: ['Vue', 'd’ensemble'], paragraphs: parcoursOverview },
+  {
+    id: 'ensemble',
+    tab: ['Vue', 'd’ensemble'],
+    kicker: 'De la classe d’accueil au secondaire',
+    text: parcoursOverview[0],
+    link: { label: 'Découvrir le parcours', href: `${routes.pedagogie}#parcours` },
+  },
   ...parcoursStages.map((stage) => ({
     id: stage.id,
     tab: pathTabs[stage.id],
-    // The stage's opening paragraphs and its bold closing sentence; the full stage (heading,
-    // list) is on /pedagogie.
-    paragraphs: [...stage.paragraphs, `**${stage.closing}**`],
+    kicker: `${stage.title} · ${stage.ages}`,
+    text: stage.paragraphs[0],
+    link: { label: `Découvrir ${stage.name.charAt(0).toLowerCase()}${stage.name.slice(1)}`, href: `${routes.pedagogie}#${stage.id}` },
     photo: stage.photo,
   })),
 ]
@@ -120,12 +135,6 @@ export const homeBands = {
       { id: 'fwb', name: 'Fédération Wallonie-Bruxelles' },
       { id: 'maroc', name: 'Maroc' },
     ],
-    partners: {
-      src: '/brand/partners-white.png',
-      alt: 'Fédération Wallonie-Bruxelles, Wallonie-Bruxelles International et AEBE',
-      width: 856,
-      height: 170,
-    } satisfies ImageAsset,
     // Read on the plaque in the first photo.
     photos: [
       {
@@ -173,7 +182,6 @@ export const homeBands = {
   path: {
     label: 'Notre parcours scolaire',
     title: 'De 2 à 18 ans, grandir, apprendre et se construire.',
-    link: { label: 'En savoir plus', href: routes.pedagogie } satisfies LinkItem,
     image: {
       src: '/images/parcours-enfants.png',
       alt: 'Quatre enfants de 2 à 16 ans, du tout-petit avec sa peluche à l’adolescente avec son skateboard.',

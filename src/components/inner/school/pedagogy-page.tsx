@@ -1,5 +1,7 @@
+
+import { CmsAnchor } from '@/cms/link'
 import { ArrowDown } from 'lucide-react'
-import Image from 'next/image'
+import Image from '@/cms/image'
 import type { CSSProperties } from 'react'
 
 import { PageActions, SectionNav } from '@/components/inner/blocks'
@@ -194,11 +196,11 @@ export function PedagogyPage() {
                   <ul role="list" className={styles.marks} aria-label={`Repères pour ${stage.name.toLowerCase()}`}>
                     {stageMarks(stage.id).map((mark) => (
                       <li key={mark.label}>
-                        <a href={mark.href} className={styles.mark}>
+                        <CmsAnchor href={mark.href} className={styles.mark}>
                           <span className={styles.markLabel}>{mark.label}</span>
                           <span className={styles.markValue}>{mark.value}</span>
                           <ArrowDown aria-hidden="true" size={20} strokeWidth={1.75} className={styles.markArrow} />
-                        </a>
+                        </CmsAnchor>
                       </li>
                     ))}
                   </ul>
@@ -218,7 +220,7 @@ export function PedagogyPage() {
               <li key={step.level} className={styles.timelineStep} style={{ '--i': index } as CSSProperties}>
                 <span aria-hidden="true" className={styles.timelineDot} />
                 <p className={styles.timelineLevel}>
-                  <a href={`#${step.stage}`}>{step.level}</a>
+                  <CmsAnchor href={`#${step.stage}`}>{step.level}</CmsAnchor>
                 </p>
                 <p className={styles.timelineText}>{step.text}</p>
               </li>
@@ -244,7 +246,7 @@ export function PedagogyPage() {
                 </div>
                 <div className={styles.stairFoot}>
                   <p className={styles.stairWhen}>
-                    <a href={`#${diploma.stage}`}>{diploma.when}</a>
+                    <CmsAnchor href={`#${diploma.stage}`}>{diploma.when}</CmsAnchor>
                   </p>
                   <ul role="list" className={styles.stairYears} aria-label={`Les années jusqu’au ${diploma.code}`}>
                     {diploma.years.map((year) => (

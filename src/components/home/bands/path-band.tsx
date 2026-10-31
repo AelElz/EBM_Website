@@ -1,7 +1,8 @@
+import { getCmsContent } from '@/cms/server'
 import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
+import Image from '@/cms/image'
 
-import { homeBands } from '@/content/home-bands'
+import { homeBands as defaultHomeBands } from '@/content/home-bands'
 import { ButtonLink } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 
@@ -26,8 +27,9 @@ function Rich({ text }: { text: string }) {
   return text.split('**').map((part, index) => (index % 2 === 1 ? <strong key={index}>{part}</strong> : part))
 }
 
-export function PathBand() {
-  const { label, title, link, image, stages } = homeBands.path
+export async function PathBand() {
+  const homeBands = await getCmsContent('homeBands', defaultHomeBands)
+  const { label, title, image, stages } = homeBands.path
 
   return (
     <section aria-labelledby="path-title" className={styles.section}>
@@ -64,25 +66,25 @@ export function PathBand() {
           <div className={`${styles.panels} reveal-3`}>
             {stages.map((stage) => (
               <div key={stage.id} id={`path-${stage.id}`} data-stage={stage.id} className={styles.panel}>
-                {stage.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>
-                    <Rich text={paragraph} />
-                  </p>
-                ))}
+                <p className={styles.kicker}>{stage.kicker}</p>
+                <p className={styles.text}>
+                  <Rich text={stage.text} />
+                </p>
+                <ButtonLink href={stage.link.href} variant="outline-dark" size="lg" className={styles.action}>
+                  {stage.link.label}
+                  <ArrowRight aria-hidden="true" size={20} strokeWidth={1.5} />
+                </ButtonLink>
               </div>
             ))}
-          </div>
-
-          <div className={styles.actions}>
-            <ButtonLink href={link.href} size="lg" className={styles.action}>
-              {link.label}
-              <ArrowRight aria-hidden="true" size={20} strokeWidth={1.5} />
-            </ButtonLink>
           </div>
         </div>
 
         <div className={styles.visual}>
           <div data-visual="ensemble" className={styles.kids}>
+            {/* The stage views' clay circles, behind the children; they grow and fan out as the
+                band scrolls in, then the children rise into them (path-band.module.css). */}
+            <span aria-hidden="true" className={styles.kidsHaloBack} />
+            <span aria-hidden="true" className={styles.kidsHaloMid} />
             <Image
               src={image.src}
               alt={image.alt}
@@ -93,7 +95,7 @@ export function PathBand() {
           </div>
 
           {stages.map((stage) =>
-            stage.photo ? (
+            stage.photo?.src ? (
               <div key={stage.id} data-visual={stage.id} className={styles.circles}>
                 <span aria-hidden="true" className={styles.ringBack} />
                 <span aria-hidden="true" className={styles.ringMid} />

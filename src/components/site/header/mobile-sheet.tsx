@@ -1,12 +1,15 @@
 'use client'
 
 import { UserRound, X } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from '@/cms/image'
+import Link from '@/cms/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, type RefObject } from 'react'
 
-import { navigation, site } from '@/content/site'
+import { useCmsContext } from '@/cms/context'
+import type { SiteConfig, NavGroup } from '@/content/site'
+
+import { navigation as defaultNavigation, site as defaultSite } from '@/content/site'
 import { getSectionForPath, routes } from '@/lib/routes'
 import { cn } from '@/lib/utils'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
@@ -36,6 +39,9 @@ const rowClass =
   'flex min-h-12 items-center gap-3 py-2 text-base transition-colors duration-200 hover:text-terracotta-ink'
 
 export function MobileSheet({ open, onOpenChange, triggerRef }: MobileSheetProps) {
+  const cms = useCmsContext()
+  const site = (cms.site as SiteConfig | undefined) ?? defaultSite
+  const navigation = (cms.navigation as NavGroup[] | undefined) ?? defaultNavigation
   const pathname = usePathname()
   const activeSection = getSectionForPath(pathname)
   const closeRef = useRef<HTMLButtonElement>(null)

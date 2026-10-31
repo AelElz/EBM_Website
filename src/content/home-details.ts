@@ -157,6 +157,8 @@ export const admissionsPath = {
 export const faq = {
   title: 'Questions *fréquentes*',
   video: {
+    /** A local CMS video URL replaces YouTube when provided. */
+    url: '',
     /** YouTube video published by EBM on its current site ("Tout savoir sur l'école belge"). */
     id: 'KdE5q6_kTSk',
     title: 'Jad nous explique le fonctionnement des écoles belges au Maroc',

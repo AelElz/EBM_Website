@@ -1,7 +1,10 @@
-import { ArrowUpRight } from 'lucide-react'
-import Image from 'next/image'
 
-import { home } from '@/content/home'
+import { CmsAnchor } from '@/cms/link'
+import { getCmsContent } from '@/cms/server'
+import { ArrowUpRight } from 'lucide-react'
+import Image from '@/cms/image'
+
+import { home as defaultHome } from '@/content/home'
 import { Container } from '@/components/ui/container'
 import { SectionHeading } from './emphasis'
 
@@ -12,7 +15,8 @@ import { SectionHeading } from './emphasis'
  * src/content/home.ts until the feed is connected, so no captions, dates or like counts.
  * Server Component: the only motion is a CSS zoom on hover (pointer devices, motion-safe).
  */
-export function Instagram() {
+export async function Instagram() {
+  const home = await getCmsContent('home', defaultHome)
   const { title, handle, url, linkLabel, source, tiles } = home.instagram
 
   return (
@@ -20,7 +24,7 @@ export function Instagram() {
       <Container>
         <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
           <SectionHeading id="instagram-title" text={title} />
-          <a
+          <CmsAnchor
             href={url}
             target="_blank"
             rel="noopener noreferrer"
@@ -29,14 +33,14 @@ export function Instagram() {
             {linkLabel}
             <ArrowUpRight aria-hidden="true" className="size-4 shrink-0" strokeWidth={1.5} />
             <span className="sr-only"> sur Instagram (nouvel onglet)</span>
-          </a>
+          </CmsAnchor>
         </div>
 
         <ul className="mt-6 grid grid-cols-3 gap-3 lg:mt-8 lg:grid-cols-6">
           {tiles.map((tile) => (
             <li key={tile.src}>
               {/* The photo is described in the link's name; the image itself stays silent. */}
-              <a
+              <CmsAnchor
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -51,7 +55,7 @@ export function Instagram() {
                   className="object-cover transition-transform duration-700 ease-out-expo motion-safe:group-hover:scale-[1.03]"
                   style={tile.position ? { objectPosition: tile.position } : undefined}
                 />
-              </a>
+              </CmsAnchor>
             </li>
           ))}
         </ul>
